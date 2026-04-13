@@ -593,6 +593,103 @@
             background: linear-gradient(90deg, transparent, var(--border-accent), transparent);
         }
 
+        /* ─── ROADMAP ─── */
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .roadmap-step {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            max-width: 520px;
+            padding: 24px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .roadmap-step:hover {
+            border-color: var(--border-accent);
+        }
+
+        .roadmap-step-final {
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+            border-color: var(--border-accent);
+        }
+
+        .roadmap-icon {
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border-accent);
+            color: var(--accent-warm);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .roadmap-step-final .roadmap-icon {
+            background: rgba(200, 149, 108, 0.15);
+            border-color: var(--accent-warm);
+        }
+
+        .roadmap-content {
+            flex: 1;
+        }
+
+        .roadmap-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .roadmap-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .roadmap-time {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-warm);
+            margin-top: 8px;
+        }
+
+        .roadmap-arrow {
+            color: var(--text-faint);
+            padding: 8px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .roadmap-note {
+            margin-top: 32px;
+            padding: 20px 24px;
+            background: rgba(220, 170, 70, 0.06);
+            border: 1px solid rgba(220, 170, 70, 0.15);
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* ─── RESPONSIVE ─── */
         @media (max-width: 700px) {
             .hero { padding: 72px 20px 56px; }
@@ -640,7 +737,7 @@
                 <span class="priority priority-highest">Nejvyšší priorita</span>
                 <div class="section-meta">
                     <span class="meta-pill"><strong>2 000 Kč</strong></span>
-                    <span class="meta-pill">1 - 2 dny</span>
+                    <span class="meta-pill">1 den</span>
                     <span class="meta-pill">jednorázově</span>
                 </div>
             </div>
@@ -688,7 +785,7 @@
                 <span class="priority priority-highest">Nejvyšší priorita</span>
                 <div class="section-meta">
                     <span class="meta-pill"><strong>2 000 Kč</strong></span>
-                    <span class="meta-pill">1 den</span>
+                    <span class="meta-pill">1 - 3 dny</span>
                     <span class="meta-pill">jednorázově</span>
                 </div>
             </div>
@@ -780,11 +877,11 @@
         <div class="section-top">
             <div class="section-number">04</div>
             <div class="section-info">
-                <div class="section-title">Vylepšení webu (obsah a použitelnost)</div>
-                <span class="priority priority-medium">Střední priorita</span>
+                <div class="section-title">Úprava a optimalizace webu</div>
+                <span class="priority priority-high">Vysoká priorita</span>
                 <div class="section-meta">
                     <span class="meta-pill"><strong>5 000 - 8 000 Kč</strong></span>
-                    <span class="meta-pill">3 - 5 dní</span>
+                    <span class="meta-pill">1 týden</span>
                     <span class="meta-pill">jednorázově</span>
                 </div>
             </div>
@@ -792,23 +889,26 @@
         <div class="content-grid">
             <div class="block">
                 <div class="block-label">Co to je</div>
-                <p>Úpravy stávajícího webu tak, aby lépe přesvědčil návštěvníky k rezervaci.</p>
+                <p>Kompletní úprava stávajícího webu tak, aby splňoval moderní standardy pro rok 2026, byl dobře použitelný na mobilu a lépe přesvědčil návštěvníky k rezervaci.</p>
             </div>
             <div class="block">
-                <div class="block-label">Co zlepšit</div>
+                <div class="block-label">Hlavní problémy</div>
                 <ul>
-                    <li>Přidat viditelné kontaktní údaje (telefon, email) na každou stránku</li>
-                    <li>Přidat Google Mapu s adresou přímo na web</li>
-                    <li>Lépe popsat služby a jejich přínosy (proč si vybrat právě tuto masáž)</li>
-                    <li>Přidat sekci s recenzemi zákazníků</li>
-                    <li>Výraznější tlačítko na rezervaci</li>
-                    <li>Doplnit fotogalerii</li>
+                    <li>Web je na mobilu téměř nepoužitelný</li>
+                    <li>Navigační menu je na podstránkách schované a špatně dostupné</li>
+                    <li>Tlačítko zpět (malá šipka dole) je na neočekávaném místě, běžný uživatel ho nenajde</li>
+                    <li>Chybí viditelné kontaktní údaje (telefon, email) na každé stránce</li>
+                    <li>Chybí Google Mapa s adresou přímo na webu</li>
+                    <li>Popis služeb neříká proč si vybrat právě tuto masáž</li>
+                    <li>Chybí sekce s recenzemi zákazníků</li>
                 </ul>
             </div>
             <div class="block">
                 <div class="block-label">Co to přinese</div>
                 <ul>
-                    <li>Víc návštěvníků webu se rozhodne zarezervovat</li>
+                    <li>Web bude fungovat správně na mobilu (kde přichází většina návštěvníků)</li>
+                    <li>Intuitivní navigace, zákazník se na webu neztratí</li>
+                    <li>Víc návštěvníků se rozhodne zarezervovat</li>
                     <li>Profesionálnější dojem = vyšší důvěra</li>
                 </ul>
             </div>
@@ -816,11 +916,11 @@
         <div class="example-block">
             <div class="example-card before">
                 <div class="example-label">Dnes</div>
-                <p>Návštěvník přijde na web, nevidí telefon, nemůže najít adresu na mapě. Odejde.</p>
+                <p>Zákazník otevře web na mobilu, nevidí menu, nenajde telefon, neví jak se vrátit zpět. Odejde.</p>
             </div>
             <div class="example-card after">
                 <div class="example-label">Po úpravě</div>
-                <p>Vidí telefon, mapu, recenze od spokojených zákazníků, a klikne na rezervaci.</p>
+                <p>Přehledné menu, viditelný telefon, mapa, recenze, a jasné tlačítko na rezervaci. Zarezervuje.</p>
             </div>
         </div>
     </div>
@@ -833,7 +933,7 @@
                 <div class="section-title">Facebook stránka</div>
                 <span class="priority priority-medium">Střední priorita</span>
                 <div class="section-meta">
-                    <span class="meta-pill"><strong>2 000 Kč</strong></span>
+                    <span class="meta-pill"><strong>Zdarma</strong></span>
                     <span class="meta-pill">1 - 2 dny</span>
                     <span class="meta-pill">jednorázově</span>
                 </div>
@@ -878,23 +978,29 @@
         <div class="section-top">
             <div class="section-number">06</div>
             <div class="section-info">
-                <div class="section-title">Google Ads (placená reklama)</div>
-                <span class="priority priority-low">Nižší priorita</span>
+                <div class="section-title">Placená reklama (Google Ads + Facebook Ads)</div>
+                <span class="priority priority-low">Až po krocích 1-4</span>
                 <div class="section-meta">
-                    <span class="meta-pill"><strong>3 000 Kč</strong> nastavení</span>
-                    <span class="meta-pill"><strong>3 - 5 000 Kč</strong>/měsíc</span>
-                    <span class="meta-pill">průběžně</span>
+                    <span class="meta-pill"><strong>4 000 Kč</strong> nastavení</span>
+                    <span class="meta-pill"><strong>2 000 Kč</strong>/měs správa</span>
+                    <span class="meta-pill"><strong>10 000 Kč</strong>/měs rozpočet</span>
                 </div>
             </div>
         </div>
         <div class="content-grid">
             <div class="block">
                 <div class="block-label">Co to je</div>
-                <p>Placená reklama ve vyhledávání Google. Když někdo hledá "masáže [město]", zobrazí se reklama nahoře.</p>
+                <p>Placená reklama na Google a Facebooku. Když někdo hledá "masáže [město]" na Google, zobrazí se reklama nahoře. Na Facebooku se reklama zobrazí lidem v okolí, kteří by mohli mít o masáže zájem.</p>
             </div>
             <div class="block">
-                <div class="block-label">Proč až potom</div>
-                <p>Nemá smysl platit za reklamu pokud web nemá analytiku (bod 2) a není optimalizovaný (body 3-4). Peníze za reklamu by se vyhodily, protože návštěvník přijde na web ale neudělá rezervaci.</p>
+                <div class="block-label">Jak to funguje</div>
+                <ul>
+                    <li>Jednorázové nastavení obou reklamních účtů (Google Ads + Facebook Ads): 4 000 Kč</li>
+                    <li>Měsíční správa a optimalizace reklam: 2 000 Kč/měsíc</li>
+                    <li>Rozpočet na reklamu (média): 10 000 Kč/měsíc, rozdělený mezi Google a Facebook</li>
+                    <li>Na začátku nové reklamní účty potřebují čas na "učení" (sbírání dat o zákaznících), proto se začíná s menším rozpočtem</li>
+                    <li>Na základě dat se rozpočet postupně upravuje (zvýší, sníží, nebo zůstane)</li>
+                </ul>
             </div>
             <div class="block">
                 <div class="block-label">Co to přinese</div>
@@ -907,12 +1013,12 @@
         </div>
         <div class="example-block">
             <div class="example-card before">
-                <div class="example-label">Investice</div>
-                <p>3 000 Kč měsíčně na reklamu</p>
+                <div class="example-label">Měsíční investice</div>
+                <p>2 000 Kč správa + 10 000 Kč na reklamu = 12 000 Kč/měsíc</p>
             </div>
             <div class="example-card after">
-                <div class="example-label">Návratnost</div>
-                <p>100-200 kliknutí, 10-20 nových zákazníků, 8 000 - 16 000 Kč tržby</p>
+                <div class="example-label">Očekávaná návratnost</div>
+                <p>200-400 kliknutí na web, 20-40 nových zákazníků. Při ceně masáže 800 Kč = 16 000 - 32 000 Kč tržby.</p>
             </div>
         </div>
     </div>
@@ -949,40 +1055,102 @@
                     <tr>
                         <td>3</td>
                         <td>SEO</td>
-                        <td>3 - 5 000 Kč</td>
+                        <td>3 000 - 5 000 Kč</td>
                         <td>Víc lidí z Google zdarma</td>
                         <td><span class="priority priority-high">Vysoká</span></td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Vylepšení webu</td>
-                        <td>5 - 8 000 Kč</td>
-                        <td>Víc rezervací z návštěv</td>
-                        <td><span class="priority priority-medium">Střední</span></td>
+                        <td>Úprava webu</td>
+                        <td>5 000 - 8 000 Kč</td>
+                        <td>Funkční mobil, víc rezervací</td>
+                        <td><span class="priority priority-high">Vysoká</span></td>
                     </tr>
                     <tr>
                         <td>5</td>
                         <td>Facebook stránka</td>
-                        <td>2 000 Kč</td>
+                        <td>Zdarma</td>
                         <td>Další kanál, doporučení</td>
                         <td><span class="priority priority-medium">Střední</span></td>
                     </tr>
                     <tr>
                         <td>6</td>
-                        <td>Google Ads</td>
-                        <td>3 000 Kč + 3-5 tis./měs</td>
-                        <td>Okamžité výsledky</td>
-                        <td><span class="priority priority-low">Nižší*</span></td>
+                        <td>Reklama (Google + FB)</td>
+                        <td>4 000 Kč + 12 tis./měs*</td>
+                        <td>Noví zákazníci okamžitě</td>
+                        <td><span class="priority priority-low">Až po 1-4</span></td>
                     </tr>
                     <tr class="total-row">
                         <td></td>
-                        <td>Body 1-5 celkem</td>
-                        <td>14 000 - 19 000 Kč</td>
-                        <td colspan="2">jednorázově</td>
+                        <td>Body 1-5 celkem (jednorázově)</td>
+                        <td>12 000 - 17 000 Kč</td>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr class="total-row">
+                        <td></td>
+                        <td>Vše včetně reklamy (jednorázově)</td>
+                        <td>16 000 - 21 000 Kč</td>
+                        <td colspan="2">+ 12 000 Kč/měs</td>
                     </tr>
                 </tbody>
             </table>
-            <div class="table-footnote">* Google Ads má smysl až po nastavení bodů 1-3.</div>
+            <div class="table-footnote">* 12 000 Kč/měs = 2 000 Kč správa + 10 000 Kč rozpočet na reklamu (Google + Facebook)</div>
+        </div>
+    </div>
+
+    <!-- ROADMAP -->
+    <div class="overview-section">
+        <div class="section-heading">Co musí být hotové před reklamou</div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 300; margin-bottom: 40px; margin-top: -16px;">
+            Reklama funguje jen tehdy, když je základ v pořádku. Tady je postup krok za krokem:
+        </p>
+
+        <div class="roadmap">
+            <div class="roadmap-step">
+                <div class="roadmap-icon">1</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-title">Google Firma + Analytics</div>
+                    <div class="roadmap-desc">Profil na mapách, měření návštěvnosti</div>
+                    <div class="roadmap-time">4 000 Kč / do 3 dní</div>
+                </div>
+            </div>
+            <div class="roadmap-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-icon">2</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-title">SEO + Úprava webu</div>
+                    <div class="roadmap-desc">Optimalizace pro vyhledávače, oprava mobilu, navigace, obsah</div>
+                    <div class="roadmap-time">8 000 - 13 000 Kč / 1-2 týdny</div>
+                </div>
+            </div>
+            <div class="roadmap-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="roadmap-step">
+                <div class="roadmap-icon">3</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-title">Facebook stránka</div>
+                    <div class="roadmap-desc">Vytvoření firemní stránky, základní obsah</div>
+                    <div class="roadmap-time">Zdarma / 1-2 dny</div>
+                </div>
+            </div>
+            <div class="roadmap-arrow">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="roadmap-step roadmap-step-final">
+                <div class="roadmap-icon">4</div>
+                <div class="roadmap-content">
+                    <div class="roadmap-title">Spuštění reklamy</div>
+                    <div class="roadmap-desc">Google Ads + Facebook Ads se zapnou až když je web, profily a měření připravené</div>
+                    <div class="roadmap-time">4 000 Kč nastavení + 12 000 Kč/měsíc</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="roadmap-note">
+            Bez kroků 1-3 by se peníze za reklamu vyhodily. Zákazník klikne na reklamu, přijde na nefunkční web a odejde. Proto je důležité nejdřív opravit základ.
         </div>
     </div>
 
@@ -993,23 +1161,23 @@
             <div class="phase-card">
                 <div class="phase-number">Fáze 1</div>
                 <div class="phase-title">Hned (do 1 týdne)</div>
-                <div class="phase-items">Google Firma + Analytics</div>
+                <div class="phase-items">Google Firma + Analytics + Facebook stránka</div>
                 <div class="phase-price">4 000 Kč</div>
-                <div class="phase-desc">Okamžitý efekt: viditelnost na mapách, data o návštěvnosti.</div>
+                <div class="phase-desc">Viditelnost na mapách, měření dat, přítomnost na Facebooku.</div>
             </div>
             <div class="phase-card">
                 <div class="phase-number">Fáze 2</div>
                 <div class="phase-title">Do 2-3 týdnů</div>
-                <div class="phase-items">SEO + vylepšení webu</div>
+                <div class="phase-items">SEO + úprava webu</div>
                 <div class="phase-price">8 000 - 13 000 Kč</div>
-                <div class="phase-desc">Víc lidí z vyhledávání, víc rezervací.</div>
+                <div class="phase-desc">Funkční mobil, lepší pozice ve vyhledávání, víc rezervací.</div>
             </div>
             <div class="phase-card">
                 <div class="phase-number">Fáze 3</div>
-                <div class="phase-title">Volitelně, po 1 měsíci</div>
-                <div class="phase-items">Facebook + Google Ads</div>
-                <div class="phase-price">5 000 Kč + 3-5 tis./měs</div>
-                <div class="phase-desc">Další kanály, placená reklama s měřitelným ROI.</div>
+                <div class="phase-title">Po dokončení fáze 1-2</div>
+                <div class="phase-items">Google Ads + Facebook Ads</div>
+                <div class="phase-price">4 000 Kč + 12 000 Kč/měs</div>
+                <div class="phase-desc">Placená reklama s měřitelným ROI. Rozpočet se upravuje podle dat.</div>
             </div>
         </div>
     </div>
@@ -1021,7 +1189,7 @@
             <li>WordPress + Elementor Pro (dobrý základ)</li>
             <li>Rezervační systém Termino funguje</li>
             <li>GDPR/cookies řešení na místě</li>
-            <li>Web je responzivní (mobil OK)</li>
+            <li>Web vytvořilo oxystudio.cz</li>
         </ul>
     </div>
 
