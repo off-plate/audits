@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USA Standard — Custom 3D Badges for Ford Bronco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E0E0E;
+    --surface: #161616;
+    --surface-2: #1E1E1E;
+    --border: #2A2A2A;
+    --text: #F4F1EC;
+    --text-dim: #A0A0A0;
+    --text-mute: #6B6B6B;
+    --accent: #E84E1B;
+    --accent-hover: #FF6438;
+    --brass: #D6A24E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============ ANNOUNCEMENT BAR ============ */
+  .announce {
+    background: var(--accent);
+    color: var(--text);
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 16px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  /* ============ NAVBAR ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(14,14,14,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--brass));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--bg);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: var(--accent);
+    color: var(--text);
+    font-size: 10px;
+    font-weight: 700;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at top right, rgba(232,78,27,0.15), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(214,162,78,0.1), transparent 60%),
+      var(--bg);
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 0;
+  }
+
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+
+  .hero-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 6vw, 80px);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: 18px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    max-width: 520px;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--text);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--text);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-value {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* Hero visual - stylized Bronco with badge callouts */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1;
+    background:
+      radial-gradient(circle at center, rgba(232,78,27,0.2), transparent 70%),
+      var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .bronco-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+  }
+
+  .badge-callout {
+    position: absolute;
+    padding: 8px 14px;
+    background: rgba(14,14,14,0.9);
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    backdrop-filter: blur(8px);
+  }
+
+  .badge-callout::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 16px var(--accent);
+  }
+
+  .callout-1 { top: 25%; left: -10px; }
+  .callout-1::before { right: -14px; top: 50%; transform: translateY(-50%); }
+
+  .callout-2 { top: 15%; right: -10px; }
+  .callout-2::before { left: -14px; top: 50%; transform: translateY(-50%); }
+
+  .callout-3 { bottom: 30%; right: 10%; }
+  .callout-3::before { left: -14px; top: 50%; transform: translateY(-50%); }
+
+  /* ============ FITMENT SELECTOR ============ */
+  .fitment {
+    padding: 40px 0;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .fitment-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .fitment-label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .fitment-label strong {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 20px;
+  }
+
+  .fitment-label span {
+    font-size: 13px;
+    color: var(--text-mute);
+  }
+
+  .fitment-selects {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 160px;
+    cursor: pointer;
+  }
+
+  .select:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  section { padding: 120px 0; }
+
+  .section-head {
+    margin-bottom: 64px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2 {
+    font-size: clamp(32px, 4vw, 56px);
+    max-width: 640px;
+  }
+
+  .section-head p {
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 420px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  /* ============ CATEGORIES GRID ============ */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .cat-card {
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .cat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+  }
+
+  .cat-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at bottom right, rgba(232,78,27,0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .cat-card:hover::after { opacity: 1; }
+
+  .cat-badge-svg {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cat-card h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cat-card .cat-count {
+    font-size: 12px;
+    color: var(--text-mute);
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============ CUSTOMIZER TEASER ============ */
+  .customizer {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+    border-radius: 24px;
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    border: 1px solid var(--border);
+  }
+
+  .customizer-preview {
+    aspect-ratio: 1;
+    background:
+      radial-gradient(circle at center, rgba(232,78,27,0.15), transparent 70%),
+      var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .preview-badge {
+    width: 280px;
+    height: 140px;
+    background: linear-gradient(135deg, #0a0a0a, #2a2a2a);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--accent);
+    box-shadow:
+      inset 0 2px 4px rgba(255,255,255,0.1),
+      0 12px 40px rgba(232,78,27,0.3);
+    border: 2px solid rgba(232,78,27,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  .customizer h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    margin-bottom: 24px;
+  }
+
+  .customizer p {
+    color: var(--text-dim);
+    margin-bottom: 32px;
+  }
+
+  .customizer-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .control-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .control-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .control-value {
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .color-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    cursor: pointer;
+  }
+
+  .color-dot.active { border-color: var(--text); }
+
+  /* ============ BUNDLES ============ */
+  .bundles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .bundle-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+
+  .bundle-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+  }
+
+  .bundle-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: var(--accent);
+    color: var(--text);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .bundle-visual {
+    aspect-ratio: 16/10;
+    background: var(--bg);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bundle-badges {
+    display: flex;
+    gap: 8px;
+  }
+
+  .mini-badge {
+    width: 48px;
+    height: 24px;
+    background: linear-gradient(135deg, #0a0a0a, #2a2a2a);
+    border-radius: 16px;
+    border: 1px solid rgba(232,78,27,0.3);
+  }
+
+  .bundle-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .bundle-card .bundle-includes {
+    font-size: 13px;
+    color: var(--text-mute);
+    margin-bottom: 20px;
+  }
+
+  .bundle-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .price {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .price-old {
+    font-size: 16px;
+    color: var(--text-mute);
+    text-decoration: line-through;
+  }
+
+  .save {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(232,78,27,0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  /* ============ CRAFT STORY ============ */
+  .craft {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .craft-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .craft-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .craft-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.1em;
+  }
+
+  .craft-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .craft-card p {
+    color: var(--text-dim);
+    font-size: 14px;
+  }
+
+  .craft-visual {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    border-radius: 8px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ============ GALLERY ============ */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 16px;
+  }
+
+  .gallery-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery-item:hover { transform: scale(1.02); }
+
+  .gallery-item.tall { grid-row: span 2; }
+
+  .gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2a2a2a 25%, #1a1a1a 50%, #2a2a2a 75%);
+    background-size: 200% 200%;
+    animation: shimmer 3s infinite;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 200%; }
+  }
+
+  .gallery-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text);
+    background: rgba(0,0,0,0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  /* ============ REVIEWS ============ */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .review-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .stars {
+    color: var(--brass);
+    margin-bottom: 16px;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+
+  .review-text {
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .author-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--brass));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: var(--bg);
+  }
+
+  .author-info strong { display: block; font-size: 14px; }
+  .author-info span { font-size: 12px; color: var(--text-mute); }
+
+  /* ============ WHY ============ */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .why-card {
+    padding: 32px 24px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .why-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(232,78,27,0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .why-card h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .why-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ============ EMAIL CAPTURE ============ */
+  .email-capture {
+    background:
+      radial-gradient(ellipse at center, rgba(232,78,27,0.15), transparent 70%),
+      var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 80px 64px;
+    text-align: center;
+  }
+
+  .email-capture h2 {
+    font-size: clamp(28px, 4vw, 48px);
+    margin-bottom: 16px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .email-capture p {
+    color: var(--text-dim);
+    margin-bottom: 32px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 12px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .email-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+  }
+
+  .email-input:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 80px 0 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+
+  .footer-brand h4 { font-size: 20px; margin-bottom: 12px; }
+  .footer-brand p { color: var(--text-dim); font-size: 14px; max-width: 320px; }
+
+  .footer-col h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li { margin-bottom: 12px; }
+
+  .footer-col a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--text-mute);
+    font-size: 13px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; gap: 48px; }
+    .categories-grid { grid-template-columns: repeat(3, 1fr); }
+    .bundles-grid { grid-template-columns: 1fr; }
+    .craft-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .customizer { grid-template-columns: 1fr; padding: 40px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .categories-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .email-form { flex-direction: column; }
+    .hero-stats { gap: 24px; }
+    .hero-cta { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announce">Free US shipping on orders over $75 · Hand-crafted in America</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">★</div>
+      USA Standard
+    </a>
+    <ul class="nav-links">
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#customize">Customize</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" aria-label="Search">⌕</button>
+      <button class="icon-btn" aria-label="Account">◎</button>
+      <button class="icon-btn" aria-label="Cart">
+        ⊞
+        <span class="cart-count">2</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-copy">
+      <div class="hero-label">NEW ARRIVAL · BRONCO 2021–2025</div>
+      <h1>Built for your Bronco. <span>Cut in America.</span></h1>
+      <p>Custom 3D acrylic badges, emblems, and decals. Laser-cut, weather-proof, and made by hand in the USA. No two Broncos are alike. Yours shouldn't be either.</p>
+      <div class="hero-cta">
+        <a href="#shop" class="btn btn-primary">Shop New Arrivals →</a>
+        <a href="#customize" class="btn btn-secondary">Customize Yours</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-value">12,400+</div>
+          <div class="stat-label">Builds delivered</div>
+        </div>
+        <div>
+          <div class="stat-value">4.9★</div>
+          <div class="stat-label">1,800+ reviews</div>
+        </div>
+        <div>
+          <div class="stat-value">USA</div>
+          <div class="stat-label">Made in America</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg class="bronco-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stylized Bronco silhouette -->
+        <defs>
+          <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2a2a2a"/>
+            <stop offset="100%" style="stop-color:#0a0a0a"/>
+          </linearGradient>
+        </defs>
+        <!-- Ground -->
+        <ellipse cx="200" cy="340" rx="160" ry="12" fill="rgba(232,78,27,0.2)"/>
+        <!-- Body -->
+        <path d="M 60 280 L 60 220 L 100 180 L 180 160 L 260 160 L 320 200 L 350 220 L 350 280 Z" fill="url(#bg1)" stroke="#E84E1B" stroke-width="2"/>
+        <!-- Roof -->
+        <path d="M 100 180 L 130 140 L 250 140 L 280 180" fill="none" stroke="#E84E1B" stroke-width="2"/>
+        <!-- Windows -->
+        <path d="M 130 145 L 155 175 L 205 175 L 200 145 Z" fill="rgba(255,255,255,0.05)" stroke="#D6A24E" stroke-width="1"/>
+        <path d="M 215 145 L 220 175 L 270 175 L 250 145 Z" fill="rgba(255,255,255,0.05)" stroke="#D6A24E" stroke-width="1"/>
+        <!-- Wheels -->
+        <circle cx="115" cy="290" r="28" fill="#0a0a0a" stroke="#E84E1B" stroke-width="2"/>
+        <circle cx="115" cy="290" r="12" fill="none" stroke="#D6A24E" stroke-width="1"/>
+        <circle cx="295" cy="290" r="28" fill="#0a0a0a" stroke="#E84E1B" stroke-width="2"/>
+        <circle cx="295" cy="290" r="12" fill="none" stroke="#D6A24E" stroke-width="1"/>
+        <!-- Fender badge indicator -->
+        <rect x="175" y="230" width="50" height="20" rx="10" fill="#E84E1B" opacity="0.3"/>
+        <rect x="175" y="230" width="50" height="20" rx="10" fill="none" stroke="#E84E1B" stroke-width="1.5"/>
+        <!-- Hood badge indicator -->
+        <rect x="275" y="195" width="30" height="12" rx="6" fill="#E84E1B" opacity="0.3"/>
+        <!-- Tailgate badge indicator -->
+        <rect x="68" y="240" width="20" height="14" rx="3" fill="#E84E1B" opacity="0.3"/>
+      </svg>
+
+      <div class="badge-callout callout-1">FENDER BADGE</div>
+      <div class="badge-callout callout-2">HOOD EMBLEM</div>
+      <div class="badge-callout callout-3">INTERIOR TRIM</div>
+    </div>
+  </div>
+</section>
+
+<!-- Fitment Selector -->
+<section class="fitment" style="padding: 40px 0;">
+  <div class="container fitment-inner">
+    <div class="fitment-label">
+      <strong>Find parts for your Bronco</strong>
+      <span>Guaranteed fit for your exact year and trim</span>
+    </div>
+    <div class="fitment-selects">
+      <select class="select">
+        <option>Year</option>
+        <option>2021</option>
+        <option>2022</option>
+        <option>2023</option>
+        <option>2024</option>
+        <option>2025</option>
+      </select>
+      <select class="select">
+        <option>Trim Level</option>
+        <option>Big Bend</option>
+        <option>Outer Banks</option>
+        <option>Badlands</option>
+        <option>Wildtrak</option>
+        <option>Raptor</option>
+      </select>
+      <select class="select">
+        <option>Location</option>
+        <option>Fender</option>
+        <option>Tailgate</option>
+        <option>Hood</option>
+        <option>Door</option>
+        <option>Interior</option>
+      </select>
+      <button class="btn btn-primary">Find Parts →</button>
+    </div>
+  </div>
+</section>
+
+<!-- Shop by Location -->
+<section id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ Shop by Location</span>
+        <h2>Every inch of your Bronco. Covered.</h2>
+      </div>
+      <p>Browse badges by where they go — from bold fender statements to subtle interior trim.</p>
+    </div>
+
+    <div class="categories-grid">
+      <div class="cat-card">
+        <div class="cat-badge-svg">
+          <div style="width:80%;height:40px;background:linear-gradient(135deg,#0a0a0a,#2a2a2a);border-radius:8px;border:1px solid rgba(232,78,27,0.4);"></div>
+        </div>
+        <div>
+          <h3>Fender</h3>
+          <div class="cat-count">24 products</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-badge-svg">
+          <div style="width:80%;height:30px;background:linear-gradient(135deg,#0a0a0a,#2a2a2a);border-radius:100px;border:1px solid rgba(232,78,27,0.4);"></div>
+        </div>
+        <div>
+          <h3>Tailgate</h3>
+          <div class="cat-count">18 products</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-badge-svg">
+          <div style="width:60%;height:60px;background:linear-gradient(135deg,#0a0a0a,#2a2a2a);border-radius:8px;border:1px solid rgba(232,78,27,0.4);"></div>
+        </div>
+        <div>
+          <h3>Hood</h3>
+          <div class="cat-count">12 products</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-badge-svg">
+          <div style="width:70%;height:35px;background:linear-gradient(135deg,#0a0a0a,#2a2a2a);border-radius:4px;border:1px solid rgba(232,78,27,0.4);"></div>
+        </div>
+        <div>
+          <h3>Door</h3>
+          <div class="cat-count">15 products</div>
+        </div>
+      </div>
+      <div class="cat-card">
+        <div class="cat-badge-svg">
+          <div style="width:70%;height:25px;background:linear-gradient(135deg,#0a0a0a,#2a2a2a);border-radius:4px;border:1px solid rgba(214,162,78,0.4);"></div>
+        </div>
+        <div>
+          <h3>Interior</h3>
+          <div class="cat-count">9 products</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Customizer Teaser -->
+<section id="customize" style="background: var(--surface);">
+  <div class="container">
+    <div class="customizer">
+      <div class="customizer-preview">
+        <div class="preview-badge">WILDTRAK</div>
+      </div>
+      <div>
+        <span class="eyebrow">◆ Live Customizer</span>
+        <h2>Design your badge. See it before you buy.</h2>
+        <p>Pick your location, your text, your finish. Our live previewer shows exactly how it'll look on your Bronco — before you place a single order.</p>
+        <div class="customizer-controls">
+          <div class="control-row">
+            <span class="control-label">TEXT</span>
+            <span class="control-value">WILDTRAK</span>
+          </div>
+          <div class="control-row">
+            <span class="control-label">FINISH</span>
+            <span class="control-value">Gloss Black</span>
+          </div>
+          <div class="control-row">
+            <span class="control-label">ACCENT</span>
+            <div class="color-dots">
+              <div class="color-dot active" style="background:#E84E1B;"></div>
+              <div class="color-dot" style="background:#D6A24E;"></div>
+              <div class="color-dot" style="background:#F4F1EC;"></div>
+              <div class="color-dot" style="background:#3B82F6;"></div>
+              <div class="color-dot" style="background:#10B981;"></div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary">Launch Customizer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bundles -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ Bundles &amp; Kits</span>
+        <h2>Complete looks. Better prices.</h2>
+      </div>
+      <p>Pre-packaged sets for the full build, at up to 20% off.</p>
+    </div>
+
+    <div class="bundles-grid">
+      <div class="bundle-card">
+        <div class="bundle-tag">SAVE 15%</div>
+        <div class="bundle-visual">
+          <div class="bundle-badges">
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+          </div>
+        </div>
+        <h3>Full Fender Set</h3>
+        <div class="bundle-includes">2× Fender badges · Custom text · Any finish</div>
+        <div class="bundle-pricing">
+          <span class="price">$89</span>
+          <span class="price-old">$105</span>
+          <span class="save">SAVE $16</span>
+        </div>
+        <a href="#" class="btn btn-secondary" style="width:100%; justify-content:center;">Build Your Set →</a>
+      </div>
+
+      <div class="bundle-card" style="border-color: var(--accent);">
+        <div class="bundle-tag">BEST SELLER</div>
+        <div class="bundle-visual">
+          <div class="bundle-badges">
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+          </div>
+        </div>
+        <h3>Exterior Essentials</h3>
+        <div class="bundle-includes">2× Fender · 1× Tailgate · 1× Hood · Matching finish</div>
+        <div class="bundle-pricing">
+          <span class="price">$159</span>
+          <span class="price-old">$195</span>
+          <span class="save">SAVE $36</span>
+        </div>
+        <a href="#" class="btn btn-primary" style="width:100%; justify-content:center;">Build Your Set →</a>
+      </div>
+
+      <div class="bundle-card">
+        <div class="bundle-tag">SAVE 20%</div>
+        <div class="bundle-visual">
+          <div class="bundle-badges">
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+            <div class="mini-badge"></div>
+          </div>
+        </div>
+        <h3>Full Build Package</h3>
+        <div class="bundle-includes">Everything. Exterior + interior trim. Max personalization.</div>
+        <div class="bundle-pricing">
+          <span class="price">$249</span>
+          <span class="price-old">$310</span>
+          <span class="save">SAVE $61</span>
+        </div>
+        <a href="#" class="btn btn-secondary" style="width:100%; justify-content:center;">Build Your Set →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Craft Story -->
+<section class="craft">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ How it's made</span>
+        <h2>Hand-crafted. One badge at a time.</h2>
+      </div>
+      <p>Real people, real machines, real American workshops. No overseas shortcuts.</p>
+    </div>
+
+    <div class="craft-grid">
+      <div class="craft-card">
+        <div class="craft-num">01 / CUT</div>
+        <h3>Laser-cut precision</h3>
+        <p>Premium acrylic sheets cut to a tolerance of 0.1mm. No jagged edges, no fraying, no shortcuts.</p>
+        <div class="craft-visual">
+          <svg width="100" height="60" viewBox="0 0 100 60">
+            <rect x="20" y="20" width="60" height="20" fill="none" stroke="#E84E1B" stroke-width="2"/>
+            <line x1="0" y1="30" x2="100" y2="30" stroke="#E84E1B" stroke-width="1" stroke-dasharray="4 4"/>
+            <circle cx="50" cy="30" r="3" fill="#E84E1B"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="craft-card">
+        <div class="craft-num">02 / FINISH</div>
+        <h3>Hand-finished by humans</h3>
+        <p>Every edge sanded, every surface polished. We check each piece before it's packed.</p>
+        <div class="craft-visual">
+          <svg width="100" height="60" viewBox="0 0 100 60">
+            <rect x="20" y="20" width="60" height="20" rx="4" fill="#D6A24E" opacity="0.3"/>
+            <rect x="20" y="20" width="60" height="20" rx="4" fill="none" stroke="#D6A24E" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="craft-card">
+        <div class="craft-num">03 / SHIP</div>
+        <h3>Ships in 48 hours</h3>
+        <p>Most orders ship within two business days. Free US shipping on orders over $75.</p>
+        <div class="craft-visual">
+          <svg width="100" height="60" viewBox="0 0 100 60">
+            <rect x="20" y="15" width="40" height="30" fill="none" stroke="#F4F1EC" stroke-width="2"/>
+            <rect x="60" y="25" width="20" height="20" fill="none" stroke="#F4F1EC" stroke-width="2"/>
+            <circle cx="30" cy="50" r="5" fill="none" stroke="#F4F1EC" stroke-width="2"/>
+            <circle cx="70" cy="50" r="5" fill="none" stroke="#F4F1EC" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ Customer Builds</span>
+        <h2>Real Broncos. Real customers. Your turn.</h2>
+      </div>
+      <p>Tag <strong style="color:var(--accent);">@usastandard</strong> for a chance to be featured and earn 20% off your next order.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item tall">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@mike_bronco · Badlands</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@desertdrifter · Wildtrak</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@outerbanks4x4 · OB</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@bigbend_bronco · Big Bend</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@trailstorm · Badlands</span>
+        </div>
+      </div>
+      <div class="gallery-item tall">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@jessbuilds · Wildtrak</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-placeholder">
+          <span class="gallery-caption">@raptor_daily · Raptor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section style="background: var(--surface);">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ Reviews · 4.9★</span>
+        <h2>What Bronco owners say.</h2>
+      </div>
+      <p>Over 1,800 five-star reviews from owners across all 50 states.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Quality is unreal. The 3M backing held through a winter in Montana — no peeling, no fading. Already ordered a second set for my buddy's Bronco."</p>
+        <div class="review-author">
+          <div class="author-avatar">JM</div>
+          <div class="author-info">
+            <strong>Jake M.</strong>
+            <span>2023 Badlands · Bozeman, MT</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Custom text came out cleaner than the factory emblems. Installation took 10 minutes. My Bronco finally looks like mine."</p>
+        <div class="review-author">
+          <div class="author-avatar">SP</div>
+          <div class="author-info">
+            <strong>Sarah P.</strong>
+            <span>2024 Outer Banks · Austin, TX</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">"Got the full exterior bundle. Fits perfectly — you can tell they actually measured a real Bronco. Worth every dollar."</p>
+        <div class="review-author">
+          <div class="author-avatar">RK</div>
+          <div class="author-info">
+            <strong>Ryan K.</strong>
+            <span>2022 Wildtrak · Denver, CO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">◆ Built right</span>
+        <h2>Why riders choose USA Standard.</h2>
+      </div>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">◆</div>
+        <h4>Laser-cut acrylic</h4>
+        <p>Precision tolerances. Clean edges. No plastic feel — solid acrylic construction.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">⊕</div>
+        <h4>3M adhesive backing</h4>
+        <p>Industrial-grade 3M VHB tape. Peel, stick, done. Holds through anything.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">☀</div>
+        <h4>UV + weather proof</h4>
+        <p>Tested in desert heat and mountain winters. No fading, no cracking, no peeling.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">✦</div>
+        <h4>Scratch resistant</h4>
+        <p>Surface hardness rated 2H. Survives the car wash and the trail.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">◉</div>
+        <h4>Unlimited customization</h4>
+        <p>Any text, any finish, any color. Hundreds of combinations. All under $100.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">★</div>
+        <h4>Made in the USA</h4>
+        <p>Every badge cut, finished, and shipped from our American workshop. No exceptions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Email Capture -->
+<section>
+  <div class="container">
+    <div class="email-capture">
+      <span class="eyebrow">◆ Stay in the loop</span>
+      <h2>Get 10% off your first order.</h2>
+      <p>Plus new drops, build inspiration, and the occasional giveaway. No spam — we promise.</p>
+      <form class="email-form" onsubmit="event.preventDefault();">
+        <input type="email" placeholder="your@email.com" class="email-input" required>
+        <button type="submit" class="btn btn-primary">Get 10% Off →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h4>USA Standard</h4>
+        <p>Hand-crafted 3D acrylic badges and emblems for Ford Bronco 2021–2025. Made in America. Built to last.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Fender</a></li>
+          <li><a href="#">Tailgate</a></li>
+          <li><a href="#">Hood</a></li>
+          <li><a href="#">Interior</a></li>
+          <li><a href="#">Bundles</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Learn</h5>
+        <ul>
+          <li><a href="#">Installation Guide</a></li>
+          <li><a href="#">Care &amp; Maintenance</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Customer Builds</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Fitment</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Made in USA</a></li>
+          <li><a href="#">Affiliate Program</a></li>
+          <li><a href="#">Dealer Portal</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 USA Standard Store · All Rights Reserved</div>
+      <div>Hand-crafted in America · Ships worldwide</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
