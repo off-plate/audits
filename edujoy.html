@@ -10,26 +10,40 @@
 <style>
   :root {
     --bg: #FFFFFF;
-    --bg-soft: #F7F8FD;
-    --bg-card: #EEF1FB;
+    --bg-soft: #F8F9FC;
+    --bg-card: #EFF2FB;
     --bg-elevated: #FFFFFF;
-    --border: #DDE2F2;
-    --border-strong: #B8C1DC;
+    --border: #E1E5F1;
+    --border-strong: #BFC6DB;
     --text: #1e2022;
     --text-dim: #3c4043;
     --text-mute: #7A8299;
-    --accent: #2250fc;
-    --accent-hover: #91a8ff;
-    --accent-soft: #E0E7FF;
-    --accent-deep: #0D2EB8;
+
+    /* EduJoy brand — logo trio */
+    --brand-blue: #5772E8;
+    --brand-blue-hover: #7A93F0;
+    --brand-blue-soft: #E8EDFB;
+    --brand-blue-deep: #3D52C9;
+    --brand-red: #E5394C;
+    --brand-red-soft: #FCE2E5;
+    --brand-red-deep: #B7253A;
+    --brand-yellow: #FFD64A;
+    --brand-yellow-soft: #FFF4CB;
+    --brand-yellow-deep: #B8860B;
+
+    /* Semantic roles — mapped to brand where possible */
+    --accent: var(--brand-blue);
+    --accent-hover: var(--brand-blue-hover);
+    --accent-soft: var(--brand-blue-soft);
+    --accent-deep: var(--brand-blue-deep);
     --positive: #1F7A4A;
     --positive-soft: #E3F2E9;
-    --warning: #B87A1F;
-    --warning-soft: #FBEFD9;
-    --critical: #B53B2B;
-    --critical-soft: #FAE2DD;
-    --info: #0E7490;
-    --info-soft: #D9F1F4;
+    --warning: var(--brand-yellow-deep);
+    --warning-soft: var(--brand-yellow-soft);
+    --critical: var(--brand-red);
+    --critical-soft: var(--brand-red-soft);
+    --info: var(--brand-blue-deep);
+    --info-soft: var(--brand-blue-soft);
     --ink: #1e2022;
   }
 
@@ -58,13 +72,31 @@
   /* ───────── HERO ───────── */
   .hero {
     background:
-      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34, 80, 252, 0.08), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 20% 0%, rgba(229, 57, 76, 0.06), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 10%, rgba(87, 114, 232, 0.08), transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 20%, rgba(255, 214, 74, 0.10), transparent 60%),
       linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
     border-bottom: 1px solid var(--border);
     padding: 80px 24px 60px;
     text-align: center;
     position: relative;
   }
+
+  .hero-dots {
+    display: inline-flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  .hero-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .hero-dots .d-red { background: var(--brand-red); }
+  .hero-dots .d-yellow { background: var(--brand-yellow); }
+  .hero-dots .d-blue { background: var(--brand-blue); }
 
   .hero-badge {
     display: inline-block;
@@ -73,11 +105,11 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     color: #FFFFFF;
-    background: var(--accent);
+    background: var(--brand-blue);
     padding: 7px 16px;
     border-radius: 100px;
     margin-bottom: 28px;
-    box-shadow: 0 4px 14px rgba(34, 80, 252, 0.25);
+    box-shadow: 0 4px 14px rgba(87, 114, 232, 0.3);
   }
 
   .hero h1 {
@@ -87,7 +119,13 @@
     margin: 0 auto 20px;
     color: var(--ink);
   }
-  .hero h1 span.accent { color: var(--accent); }
+  .hero h1 span.accent {
+    background: linear-gradient(100deg, var(--brand-red) 0%, var(--brand-yellow) 50%, var(--brand-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 
   .hero-sub {
     font-size: 17px;
@@ -485,6 +523,7 @@
 
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" style="padding-bottom: 60px; border-bottom: 1px solid var(--border);">
+  <div class="hero-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-blue"></span></div>
   <span class="hero-badge">Strategická konzultace</span>
   <h1>Meta Ads a marketingová strategie <span class="accent">EduJoy</span></h1>
   <p class="hero-sub">
