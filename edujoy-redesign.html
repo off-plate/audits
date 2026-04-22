@@ -360,35 +360,76 @@
     font-size: 14px;
   }
 
-  /* Hero visual: composed bento of chat bubble cards */
+  /* Hero visual: stable bento grid */
   .hero-visual {
-    position: relative;
-    aspect-ratio: 1 / 1.05;
-    max-width: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 540px;
+    width: 100%;
     margin-left: auto;
   }
   .hv-card {
-    position: absolute;
     background: var(--bg-card);
     border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 20px;
+    border-radius: 22px;
+    padding: 22px;
     box-shadow: var(--shadow-md);
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 0;
   }
   .hv-card:hover { transform: translateY(-4px); }
 
   .hv-card.primary {
-    top: 8%;
-    left: 0;
-    width: 62%;
-    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+    grid-column: 1 / 3;
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
     color: white;
     border-color: transparent;
     box-shadow: var(--shadow-glow-blue);
-    transform: rotate(-2deg);
+    position: relative;
+    overflow: hidden;
+    padding: 26px;
   }
-  .hv-card.primary:hover { transform: rotate(-2deg) translateY(-4px); }
+  .hv-card.primary::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 180px; height: 180px;
+    background: var(--yellow);
+    opacity: 0.22;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hv-stat-badge {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: white;
+    color: var(--ink);
+    padding: 8px 14px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.14);
+    z-index: 2;
+  }
+  .hv-stat-badge b {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .hv-stat-badge small {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
   .hv-card.primary .hv-tag {
     display: inline-block;
     background: rgba(255,255,255,0.18);
@@ -399,12 +440,16 @@
     border-radius: 100px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    position: relative;
   }
   .hv-card.primary h4 {
     color: white;
     font-size: 22px;
-    margin: 12px 0 14px;
+    margin: 14px 0 16px;
     letter-spacing: -0.02em;
+    line-height: 1.15;
+    max-width: 75%;
+    position: relative;
   }
   .hv-card.primary .hv-row {
     display: flex;
@@ -414,6 +459,7 @@
     border-top: 1px solid rgba(255,255,255,0.18);
     font-size: 12px;
     color: rgba(255,255,255,0.75);
+    position: relative;
   }
   .hv-card.primary .hv-row b {
     color: white;
@@ -423,37 +469,33 @@
   }
 
   .hv-card.yellow {
-    top: 2%;
-    right: 0;
-    width: 42%;
     background: var(--yellow);
     border-color: transparent;
-    transform: rotate(3deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
-  .hv-card.yellow:hover { transform: rotate(3deg) translateY(-4px); }
   .hv-card.yellow .hv-emoji {
     font-size: 28px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
   .hv-card.yellow h4 {
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 6px;
     letter-spacing: -0.02em;
+    line-height: 1.2;
   }
   .hv-card.yellow p {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--ink-dim);
   }
 
   .hv-card.red {
-    top: 42%;
-    right: 4%;
-    width: 48%;
-    transform: rotate(-2deg);
     background: var(--red-wash);
     border-color: var(--red-soft);
+    display: flex;
+    flex-direction: column;
   }
-  .hv-card.red:hover { transform: rotate(-2deg) translateY(-4px); }
   .hv-card.red .hv-avatar {
     width: 38px; height: 38px;
     border-radius: 50%;
@@ -462,52 +504,24 @@
     font-weight: 700;
     display: flex; align-items: center; justify-content: center;
     margin-bottom: 10px;
+    font-size: 13px;
   }
   .hv-card.red p {
     font-size: 13px;
     color: var(--ink-dim);
     font-style: italic;
     line-height: 1.5;
+    margin-bottom: 10px;
+    flex: 1;
   }
   .hv-card.red .hv-name {
     font-size: 12px;
     color: var(--ink);
     font-weight: 600;
-    margin-top: 10px;
-  }
-
-  .hv-card.stat {
-    bottom: 2%;
-    left: 10%;
-    width: 44%;
-    transform: rotate(1deg);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .hv-card.stat:hover { transform: rotate(1deg) translateY(-4px); }
-  .hv-card.stat .big {
-    font-family: 'Fraunces', serif;
-    font-size: 38px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, var(--blue-deep), var(--red));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .hv-card.stat .lbl {
-    font-size: 13px;
-    color: var(--ink-dim);
   }
 
   @media (max-width: 600px) {
     .hero-visual { max-width: none; }
-    .hv-card.primary { width: 65%; }
-    .hv-card.yellow { width: 40%; }
-    .hv-card.red { width: 55%; }
-    .hv-card.stat { width: 45%; }
   }
 
   /* ─── LOGO STRIP ─── */
@@ -1320,9 +1334,9 @@
     <ul class="nav-links">
       <li><a href="#courses">Kurzy</a></li>
       <li><a href="#free" class="has-dot">Zdarma přes ÚP</a></li>
-      <li><a href="#exam">Příprava na zkoušky</a></li>
       <li><a href="#teachers">Lektoři</a></li>
-      <li><a href="#">Blog</a></li>
+      <li><a href="#testimonials">Reference</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-right">
       <div class="lang-switch">
@@ -1371,8 +1385,9 @@
 
     <div class="hero-visual">
       <div class="hv-card primary">
-        <span class="hv-tag">Nejoblíbenější</span>
-        <h4>B1 Intenzivní · Příprava ke zkoušce pro trvalý pobyt</h4>
+        <div class="hv-stat-badge"><b>92 %</b><small>úspěšnost<br>u B1</small></div>
+        <span class="hv-tag">Nejoblíbenější kurz</span>
+        <h4>B1 Intenzivní<br>Příprava ke zkoušce</h4>
         <div class="hv-row">
           <span>6 týdnů · 60 hodin</span>
           <b>8 900 Kč</b>
@@ -1382,18 +1397,13 @@
       <div class="hv-card yellow">
         <div class="hv-emoji">🎓</div>
         <h4>Zdarma přes ÚP</h4>
-        <p>Vyřídíme za vás celou administrativu.</p>
+        <p>Vyřídíme papíry za vás.</p>
       </div>
 
       <div class="hv-card red">
         <div class="hv-avatar">OK</div>
-        <p>„Za 4 měsíce jsem udělala B1 zkoušku napoprvé."</p>
+        <p>„Za 4 měsíce B1 zkouška napoprvé."</p>
         <div class="hv-name">Olena · absolventka</div>
-      </div>
-
-      <div class="hv-card stat">
-        <div class="big">92 %</div>
-        <div class="lbl">úspěšnost u B1 zkoušky v roce 2025</div>
       </div>
     </div>
   </div>
@@ -1605,8 +1615,8 @@
     <div class="teachers-grid">
       <div class="teacher">
         <div class="teacher-avatar">MK</div>
-        <h4>Markéta Kovářová</h4>
-        <div class="teacher-role">Bohemistka · 12 let praxe</div>
+        <h4>Mgr. Michal Kos</h4>
+        <div class="teacher-role">Bohemista · vedoucí lektor</div>
         <div class="teacher-langs">
           <span class="teacher-lang">CZ</span>
           <span class="teacher-lang">EN</span>
@@ -1614,9 +1624,9 @@
         </div>
       </div>
       <div class="teacher">
-        <div class="teacher-avatar">PŠ</div>
-        <h4>Pavel Šmíd</h4>
-        <div class="teacher-role">Specialista na B1/B2 · 8 let</div>
+        <div class="teacher-avatar">VM</div>
+        <h4>Mgr. Veronika Mirovská</h4>
+        <div class="teacher-role">Specialistka na zkoušky B1</div>
         <div class="teacher-langs">
           <span class="teacher-lang">CZ</span>
           <span class="teacher-lang">EN</span>
@@ -1624,9 +1634,9 @@
         </div>
       </div>
       <div class="teacher">
-        <div class="teacher-avatar">TH</div>
-        <h4>Tereza Horáčková</h4>
-        <div class="teacher-role">Děti a začátečníci</div>
+        <div class="teacher-avatar">HŠ</div>
+        <h4>PhDr. Hana Šnajdrová, CSc.</h4>
+        <div class="teacher-role">Akademická čeština · univerzity</div>
         <div class="teacher-langs">
           <span class="teacher-lang">CZ</span>
           <span class="teacher-lang">EN</span>
@@ -1634,9 +1644,9 @@
         </div>
       </div>
       <div class="teacher">
-        <div class="teacher-avatar">VN</div>
-        <h4>Viktor Novák</h4>
-        <div class="teacher-role">Firemní a specializované</div>
+        <div class="teacher-avatar">BP</div>
+        <h4>Mgr. Bohumil Práchenský</h4>
+        <div class="teacher-role">Firemní a specializované kurzy</div>
         <div class="teacher-langs">
           <span class="teacher-lang">CZ</span>
           <span class="teacher-lang">EN</span>
@@ -1644,11 +1654,15 @@
         </div>
       </div>
     </div>
+
+    <p style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--ink-mute);">
+      Náš tým má přes 11 zkušených lektorů. <a href="#" style="color: var(--blue); font-weight: 600; text-decoration: none;">Poznejte celý tým →</a>
+    </p>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="block testimonials">
+<section class="block testimonials" id="testimonials">
   <div class="wrap">
     <span class="section-label">Slova studentů</span>
     <h2>Přes 1&nbsp;200 lidí už udělalo <span class="italic">první krok.</span></h2>
@@ -1683,7 +1697,7 @@
 
       <div class="t-card">
         <div class="t-stars">★★★★★</div>
-        <p class="t-quote">„Naše dcera (8 let) miluje Hravou češtinu. Lektorka Tereza je úžasná, za půl roku už si povídá s českými spolužáky ve škole."</p>
+        <p class="t-quote">„Naše dcera (8 let) miluje Hravou češtinu. Lektorka je úžasná, za půl roku už si povídá s českými spolužáky ve škole."</p>
         <div class="t-author">
           <div class="t-avatar">AS</div>
           <div>
@@ -1698,7 +1712,7 @@
 </section>
 
 <!-- FAQ -->
-<section class="block faq-block">
+<section class="block faq-block" id="faq">
   <div class="wrap">
     <div class="faq-grid">
       <div class="faq-aside">
