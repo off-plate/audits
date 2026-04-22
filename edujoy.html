@@ -160,9 +160,12 @@
     border-bottom: 1px solid var(--border);
     font-size: 13px;
   }
-  .toc-inner {
+  .toc-wrap {
+    position: relative;
     max-width: 1100px;
     margin: 0 auto;
+  }
+  .toc-inner {
     padding: 10px 48px 10px 24px;
     display: flex;
     gap: 6px;
@@ -182,7 +185,7 @@
     flex-shrink: 0;
     transition: all 0.15s;
   }
-  .toc::after {
+  .toc-wrap::after {
     content: '';
     position: absolute;
     top: 0;
@@ -191,25 +194,42 @@
     width: 60px;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.96) 70%);
     pointer-events: none;
-    z-index: 2;
+    z-index: 1;
+    transition: opacity 0.2s;
   }
+  .toc-wrap.at-end::after { opacity: 0; }
   .toc-arrow {
     position: absolute;
     top: 50%;
-    right: 16px;
+    right: 8px;
     transform: translateY(-50%);
     font-size: 18px;
     line-height: 1;
     color: var(--accent);
-    z-index: 3;
-    pointer-events: none;
-    animation: tocBounce 1.6s ease-in-out infinite;
+    z-index: 2;
+    background: rgba(255,255,255,0.85);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
     font-family: 'Inter', sans-serif;
     font-weight: 700;
+    animation: tocBounce 1.6s ease-in-out infinite;
+    transition: opacity 0.2s, background 0.15s, color 0.15s;
+  }
+  .toc-arrow:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .toc-wrap.at-end .toc-arrow {
+    opacity: 0;
+    pointer-events: none;
   }
   @keyframes tocBounce {
-    0%, 100% { transform: translateY(-50%) translateX(0); opacity: 0.7; }
-    50% { transform: translateY(-50%) translateX(3px); opacity: 1; }
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(3px); }
   }
   .toc a:hover { background: var(--accent-soft); color: var(--accent); }
   .toc a.active { background: var(--accent); color: #fff; }
@@ -641,22 +661,42 @@
 
 <!-- ══════════ TOC ══════════ -->
 <nav class="toc">
-  <div class="toc-inner">
-    <a href="#shrnuti">Shrnutí</a>
-    <a href="#realita">Kontext vašich čísel</a>
-    <a href="#benchmarky">Benchmarky</a>
-    <a href="#vase-cisla">Vaše čísla vs. trh</a>
-    <a href="#silo">Sladění Meta a Google</a>
-    <a href="#newsletter">Potenciál newsletteru</a>
-    <a href="#formulare">Lead Forms</a>
-    <a href="#konkurence">Konkurence</a>
-    <a href="#live-audit">Live audit</a>
-    <a href="#doporuceni">Doporučení</a>
-    <a href="#otazky">Otázky</a>
-    <a href="#zdroje">Zdroje</a>
+  <div class="toc-wrap">
+    <div class="toc-inner">
+      <a href="#shrnuti">Shrnutí</a>
+      <a href="#realita">Kontext vašich čísel</a>
+      <a href="#benchmarky">Benchmarky</a>
+      <a href="#vase-cisla">Vaše čísla vs. trh</a>
+      <a href="#silo">Sladění Meta a Google</a>
+      <a href="#newsletter">Potenciál newsletteru</a>
+      <a href="#formulare">Lead Forms</a>
+      <a href="#konkurence">Konkurence</a>
+      <a href="#live-audit">Live audit</a>
+      <a href="#doporuceni">Doporučení</a>
+      <a href="#otazky">Otázky</a>
+      <a href="#zdroje">Zdroje</a>
+    </div>
+    <button type="button" class="toc-arrow" aria-label="Posunout navigaci doprava">›</button>
   </div>
-  <span class="toc-arrow" aria-hidden="true">›</span>
 </nav>
+<script>
+  (function() {
+    const wrap = document.querySelector('.toc-wrap');
+    const inner = wrap && wrap.querySelector('.toc-inner');
+    const arrow = wrap && wrap.querySelector('.toc-arrow');
+    if (!wrap || !inner || !arrow) return;
+    const update = () => {
+      const atEnd = inner.scrollLeft + inner.clientWidth >= inner.scrollWidth - 4;
+      wrap.classList.toggle('at-end', atEnd);
+    };
+    arrow.addEventListener('click', () => {
+      inner.scrollBy({ left: Math.round(inner.clientWidth * 0.7), behavior: 'smooth' });
+    });
+    inner.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
 
 <!-- ══════════ SHRNUTÍ ══════════ -->
 <section id="shrnuti">
