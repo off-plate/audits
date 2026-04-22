@@ -6,29 +6,31 @@
 <title>Konzultace Meta Ads a marketingová strategie — EduJoy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #FFFFFF;
-    --bg-soft: #FAF7F2;
-    --bg-card: #F3EFE8;
+    --bg-soft: #F7F8FD;
+    --bg-card: #EEF1FB;
     --bg-elevated: #FFFFFF;
-    --border: #E5DFD4;
-    --border-strong: #C9C0AF;
-    --text: #111111;
-    --text-dim: #4A4A4A;
-    --text-mute: #8A8275;
-    --accent: #E84E1B;
-    --accent-soft: #FDE8DD;
+    --border: #DDE2F2;
+    --border-strong: #B8C1DC;
+    --text: #1e2022;
+    --text-dim: #3c4043;
+    --text-mute: #7A8299;
+    --accent: #2250fc;
+    --accent-hover: #91a8ff;
+    --accent-soft: #E0E7FF;
+    --accent-deep: #0D2EB8;
     --positive: #1F7A4A;
     --positive-soft: #E3F2E9;
     --warning: #B87A1F;
     --warning-soft: #FBEFD9;
     --critical: #B53B2B;
     --critical-soft: #FAE2DD;
-    --info: #1E5F94;
-    --info-soft: #E3EEF7;
-    --ink: #1A1A1A;
+    --info: #0E7490;
+    --info-soft: #D9F1F4;
+    --ink: #1e2022;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,10 +46,10 @@
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Inter Tight', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.15;
+    font-family: 'Zilla Slab', 'Bitter', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
     color: var(--ink);
   }
 
@@ -55,30 +57,37 @@
 
   /* ───────── HERO ───────── */
   .hero {
-    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(34, 80, 252, 0.08), transparent 60%),
+      linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
     border-bottom: 1px solid var(--border);
     padding: 80px 24px 60px;
     text-align: center;
+    position: relative;
   }
 
   .hero-badge {
     display: inline-block;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-soft);
-    padding: 6px 14px;
+    color: #FFFFFF;
+    background: var(--accent);
+    padding: 7px 16px;
     border-radius: 100px;
     margin-bottom: 28px;
+    box-shadow: 0 4px 14px rgba(34, 80, 252, 0.25);
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-size: clamp(2.1rem, 4.8vw, 3.4rem);
+    font-weight: 700;
     max-width: 880px;
     margin: 0 auto 20px;
+    color: var(--ink);
   }
+  .hero h1 span.accent { color: var(--accent); }
 
   .hero-sub {
     font-size: 17px;
@@ -132,7 +141,8 @@
     font-weight: 500;
     transition: all 0.15s;
   }
-  .toc a:hover { background: var(--bg-card); color: var(--ink); }
+  .toc a:hover { background: var(--accent-soft); color: var(--accent); }
+  .toc a.active { background: var(--accent); color: #fff; }
 
   /* ───────── LAYOUT ───────── */
   .container {
@@ -207,14 +217,18 @@
     margin-bottom: 12px;
   }
   .stat-number {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Zilla Slab', 'Bitter', Georgia, serif;
     font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--ink);
-    line-height: 1;
+    font-weight: 700;
+    color: var(--accent-deep);
+    line-height: 1.05;
     margin-bottom: 10px;
-    letter-spacing: -0.03em;
+    letter-spacing: 0.2px;
   }
+  .stat-card.positive .stat-number { color: var(--positive); }
+  .stat-card.warning .stat-number { color: var(--warning); }
+  .stat-card.critical .stat-number { color: var(--critical); }
+  .stat-card.info .stat-number { color: var(--info); }
   .stat-note {
     font-size: 14px;
     color: var(--text-dim);
@@ -395,7 +409,7 @@
   .comp-card.mid { border-color: rgba(184,122,31,0.3); background: var(--warning-soft); }
   .comp-card.low { border-color: var(--border); background: var(--bg-soft); }
   .comp-name {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Zilla Slab', 'Bitter', Georgia, serif;
     font-weight: 700;
     font-size: 18px;
     color: var(--ink);
@@ -430,7 +444,7 @@
     background: var(--bg-soft);
   }
   .qa-q {
-    font-family: 'Inter Tight', sans-serif;
+    font-family: 'Zilla Slab', 'Bitter', Georgia, serif;
     font-weight: 600;
     font-size: 16px;
     color: var(--ink);
@@ -472,7 +486,7 @@
 <!-- ══════════ HERO ══════════ -->
 <section class="hero" style="padding-bottom: 60px; border-bottom: 1px solid var(--border);">
   <span class="hero-badge">Strategická konzultace</span>
-  <h1>Meta Ads a marketingová strategie EduJoy</h1>
+  <h1>Meta Ads a marketingová strategie <span class="accent">EduJoy</span></h1>
   <p class="hero-sub">
     Kompletní přehled pro naši schůzku: kde stojíte vůči trhu, kde ztrácíte hodnotu mezi kanály,
     a co se zeptat svých agentur jako první.
