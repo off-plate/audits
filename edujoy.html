@@ -396,6 +396,48 @@
   td.poor { color: var(--critical); font-weight: 600; }
   td.great { color: var(--positive); font-weight: 700; }
 
+  td.your-position {
+    position: relative;
+    background: var(--brand-blue-soft) !important;
+    box-shadow: inset 0 0 0 2px var(--brand-blue);
+    border-radius: 4px;
+  }
+  td.your-position::after {
+    content: 'VY';
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    background: var(--brand-blue);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 100px;
+    letter-spacing: 0.6px;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 6px rgba(34, 80, 252, 0.3);
+  }
+  tr:hover td.your-position { background: var(--brand-blue-soft) !important; }
+
+  .legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--text-mute);
+    margin: 8px 0 16px;
+    padding: 6px 12px;
+    background: var(--brand-blue-soft);
+    border-radius: 100px;
+  }
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--brand-blue);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
   .tag {
     display: inline-block;
     padding: 3px 10px;
@@ -901,6 +943,7 @@
     </p>
 
     <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Meta Ads v edu sektoru <span class="src-chip"><a href="#zdroje">zdroje 1, 2, 3</a></span></h3>
+    <div class="legend"><span class="legend-dot"></span> Modře zvýrazněné buňky = vaše aktuální pozice podle čísel z úvodní schůzky</div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -939,27 +982,28 @@
             <td class="mono"><span style="color: var(--critical)">> 800 Kč</span></td>
             <td class="mono"><span style="color: var(--warning)">400–800 Kč</span></td>
             <td class="mono"><span style="color: var(--positive)">150–400 Kč</span></td>
-            <td class="mono"><span style="color: var(--positive)">< 150 Kč</span></td>
+            <td class="mono your-position"><span style="color: var(--positive)">< 150 Kč</span></td>
           </tr>
           <tr>
             <td>Lead → Customer (paid social)</td>
             <td class="mono"><span style="color: var(--critical)">< 3 %</span></td>
             <td class="mono"><span style="color: var(--warning)">3–6 %</span></td>
             <td class="mono"><span style="color: var(--positive)">6–12 %</span></td>
-            <td class="mono"><span style="color: var(--positive)">> 12 %</span></td>
+            <td class="mono your-position"><span style="color: var(--positive)">> 12 %</span></td>
           </tr>
           <tr>
             <td>ROAS (edu, long sales cycle)</td>
             <td class="mono"><span style="color: var(--critical)">< 2×</span></td>
             <td class="mono"><span style="color: var(--warning)">2–4×</span></td>
             <td class="mono"><span style="color: var(--positive)">4–8×</span></td>
-            <td class="mono"><span style="color: var(--positive)">> 8×</span></td>
+            <td class="mono your-position"><span style="color: var(--positive)">> 8×</span></td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <h3 style="margin: 40px 0 14px; font-size: 1.15rem;">Email a newsletter v edu sektoru <span class="src-chip"><a href="#zdroje">zdroje 4, 5, 6</a></span></h3>
+    <div class="legend"><span class="legend-dot"></span> Modře zvýrazněné buňky = vaše aktuální pozice. Ostatní metriky doplníme po společném pohledu do email systému.</div>
     <div class="table-wrap">
       <table>
         <thead>
@@ -975,7 +1019,7 @@
           <tr>
             <td>Open rate</td>
             <td class="mono"><span style="color: var(--critical)">< 15 %</span></td>
-            <td class="mono"><span style="color: var(--warning)">15–22 %</span></td>
+            <td class="mono your-position"><span style="color: var(--warning)">15–22 %</span></td>
             <td class="mono"><span style="color: var(--positive)">22–35 %</span></td>
             <td class="mono"><span style="color: var(--positive)">> 35 %</span></td>
           </tr>
