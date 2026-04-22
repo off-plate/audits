@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt · EduJoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      EduJoy
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Domů</a></li>
+      <li><a href="kurzy.html">Kurzy</a></li>
+      <li><a href="zdarma.html" class="has-dot">Zdarma přes ÚP</a></li>
+      <li><a href="lektori.html">Lektoři</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <span class="on">CZ</span><span>EN</span><span>RU</span><span>UA</span>
+      </div>
+      <a href="kontakt.html" class="btn btn-primary">Přihlásit se <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Domů</a>
+      <span class="breadcrumb-sep">/</span>
+      <span>Kontakt</span>
+    </div>
+    <h1>Pojďme <span class="italic">spolu</span> začít.</h1>
+    <p class="lead">
+      Napište, zavolejte, nebo přijďte. Na vaše otázky odpovídáme do jednoho pracovního dne.
+      Konzultace je vždy zdarma a nezávazná.
+    </p>
+  </div>
+</section>
+
+<section class="block" style="padding-top: 40px;">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div>
+        <div class="contact-info-card">
+          <h4>E-mail</h4>
+          <a href="mailto:kurzy@edujoy.cz">kurzy@edujoy.cz</a>
+          <p class="small">Odpovídáme do 1 pracovního dne</p>
+        </div>
+
+        <div class="contact-info-card">
+          <h4>Telefon</h4>
+          <a href="tel:+420604181400">+420 604 181 400</a>
+          <p class="small">Po–Pá 9:00–17:00</p>
+        </div>
+
+        <div class="contact-info-card">
+          <h4>Adresa</h4>
+          <p>Spálená 76/14<br>110 00 Praha 1</p>
+          <p class="small">Metro B · Národní třída (3 minuty pěšky)</p>
+        </div>
+
+        <div class="contact-info-card">
+          <h4>Fakturační údaje</h4>
+          <p style="font-size: 16px; line-height: 1.5;">EduJoy s.r.o.<br>IČO: 17287979</p>
+          <p class="small">DIČ bude doplněno po registraci</p>
+        </div>
+
+        <div style="background: var(--bg-warm); border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin-top: 20px;">
+          <h4 style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin-bottom: 8px;">📍 Osobní návštěva</h4>
+          <p style="color: var(--ink-dim); font-size: 14px;">Zastavte se u nás v kanceláři na Spálené. Bez objednání vás rádi přivítáme od pondělí do pátku mezi 10:00 a 16:00.</p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div style="margin-bottom: 24px;">
+          <h2 style="font-size: 28px; margin-bottom: 6px;">Napište nám</h2>
+          <p style="color: var(--ink-dim); font-size: 15px;">Všechna pole jsou povinná kromě označených.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Ukázkový formulář. Na reálném webu by se zpráva odeslala.');">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="first">Jméno</label>
+              <input type="text" id="first" placeholder="Jan" required>
+            </div>
+            <div class="form-field">
+              <label for="last">Příjmení</label>
+              <input type="text" id="last" placeholder="Novák" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="jan@novak.cz" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Telefon <span style="color: var(--ink-mute); font-weight: 400;">(volitelné)</span></label>
+              <input type="tel" id="phone" placeholder="+420 ...">
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="topic">O čem chcete mluvit?</label>
+            <select id="topic" required>
+              <option value="">Vyberte téma</option>
+              <option>Chci si vybrat kurz</option>
+              <option>Zajímá mě kurz zdarma přes ÚP</option>
+              <option>Příprava na jazykovou zkoušku</option>
+              <option>Individuální lekce</option>
+              <option>Kurz pro dítě</option>
+              <option>Firemní kurz</option>
+              <option>Něco jiného</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="level">Vaše aktuální úroveň češtiny</label>
+            <select id="level">
+              <option>Úplný začátečník</option>
+              <option>A1 · základy</option>
+              <option>A2 · mírně pokročilý</option>
+              <option>B1 · středně pokročilý</option>
+              <option>B2 a výše</option>
+              <option>Nevím</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="msg">Zpráva</label>
+            <textarea id="msg" placeholder="Řekněte nám víc o tom, co hledáte nebo jaká je vaše situace."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px;">
+            <button type="submit" class="btn btn-yellow">Odeslat zprávu <span class="btn-arrow">→</span></button>
+            <span style="font-size: 13px; color: var(--ink-mute);">Odpovíme do 1 pracovního dne.</span>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        EduJoy
+      </div>
+      <p class="footer-tagline">Jazyková škola pro ty, kdo chtějí mluvit česky sebejistě. Akreditováno MŠMT ČR.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="YouTube">yt</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Kurzy</h5>
+      <ul>
+        <li><a href="zdarma.html">Zdarma přes ÚP</a></li>
+        <li><a href="kurzy.html">Online kurzy</a></li>
+        <li><a href="kurzy.html">Prezenčně v Praze</a></li>
+        <li><a href="kurzy.html">Pro děti</a></li>
+        <li><a href="kurzy.html">Individuální lekce</a></li>
+        <li><a href="kurzy.html">Firemní kurzy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Škola</h5>
+      <ul>
+        <li><a href="lektori.html">Naši lektoři</a></li>
+        <li><a href="#">Akreditace MŠMT</a></li>
+        <li><a href="#">Úspěchy studentů</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Kontakt</h5>
+      <ul>
+        <li><a href="mailto:kurzy@edujoy.cz">kurzy@edujoy.cz</a></li>
+        <li><a href="tel:+420604181400">+420 604 181 400</a></li>
+        <li>Praha 1, Spálená 76/14</li>
+        <li>Po–Pá 9:00–17:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 EduJoy s.r.o. · IČO: 17287979 · Akreditace MŠMT č. 29456/2022-4</div>
+    <div>
+      <a href="#" style="margin-right: 16px;">Ochrana osobních údajů</a>
+      <a href="#" style="margin-right: 16px;">Cookies</a>
+      <a href="#">Storno podmínky</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.lang-switch span').forEach(l => {
+    l.addEventListener('click', () => {
+      document.querySelectorAll('.lang-switch span').forEach(x => x.classList.remove('on'));
+      l.classList.add('on');
+    });
+  });
+</script>
+
+</body>
+</html>
