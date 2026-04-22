@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konzultace Meta Ads a marketingová strategie — EduJoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-soft: #FAF7F2;
+    --bg-card: #F3EFE8;
+    --bg-elevated: #FFFFFF;
+    --border: #E5DFD4;
+    --border-strong: #C9C0AF;
+    --text: #111111;
+    --text-dim: #4A4A4A;
+    --text-mute: #8A8275;
+    --accent: #E84E1B;
+    --accent-soft: #FDE8DD;
+    --positive: #1F7A4A;
+    --positive-soft: #E3F2E9;
+    --warning: #B87A1F;
+    --warning-soft: #FBEFD9;
+    --critical: #B53B2B;
+    --critical-soft: #FAE2DD;
+    --info: #1E5F94;
+    --info-soft: #E3EEF7;
+    --ink: #1A1A1A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.01em; }
+
+  /* ───────── HERO ───────── */
+  .hero {
+    background: linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    max-width: 880px;
+    margin: 0 auto 20px;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--text-dim);
+    max-width: 680px;
+    margin: 0 auto 36px;
+    line-height: 1.55;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    font-size: 13px;
+    color: var(--text-mute);
+    letter-spacing: 0.3px;
+  }
+  .hero-meta span::before {
+    content: '•';
+    margin-right: 10px;
+    color: var(--border-strong);
+  }
+
+  /* ───────── NAV ───────── */
+  .toc {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .toc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc a {
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .toc a:hover { background: var(--bg-card); color: var(--ink); }
+
+  /* ───────── LAYOUT ───────── */
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .container-wide {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  section h2 {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 16px;
+  }
+
+  .section-lede {
+    font-size: 17px;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  strong { color: var(--ink); font-weight: 700; }
+
+  /* ───────── STAT GRID ───────── */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .stat-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .stat-card.positive { background: var(--positive-soft); border-color: rgba(31,122,74,0.25); }
+  .stat-card.warning { background: var(--warning-soft); border-color: rgba(184,122,31,0.25); }
+  .stat-card.critical { background: var(--critical-soft); border-color: rgba(181,59,43,0.25); }
+  .stat-card.info { background: var(--info-soft); border-color: rgba(30,95,148,0.25); }
+
+  .stat-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin-bottom: 12px;
+  }
+  .stat-number {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.03em;
+  }
+  .stat-note {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* ───────── CALLOUT ───────── */
+  .callout {
+    background: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 22px 28px;
+    margin: 28px 0;
+  }
+  .callout.positive { border-left-color: var(--positive); background: var(--positive-soft); }
+  .callout.warning { border-left-color: var(--warning); background: var(--warning-soft); }
+  .callout.critical { border-left-color: var(--critical); background: var(--critical-soft); }
+  .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+
+  .callout-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .callout.positive .callout-label { color: var(--positive); }
+  .callout.warning .callout-label { color: var(--warning); }
+  .callout.critical .callout-label { color: var(--critical); }
+  .callout.info .callout-label { color: var(--info); }
+
+  .callout p { font-size: 15.5px; color: var(--text); }
+  .callout strong { color: var(--ink); }
+
+  /* ───────── TABLE ───────── */
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin: 32px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+
+  th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 14px 18px;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-soft); }
+
+  td.good { color: var(--positive); font-weight: 600; }
+  td.avg { color: var(--warning); font-weight: 600; }
+  td.poor { color: var(--critical); font-weight: 600; }
+  td.great { color: var(--positive); font-weight: 700; }
+
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .tag-positive { background: var(--positive-soft); color: var(--positive); }
+  .tag-warning { background: var(--warning-soft); color: var(--warning); }
+  .tag-critical { background: var(--critical-soft); color: var(--critical); }
+  .tag-info { background: var(--info-soft); color: var(--info); }
+  .tag-neutral { background: var(--bg-card); color: var(--text-dim); }
+
+  /* ───────── LIST ───────── */
+  ul.clean, ol.clean {
+    list-style: none;
+    margin: 20px 0;
+  }
+  ul.clean li, ol.clean li {
+    padding: 10px 0 10px 28px;
+    position: relative;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  ul.clean li::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 20px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  ol.clean {
+    counter-reset: li;
+  }
+  ol.clean li::before {
+    counter-increment: li;
+    content: counter(li) '.';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* ───────── CHECKLIST ───────── */
+  .checklist {
+    margin: 28px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .check-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: var(--bg-soft); }
+  .check-box {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 5px;
+    margin-top: 2px;
+  }
+  .check-content h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+  .check-content p {
+    font-size: 13.5px;
+    color: var(--text-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ───────── COMP GRID ───────── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .comp-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    background: var(--bg);
+  }
+  .comp-card.high { border-color: rgba(181,59,43,0.4); background: var(--critical-soft); }
+  .comp-card.mid { border-color: rgba(184,122,31,0.3); background: var(--warning-soft); }
+  .comp-card.low { border-color: var(--border); background: var(--bg-soft); }
+  .comp-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .comp-seg {
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .comp-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .comp-threat {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  /* ───────── Q&A ───────── */
+  .qa-list { margin: 28px 0; }
+  .qa-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: var(--bg-soft);
+  }
+  .qa-q {
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .qa-why {
+    font-size: 13.5px;
+    color: var(--text-mute);
+    font-style: italic;
+  }
+
+  /* ───────── FOOTER ───────── */
+  footer {
+    padding: 50px 24px;
+    text-align: center;
+    color: var(--text-mute);
+    font-size: 13px;
+    background: var(--bg-soft);
+  }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  /* ───────── PRINT ───────── */
+  @media print {
+    .toc { display: none; }
+    section { page-break-inside: avoid; padding: 30px 0; }
+    body { font-size: 12px; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 40px; }
+    section { padding: 48px 0; }
+    .stat-number { font-size: 1.9rem; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" style="padding-bottom: 60px; border-bottom: 1px solid var(--border);">
+  <span class="hero-badge">Strategická konzultace</span>
+  <h1>Meta Ads a marketingová strategie EduJoy</h1>
+  <p class="hero-sub">
+    Kompletní přehled pro naši schůzku: kde stojíte vůči trhu, kde ztrácíte hodnotu mezi kanály,
+    a co se zeptat svých agentur jako první.
+  </p>
+  <div class="hero-meta">
+    <span>Klient: EduJoy s.r.o.</span>
+    <span>Příprava: Michael (Off-Plate)</span>
+    <span>Datum: 23. 4. 2026</span>
+  </div>
+</section>
+
+<!-- ══════════ TOC ══════════ -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#shrnuti">Shrnutí</a>
+    <a href="#realita">Realita vs. vnímání</a>
+    <a href="#benchmarky">Benchmarky</a>
+    <a href="#vase-cisla">Vaše čísla vs. trh</a>
+    <a href="#silo">Problém: silo Meta/Google</a>
+    <a href="#newsletter">Problém: newsletter</a>
+    <a href="#formulare">Problém: FB formuláře</a>
+    <a href="#konkurence">Konkurence</a>
+    <a href="#live-audit">Live audit</a>
+    <a href="#doporuceni">Doporučení</a>
+    <a href="#otazky">Otázky</a>
+  </div>
+</nav>
+
+<!-- ══════════ SHRNUTÍ ══════════ -->
+<section id="shrnuti">
+  <div class="container">
+    <div class="section-label">Executive summary</div>
+    <h2>Tři věci, které potřebujete vědět před tím, než budeme řešit cokoli jiného</h2>
+    <p class="section-lede">
+      Na úvodní schůzce jste popsali svoji výkonnost jako průměrnou nebo podprůměrnou.
+      To je zásadně nepřesné čtení. Tady je, kde reálně stojíte a kde máte prostor.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card positive">
+        <div class="stat-label">Zjištění 1</div>
+        <div class="stat-number">Top 10 %</div>
+        <div class="stat-note">
+          Vaše konverze z leadu na platícího studenta (16,7 %) je v edu sektoru
+          <strong>vynikající</strong>. Průměr v placeném socialu je 5,1 %.
+        </div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Zjištění 2</div>
+        <div class="stat-number">Dvě sila</div>
+        <div class="stat-note">
+          Meta a Google dělají dvě různé firmy bez společné strategie. Platíte
+          za každého uživatele <strong>dvakrát</strong> a neumíte to změřit.
+        </div>
+      </div>
+      <div class="stat-card info">
+        <div class="stat-label">Zjištění 3</div>
+        <div class="stat-number">3× ROI</div>
+        <div class="stat-note">
+          Newsletter, který odsouváte na "poslední možnost", má v edu sektoru
+          <strong>3× vyšší konverzi</strong> než placený social.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Hlavní insight</div>
+      <p>
+        Neumíte interpretovat svá vlastní čísla v kontextu trhu. To vede k tomu, že
+        <strong>podceňujete kanály, které fungují</strong>, a přeceňujete kanály, které
+        vypadají sexy. Než budete škálovat nebo měnit agentury, potřebujete benchmark
+        a jednotnou strategii napříč Meta + Google + email.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ REALITA ══════════ -->
+<section id="realita">
+  <div class="container">
+    <div class="section-label">Reframe</div>
+    <h2>Vaše čísla jsou lepší, než si myslíte</h2>
+    <p class="section-lede">
+      Na úvodní schůzce zaznělo: "open rate 20 % na newsletter je slabý", "z 300 leadů
+      je jen 50 nákupů, to není nic moc". Podívejme se na to, co tyhle čísla v edu
+      sektoru reálně znamenají.
+    </p>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.2rem;">Čísla, která jste uvedli</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metrika</th>
+            <th>Vaše číslo</th>
+            <th>Benchmark (edu)</th>
+            <th>Verdikt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Měsíční spend Meta</td>
+            <td class="mono">30 000 Kč</td>
+            <td class="mono">—</td>
+            <td><span class="tag tag-neutral">Kontext</span></td>
+          </tr>
+          <tr>
+            <td>Leadů / měsíc</td>
+            <td class="mono">300</td>
+            <td class="mono">—</td>
+            <td><span class="tag tag-neutral">Kontext</span></td>
+          </tr>
+          <tr>
+            <td>Cost per Lead (CPL)</td>
+            <td class="mono good">100 Kč</td>
+            <td class="mono">~400–700 Kč</td>
+            <td><span class="tag tag-positive">Vynikající</span></td>
+          </tr>
+          <tr>
+            <td>Lead → kvalifikovaný (MQL %)</td>
+            <td class="mono good">33 %</td>
+            <td class="mono">20–30 %</td>
+            <td><span class="tag tag-positive">Nad průměrem</span></td>
+          </tr>
+          <tr>
+            <td>Lead → platící zákazník</td>
+            <td class="mono great">16,7 %</td>
+            <td class="mono">2,6 % VŠ · 5,1 % paid social · 6,1 % rekvalifikace</td>
+            <td><span class="tag tag-positive">Top 10 %</span></td>
+          </tr>
+          <tr>
+            <td>Cost per Sale (CPS)</td>
+            <td class="mono great">600 Kč</td>
+            <td class="mono">~2 000–4 000 Kč odhad</td>
+            <td><span class="tag tag-positive">Vynikající</span></td>
+          </tr>
+          <tr>
+            <td>Open rate newsletteru</td>
+            <td class="mono avg">20 %</td>
+            <td class="mono">21–25 % (edu)</td>
+            <td><span class="tag tag-warning">Průměr</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout positive">
+      <div class="callout-label">Co to reálně znamená</div>
+      <p>
+        <strong>Vaše Meta kampaň patří mezi nejlepší v edu sektoru, co jsem viděl.</strong>
+        16,7 % konverze z leadu na platícího zákazníka z cold paid socialu je čísla, která
+        většina e-learning firem vidí pouze z retargetingu nebo warm audience. Otázka
+        proto není "proč máme jen 50 nákupů", ale <em>"proč s tak dobrými poměry
+        neškálujeme agresivněji?"</em>
+      </p>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-label">Ale pozor</div>
+      <p>
+        Tyhle poměry musíme <strong>ověřit živě v Meta Ads Manageru</strong>. Možnosti, proč
+        jsou tak dobré: (a) vaše kvalifikace leadů v agentuře je přísná, (b) jste zahrnuli
+        i retargeting, (c) počítáte i leady z emailu/webu, ne jen Meta. Z čistého cold
+        Meta by 16,7 % bylo extrémně neobvyklé. Na schůzce to rozdělíme podle zdroje.
+      </p>
+    </div>
+
+    <h3 style="margin: 40px 0 14px; font-size: 1.2rem;">CAC a ROAS podle ceny kurzu</h3>
+    <p>
+      Při 30 000 Kč spendu a 50 prodejích = <strong>600 Kč CAC</strong>. Podle průměrné ceny
+      kurzu vypadá ROAS takhle:
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Průměrná cena kurzu</th>
+            <th>Revenue z 50 prodejů</th>
+            <th>ROAS (z 30K spendu)</th>
+            <th>Verdikt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="mono">5 000 Kč</td>
+            <td class="mono">250 000 Kč</td>
+            <td class="mono good">8,3×</td>
+            <td><span class="tag tag-positive">Zdravé</span></td>
+          </tr>
+          <tr>
+            <td class="mono">10 000 Kč</td>
+            <td class="mono">500 000 Kč</td>
+            <td class="mono good">16,7×</td>
+            <td><span class="tag tag-positive">Skvělé</span></td>
+          </tr>
+          <tr>
+            <td class="mono">15 000 Kč</td>
+            <td class="mono">750 000 Kč</td>
+            <td class="mono great">25×</td>
+            <td><span class="tag tag-positive">Výjimečné</span></td>
+          </tr>
+          <tr>
+            <td class="mono">20 000 Kč+</td>
+            <td class="mono">1 000 000 Kč+</td>
+            <td class="mono great">33×+</td>
+            <td><span class="tag tag-positive">Extrémní</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size: 14px; color: var(--text-mute); margin-top: 12px;">
+      Pozn.: U ÚP-hrazených kurzů (rekvalifikace) je "cena" částka, kterou dostanete od
+      Úřadu práce za jednoho dokončeného studenta. Tu dopočítáme na schůzce.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════ BENCHMARKY ══════════ -->
+<section id="benchmarky" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-label">Reference</div>
+    <h2>Co je v edu sektoru slabé, průměrné, dobré a skvělé</h2>
+    <p class="section-lede">
+      Použijte tohle jako referenci pro každé číslo, které vám agentura prezentuje.
+      Data: WordStream, Mailchimp, Unbounce, Promodo, SuperAds (edu vertical, 2025–2026).
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Meta Ads — edu sektor</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metrika</th>
+            <th class="poor">Slabé</th>
+            <th class="avg">Průměr</th>
+            <th class="good">Dobré</th>
+            <th class="great">Skvělé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CTR (Click-Through Rate)</td>
+            <td class="mono"><span style="color: var(--critical)">< 1,0 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">1,0–1,8 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">1,8–2,5 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 2,5 %</span></td>
+          </tr>
+          <tr>
+            <td>CVR (Lead Form Conversion)</td>
+            <td class="mono"><span style="color: var(--critical)">< 4 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">4–8 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">8–13 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 13 %</span></td>
+          </tr>
+          <tr>
+            <td>CPM (ČR, edu)</td>
+            <td class="mono"><span style="color: var(--critical)">> 250 Kč</span></td>
+            <td class="mono"><span style="color: var(--warning)">150–250 Kč</span></td>
+            <td class="mono"><span style="color: var(--positive)">80–150 Kč</span></td>
+            <td class="mono"><span style="color: var(--positive)">< 80 Kč</span></td>
+          </tr>
+          <tr>
+            <td>CPL (ČR, edu)</td>
+            <td class="mono"><span style="color: var(--critical)">> 800 Kč</span></td>
+            <td class="mono"><span style="color: var(--warning)">400–800 Kč</span></td>
+            <td class="mono"><span style="color: var(--positive)">150–400 Kč</span></td>
+            <td class="mono"><span style="color: var(--positive)">< 150 Kč</span></td>
+          </tr>
+          <tr>
+            <td>Lead → Customer (paid social)</td>
+            <td class="mono"><span style="color: var(--critical)">< 3 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">3–6 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">6–12 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 12 %</span></td>
+          </tr>
+          <tr>
+            <td>ROAS (edu, long sales cycle)</td>
+            <td class="mono"><span style="color: var(--critical)">< 2×</span></td>
+            <td class="mono"><span style="color: var(--warning)">2–4×</span></td>
+            <td class="mono"><span style="color: var(--positive)">4–8×</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 8×</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin: 40px 0 14px; font-size: 1.15rem;">Email / Newsletter — edu sektor</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metrika</th>
+            <th class="poor">Slabé</th>
+            <th class="avg">Průměr</th>
+            <th class="good">Dobré</th>
+            <th class="great">Skvělé</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Open rate</td>
+            <td class="mono"><span style="color: var(--critical)">< 15 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">15–22 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">22–35 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 35 %</span></td>
+          </tr>
+          <tr>
+            <td>CTR</td>
+            <td class="mono"><span style="color: var(--critical)">< 1,5 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">1,5–3 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">3–5 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 5 %</span></td>
+          </tr>
+          <tr>
+            <td>Click-to-open rate (CTOR)</td>
+            <td class="mono"><span style="color: var(--critical)">< 5 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">5–10 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">10–18 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 18 %</span></td>
+          </tr>
+          <tr>
+            <td>Unsubscribe rate</td>
+            <td class="mono"><span style="color: var(--critical)">> 0,5 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">0,2–0,5 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">0,1–0,2 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">< 0,1 %</span></td>
+          </tr>
+          <tr>
+            <td>Email → konverze (edu)</td>
+            <td class="mono"><span style="color: var(--critical)">< 3 %</span></td>
+            <td class="mono"><span style="color: var(--warning)">3–8 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">8–14 %</span></td>
+            <td class="mono"><span style="color: var(--positive)">> 14 %</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Klíčový údaj</div>
+      <p>
+        V edu sektoru konvertuje email <strong>v průměru 14,1 %</strong> do prodeje.
+        Placený social 5,1 %. Placený search 7,3 %. To znamená: každá koruna v emailu
+        se vrací <strong>2,8× víc</strong> než v Meta Ads. A email má <em>nulové CPM</em>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ VAŠE ČÍSLA ══════════ -->
+<section id="vase-cisla">
+  <div class="container">
+    <div class="section-label">Realita</div>
+    <h2>Kde přesně jste na mapě trhu</h2>
+    <p class="section-lede">
+      Visual srovnání toho, co jste uvedli, s edu benchmarky. Pozn.: čísla ověříme
+      živě v Ads Manageru, tohle je první hrubá kalibrace.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card positive">
+        <div class="stat-label">CPL</div>
+        <div class="stat-number">100 Kč</div>
+        <div class="stat-note">
+          Trh: 400–800 Kč průměr. Jste <strong>4–8× pod průměrem</strong>. (Ověřit: je
+          to "raw lead" nebo už po kvalifikaci?)
+        </div>
+      </div>
+      <div class="stat-card positive">
+        <div class="stat-label">Lead → platící</div>
+        <div class="stat-number">16,7 %</div>
+        <div class="stat-note">
+          Trh: 5,1 % paid social. Jste <strong>3,3× nad průměrem</strong>.
+        </div>
+      </div>
+      <div class="stat-card positive">
+        <div class="stat-label">CPS</div>
+        <div class="stat-number">600 Kč</div>
+        <div class="stat-note">
+          Trh: 2 000–4 000 Kč odhad ČR. Jste <strong>3–7× efektivnější</strong>.
+        </div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Open rate</div>
+        <div class="stat-number">20 %</div>
+        <div class="stat-note">
+          Trh: 21–25 %. Jste <strong>mírně pod průměrem</strong> — ne "slabý výsledek".
+        </div>
+      </div>
+    </div>
+
+    <div class="callout positive">
+      <div class="callout-label">Na schůzce řešíme tohle</div>
+      <p>
+        Pokud se čísla v Ads Manageru potvrdí, máte <strong>důvod navýšit spend, ne ho
+        optimalizovat</strong>. Při 16,7 % konverzi a 600 Kč CPS by 60K Kč/měsíc mělo
+        dát 100 nákupů (pokud audience pool vydrží). Otázka je: jaký je váš
+        marginal return?
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SILO ══════════ -->
+<section id="silo">
+  <div class="container">
+    <div class="section-label">Strategický problém #1</div>
+    <h2>Meta a Google jako dvě oddělené firmy vás stojí peníze</h2>
+    <p class="section-lede">
+      Máte dvě agentury. Každá dělá svůj kanál. Žádná z nich neví, co dělá ta druhá,
+      a vy platíte za stejného uživatele dvakrát. To není detail — to je strukturální
+      problém.
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Jak mají kanály fungovat společně</h3>
+
+    <div class="stat-grid">
+      <div class="stat-card info">
+        <div class="stat-label">TOFU · Awareness</div>
+        <div class="stat-number" style="font-size: 1.5rem; line-height: 1.2;">Meta</div>
+        <div class="stat-note">
+          "Lovec". Vytváří poptávku u lidí, kteří ještě neví, že vás potřebují.
+          20–30 % rozpočtu.
+        </div>
+      </div>
+      <div class="stat-card info">
+        <div class="stat-label">MOFU · Consideration</div>
+        <div class="stat-number" style="font-size: 1.5rem; line-height: 1.2;">Meta + Google</div>
+        <div class="stat-note">
+          Retargeting + brand search. Edukuje a validuje. 20–30 % rozpočtu.
+        </div>
+      </div>
+      <div class="stat-card info">
+        <div class="stat-label">BOFU · Conversion</div>
+        <div class="stat-number" style="font-size: 1.5rem; line-height: 1.2;">Google</div>
+        <div class="stat-note">
+          "Sběrač". Zachytává intent — lidi, kteří už hledají "kurz češtiny praha".
+          40–50 % rozpočtu.
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Co se stane, když agentury nekomunikují</h3>
+
+    <ul class="clean">
+      <li>
+        <strong>Platíte dvakrát za stejnou osobu.</strong> Meta ji zasáhne, ona
+        přejde na web a odejde. Google ji pak znovu vyhledá přes brand search a
+        Google si přičte konverzi sobě. Obě agentury reportují úspěch. Reálně to
+        byl jeden uživatel, dvojí útrata.
+      </li>
+      <li>
+        <strong>Žádný remarketing napříč kanály.</strong> Uživatel z Meta, který
+        klikl, ale nevyplnil formulář, není retargetován v Google Display.
+        V Gmail Ads taky ne. Jde ztracen.
+      </li>
+      <li>
+        <strong>Žádná sdílená atribuce.</strong> Meta si přičte poslední klik
+        před leadem, Google první klik před prodejem. Vy nevíte, která část
+        cesty byla kde. Rozhodnutí o rozpočtu děláte vslepo.
+      </li>
+      <li>
+        <strong>Žádné sjednocené publikum.</strong> Custom audiences v Meta
+        (lookalike z nejlepších zákazníků) se neodrazí v Google Customer Match.
+        Oba systémy se učí samostatně, pomaleji.
+      </li>
+      <li>
+        <strong>Žádný unifikovaný kreativní příběh.</strong> Meta komunikuje
+        jednu emoci, Google searchové ads jinou. Uživatel vidí dva různé brandy.
+      </li>
+    </ul>
+
+    <div class="callout critical">
+      <div class="callout-label">Strukturální problém</div>
+      <p>
+        Dvě agentury bez strategického překryvu znamenají, že <strong>nikdo nevlastní
+        funnel jako celek</strong>. Každá agentura optimalizuje své vlastní KPI. Vy
+        jako klient nemáte jednoho parťáka, který řekne: "tohle dělá Meta špatně,
+        Google to musí dotáhnout." Buď tu roli vezme někdo externí (poradce /
+        strategický lead), nebo ji musíte vzít vy sami — a k tomu potřebujete
+        jazyk a nástroje, které dnes nemáte.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ NEWSLETTER ══════════ -->
+<section id="newsletter" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-label">Strategický problém #2</div>
+    <h2>Newsletter není "poslední možnost". Je to váš nejziskovější kanál.</h2>
+    <p class="section-lede">
+      Řekli jste: "newsletter bereme jako poslední možnost, výkonnost není super."
+      Tohle je nepochopení role kanálu. Email není akviziční kanál — je nurture + retention.
+      A v edu sektoru má nejvyšší ROI ze všech kanálů.
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Jak moc je to podceněné</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th>Konverze v edu</th>
+            <th>Cost per acquisition</th>
+            <th>Role ve funnelu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Email / newsletter</strong></td>
+            <td class="mono great">14,1 %</td>
+            <td class="mono good">~0 Kč per send</td>
+            <td>Nurture, re-engagement, upsell</td>
+          </tr>
+          <tr>
+            <td>Paid search (Google)</td>
+            <td class="mono good">7,3 %</td>
+            <td class="mono">Střední (CPC model)</td>
+            <td>BOFU — zachytává intent</td>
+          </tr>
+          <tr>
+            <td>Paid social (Meta)</td>
+            <td class="mono avg">5,1 %</td>
+            <td class="mono">Střední (CPM model)</td>
+            <td>TOFU — vytváří poptávku</td>
+          </tr>
+          <tr>
+            <td>Organický web/SEO</td>
+            <td class="mono avg">3–5 %</td>
+            <td class="mono">Dlouhodobá investice</td>
+            <td>TOFU + BOFU</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout positive">
+      <div class="callout-label">20 % open rate = nejde o výkon, jde o využití</div>
+      <p>
+        Váš open rate 20 % je <strong>průměrný pro edu</strong>. Ne slabý. Problém není,
+        že email nefunguje — problém je, že ho <strong>posíláte málo a na špatnou věc</strong>.
+        Email v edu má 14 % konverzi. Z 300 leadů měsíčně máte 3 600 leadů ročně
+        jen v Meta. Tyhle lidi by měli dostávat minimálně 1 email týdně během
+        consideration fáze. Děláte to?
+      </p>
+    </div>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Co s tím: minimální email funnel</h3>
+
+    <ol class="clean">
+      <li>
+        <strong>Welcome sekvence (5–7 emailů)</strong> — jakmile někdo vyplní FB formulář,
+        spustí se automat. Obsah: kdo jste, proč EduJoy, success stories, návod,
+        jak získat ÚP-hrazený kurz.
+      </li>
+      <li>
+        <strong>Nurture broadcast (1× týdně)</strong> — užitečný obsah k učení češtiny,
+        případové studie, tipy, změny v zákoně (A2 exam changes apod.). Už na blogu
+        máte obsah, který jde recyklovat.
+      </li>
+      <li>
+        <strong>Abandoned application sequence</strong> — kdokoli začal formulář a
+        nedokončil, dostane 3 připomínky (24h, 3d, 7d).
+      </li>
+      <li>
+        <strong>Post-course upsell</strong> — po ukončení A2 kurzu automatický email
+        s nabídkou B1/B2.
+      </li>
+      <li>
+        <strong>Re-engagement</strong> — lidi, co 90 dní neotevřeli, dostanou "je tohle
+        ještě relevantní?" — vyřazení z DB zlepšuje deliverability všem ostatním.
+      </li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-label">Datový kontext</div>
+      <p>
+        Bez emailu pracujete pouze s aktuálním pool leadů. Každý lead, který
+        nekoupil hned, je <strong>propadlá hodnota</strong> — a v edu sektoru cyklus
+        rozhodování často trvá týdny. Retargeting v Meta stojí peníze. Email stojí 0.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FORMULÁŘE ══════════ -->
+<section id="formulare">
+  <div class="container">
+    <div class="section-label">Strategický problém #3</div>
+    <h2>Facebook Lead Forms — obraz reality je jemnější, než "formuláře jsou špatné"</h2>
+    <p class="section-lede">
+      Zaznělo: "používáme Facebook Lead Forms, což je známé tím, že má horší kvalitu
+      kvůli překliknutí." To je pravda <em>částečně</em>. Na vašich číslech ale vidíme,
+      že kvalita leadů je ve skutečnosti vysoká. Pojďme rozebrat, proč.
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Kdy Lead Forms vs. Landing Page vyhrávají</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kritérium</th>
+            <th>Lead Forms vyhrávají</th>
+            <th>Landing Page vyhrává</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cílem je objem leadů</td>
+            <td class="good">✓ Nižší CPL, rychlejší signál</td>
+            <td>Vyšší CPL o 30–50 %</td>
+          </tr>
+          <tr>
+            <td>Cílem je kvalita leadů</td>
+            <td>Střední — závisí na kvalifikačních otázkách</td>
+            <td class="good">✓ Landing page filtruje neseriózní</td>
+          </tr>
+          <tr>
+            <td>Nabídka potřebuje vysvětlení</td>
+            <td>Nedostatečný prostor</td>
+            <td class="good">✓ LP dokáže vzdělávat</td>
+          </tr>
+          <tr>
+            <td>Rychlost follow-upu je nízká</td>
+            <td class="poor">✗ Lead vychladne</td>
+            <td class="good">✓ LP signalizuje vyšší intent</td>
+          </tr>
+          <tr>
+            <td>Rychlost follow-upu < 5 min</td>
+            <td class="good">✓ Connect rate 9× vyšší</td>
+            <td>Stejné</td>
+          </tr>
+          <tr>
+            <td>Mobile-first publikum</td>
+            <td class="good">✓ 80 % edu audience je mobile</td>
+            <td>LP často horší UX na mobilu</td>
+          </tr>
+          <tr>
+            <td>Full-funnel attribution</td>
+            <td>Omezené (FB pixel)</td>
+            <td class="good">✓ GA4 + CAPI + CRM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Co dělá Lead Forms dobré vs. špatné</div>
+      <p>
+        Kvalita leadů z Lead Forms není daná tím, kde formulář žije — je daná:
+      </p>
+      <ul class="clean" style="margin: 12px 0 4px;">
+        <li><strong>Kvalifikační otázky v samotném formuláři.</strong> (min. 3–5, ne standard "Jméno + telefon")</li>
+        <li><strong>Rychlost follow-upu.</strong> Do 5 minut = 9× vyšší connect rate než po hodině.</li>
+        <li><strong>Pre-qualifying kreativa.</strong> Ads, které odfiltrují spam už před kliknutím.</li>
+        <li><strong>Nastavení "higher intent" v Meta.</strong> Lze volit mezi "more volume" a "higher intent" módy formuláře.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Doporučená strategie — hybridní přístup</h3>
+
+    <ol class="clean">
+      <li>
+        <strong>Lead Forms pro cold traffic</strong> (TOFU). Low friction, vysoký objem.
+        Lze využít fakt, že Meta už má user data.
+      </li>
+      <li>
+        <strong>Landing pages pro retargeting + high-intent publika.</strong> Tam, kde
+        víte, že lead je již teplý, se vyplatí další edukace a kvalifikace přes LP.
+      </li>
+      <li>
+        <strong>A/B test obou variant paralelně</strong> na stejné audience.
+        Rozhoduje ne dojem, ale kompletní metrika: CPL × konverze × LTV.
+      </li>
+      <li>
+        <strong>Přidejte qualifying questions do stávajících Lead Forms</strong> — úroveň
+        jazyka (A0–B2), důvod kurzu (práce, pobyt, VŠ), ÚP statut. Tyhle otázky
+        zvýší CPL o ~30 %, ale kvalitu o 2–3× a připraví data pro personalizaci emailů.
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ KONKURENCE ══════════ -->
+<section id="konkurence" style="background: var(--bg-soft);">
+  <div class="container-wide">
+    <div class="section-label">Competitive landscape</div>
+    <h2>Kdo je vaše skutečná konkurence (a kdo není)</h2>
+    <p class="section-lede">
+      Prošel jsem všech 17 konkurentů z vašeho seznamu. Závěr: většina z nich s vámi
+      reálně nesoutěží o stejné zákazníky. Jeden ano — a agresivně.
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.2rem;">Vaše unikátní pozice na trhu</h3>
+    <p>
+      EduJoy kombinuje <strong>tři věci</strong>, které většina konkurentů samostatně nedělá:
+    </p>
+    <ol class="clean">
+      <li>Kurzy češtiny <strong>pro cizince</strong> (ne obecné jazykovky EN/DE/FR)</li>
+      <li><strong>ÚP-hrazené rekvalifikace</strong> (zdarma pro studenta, platí stát)</li>
+      <li>Placené <strong>individuální + firemní + kurzy pro děti</strong></li>
+    </ol>
+    <p style="margin-top: 14px;">
+      Tahle kombinace znamená, že z 17 jmenovaných konkurentů je jen <strong>jeden
+      přímý</strong>: ICJ.cz.
+    </p>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.2rem;">Rozdělení konkurence dle hrozby</h3>
+
+    <div class="comp-grid">
+      <div class="comp-card high">
+        <div class="comp-name">ICJ.cz — Institut pro cizí jazyky</div>
+        <div class="comp-seg">Přímý konkurent · Kombinovaný model · 16+ let na trhu</div>
+        <div class="comp-desc">
+          Kurzy češtiny pro cizince (A0–B2), rekvalifikační centrum, dotované
+          integrační kurzy (stejný model jako vaše ÚP kurzy), 400+ lektorů.
+          Explicitně se prezentují na "bezplatné integrační kurzy A0–B1 financované
+          z veřejných zdrojů" — doslova vaše core nabídka.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-critical">VYSOKÁ</span>
+          Ovládají SEO pro "čeština pro cizince" termíny, mají community funnel
+          (Ukrainian women init), větší operační škála.
+        </div>
+      </div>
+
+      <div class="comp-card mid">
+        <div class="comp-name">Rekvalifikacepraha.cz</div>
+        <div class="comp-seg">Rekvalifikace (účto, HR, marketing) · ÚP-financované</div>
+        <div class="comp-desc">
+          Stejný ÚP-financovaný funnel, ale jiné obory. Nekonkurují vám obsahem,
+          ale <strong>publikem</strong> — cílí na stejnou personu (nezaměstnaný, hledá
+          rekvalifikaci). "Jsem v kurzu" program = 100% dotace.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-warning">STŘEDNÍ</span>
+          Sdílené publikum, odlišná nabídka. V Meta Ads si ubírají stejný audience pool.
+        </div>
+      </div>
+
+      <div class="comp-card mid">
+        <div class="comp-name">Spěváček</div>
+        <div class="comp-seg">Jazyková škola + TEFL + pomaturitní · 30+ let na trhu</div>
+        <div class="comp-desc">
+          Velká zavedená značka, brand recognition vysoký. Nemají ÚP-kurzy, ale
+          mohou mít dotační programy. Konkurují v placeném segmentu firemních
+          a individuálních kurzů.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-warning">STŘEDNÍ</span>
+          Silná značka konkuruje v placeném firemním segmentu.
+        </div>
+      </div>
+
+      <div class="comp-card low">
+        <div class="comp-name">Service Center for Business</div>
+        <div class="comp-seg">Čistě rekvalifikace (účto, management) · ÚP-financované</div>
+        <div class="comp-desc">
+          1 500+ studentů, 44 kurzů. Business-only, žádné jazyky. Sdílí ÚP publikum,
+          ale obsahově nekonkurují.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-neutral">NÍZKÁ</span>
+          Publikový přesah, obsahový překryv 0.
+        </div>
+      </div>
+
+      <div class="comp-card low">
+        <div class="comp-name">AV-economics, VV kurzy</div>
+        <div class="comp-seg">Rekvalifikace · Business/účetnictví</div>
+        <div class="comp-desc">
+          Podobné Service Center for Business. Žádné jazykové kurzy. Reálně nekonkurují.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-neutral">NÍZKÁ</span>
+          Okrajový překryv publika.
+        </div>
+      </div>
+
+      <div class="comp-card low">
+        <div class="comp-name">Glossa</div>
+        <div class="comp-seg">Jazyková škola · EN/DE/FR/ES/IT/RU · 30+ let na trhu</div>
+        <div class="comp-desc">
+          Žádná čeština pro cizince, žádné ÚP kurzy. Prémiový segment (max 8 lidí,
+          5 lokací v Praze). Konkurují jen v EN/ES/IT segmentu, který máte také,
+          ale marginálně.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-neutral">NÍZKÁ</span>
+          Jiný segment, jiný zákazník.
+        </div>
+      </div>
+
+      <div class="comp-card low">
+        <div class="comp-name">Berlitz Praha</div>
+        <div class="comp-seg">Mezinárodní prémiová značka · 40+ jazyků</div>
+        <div class="comp-desc">
+          Globální brand, prémiové ceny, firemní školení. Mohou nabízet češtinu
+          pro expaty, ale cenovka je mimo váš segment. Žádné ÚP kurzy.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-neutral">NÍZKÁ</span>
+          Brand halo effect — expati Google Search začínají u Berlitz. Ale neplatí
+          za ÚP funnel.
+        </div>
+      </div>
+
+      <div class="comp-card low">
+        <div class="comp-name">Ostatní jazykovky (Metropol, STUDYLINE, Speak Like Me, Lingua Sandy, Sentia, London Inst., Prague Inst., Jazykovka hl. m. Prahy)</div>
+        <div class="comp-seg">Klasické jazykové školy · EN/DE fokus</div>
+        <div class="comp-desc">
+          Minimální překryv. Nemají combo model, nedělají ÚP kurzy. Jejich publikum
+          jsou většinou Češi učící se angličtinu — opačný směr od vás.
+        </div>
+        <div class="comp-threat">
+          <strong>Úroveň hrozby:</strong> <span class="tag tag-neutral">NÍZKÁ</span>
+          Pro účely strategie můžete ignorovat.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout critical">
+      <div class="callout-label">Strategická implikace</div>
+      <p>
+        <strong>Váš skutečný competitive set je jeden, možná dva hráči</strong> — ICJ a
+        částečně Rekvalifikacepraha. Benchmark se tedy neměří proti "17 konkurentům",
+        ale hlavně proti ICJ. Na schůzce se podívejme v Meta Ads Library přímo na
+        ICJ — jaké kampaně teď běží, jaké kreativy testují, jakou komunikační
+        strategii vedou.
+      </p>
+    </div>
+
+    <h3 style="margin: 40px 0 14px; font-size: 1.2rem;">Co ověříme v Meta Ads Library živě</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>ICJ.cz — aktivní kampaně</h4>
+          <p>Počet aktivních ads, datum startu, kreativní varianty, hook text, CTA, cílové prostředí (form vs LP).</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>ICJ.cz — historická data</h4>
+          <p>Kolik ads spustili za posledních 6 měsíců. Znamená škálování? Pivot? Sezonalita?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Rekvalifikacepraha.cz — pozicování</h4>
+          <p>Jakým jazykem mluví o ÚP financování. Co dělají lépe/jinak.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Spěváček — mezinárodní pre-sale kampaně</h4>
+          <p>Pro firemní segment mohou být agresivní. Co říkají B2B publiku.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Váš vlastní page v Meta Ads Library</h4>
+          <p>Jak vypadají vaše aktivní kampaně zvenčí. Jaké kreativy vidí konkurence vás.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ LIVE AUDIT ══════════ -->
+<section id="live-audit">
+  <div class="container">
+    <div class="section-label">Checklist pro schůzku</div>
+    <h2>Co projdeme společně v Meta Ads Manageru</h2>
+    <p class="section-lede">
+      Tohle je strukturovaný postup pro live audit. Během schůzky otevřete Ads
+      Manager a jdeme společně přes tyhle body. U každého víme, co hledat a co
+      to znamená.
+    </p>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">1. Struktura kampaní</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Jsou kampaně rozdělené podle funnel fáze?</h4>
+          <p>TOFU (cold, awareness) · MOFU (warm, retargeting) · BOFU (high-intent). Pokud všechno běží na jednom "Lead Gen" objective, chybí struktura.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Počet kampaní a ad setů</h4>
+          <p>Příliš mnoho = rozředěné learning. Meta doporučuje 1 kampaň · 2–3 ad sety · 3–5 creative per set.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Objective kampaní</h4>
+          <p>Je kampaň nastavená na "Leads" (optimalizuje na formuláře) nebo "Conversions" (optimalizuje na sale)? V edu s dlouhým cyklem často lepší "Sales" s Conversions API.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">2. Audiences</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Custom audiences setup</h4>
+          <p>Máte audience z návštěvníků webu, engagement, video viewers, lead form openerů ale nekompletních, všech leadů, všech zákazníků?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Lookalike audiences</h4>
+          <p>1 % / 3 % / 5 % LAL z nejlepších zákazníků (ne všech leadů). Jak jsou aktuální?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Exclusion audiences</h4>
+          <p>Vylučujete stávající zákazníky z cold kampaní? Lidi co vyplnili formulář v posledních 30 dnech?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Detailní targeting</h4>
+          <p>Meta Advantage+ nebo manuální? Geo, jazyk (Ukrainian/Russian/English speakers v ČR)? Interests?</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">3. Creative</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Počet aktivních creative</h4>
+          <p>3–5 per ad set je optimum. Méně = learning stagnuje. Více = rozředění.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Stáří kreativ — ad fatigue</h4>
+          <p>Kreativa běžící 60+ dní s klesajícím CTR = fatigue. V edu obvykle 45–60 dní je hrana.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Video vs. statický obsah</h4>
+          <p>Video v edu vertikálech konvertuje 30–50 % lépe. Používáte testimonials, behind-the-scenes, "ukázka hodiny"?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Message testing</h4>
+          <p>Testuje se hook? (Bezplatný ÚP kurz vs. zvýšíte šanci na práci vs. složte zkoušku na první pokus). Každý hook oslovuje jinou personu.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">4. Lead Forms</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Typ formuláře — Higher Intent?</h4>
+          <p>Meta nabízí "More Volume" vs. "Higher Intent" variantu. Pro edu často Higher Intent dává lepší trade-off.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Počet polí / otázek</h4>
+          <p>Sweet spot = 3–5 otázek. Víc = drastický pokles. Méně = spam.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Qualifying questions</h4>
+          <p>Úroveň jazyka, cíl (práce/pobyt/VŠ), ÚP statut, měsíc startu. Tyhle otázky zvýší kvalitu leadu a připraví data pro personalizaci.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Privacy policy + disclaimer</h4>
+          <p>GDPR compliance, jasný přínos pro respondenta (co získá vyplněním).</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Thank you screen + CTA</h4>
+          <p>Directly-to-call? Nebo calendar booking? Dobře nastavený thank-you zdvojnásobí warm leads.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">5. Tracking + Attribution</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Meta Pixel na webu</h4>
+          <p>Je nainstalovaný? Sbírá Standard Events (PageView, ViewContent, Lead, Purchase)?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Conversions API (CAPI)</h4>
+          <p>Post-iOS14 musí běžet server-side tracking. Pokud ne, Meta nevidí 20–40 % konverzí.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>CRM integrace</h4>
+          <p>Jdou leady z Lead Forms do CRM? Automaticky? Jak rychlý je handoff?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Attribution window</h4>
+          <p>Default 7-click 1-view. Pro edu s delším cyklem často 28-click dává přesnější obrázek.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Offline conversions upload</h4>
+          <p>Sdílíte zpátky do Meta, kteří leady reálně koupili? Bez toho se algoritmus neučí.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin: 28px 0 14px; font-size: 1.15rem;">6. Rozpočet a škálování</h3>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Rozložení 30K budget</h4>
+          <p>Po kampani, po audience, po creative. Kde dominuje spend a kde sedí marginal ROI?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Denní vs. lifetime budget</h4>
+          <p>Daily pro testing, Lifetime pro evergreen. Co máte nastavené?</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Frequency</h4>
+          <p>V TOFU > 2,5 = audience fatigue. V retargetingu > 5 = obtěžování.</p>
+        </div>
+      </div>
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-content">
+          <h4>Test: navýšit spend o 20 %</h4>
+          <p>Pokud 16,7 % konverze drží, můžeme zvýšit. Jaký je očekávaný marginal ROI při +20 %? +50 %?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DOPORUČENÍ ══════════ -->
+<section id="doporuceni" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-label">Priority actions</div>
+    <h2>Co dělat po dnešní schůzce</h2>
+    <p class="section-lede">
+      Seřazeno podle dopadu a rychlosti realizace. Tyhle věci byste měli začít řešit
+      v prvních 30 dnech.
+    </p>
+
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Urgent (do 7 dnů)</h3>
+    <ol class="clean">
+      <li>
+        <strong>Ověřit skutečná čísla</strong> — live audit v Meta Ads Manageru + zkontrolovat,
+        odkud 300 leadů a 50 prodejů reálně jde. Pokud jsou jen z Meta, potvrzuje to
+        excelentní výkon. Pokud jsou zkombinované, přepočítáme.
+      </li>
+      <li>
+        <strong>Přidat Conversions API</strong> pokud neběží. Je to největší jednorázový fix
+        — post-iOS14 bez CAPI ztrácíte 20–40 % signálu.
+      </li>
+      <li>
+        <strong>Offline conversions upload</strong> — minimálně týdně nahrávat reálné
+        prodeje zpět do Meta, aby se algoritmus učil na skutečné LTV, ne jen na leady.
+      </li>
+    </ol>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Important (do 30 dnů)</h3>
+    <ol class="clean">
+      <li>
+        <strong>Ustanovit strategický lead napříč kanály</strong> — jedna osoba nebo
+        konzultant, který vlastní full funnel. Bez toho dvě agentury budou pokračovat
+        v optimalizaci svých silo KPI.
+      </li>
+      <li>
+        <strong>Sjednotit attribution model</strong> — GA4 + server-side tracking +
+        CRM. Jeden source of truth, ne "Meta reportuje X, Google reportuje Y".
+      </li>
+      <li>
+        <strong>Spustit email nurture</strong> — aspoň welcome sekvence + týdenní
+        broadcast. Využít existující blog obsah.
+      </li>
+      <li>
+        <strong>Přidat qualifying questions do Lead Forms</strong> — úroveň češtiny,
+        důvod kurzu, ÚP statut. Zvýší CPL o 30 %, ale připraví data pro personalizaci.
+      </li>
+      <li>
+        <strong>Monitorovat ICJ.cz v Meta Ads Library týdně</strong> — dokument, screenshots,
+        co testují. Pattern recognition vám ušetří měsíce vlastního testingu.
+      </li>
+    </ol>
+
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Strategic (do 90 dnů)</h3>
+    <ol class="clean">
+      <li>
+        <strong>Zvážit škálování Meta spendu</strong> — pokud se 16,7 % konverze potvrdí
+        jako čistá Meta čísla, test 45K → 60K → 90K s monitoringem marginal CPL.
+        Pool foreign speakers v ČR je limitovaný — potřebujete znát svůj saturation point.
+      </li>
+      <li>
+        <strong>Vybudovat vlastní content engine</strong> — blog posts o ÚP procesu,
+        exam prep, Czech culture for expats. SEO + content marketing má v edu nejvyšší LTV.
+      </li>
+      <li>
+        <strong>Přehodnotit vztah s oběma agenturami</strong> — buď konsolidace pod jednoho
+        partnera (full-service), nebo jasný strategický brief + měsíční joint session
+        obou agentur, kde se sdílí data a strategie.
+      </li>
+      <li>
+        <strong>Testovat TikTok/YouTube Shorts</strong> — zejména pro mladší expaty
+        (18–28). Náklady tam jsou ještě nižší než Meta, konkurence v edu menší.
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════ OTÁZKY ══════════ -->
+<section id="otazky">
+  <div class="container">
+    <div class="section-label">Discovery</div>
+    <h2>Otázky, na které potřebujeme odpovědi</h2>
+    <p class="section-lede">
+      Pár věcí, které bez vašich dat nemůžu vyřešit před schůzkou. Tohle jsou otázky,
+      které dnes společně projdeme.
+    </p>
+
+    <div class="qa-list">
+      <div class="qa-item">
+        <div class="qa-q">Jaká je průměrná cena jednoho placeného kurzu?</div>
+        <div class="qa-why">Bez toho nedopočítám skutečný ROAS. Na webu je 690 Kč/h individuál, ale skupinové kurzy cenu nemají.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Kolik dostáváte od ÚP za jednoho studenta v rekvalifikaci?</div>
+        <div class="qa-why">U bezplatných kurzů je to jediný revenue. Potřebujeme vědět, jestli ÚP student má vyšší LTV než platící.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Kde přesně bere 300 leadů a 50 prodejů? Jen Meta? Nebo i organic + Google?</div>
+        <div class="qa-why">Kritické pro správnou interpretaci vašich čísel. 16,7 % je nereálně dobré pro čistý cold Meta — pravděpodobně to zahrnuje další kanály.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Jaký je průměrný čas od leadu k platbě?</div>
+        <div class="qa-why">Určuje optimalizační window v Meta + potřebu CAPI + email nurture.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Kdo kontaktuje leady a jak rychle?</div>
+        <div class="qa-why">Follow-up speed = rozdíl mezi 5 % a 50 % konverzí. Do 5 minut = 9× vyšší connect rate.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Má vaše Meta agentura přístup k CRM a reálným prodejům?</div>
+        <div class="qa-why">Jinak optimalizuje pouze na leady, ne na reálnou hodnotu. To je zásadní rozdíl.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Komunikuje Meta agentura s Google agenturou? Měsíčně? Vůbec?</div>
+        <div class="qa-why">Indikátor, jak velký je silo problém. Většinou je odpověď "minimálně".</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Jaký podíl vašich zákazníků pochází z opakovaného nákupu / upsellu?</div>
+        <div class="qa-why">Pokud vysoký, máte skvělou příležitost pro email + retention strategii. Pokud nízký, je to gap.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Jakou máte fallback strategii, pokud ÚP snižuje dotace?</div>
+        <div class="qa-why">Legislativní riziko. Placený segment musí být schopný unést firmu bez ÚP podpory.</div>
+      </div>
+      <div class="qa-item">
+        <div class="qa-q">Co reálně měříte jako success?</div>
+        <div class="qa-why">CPL? CPS? ROAS? LTV? Výnos z ÚP? Bez jasné odpovědi se obě agentury optimalizují na různé KPI.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p>Připravil Michael Florián · <a href="https://off-plate.github.io">Off-Plate</a> · 23. 4. 2026</p>
+  <p style="margin-top: 8px; font-size: 12px;">
+    Benchmarky: WordStream, Mailchimp, Unbounce, Klaviyo, SuperAds, Promodo (2025–2026).<br>
+    Všechna čísla EduJoy jsou ze self-reported dat a podléhají ověření v Ads Manageru.
+  </p>
+</footer>
+
+</body>
+</html>
