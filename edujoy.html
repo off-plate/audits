@@ -1543,13 +1543,12 @@
 
     <h3 style="margin: 40px 0 14px; font-size: 1.2rem;">Odhad ad spendu konkurence <span class="src-chip"><a href="#zdroje">zdroje 18, 19</a></span></h3>
     <p style="font-size: 14px; color: var(--text-dim); margin-bottom: 16px;">
-      Meta Ads Library nezveřejňuje přesné útraty u komerčních reklam (veřejná data
-      o spendu má jen politický a sociální obsah). Následující odhady jsou odvozeny
-      z triangulace tří nepřímých zdrojů: <strong>SimilarWeb traffic data</strong>
-      (březen 2026), <strong>podíl paid search na celkové návštěvnosti</strong>
-      a <strong>regionální CPC/CPM benchmarky pro ČR edu sektor</strong>. Odhady
-      jsou <strong>směrové</strong>, ne přesné. Reálnou aktivitu konkurence si ověříme
-      přímo v Meta Ads Library při schůzce.
+      Meta nezveřejňuje přesné útraty u komerčních reklam. Odhad je proto postaven
+      primárně na <strong>operační velikosti firmy</strong> (počet lektorů, poboček,
+      let na trhu, počet aktivních produktů), doplněné o SimilarWeb signály a
+      regionální CPM benchmarky. Operační velikost je robustnější indikátor
+      než traffic data, protože SimilarWeb u malých webů i u paid social trafficu
+      výrazně podhodnocuje, typicky o 50 až 70 %.
     </p>
 
     <div class="table-wrap">
@@ -1557,81 +1556,75 @@
         <thead>
           <tr>
             <th>Konkurent</th>
-            <th>Měs. návštěvnost</th>
-            <th>Podíl paid</th>
+            <th>Operační velikost</th>
             <th>Odhad Meta spend / měs.</th>
-            <th>Signál</th>
+            <th>Signál aktivity</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><strong>EduJoy (vy)</strong></td>
-            <td class="mono">4,1 K</td>
-            <td class="mono">~25 %</td>
+            <td>Střední, 2 pobočky Praha</td>
             <td class="mono your-position">30 000 Kč (reportováno)</td>
-            <td>Referenční bod</td>
+            <td>Referenční bod, růst 31 % MoM</td>
           </tr>
           <tr>
             <td><strong>ICJ.cz</strong></td>
-            <td class="mono">~1,5 K</td>
-            <td class="mono">35 %</td>
-            <td class="mono"><strong>15 000 až 30 000 Kč</strong></td>
-            <td>Silný paid signál, růst 136 % MoM, 20 % UA traffic (cílí na uprchlíky)</td>
-          </tr>
-          <tr>
-            <td>Rekvalifikacepraha.cz</td>
-            <td class="mono">~1 K</td>
-            <td class="mono">nízký</td>
-            <td class="mono">2 000 až 8 000 Kč</td>
-            <td>Organic 57 %, minimální paid share</td>
-          </tr>
-          <tr>
-            <td>Spěváček</td>
-            <td class="mono">9,5 K</td>
-            <td class="mono">nízký</td>
-            <td class="mono">5 000 až 15 000 Kč</td>
-            <td>Silná značka (30+ let), organic dominance, minimální paid signál</td>
-          </tr>
-          <tr>
-            <td>Glossa</td>
-            <td class="mono">23,7 K</td>
-            <td class="mono">střední</td>
-            <td class="mono">10 000 až 25 000 Kč</td>
-            <td>Direct 54 % (brand recall), paid search aktivní, pomaturitní kampaně</td>
+            <td>400+ lektorů, 16+ let, multiple pobočky, UA community initiative</td>
+            <td class="mono"><strong>80 000 až 150 000 Kč</strong></td>
+            <td>Traffic roste 136 % MoM, 20 % UA podíl = agresivní acquisition uprchlíků. Očekávaně největší investice ze všech konkurentů.</td>
           </tr>
           <tr>
             <td>Berlitz Praha</td>
-            <td class="mono">neveř.</td>
-            <td class="mono">N/A</td>
-            <td class="mono">20 000 až 50 000 Kč+</td>
-            <td>Globální brand, centrálně řízené kampaně, prémiový segment</td>
+            <td>Globální značka, 40+ jazyků, korporátní segment</td>
+            <td class="mono">50 000 až 120 000 Kč</td>
+            <td>Centrálně řízené kampaně. Spend je rozdělen mezi lokální acquisition a brand kampaně.</td>
+          </tr>
+          <tr>
+            <td>Glossa</td>
+            <td>51 až 200 zaměstnanců, 30+ let, 5 poboček v Praze</td>
+            <td class="mono">30 000 až 80 000 Kč</td>
+            <td>23,7K měs. návštěv, direct 54 % (silná značka), paid search aktivní. Dominuje pomaturitní kampaně.</td>
+          </tr>
+          <tr>
+            <td>Spěváček</td>
+            <td>30+ let, vícekanálový byznys (kurzy + překlady + TEFL)</td>
+            <td class="mono">20 000 až 50 000 Kč</td>
+            <td>Silná značka + organic, paid signál nižší. Část spendu jde do B2B firemních klientů.</td>
+          </tr>
+          <tr>
+            <td>Rekvalifikacepraha.cz</td>
+            <td>Malá operace, úzký segment (účto, HR)</td>
+            <td class="mono">8 000 až 20 000 Kč</td>
+            <td>1K návštěv, 57 % organic, jiný obsah (business, ne jazyky). Přímo nekonkuruje.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
     <div class="callout info" style="margin-top: 20px;">
-      <div class="callout-label">Jak byly odhady spočítány</div>
+      <div class="callout-label">Proč je ICJ na 80 až 150 000 Kč/měs</div>
       <p>
-        Postup pro každého konkurenta: (1) celkový měsíční traffic ze SimilarWeb,
-        (2) podíl paid search na traffic, (3) předpoklad že ČR edu CPC je
-        15 až 30 Kč, (4) předpoklad že Meta ads budget je typicky 0,5 až 1,5×
-        paid search budgetu v edu sektoru (Meta má nižší intent, ale širší reach).
-        Konkrétní příklad pro ICJ: 1 500 návštěv × 35 % paid = 525 paid visits.
-        Při CPC 20 Kč = 10 500 Kč/měs na paid search. Meta odhadem 1,5 až 3× toho
-        = 15 000 až 30 000 Kč/měs.
+        ICJ je s 400+ lektory a 16 lety na trhu přibližně <strong>3 až 5× větší operace
+        než EduJoy</strong>. Aby udrželi obsazenost kurzů, musí generovat úměrně víc leadů.
+        Do toho započtěte jejich aktivní push na ukrajinské uprchlíky (20 % traffic z UA,
+        community iniciativa), což vyžaduje kontinuální acquisition kampaně cílené
+        na ruskojazyčné a ukrajinsky mluvící publikum v ČR. Meta je pro toto publikum
+        dominantní kanál, Google zachytí jen část. Celkový roční ad budget na úrovni
+        1 až 2 miliony Kč/rok je pro takovou operaci v edu-for-foreigners segmentu
+        standard.
       </p>
     </div>
 
     <div class="callout warning" style="margin-top: 16px;">
-      <div class="callout-label">Omezení odhadu</div>
+      <div class="callout-label">Omezení odhadu a jak ho zpřesnit</div>
       <p>
-        SimilarWeb traffic je odhad, u malých webů (pod 10K visits) může být
-        nepřesný o ±30 až 50 %. Meta nezveřejňuje komerční ad spend, takže
-        konečnou verifikaci dává pouze pohled do Meta Ads Library: tam uvidíme
-        počet aktivních kampaní, datum startu a kreativní diverzity, což je silný
-        indikátor škály investice. U ICJ očekáváme nejvíc aktivních reklam
-        ze všech sledovaných konkurentů.
+        Přesné číslo by dala jen veřejná data z Meta (ta jsou dostupná jen pro politické
+        a společenské reklamy, ne komerční). Nejbližší zdrojem pravdy je proto
+        <strong>Meta Ads Library</strong> přímo: počet aktivních kampaní, datum jejich
+        startu, počet kreativních variant, jazyk (ČJ vs. UA vs. RU) a pestrost
+        targetingu. Tohle společně zkontrolujeme živě při schůzce, očekávaně uvidíme
+        u ICJ desítky až stovky aktivních variant reklam.
       </p>
     </div>
 
