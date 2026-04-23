@@ -588,43 +588,6 @@
     font-style: italic;
   }
 
-  /* ───────── TRACKING EVIDENCE ───────── */
-  .evidence-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin: 24px 0 8px;
-  }
-  .evidence-card {
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    background: var(--bg);
-  }
-  .evidence-img {
-    width: 100%;
-    display: block;
-    background: var(--bg-card);
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    border-bottom: 1px solid var(--border);
-  }
-  .evidence-caption {
-    padding: 12px 16px;
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.5;
-    background: var(--bg-soft);
-  }
-  .evidence-caption strong {
-    display: block;
-    color: var(--ink);
-    font-size: 13.5px;
-    margin-bottom: 3px;
-    font-family: 'Zilla Slab', serif;
-    font-weight: 600;
-  }
-
   /* ───────── SOURCES ───────── */
   .src-chip {
     display: inline-block;
@@ -751,7 +714,6 @@
       <a href="#formulare">Lead Forms</a>
       <a href="#konkurence">Konkurence</a>
       <a href="#live-audit">Live audit</a>
-      <a href="#tracking">Tracking</a>
       <a href="#doporuceni">Doporučení</a>
       <a href="#otazky">Otázky</a>
       <a href="#zdroje">Zdroje</a>
@@ -1849,108 +1811,6 @@
   </div>
 </section>
 
-<!-- ══════════ TRACKING NÁLEZ ══════════ -->
-<section id="tracking">
-  <div class="container">
-    <div class="section-label">Doplněk k ověření</div>
-    <h2>Podezření na chybějící nebo nesprávně nastavený Meta Pixel</h2>
-    <p class="section-lede">
-      Toto jsme si už letmo zmínili na minulé schůzce, proto to zde zaznamenávám,
-      aby se na to nezapomnělo. Při rychlé kontrole tracking kódů na edujoy.cz
-      chybí jasný signál, že Meta (Facebook) Pixel běží správně. Pokud se to
-      potvrdí, má to přímý dopad na atribuci, optimalizaci kampaní i Conversions API.
-    </p>
-
-    <h3 style="margin: 28px 0 12px; font-size: 1.15rem;">Co bylo pozorováno</h3>
-
-    <div class="evidence-grid">
-      <div class="evidence-card">
-        <img class="evidence-img" src="assets/edujoy-tracking-head.svg" alt="Chrome DevTools: head edujoy.cz s tracking skripty" loading="lazy">
-        <div class="evidence-caption">
-          <strong>Chrome DevTools, Elements tab</strong>
-          V hlavičce edujoy.cz jsou viditelně načteny: Google Tag Manager
-          (GTM-WLPNS5V), Google Analytics 4 (G-SKDWCDY4BM), Google Ads (AW-399984533),
-          TikTok Pixel (D36KCCJC77U0JLJ5FHUG) a skript <code>fbevents.js</code>
-          z connect.facebook.net (knihovna Meta Pixelu).
-        </div>
-      </div>
-      <div class="evidence-card">
-        <img class="evidence-img" src="assets/edujoy-taghound.svg" alt="TagHound extension: detekované Ad Networks na edujoy.cz" loading="lazy">
-        <div class="evidence-caption">
-          <strong>TagHound (Analytics/GTM/Pixel Debugger)</strong>
-          Rozšíření detekuje aktivní tracking: <strong>Google Analytics V4</strong>
-          a <strong>TikTok</strong>. Meta Pixel v seznamu Ad Networks <strong>chybí</strong>,
-          přestože knihovna fbevents.js je v hlavičce načtena.
-        </div>
-      </div>
-    </div>
-
-    <div class="callout warning" style="margin-top: 28px;">
-      <div class="callout-label">Pravděpodobné vysvětlení</div>
-      <p>
-        Načtení souboru <code>fbevents.js</code> samo o sobě neznamená, že Meta Pixel
-        je aktivní. Pixel musí být inicializován voláním <code>fbq('init', PIXEL_ID)</code>
-        a následně musí odesílat <code>fbq('track', ...)</code> eventy. Pokud TagHound
-        Meta neuvidí, nejčastější příčiny jsou:
-      </p>
-      <ul class="clean" style="margin: 12px 0 4px;">
-        <li>Pixel ID není vůbec nastaveno (knihovna se načítá, ale žádné init volání).</li>
-        <li>Pixel je inicializován až po user consent a v tu chvíli se neměří.</li>
-        <li>Pixel běží v GTM workspace, který není publikovaný.</li>
-        <li>Konflikt s jiným skriptem nebo chyba v GTM nastavení.</li>
-      </ul>
-    </div>
-
-    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Proč na tom záleží</h3>
-
-    <ul class="clean">
-      <li>
-        <strong>Atribuce konverzí.</strong> Bez funkčního pixelu nemá Meta žádná
-        website signal data z edujoy.cz. Pokud kampaně optimalizují na Lead Form events
-        (které přicházejí ze samotné Meta platformy, ne z webu), tohle se zdá fungovat.
-        Ale jakákoli konverze mimo Lead Form, například přihláška na webu nebo platba,
-        není viditelná.
-      </li>
-      <li>
-        <strong>Conversions API.</strong> CAPI staví právě na těchto website eventech.
-        Bez správně nasazeného Pixelu nemá CAPI co posílat server-side.
-      </li>
-      <li>
-        <strong>Retargeting.</strong> Bez Pixelu nelze v Meta vytvořit custom audience
-        ze skutečných návštěvníků webu, jen z engagementu na Facebook/Instagram stránce.
-      </li>
-      <li>
-        <strong>Lookalike publika.</strong> Kvalita LAL závisí na kvalitě zdrojového
-        publika. Bez webových konverzí se LAL staví jen z Lead Form leadů, což je
-        menší a méně kvalifikovaný zdroj.
-      </li>
-      <li>
-        <strong>Zkreslený obraz výkonu.</strong> Pokud kampaně skutečně přináší
-        prodeje (50 nákupů/měsíc), a Meta je nevidí, agentura pracuje naslepo
-        a algoritmus se nemůže učit.
-      </li>
-    </ul>
-
-    <div class="callout info" style="margin-top: 24px;">
-      <div class="callout-label">Co ověřit na schůzce</div>
-      <p>
-        Během live auditu stačí pár kroků: otevřít edujoy.cz, zapnout Meta Pixel Helper
-        v Chrome, zkontrolovat <strong>Events Manager</strong> v Meta Business Suite
-        (sekce Data sources → Pixels), a podívat se, jestli Pixel vůbec existuje,
-        jestli má přiřazený web edujoy.cz a jestli v posledních dnech zaznamenal
-        nějaké eventy. Stejně tak zkontrolovat stav Conversions API. Pokud je tam
-        problém, bývá to jedno z nejrychlejších fixů s největším dopadem.
-      </p>
-    </div>
-
-    <p style="font-size: 13px; color: var(--text-mute); margin-top: 24px; font-style: italic;">
-      Pozn.: Jde o podezření z externí inspekce. Finální verdikt dá pohled do Events
-      Manageru a Pixel Helper testu. Pokud Pixel běží správně a TagHound ho jen
-      nedetekoval, super, jedeme dál.
-    </p>
-  </div>
-</section>
-
 <!-- ══════════ DOPORUČENÍ ══════════ -->
 <section id="doporuceni" style="background: var(--bg-soft);">
   <div class="container">
@@ -1963,6 +1823,13 @@
 
     <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Do 7 dnů</h3>
     <ol class="clean">
+      <li>
+        <strong>Ověřit nasazení Meta Pixelu na edujoy.cz.</strong> Při externí kontrole
+        (TagHound, Pixel Helper) pixel není jasně detekován, přestože knihovna fbevents.js
+        je v hlavičce načtena. Během schůzky ověříme v Events Manageru, jestli pixel
+        skutečně běží a sbírá eventy. Pokud ne, je to jeden z nejrychlejších fixů
+        s největším dopadem na atribuci, retargeting i CAPI.
+      </li>
       <li>
         <strong>Společně ověřit čísla v Ads Manageru.</strong> Potvrdit si, odkud přesně
         300 leadů a 50 prodejů pochází. Pokud jsou čistě z Meta, je to silný signál.
