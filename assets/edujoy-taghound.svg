@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#EEF1FB"/>
+      <stop offset="1" stop-color="#E1E5F1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g2)"/>
+  <rect x="40" y="40" width="720" height="42" rx="6" fill="#5772E8"/>
+  <text x="60" y="68" font-family="Inter, sans-serif" font-size="16" fill="#FFFFFF" font-weight="600">TagHound › Analytics/GTM/Pixel Debugger</text>
+  <rect x="40" y="110" width="720" height="40" rx="4" fill="#FFFFFF" stroke="#DDE2F2"/>
+  <text x="60" y="135" font-family="Inter, sans-serif" font-size="13" fill="#3c4043" font-weight="700">Ad Network</text>
+  <text x="500" y="135" font-family="Inter, sans-serif" font-size="13" fill="#3c4043" font-weight="700">Account ID</text>
+  <rect x="40" y="160" width="720" height="50" rx="4" fill="#FFFFFF" stroke="#DDE2F2"/>
+  <circle cx="70" cy="185" r="10" fill="#F9AB00"/>
+  <text x="100" y="190" font-family="Inter, sans-serif" font-size="14" fill="#1e2022">Google Analytics V4 (1)</text>
+  <text x="500" y="190" font-family="JetBrains Mono, monospace" font-size="13" fill="#3c4043">G-SKDWCDY4BM</text>
+  <rect x="40" y="220" width="720" height="50" rx="4" fill="#FFFFFF" stroke="#DDE2F2"/>
+  <rect x="62" y="176" width="0" height="0"/>
+  <rect x="60" y="235" width="20" height="20" rx="4" fill="#000000"/>
+  <text x="100" y="250" font-family="Inter, sans-serif" font-size="14" fill="#1e2022">TikTok (1)</text>
+  <text x="500" y="250" font-family="JetBrains Mono, monospace" font-size="13" fill="#3c4043">D36KCCJC77U0JLJ5FHUG</text>
+  <rect x="40" y="290" width="720" height="50" rx="4" fill="#FAE2DD" stroke="#E5394C" stroke-dasharray="4 4"/>
+  <text x="60" y="320" font-family="Inter, sans-serif" font-size="14" fill="#B7253A" font-weight="600">Meta / Facebook Pixel — NEDETEKOVÁNO</text>
+  <text x="40" y="400" font-family="Zilla Slab, serif" font-size="14" fill="#1e2022" font-weight="600">Placeholder: sem vložte skutečný screenshot (edujoy-taghound.png)</text>
+  <text x="40" y="430" font-family="Inter, sans-serif" font-size="12" fill="#7A8299">Nahraďte tento SVG souborem z vašeho prohlížeče.</text>
+</svg>
