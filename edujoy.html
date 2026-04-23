@@ -1307,98 +1307,86 @@
 <section id="formulare">
   <div class="container">
     <div class="section-label">Oblast #3</div>
-    <h2>Facebook Lead Forms v kontextu: kdy fungují a kdy ne</h2>
+    <h2>Facebook Lead Forms: riziko missclicků a nekvalifikovaných leadů</h2>
     <p class="section-lede">
-      Na úvodní schůzce zaznělo, že Lead Forms mají pověst horší kvality kvůli
-      překlikům. Částečně to platí, ale v praxi je to více o nastavení než o samotném
-      formátu. Vaše čísla navíc naznačují, že u vás kvalita drží. Pojďme se podívat,
-      kdy který přístup funguje lépe.
+      Hlavní problém Lead Forms v edu sektoru je jejich extrémní jednoduchost.
+      Formulář lze na mobilu vyplnit dvěma kliky, aniž by uživatel pořádně
+      pochopil, o jakou nabídku jde. Výsledkem je vysoké procento
+      <strong>missclicků a náhodných vyplnění</strong> od lidí, kteří o kurz
+      reálně nestojí. Tento problém u Landing Page prakticky neexistuje,
+      uživatel musí projít stránkou a pochopit nabídku, než formulář vyplní.
     </p>
 
-    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Kdy Lead Forms vs. Landing Page vyhrávají <span class="src-chip"><a href="#zdroje">zdroje 8, 9</a></span></h3>
+    <h3 style="margin: 24px 0 14px; font-size: 1.15rem;">Srovnání Lead Forms vs. Landing Page <span class="src-chip"><a href="#zdroje">zdroje 8, 9</a></span></h3>
 
     <div class="table-wrap">
       <table>
         <thead>
           <tr>
             <th>Kritérium</th>
-            <th>Lead Forms vyhrávají</th>
-            <th>Landing Page vyhrává</th>
+            <th>Lead Forms</th>
+            <th>Landing Page</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Cílem je objem leadů</td>
-            <td class="good">✓ Nižší CPL, rychlejší signál</td>
-            <td>Vyšší CPL o 30–50 %</td>
+            <td><strong>Riziko missclicků a náhodných vyplnění</strong></td>
+            <td class="poor">✗ Vysoké. Formulář lze odeslat 2 kliky na mobilu, Meta navíc předvyplní jméno, email a telefon z profilu.</td>
+            <td class="good">✓ Minimální. Uživatel musí stránku otevřít, projít a aktivně vyplnit pole.</td>
           </tr>
           <tr>
-            <td>Cílem je kvalita leadů</td>
-            <td>Střední, závisí na kvalifikačních otázkách</td>
-            <td class="good">✓ Landing page filtruje neseriózní</td>
+            <td>Kvalita leadů</td>
+            <td class="poor">✗ Nižší. Vyplňují i nezainteresovaní lidé, kteří neví, o čem formulář je.</td>
+            <td class="good">✓ Vyšší. Landing page přirozeně filtruje neseriózní zájemce.</td>
           </tr>
           <tr>
-            <td>Nabídka potřebuje vysvětlení</td>
-            <td>Nedostatečný prostor</td>
-            <td class="good">✓ LP dokáže vzdělávat</td>
+            <td>Porozumění nabídce před odesláním</td>
+            <td class="poor">✗ Minimální prostor, jen stručný popis.</td>
+            <td class="good">✓ LP dokáže plnohodnotně představit kurz, cenu, lektory, postup.</td>
           </tr>
           <tr>
-            <td>Rychlost follow-upu je nízká</td>
-            <td class="poor">✗ Lead vychladne</td>
-            <td class="good">✓ LP signalizuje vyšší intent</td>
+            <td>Objem leadů (včetně nekvalitních)</td>
+            <td>Vyšší objem, ale část leadů je missclick.</td>
+            <td>Nižší objem, ale vyšší podíl kvalifikovaných.</td>
           </tr>
           <tr>
-            <td>Rychlost follow-upu < 5 min</td>
-            <td class="good">✓ Connect rate 9× vyšší</td>
-            <td>Stejné</td>
-          </tr>
-          <tr>
-            <td>Mobile-first publikum</td>
-            <td class="good">✓ 80 % edu audience je mobile</td>
-            <td>LP často horší UX na mobilu</td>
-          </tr>
-          <tr>
-            <td>Full-funnel attribution</td>
-            <td>Omezené (FB pixel)</td>
-            <td class="good">✓ GA4 + CAPI + CRM</td>
+            <td>Full-funnel attribution a tracking</td>
+            <td class="poor">✗ Omezené (pouze FB pixel a Lead event).</td>
+            <td class="good">✓ GA4 + CAPI + CRM dohromady.</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="callout info">
-      <div class="callout-label">Co ovlivňuje kvalitu leadů</div>
+    <div class="callout critical">
+      <div class="callout-label">Dopad na vaše data</div>
       <p>
-        Kvalita z Lead Forms závisí méně na samotném formátu a více na nastavení:
+        Pokud v reportech z Meta vidíte 300 leadů a jen část se ukáže jako
+        skutečně zainteresovaná (třetina z nich je dle úvodní schůzky "úplně
+        mimo"), je pravděpodobné, že významný podíl tvoří právě missclicky.
+        To zkresluje CPL a zvyšuje náklady follow-upu. Přechod na Landing Page
+        (alespoň pro část kampaní) tohle číslo významně pročistí.
       </p>
-      <ul class="clean" style="margin: 12px 0 4px;">
-        <li><strong>Kvalifikační otázky ve formuláři.</strong> Doporučené minimum 3 až 5 otázek, ne standard "jméno + telefon".</li>
-        <li><strong>Rychlost follow-upu.</strong> Odezva do 5 minut zvyšuje connect rate až 9× oproti odezvě po hodině.</li>
-        <li><strong>Pre-qualifying kreativa.</strong> Reklamy, které odfiltrují nerelevantní publikum už před kliknutím.</li>
-        <li><strong>Nastavení "higher intent" v Meta.</strong> Formulář nabízí dva módy, "more volume" a "higher intent", druhý bývá v edu efektivnější.</li>
-      </ul>
     </div>
 
-    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Návrh: hybridní přístup</h3>
+    <h3 style="margin: 32px 0 14px; font-size: 1.15rem;">Doporučený směr</h3>
 
     <ol class="clean">
       <li>
-        <strong>Lead Forms pro cold traffic (TOFU).</strong> Low friction, vysoký objem,
-        využití user dat, která Meta už má.
+        <strong>Postupný přechod na Landing Page jako primární konverzní cíl.</strong>
+        Uživatel projde obsahem, pochopí nabídku a vyplní formulář vědomě.
+        Missclicky zmizí, kvalita leadů výrazně vzroste.
       </li>
       <li>
-        <strong>Landing pages pro retargeting a high-intent publika.</strong> Tam, kde
-        je lead již teplý, se vyplatí další edukace a kvalifikace přes LP.
-      </li>
-      <li>
-        <strong>A/B test obou variant paralelně</strong> na stejné audience. Rozhodující
-        není dojem, ale kompletní metrika (CPL × konverze × LTV).
-      </li>
-      <li>
-        <strong>Doplnit qualifying questions do stávajících Lead Forms.</strong>
+        <strong>Pokud Lead Forms zůstanou, doplnit qualifying questions.</strong>
         Úroveň jazyka (A0 až B2), důvod kurzu (práce, pobyt, VŠ), ÚP statut.
-        CPL to obvykle zvýší zhruba o 30 %, ale kvalitu 2 až 3×. Zároveň vzniknou
-        data pro personalizaci emailové komunikace.
+        Tyto otázky výrazně snižují počet náhodných vyplnění, protože nutí
+        uživatele reálně přemýšlet.
+      </li>
+      <li>
+        <strong>A/B test Lead Forms vs. Landing Page paralelně</strong> na stejné
+        audience. Rozhodující metrika není CPL, ale <strong>cena za kvalitního leadu</strong>
+        (CPL × podíl kvalifikovaných × konverze na prodej).
       </li>
     </ol>
   </div>
