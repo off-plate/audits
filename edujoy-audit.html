@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategická konzultace · Meta Ads a marketingová strategie EduJoy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-soft: #F8F9FC;
+    --bg-card: #EFF2FB;
+    --bg-elevated: #FFFFFF;
+    --border: #E1E5F1;
+    --border-strong: #BFC6DB;
+    --text: #1e2022;
+    --text-dim: #3c4043;
+    --text-mute: #7A8299;
+
+    --brand-blue: #5772E8;
+    --brand-blue-hover: #7A93F0;
+    --brand-blue-soft: #E8EDFB;
+    --brand-blue-deep: #3D52C9;
+    --brand-red: #E5394C;
+    --brand-red-soft: #FCE2E5;
+    --brand-red-deep: #B7253A;
+    --brand-yellow: #FFD64A;
+    --brand-yellow-soft: #FFF4CB;
+    --brand-yellow-deep: #B8860B;
+
+    --accent: var(--brand-blue);
+    --accent-hover: var(--brand-blue-hover);
+    --accent-soft: var(--brand-blue-soft);
+    --accent-deep: var(--brand-blue-deep);
+    --positive: #1F7A4A;
+    --positive-soft: #E3F2E9;
+    --warning: var(--brand-yellow-deep);
+    --warning-soft: var(--brand-yellow-soft);
+    --critical: var(--brand-red);
+    --critical-soft: var(--brand-red-soft);
+    --info: var(--brand-blue-deep);
+    --info-soft: var(--brand-blue-soft);
+    --ink: #1e2022;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Zilla Slab', 'Bitter', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: -0.01em; }
+
+  /* HERO */
+  .hero {
+    background:
+      radial-gradient(ellipse 50% 40% at 20% 0%, rgba(229, 57, 76, 0.06), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 80% 10%, rgba(87, 114, 232, 0.08), transparent 60%),
+      radial-gradient(ellipse 40% 30% at 50% 20%, rgba(255, 214, 74, 0.10), transparent 60%),
+      linear-gradient(180deg, var(--bg-soft) 0%, var(--bg) 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-dots { display: inline-flex; gap: 6px; margin-bottom: 20px; align-items: center; }
+  .hero-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  .hero-dots .d-red { background: var(--brand-red); }
+  .hero-dots .d-yellow { background: var(--brand-yellow); }
+  .hero-dots .d-blue { background: var(--brand-blue); }
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: #FFFFFF; background: var(--brand-blue);
+    padding: 7px 16px; border-radius: 100px; margin-bottom: 28px;
+    box-shadow: 0 4px 14px rgba(87, 114, 232, 0.3);
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 4.8vw, 3.4rem); font-weight: 700;
+    max-width: 880px; margin: 0 auto 20px; color: var(--ink);
+  }
+  .hero h1 span.accent {
+    background: linear-gradient(100deg, var(--brand-red) 0%, var(--brand-yellow) 50%, var(--brand-blue) 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .hero-sub { font-size: 17px; color: var(--text-dim); max-width: 720px; margin: 0 auto 36px; line-height: 1.55; }
+  .hero-meta {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 28px;
+    font-size: 13px; color: var(--text-mute); letter-spacing: 0.3px;
+  }
+  .hero-meta span::before { content: '•'; margin-right: 10px; color: var(--border-strong); }
+  .hero-tags {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;
+    margin-top: 28px;
+  }
+  .hero-tag {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+    color: var(--accent-deep); background: var(--brand-blue-soft);
+    padding: 5px 12px; border-radius: 100px;
+  }
+
+  /* NAV */
+  .toc {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,0.94); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .toc-wrap { position: relative; max-width: 1100px; margin: 0 auto; }
+  .toc-inner {
+    padding: 10px 48px 10px 24px;
+    display: flex; gap: 6px; overflow-x: auto;
+    scrollbar-width: none; scroll-behavior: smooth;
+  }
+  .toc-inner::-webkit-scrollbar { display: none; }
+  .toc a {
+    color: var(--text-dim); text-decoration: none;
+    padding: 6px 12px; border-radius: 6px; white-space: nowrap;
+    font-weight: 500; font-size: 13px; flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .toc-wrap::after {
+    content: ''; position: absolute; top: 0; right: 0; bottom: 0;
+    width: 60px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.96) 70%);
+    pointer-events: none; z-index: 1; transition: opacity 0.2s;
+  }
+  .toc-wrap.at-end::after { opacity: 0; }
+  .toc-arrow {
+    position: absolute; top: 50%; right: 8px; transform: translateY(-50%);
+    font-size: 18px; line-height: 1; color: var(--accent); z-index: 2;
+    background: rgba(255,255,255,0.85); border: 1px solid var(--border);
+    border-radius: 50%; width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; padding: 0; font-family: 'Inter', sans-serif; font-weight: 700;
+    animation: tocBounce 1.6s ease-in-out infinite;
+    transition: opacity 0.2s, background 0.15s, color 0.15s;
+  }
+  .toc-arrow:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .toc-wrap.at-end .toc-arrow { opacity: 0; pointer-events: none; }
+  @keyframes tocBounce {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(3px); }
+  }
+  .toc a:hover { background: var(--accent-soft); color: var(--accent); }
+  .toc a.active { background: var(--accent); color: #fff; }
+
+  /* LAYOUT */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+  section:last-child { border-bottom: none; }
+  section.section-alt { background: var(--bg-soft); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 16px; }
+  section h3 {
+    font-size: 1.25rem; margin: 28px 0 12px;
+    color: var(--ink);
+  }
+  .section-lede {
+    font-size: 17px; color: var(--text-dim);
+    margin-bottom: 40px; max-width: 720px; line-height: 1.6;
+  }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 700; }
+
+  /* FINDING (kartička pro každé zjištění) */
+  .finding {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    background: var(--bg);
+  }
+  .finding-head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 14px;
+  }
+  .finding-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    color: #fff; background: var(--accent);
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .finding-title {
+    font-family: 'Zilla Slab', serif;
+    font-weight: 700; font-size: 1.15rem; color: var(--ink);
+    line-height: 1.3;
+  }
+  .finding p { font-size: 15.5px; }
+  .finding .mini-callout {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    font-size: 14.5px;
+  }
+  .finding .mini-callout.dopad { border-left-color: var(--critical); background: var(--critical-soft); }
+  .finding .mini-callout.doporuceni { border-left-color: var(--positive); background: var(--positive-soft); }
+  .mini-label {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 6px;
+  }
+  .finding .mini-callout.dopad .mini-label { color: var(--critical); }
+  .finding .mini-callout.doporuceni .mini-label { color: var(--positive); }
+
+  /* STAT GRID */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px; margin: 32px 0;
+  }
+  .stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+  .stat-card.positive { background: var(--positive-soft); border-color: rgba(31,122,74,0.25); }
+  .stat-card.warning { background: var(--warning-soft); border-color: rgba(184,122,31,0.25); }
+  .stat-card.critical { background: var(--critical-soft); border-color: rgba(181,59,43,0.25); }
+  .stat-card.info { background: var(--info-soft); border-color: rgba(30,95,148,0.25); }
+  .stat-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--text-mute); margin-bottom: 12px;
+  }
+  .stat-number {
+    font-family: 'Zilla Slab', serif; font-size: 2.1rem; font-weight: 700;
+    color: var(--accent-deep); line-height: 1.05; margin-bottom: 10px; letter-spacing: 0.2px;
+  }
+  .stat-card.positive .stat-number { color: var(--positive); }
+  .stat-card.warning .stat-number { color: var(--warning); }
+  .stat-card.critical .stat-number { color: var(--critical); }
+  .stat-card.info .stat-number { color: var(--info); }
+  .stat-note { font-size: 14px; color: var(--text-dim); line-height: 1.5; }
+
+  /* CALLOUT */
+  .callout {
+    background: var(--bg-card); border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0; padding: 22px 28px; margin: 28px 0;
+  }
+  .callout.positive { border-left-color: var(--positive); background: var(--positive-soft); }
+  .callout.warning { border-left-color: var(--warning); background: var(--warning-soft); }
+  .callout.critical { border-left-color: var(--critical); background: var(--critical-soft); }
+  .callout.info { border-left-color: var(--info); background: var(--info-soft); }
+  .callout-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 8px; color: var(--accent);
+  }
+  .callout.positive .callout-label { color: var(--positive); }
+  .callout.warning .callout-label { color: var(--warning); }
+  .callout.critical .callout-label { color: var(--critical); }
+  .callout.info .callout-label { color: var(--info); }
+  .callout p { font-size: 15.5px; color: var(--text); }
+  .callout strong { color: var(--ink); }
+
+  /* TABLE */
+  .table-wrap {
+    overflow-x: auto; border: 1px solid var(--border);
+    border-radius: 12px; margin: 32px 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th {
+    text-align: left; font-weight: 700; color: var(--text-dim);
+    text-transform: uppercase; font-size: 11px; letter-spacing: 1px;
+    padding: 14px 18px; background: var(--bg-soft);
+    border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  td {
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+    color: var(--text); vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg-soft); }
+  td.good { color: var(--positive); font-weight: 600; }
+  td.poor { color: var(--critical); font-weight: 600; }
+
+  /* CHANNEL ROLE GRID */
+  .role-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px; margin: 32px 0;
+  }
+  .role-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; background: var(--bg);
+    position: relative; overflow: hidden;
+  }
+  .role-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--accent);
+  }
+  .role-card.r-meta::before { background: var(--brand-blue); }
+  .role-card.r-google::before { background: var(--brand-red); }
+  .role-card.r-web::before { background: var(--brand-yellow); }
+  .role-card.r-email::before { background: var(--positive); }
+  .role-channel {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-mute); margin-bottom: 10px;
+  }
+  .role-title {
+    font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 1.1rem;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .role-desc { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
+
+  /* COMP CARDS (competitive) */
+  .comp-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px; margin: 32px 0;
+  }
+  .comp-card {
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 22px 24px; background: var(--bg);
+  }
+  .comp-card.primary { border-color: var(--brand-blue); background: var(--brand-blue-soft); }
+  .comp-card.secondary { border-color: rgba(184,122,31,0.3); background: var(--warning-soft); }
+  .comp-name {
+    font-family: 'Zilla Slab', serif; font-weight: 700; font-size: 18px;
+    color: var(--ink); margin-bottom: 4px;
+  }
+  .comp-seg { font-size: 12px; color: var(--text-mute); letter-spacing: 0.5px; margin-bottom: 12px; }
+  .comp-desc { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
+
+  /* EMAIL FUNNEL STEPS */
+  .steps { margin: 32px 0; }
+  .step {
+    display: flex; gap: 18px; padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0; width: 32px; height: 32px;
+    background: var(--accent); color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px;
+  }
+  .step-content h4 {
+    font-size: 16px; font-weight: 700; margin-bottom: 4px;
+    font-family: 'Zilla Slab', serif;
+  }
+  .step-content p { font-size: 14.5px; color: var(--text-dim); margin: 0; line-height: 1.55; }
+
+  /* CONCLUSION BLOCK (per-section závěr) */
+  .conclusion {
+    margin-top: 36px; padding: 24px 28px;
+    background: var(--brand-blue-soft);
+    border: 1px solid var(--brand-blue);
+    border-radius: 12px;
+  }
+  .conclusion-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--brand-blue-deep); margin-bottom: 8px;
+  }
+  .conclusion p { font-size: 15.5px; color: var(--text); }
+
+  /* FOOTER */
+  footer {
+    padding: 50px 24px; text-align: center;
+    color: var(--text-mute); font-size: 13px;
+    background: var(--bg-soft);
+  }
+  footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  footer .footer-sources {
+    margin-top: 12px; font-size: 12.5px; color: var(--text-mute);
+    max-width: 720px; margin-left: auto; margin-right: auto;
+  }
+
+  /* PRINT */
+  @media print {
+    .toc { display: none; }
+    section { page-break-inside: avoid; padding: 30px 0; }
+    body { font-size: 12px; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 40px; }
+    section { padding: 48px 0; }
+    .stat-number { font-size: 1.8rem; }
+    th, td { padding: 10px 12px; font-size: 13px; }
+    .finding { padding: 22px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-dots"><span class="d-red"></span><span class="d-yellow"></span><span class="d-blue"></span></div>
+  <span class="hero-badge">Strategická konzultace</span>
+  <h1>Meta Ads a marketingová strategie <span class="accent">EduJoy</span></h1>
+  <p class="hero-sub">
+    Kompletní přehled pro naši schůzku: kde stojíte vůči trhu, kde ztrácíte hodnotu mezi kanály
+    a co se zeptat svých agentur jako první.
+  </p>
+  <div class="hero-meta">
+    <span>Klient: EduJoy s.r.o.</span>
+    <span>Příprava: Michael (Off-Plate)</span>
+    <span>Datum: 23. 4. 2026</span>
+  </div>
+  <div class="hero-tags">
+    <span class="hero-tag">Meta Ads audit</span>
+    <span class="hero-tag">Website audit</span>
+    <span class="hero-tag">Digital strategy</span>
+    <span class="hero-tag">Email &amp; nurture</span>
+    <span class="hero-tag">Competitive position</span>
+    <span class="hero-tag">Channel role map</span>
+  </div>
+</section>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-wrap">
+    <div class="toc-inner">
+      <a href="#meta">Meta Ads audit</a>
+      <a href="#website">Website audit</a>
+      <a href="#strategy">Digital strategy</a>
+      <a href="#email">Email &amp; nurture</a>
+      <a href="#competitive">Competitive position</a>
+      <a href="#channels">Channel role map</a>
+    </div>
+    <button type="button" class="toc-arrow" aria-label="Posunout navigaci doprava">›</button>
+  </div>
+</nav>
+<script>
+  (function() {
+    const wrap = document.querySelector('.toc-wrap');
+    const inner = wrap && wrap.querySelector('.toc-inner');
+    const arrow = wrap && wrap.querySelector('.toc-arrow');
+    if (!wrap || !inner || !arrow) return;
+    const update = () => {
+      const atEnd = inner.scrollLeft + inner.clientWidth >= inner.scrollWidth - 4;
+      wrap.classList.toggle('at-end', atEnd);
+    };
+    arrow.addEventListener('click', () => {
+      inner.scrollBy({ left: Math.round(inner.clientWidth * 0.7), behavior: 'smooth' });
+    });
+    inner.addEventListener('scroll', update);
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
+<!-- META ADS AUDIT -->
+<section id="meta">
+  <div class="container">
+    <div class="section-label">Facebook / Meta Ads audit</div>
+    <h2>Co ukazuje aktuální nastavení účtu</h2>
+    <p class="section-lede">
+      Aktuální Meta kampaně nevypadají jako účet, který by byl úplně zanedbaný nebo technicky nefunkční.
+      Problém je jinde. Účet je postavený tak, aby co nejrychleji sbíral formulářové leady, ale mnohem
+      méně řeší, jestli jsou tyto leady kvalitní, dobře měřitelné a dlouhodobě využitelné pro další růst.
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Hlavní závěr</div>
+      <p>
+        EduJoy není e-shop. Neprodává produkt, který si člověk vloží do košíku a rovnou zaplatí.
+        Prodává vzdělávací službu, často navázanou na Úřad práce, jazykovou úroveň, motivaci studenta,
+        osobní situaci a následnou komunikaci. Proto samotný počet leadů nestačí. Důležité je vědět,
+        kdo lead je, proč přišel, odkud přišel a jestli má reálnou šanci stát se studentem.
+      </p>
+    </div>
+
+    <!-- Zjištění 1 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 1</span>
+        <span class="finding-title">Kampaně stojí téměř výhradně na Facebook / Instagram formulářích</span>
+      </div>
+      <p>
+        Aktivní kampaně aktuálně pracují primárně s formuláři přímo ve Facebooku a Instagramu.
+        To může vypadat dobře, protože formuláře obvykle přinášejí levnější leady než landing page.
+        U EduJoy je ale tento přístup rizikový.
+      </p>
+      <p>
+        Facebook formulář je pro uživatele extrémně jednoduchý. Meta mu často předvyplní jméno, e-mail
+        i telefon, takže odeslání může být otázkou několika kliknutí. To snižuje bariéru pro kontakt,
+        ale zároveň zvyšuje riziko omylů, impulzivních reakcí a lidí, kteří nabídku pořádně nepochopili.
+      </p>
+      <p>
+        Problém je i v měření. U formuláře uvnitř Facebooku nevidíme, jak se uživatel rozhodoval.
+        Nevíme, co ho zaujalo, kde zaváhal, kterou část nabídky si přečetl nebo proč formulář nakonec
+        nedokončil. U dobře měřitelné landing page lze přes GA4 sledovat návštěvu stránky, scroll,
+        kliky, práci s formulářem, odchodové body i rozdíly mezi zdroji návštěvnosti.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Účet může reportovat levné leady, ale firma následně platí časem obchodníků za kontaktování
+        lidí, kteří nejsou připraveni pokračovat nebo si ani přesně nepamatují, co odeslali.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Formuláře úplně nevypínat, ale nespoléhat na ně jako na jediný hlavní konverzní mechanismus.
+        Část kampaní by měla běžet přes samostatné landing pages měřené v GA4.
+      </div>
+    </div>
+
+    <!-- Zjištění 2 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 2</span>
+        <span class="finding-title">Kampaně málo pracují s retargetingem a nasbíranými daty</span>
+      </div>
+      <p>
+        Z aktuálního nastavení nevyplývá, že by kampaně systematicky pracovaly s retargetingem.
+        To je u EduJoy velká ztráta, protože jazykový kurz není impulzivní nákup.
+      </p>
+      <p>
+        Uživatel často potřebuje čas. Musí pochopit, jestli má na kurz nárok, jak funguje Úřad práce,
+        jaká úroveň češtiny je pro něj vhodná, jestli zvládne termíny a jestli tomu důvěřuje. Pokud
+        kampaně oslovují hlavně nové publikum a nevrací se k lidem, kteří už projevili zájem, ztrácí
+        se část nejcennějšího publika.
+      </p>
+      <p>
+        Stejně problematické je slabé využití lookalike audiences. V účtu existují jen omezené
+        kategorie podobných publik a velká část z nich se podle dostupného nastavení vůbec aktivně
+        nevyužívá.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Účet pořád dokola nakupuje nové publikum, ale málo využívá lidi, které už jednou zaplatil
+        a přivedl do funnelu.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Postavit samostatnou retargetingovou vrstvu pro návštěvníky webu, lidi po interakci
+        s reklamami, otevřené formuláře bez odeslání, video diváky a odeslané leady. Lookalike
+        audiences stavět hlavně z kvalitních leadů a reálných studentů.
+      </div>
+    </div>
+
+    <!-- Zjištění 3 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 3</span>
+        <span class="finding-title">Cílení je příliš obecné a nechává moc prostoru algoritmu</span>
+      </div>
+      <p>
+        U aktivních kampaní je cílení nastavené velmi široce: minimální věk a lokalita Česká republika.
+        Od minulé kontroly přibylo jazykové cílení, což je pozitivní krok. RU kampaně už jsou omezené
+        na rusky mluvící uživatele, což dává smysl.
+      </p>
+      <p>
+        Problém ale zůstává v tom, že účet stále stojí hlavně na velmi širokém cílení a Advantage+
+        nastavení. Advantage+ samo o sobě není špatně. Problém je, když na tomto přístupu stojí téměř
+        celý účet. V takovém případě ztrácíte kontrolu nad tím, komu se reklamy skutečně zobrazují.
+      </p>
+      <p>
+        U EduJoy je to zásadní, protože jednotlivé motivace nejsou stejné. Člověk, který potřebuje
+        češtinu kvůli práci, reaguje na jiný argument než člověk, který řeší pobyt nebo občanství.
+        Rodič hledající kurz pro dítě zase potřebuje úplně jinou komunikaci.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Kampaň sice může doručovat leady, ale účet se málo učí o tom, kdo je skutečně nejlepší zákazník.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Advantage+ ponechat jako jednu vrstvu, ale vedle toho testovat jasně definované segmenty
+        podle jazyka, motivace, typu kurzu a fáze rozhodování.
+      </div>
+    </div>
+
+    <!-- Zjištění 4 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 4</span>
+        <span class="finding-title">Účet běží téměř výhradně na konverzních kampaních</span>
+      </div>
+      <p>
+        Strategicky největší problém není jen nastavení cílení, ale celková skladba kampaní. Aktuálně
+        běží hlavně kampaně zaměřené na okamžitý výkon. Chybí systematická vrstva pro budování značky,
+        vysvětlování nabídky a dlouhodobé zahřívání publika.
+      </p>
+      <p>
+        Lidé vás nemusí znát jako značku. Nevědí, kdo jste, proč vám věřit, co znamená akreditace
+        MŠMT, jak funguje Úřad práce, kdo jsou vaši lektoři nebo proč si vybrat právě EduJoy místo
+        jiné jazykové školy.
+      </p>
+      <p>
+        Pokud uživatel vidí pouze výkonnostní reklamu s konkrétní nabídkou, rozhoduje se hlavně podle
+        toho, jestli ho v tu chvíli produkt zajímá. Nevzniká silnější vztah ke značce, důvěra ani
+        důvod vrátit se k EduJoy později.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        EduJoy platí hlavně za okamžitou poptávku, ale méně si buduje vlastní pozici na trhu.
+        Tím roste závislost na výkonových kampaních.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Rozdělit rozpočet na kontinuální awareness vrstvu a výkonnostní vrstvu navázanou na retargeting.
+      </div>
+    </div>
+
+    <!-- Zjištění 5 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 5</span>
+        <span class="finding-title">Historicky úspěšné kampaně se dál nerozvíjejí</span>
+      </div>
+      <p>
+        V účtu jsou kampaně, které historicky fungovaly, ale jsou vypnuté a dál se s nimi nepracuje.
+        Úspěšná kampaň by neměla zmizet jen proto, že skončila její původní vlna nebo se mezitím
+        spustilo něco nového.
+      </p>
+      <p>
+        U performance marketingu nejde jen o spouštění nových kampaní. Jde o práci s tím, co už účet
+        ověřil. Pokud některá nabídka, kreativa, segment nebo hook historicky přinesly dobrý výsledek,
+        měly by se dál rozvíjet.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Účet začíná opakovaně od nuly místo toho, aby stavěl na tom, co už fungovalo.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Projít historické kampaně a vytáhnout nejlepší nabídky, kreativy, publika, jazyky a cenu
+        za kvalitní lead. Tyto prvky použít jako základ nové struktury.
+      </div>
+    </div>
+
+    <!-- Zjištění 6 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 6</span>
+        <span class="finding-title">Kreativy nepůsobí jako jedna značka</span>
+      </div>
+      <p>
+        U většiny kreativ není jasně viditelné logo EduJoy. Vizuálně navíc nepůsobí konzistentně
+        v rámci jedné značky. Pokud uživatel uvidí tři různé reklamy, pravděpodobně si je nespojí
+        s jednou firmou.
+      </p>
+      <p>
+        To je zásadní hlavně proto, že účet nemá silnou awareness vrstvu. Pokud značka není budovaná
+        samostatnou kampaní a zároveň se neobjevuje konzistentně ani ve výkonnostních kreativách,
+        EduJoy ztrácí část hodnoty každého zobrazení.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Platíte za zobrazení, která pomáhají výkonu kampaně, ale méně pomáhají dlouhodobému růstu značky.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Sjednotit kreativní systém. Každá reklama nemusí vypadat stejně, ale musí být okamžitě
+        rozpoznatelné, že patří EduJoy.
+      </div>
+    </div>
+
+    <!-- Zjištění 7 -->
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 7</span>
+        <span class="finding-title">Pixel a měření neodpovídají tomu, jak EduJoy reálně prodává</span>
+      </div>
+      <p>
+        Největší technická podezřelost je měření. Už jsme řešili, že pixel není správně nasazený
+        na hlavním webu, kam kampaně pravděpodobně míří. Zároveň je v účtu vidět měření události
+        „nákup", přestože EduJoy není e-shop a neprodává standardní online produkt s okamžitou platbou.
+      </p>
+      <p>
+        Tohle je zásadní problém. Pokud Meta dostává špatný signál, může se učit špatným směrem.
+        U EduJoy by hlavní otázka neměla být „kolik bylo nákupů", ale kolik leadů bylo kvalitních,
+        kolik se podařilo kontaktovat, kolik z nich nastoupilo do kurzu a jaká byla jejich reálná hodnota.
+      </p>
+      <div class="callout critical" style="margin: 18px 0;">
+        <div class="callout-label">Diagnostika v Meta Events Manageru</div>
+        <p>
+          <strong>Meta u události Purchase hlásí aktivní problém.</strong> U <strong>0 % Purchase eventů</strong>
+          se posílá platná cena a měna ve správném formátu. To potvrzuje, že event „nákup" není
+          v aktuálním měření připravený jako plnohodnotný revenue signál. U EduJoy je to o to
+          důležitější, protože nejde o klasický e-shop, ale o lead-based službu s následným follow-upem.
+        </p>
+      </div>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Účet může optimalizovat na špatné chování uživatele. To zhoršuje přesnost vyhodnocení,
+        retargeting i budoucí škálování.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Přenastavit měření podle reálného funnelu EduJoy: odeslaný formulář, kvalifikovaný lead,
+        kontaktovaný lead, přihlášený student a nástup do kurzu. „Nákup" používat pouze tehdy,
+        pokud opravdu odpovídá reálné platbě nebo jasně definované obchodní hodnotě.
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">Celkový závěr Meta auditu</div>
+      <p>
+        Meta účet dnes pravděpodobně umí generovat levné kontakty. To ale není totéž jako dlouhodobě
+        řízený akviziční systém. Největší problém není v tom, že by kampaně neběžely. Problém je,
+        že účet příliš spoléhá na formulářové leady, široké algoritmické cílení a okamžitý výkon.
+        Méně pracuje s retargetingem, daty, značkou, historicky úspěšnými kampaněmi a přesným
+        měřením obchodní kvality.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WEBSITE AUDIT -->
+<section id="website" class="section-alt">
+  <div class="container">
+    <div class="section-label">Website audit</div>
+    <h2>Web je dnes slabé místo mezi reklamou, měřením a obchodem</h2>
+    <p class="section-lede">
+      Z pohledu výkonu není hlavní problém jen samotný vzhled webu. Větší problém je, že EduJoy dnes
+      pracuje se dvěma oddělenými světy: hlavním webem a samostatnými GoHighLevel landing pages.
+      Kampaně podle dostupných informací posílají návštěvnost do obou prostředí, ale měření, značka,
+      UX ani následná práce s daty nejsou sjednocené.
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Hlavní závěr</div>
+      <p>
+        Web dnes nepůsobí jako centrální marketingový nástroj. Část funnelu běží mimo hlavní web,
+        pixel pravděpodobně správně funguje hlavně na GoHighLevel landing pages a hlavní web tak
+        zůstává mimo důležitou část datového a reklamního systému. To komplikuje atribuci, retargeting
+        i vyhodnocení toho, odkud reálně přichází kvalitní studenti.
+      </p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 1</span>
+        <span class="finding-title">Návštěvnost je rozdělená mezi hlavní web a GoHighLevel landing pages</span>
+      </div>
+      <p>
+        Podle informací z úvodní schůzky EduJoy nepoužívá pouze jeden webový funnel. Část kampaní
+        vede na samostatné GoHighLevel landing pages a část návštěvnosti pravděpodobně míří na hlavní web.
+        To samo o sobě není špatně, pokud je vše jasně měřené a propojené.
+      </p>
+      <p>
+        V aktuálním nastavení ale vzniká problém: pixel není správně nasazený na hlavním webu,
+        zatímco na GoHighLevel landing pages pravděpodobně funguje. Výsledkem je mix dat z několika
+        prostředí, kde není úplně jasné, které stránky sbírají jaké signály a odkud Meta reálně
+        čerpá data pro optimalizaci.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Meta a GA4 nemusí vidět celou cestu uživatele. Člověk může přijít přes reklamu, projít část
+        nabídky na jednom prostředí a dokončit formulář jinde. Pokud tato cesta není propojená,
+        reporting ukazuje jen část reality.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Sjednotit webový funnel. Buď používat hlavní web jako primární prostředí pro kampaně, nebo
+        jasně definovat roli GoHighLevel. V obou případech musí být pixel, GA4 a konverzní události
+        nastavené konzistentně napříč všemi stránkami.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 2</span>
+        <span class="finding-title">Hlavní web dnes nepodporuje kampaně jako plnohodnotná landing page vrstva</span>
+      </div>
+      <p>
+        EduJoy není e-shop. Uživatel si kurz většinou nekoupí impulzivně během jedné návštěvy.
+        Potřebuje pochopit nabídku, podmínky, proces Úřadu práce, rozdíl mezi typy kurzů a další krok.
+        Právě proto by web měl fungovat jako kvalifikační mezikrok mezi reklamou a obchodem.
+      </p>
+      <p>
+        Aktuálně ale nepůsobí, že by hlavní web měl nativní landing page strukturu pro placené
+        kampaně. Kampaně tak musí spoléhat na externí GoHighLevel stránky nebo na Facebook formuláře.
+        Tím se z hlavního webu stává spíš prezentační stránka než nástroj, který aktivně podporuje
+        výkon reklam.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Web má menší schopnost filtrovat nekvalitní zájemce, vysvětlovat nabídku a sbírat data o tom,
+        kde se uživatel rozhodl pokračovat nebo odejít.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Vytvořit na hlavním webu vlastní landing page šablony pro hlavní kampaně: ÚP hrazené kurzy,
+        čeština pro cizince, pobyt/občanství, individuální výuka, děti a firmy. Každá stránka by měla
+        mít vlastní argumentaci, formulář a měření.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 3</span>
+        <span class="finding-title">Vizuální styl webu nepůsobí konzistentně se značkou</span>
+      </div>
+      <p>
+        Web by měl okamžitě potvrdit, že uživatel přišel na stejnou značku, kterou viděl v reklamě.
+        U EduJoy to dnes není dostatečně silné. Vizuální styl webu nepůsobí konzistentně s barvami
+        a výrazem loga a celkově nebuduje značku tak silně, jak by měl.
+      </p>
+      <p>
+        To je stejný problém jako u kreativ v Meta kampaních. Pokud reklamy, landing pages a hlavní
+        web vypadají jako tři různé světy, uživatel si je nespojí. U vzdělávací služby, kde je důvěra
+        důležitější než okamžitý nákup, je to zbytečná ztráta.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Každá návštěva a každé zobrazení reklamy buduje menší zapamatovatelnost značky. Uživatel
+        si může pamatovat nabídku, ale ne EduJoy.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Sjednotit vizuální systém webu s reklamami: barvy, typografie, práce s logem, styl fotek,
+        CTA prvky a struktura sekcí. Web nemusí být komplikovaný, ale musí být rozpoznatelný.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 4</span>
+        <span class="finding-title">Responsivita a technické zpracování snižují důvěru</span>
+      </div>
+      <p>
+        Při kontrole webu jsou vidět problémy s responzivitou a chováním prvků na různých zařízeních.
+        Některé elementy nepůsobí stabilně a na menších obrazovkách mohou narušovat čitelnost nebo
+        celkový dojem ze stránky.
+      </p>
+      <p>
+        To není jen designová poznámka. Uživatel z reklamy často přichází z mobilu. Pokud na webu
+        narazí na rozbitý layout, špatně čitelný obsah nebo prvky, které přes sebe přetékají,
+        výrazně to snižuje důvěru ještě předtím, než začne řešit samotný kurz.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Část zaplacené návštěvnosti může odcházet ne kvůli slabé nabídce, ale kvůli horšímu dojmu
+        z webu. To zvyšuje reálnou cenu za kvalitní lead.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Před škálováním kampaní projít web na mobilu, tabletu a desktopu a opravit základní layoutové
+        chyby. U kampaní cílených na cizince je mobilní zkušenost jedna z priorit, ne detail na konci.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 5</span>
+        <span class="finding-title">Web není jednoduše editovatelný, což brzdí marketing</span>
+      </div>
+      <p>
+        Podle informací ze schůzky není současný web postavený tak, aby si EduJoy mohlo jednoduše
+        upravovat obsah samo. Každá větší úprava tak pravděpodobně znamená závislost na externím
+        dodavateli a další náklady.
+      </p>
+      <p>
+        V roce 2026 je to pro menší vzdělávací firmu zbytečně těžkopádné. Marketing potřebuje rychle
+        měnit texty, přidávat landing pages, upravovat termíny kurzů, doplňovat reference, testovat
+        varianty nadpisů a reagovat na kampaně. Pokud je každá změna placený zásah, web se přestává
+        používat jako živý marketingový nástroj.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Tým má menší kontrolu nad vlastním funnelingem a každá úprava zpomaluje testování. To je
+        problém hlavně ve chvíli, kdy kampaně potřebují rychle ověřovat nové nabídky a segmenty.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Postavit web na WordPressu, ideálně na jednoduché custom šabloně nebo kvalitní koupené šabloně.
+        Cílem není drahý redesign, ale kontrola, rychlost úprav a možnost stavět nové landing pages
+        bez zbytečné závislosti na vývoji.
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Doporučený směr</div>
+      <p>
+        <strong>Nejdřív sjednotit webový základ, potom škálovat kampaně.</strong> Pro EduJoy dává
+        největší smysl levnější a pružnější řešení: nový WordPress web s jasnou strukturou služeb,
+        měřitelnými landing pages a konzistentním napojením na Meta/GA4. GoHighLevel může zůstat
+        jako nástroj pro automatizaci nebo CRM proces, pokud má jasnou roli. Neměl by ale vytvářet
+        oddělený svět, který se měří jinak než hlavní web a oslabuje celkový přehled o zákaznické cestě.
+      </p>
+      <p style="margin-top: 10px;">
+        <strong>Prakticky:</strong> WordPress, landing page šablony, GA4 eventy, Meta Pixel/CAPI,
+        jasné formuláře, jednotná vizuální identita a možnost interně upravovat obsah bez každého
+        placeného zásahu.
+      </p>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">Celkový závěr website auditu</div>
+      <p>
+        Web dnes není jen estetický problém. Je to problém kontroly nad funnelingem. EduJoy potřebuje
+        prostředí, které sjednotí kampaně, data, značku a obchodní proces. Současný mix hlavního webu
+        a GoHighLevel landing pages může krátkodobě fungovat, ale dlouhodobě omezuje měření,
+        retargeting, rychlost úprav i schopnost budovat značku.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL STRATEGY -->
+<section id="strategy">
+  <div class="container">
+    <div class="section-label">Digital strategy</div>
+    <h2>Kanály dnes běží vedle sebe, ne jako jeden systém</h2>
+    <p class="section-lede">
+      Z aktuálního nastavení nevychází, že by web, Meta kampaně a Google kampaně pracovaly podle jedné
+      společné digitální strategie. Jednotlivé části marketingu existují, ale nepůsobí jako propojený
+      funnel. Výsledkem je horší měření, slabší práce s publikem a vyšší riziko, že každý kanál
+      reportuje vlastní výkon, ale nikdo neřídí celý zákaznický proces.
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Hlavní zjištění</div>
+      <p>
+        Problém není v tom, že by EduJoy neměl reklamy nebo web. Problém je v tom, že aktuální
+        digitální ekosystém nepůsobí jako jeden celek. Meta sbírá leady, Google pravděpodobně
+        zachytává část poptávky, web a GoHighLevel landing pages fungují odděleně a měření není
+        postavené tak, aby bylo jasné, kde člověk ztrácí zájem a proč.
+      </p>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 1</span>
+        <span class="finding-title">Meta a Google nepůsobí jako sladěné kanály</span>
+      </div>
+      <p>
+        Meta Ads a Google Ads dnes podle dostupných informací běží odděleně. Každý kanál může mít
+        vlastní logiku, vlastní reporting a vlastní optimalizaci. To je běžný problém, ale u EduJoy
+        je výrazný, protože rozhodovací proces není okamžitý.
+      </p>
+      <p>
+        Meta by měla vytvářet poptávku, vysvětlovat nabídku a pracovat s lidmi, kteří ještě aktivně
+        nehledají kurz. Google by měl zachytávat uživatele s vyšším záměrem, tedy lidi, kteří už
+        hledají češtinu pro cizince, rekvalifikaci, zkoušku, pobyt nebo konkrétní typ kurzu.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Pokud kanály neběží společně, může firma platit za stejného uživatele vícekrát a přitom
+        nemít jasné, který kanál reálně přispěl k výsledku.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Nastavit společný pohled na funnel: co má dělat Meta, co má dělat Google, jak se mezi nimi
+        sdílí publika a podle jakých KPI se vyhodnocuje skutečný přínos.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 2</span>
+        <span class="finding-title">Strategie není postavená jako funnel</span>
+      </div>
+      <p>
+        Aktuální nastavení působí tak, že většina aktivity míří rovnou na konverzi. Chybí jasně
+        oddělené fáze: první kontakt, vysvětlení nabídky, získání důvěry, návrat nerozhodnutého
+        uživatele a až potom samotný lead.
+      </p>
+      <p>
+        U EduJoy je to problém, protože člověk často nerozhoduje během jedné návštěvy. Musí pochopit,
+        jak kurz funguje, jestli má nárok na podporu Úřadu práce, jaká úroveň je pro něj vhodná,
+        jestli je služba důvěryhodná a co se stane po odeslání formuláře.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Pokud celý systém tlačí rovnou na lead, zvyšuje se podíl lidí, kteří formulář odešlou bez
+        dostatečného pochopení nabídky, nebo naopak odejdou, protože ještě nejsou připraveni.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Rozdělit strategii na awareness, consideration, retargeting a conversion vrstvu. Každá
+        vrstva má mít jiný cíl, jiný obsah a jiné vyhodnocení.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 3</span>
+        <span class="finding-title">Není jasně vidět, kde lidé z funnelu odcházejí</span>
+      </div>
+      <p>
+        Protože je návštěvnost rozdělená mezi hlavní web, GoHighLevel landing pages a Facebook
+        formuláře, je obtížné vyhodnotit, kde přesně uživatel ztrácí zájem. U dobře nastaveného
+        funnelu by mělo být vidět, jestli problém vzniká už v reklamě, na landing page, ve formuláři,
+        po odeslání leadu nebo až při následné komunikaci.
+      </p>
+      <p>
+        Bez toho se optimalizace snadno zjednoduší na metriky typu CPL nebo počet leadů. Ty ale
+        samy o sobě nestačí, protože neříkají, proč lidé nekonvertují dál.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Rozhodnutí o rozpočtu a kampaních se mohou dělat podle neúplných dat. Kampaň může vypadat
+        úspěšně, i když přivádí kontakty, které se později nepromění ve studenty.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Sjednotit měření přes GA4, Meta Pixel/CAPI a CRM tak, aby bylo možné sledovat cestu od
+        první návštěvy až po reálný nástup do kurzu.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 4</span>
+        <span class="finding-title">Chybí jasná KPI nad rámec samotného leadu</span>
+      </div>
+      <p>
+        Současná strategie působí, že hlavním cílem je získat lead. To je ale u EduJoy jen první krok.
+        Skutečná hodnota vzniká až ve chvíli, kdy je lead relevantní, kontaktovatelný, má vhodnou
+        motivaci a reálně nastoupí do kurzu.
+      </p>
+      <p>
+        Proto by se výkon neměl hodnotit jen podle počtu formulářů nebo ceny za lead, ale podle
+        kvality leadu a jeho dalšího vývoje.
+      </p>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučená KPI</div>
+        Cena za kvalifikovaný lead, kontaktovatelnost leadů, čas do prvního kontaktu, lead → student,
+        zdroj reálných studentů, podíl ÚP vs. placených kurzů a hodnota zákazníka podle typu kurzu.
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-head">
+        <span class="finding-num">Zjištění 5</span>
+        <span class="finding-title">Příliš velká závislost na okamžité konverzi brzdí značku</span>
+      </div>
+      <p>
+        Aktuální digitální strategie je výrazně orientovaná na výkonové kampaně. To může krátkodobě
+        přinášet leady, ale dlouhodobě to nestačí. EduJoy má za sebou historii, akreditace, konkrétní
+        lektory, zkušenosti se studenty a službu, která vyžaduje důvěru. Tyto prvky by měly být
+        v digitální strategii vidět výrazně víc.
+      </p>
+      <p>
+        Pokud uživatel vidí pouze výkonnostní reklamu, rozhoduje se hlavně podle momentální nabídky.
+        Pokud ale značku vidí opakovaně v různých kontextech, začne ji vnímat jako relevantní možnost.
+        To je rozdíl mezi reklamou, která jen sbírá leady, a marketingem, který postupně buduje
+        pozici na trhu.
+      </p>
+      <div class="mini-callout dopad">
+        <div class="mini-label">Dopad</div>
+        Bez brandové vrstvy bude EduJoy dlouhodobě více závislý na placeném výkonu a bude těžší
+        odlišit se od konkurence, která komunikuje podobné kurzy.
+      </div>
+      <div class="mini-callout doporuceni">
+        <div class="mini-label">Doporučení</div>
+        Doplnit stabilní brandovou vrstvu: vysvětlení procesu ÚP, příběhy studentů, představení
+        lektorů, ukázky výuky, důvody důvěry a obsah pro lidi, kteří zatím nejsou připraveni odeslat
+        formulář.
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">Kam by se strategie měla posunout</div>
+      <p>
+        Nejdřív je potřeba přestat hodnotit jednotlivé kanály izolovaně. EduJoy potřebuje jeden
+        společný akviziční systém: <strong>Meta pro vytvoření poptávky a návrat nerozhodnutých
+        uživatelů, Google pro zachycení aktivního hledání, web pro vysvětlení nabídky a kvalifikaci
+        zájemce, CRM pro vyhodnocení kvality leadu a e-mail pro dlouhodobý follow-up.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL & NURTURE -->
+<section id="email" class="section-alt">
+  <div class="container">
+    <div class="section-label">Strategický problém #2 · Email &amp; nurture</div>
+    <h2>Newsletter není „poslední možnost". Je to jeden z nejlevnějších a nejziskovějších kanálů, které máte.</h2>
+    <p class="section-lede">
+      Na úvodní schůzce zaznělo, že newsletter aktuálně nevnímáte jako silný kanál. Z pohledu edu
+      segmentu je to ale spíš problém využití než problém výkonu. Email není primárně akviziční kanál.
+      Je to nurture a retention vrstva, která pracuje s lidmi, které už jste jednou získali.
+    </p>
+
+    <div class="callout">
+      <div class="callout-label">Hlavní point</div>
+      <p>
+        EduJoy neprodává impulzivní produkt. Rozhodnutí nastoupit do kurzu češtiny často trvá týdny.
+        Uživatel řeší práci, pobyt, finance, Úřad práce, časové možnosti, strach ze zkoušek a důvěru
+        ve školu. Pokud po prvním kontaktu zmizí z komunikace, neznamená to automaticky nezájem.
+        Často jen není ve správné fázi rozhodnutí.
+      </p>
+    </div>
+
+    <h3>Jak moc je to podceněné</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Kanál</th>
+            <th>Konverze v edu</th>
+            <th>Cost per acquisition</th>
+            <th>Role ve funnelu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Email / newsletter</strong></td>
+            <td class="good">14,1 %</td>
+            <td class="good">~0 Kč per send</td>
+            <td>Nurture, re-engagement, upsell</td>
+          </tr>
+          <tr>
+            <td>Paid search / Google</td>
+            <td>7,3 %</td>
+            <td>Střední, CPC model</td>
+            <td>BOFU — zachytává intent</td>
+          </tr>
+          <tr>
+            <td>Paid social / Meta</td>
+            <td>5,1 %</td>
+            <td>Střední, CPM model</td>
+            <td>TOFU — vytváří poptávku</td>
+          </tr>
+          <tr>
+            <td>Organický web / SEO</td>
+            <td>3–5 %</td>
+            <td>Dlouhodobá investice</td>
+            <td>TOFU + BOFU</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>20 % open rate není problém. Problém je využití.</h3>
+    <p>
+      Váš open rate kolem 20 % je v edu segmentu průměrný. Ne slabý. Skutečný problém není v tom,
+      že email nefunguje, ale v tom, jak často chodí, na koho míří a jestli navazuje na fázi
+      rozhodování uživatele.
+    </p>
+
+    <div class="stat-grid">
+      <div class="stat-card info">
+        <div class="stat-label">Z 300 leadů / měsíc</div>
+        <div class="stat-number">3 600</div>
+        <div class="stat-note">
+          kontaktů ročně jen z Meta kampaní. Pokud s nimi firma systematicky nepracuje, velká část
+          zaplacené hodnoty zůstává ležet v databázi.
+        </div>
+      </div>
+      <div class="stat-card warning">
+        <div class="stat-label">Ztracená hodnota</div>
+        <div class="stat-number">každý lead</div>
+        <div class="stat-note">
+          který nekoupí hned, nesmí zmizet z funnelu. Retargeting v Meta stojí peníze. Email stojí
+          prakticky nula korun za odeslání.
+        </div>
+      </div>
+    </div>
+
+    <h3>Co s tím: minimální email funnel</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Welcome sekvence</h4>
+          <p>
+            Po vyplnění FB formuláře nebo landing page formuláře by měl automaticky začít onboarding.
+            Obsah: kdo jste, proč EduJoy, jak funguje kurz, success stories a jednoduchý návod, jak
+            získat ÚP hrazený kurz.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Nurture broadcast 1× týdně</h4>
+          <p>
+            Ne prodejní spam. Praktický obsah k učení češtiny, přípravě na zkoušky, změnám v zákoně,
+            životu v ČR a zkušenostem studentů. Část obsahu už pravděpodobně máte na blogu a dá se
+            recyklovat.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Abandoned application sequence</h4>
+          <p>
+            Kdokoli začne formulář nebo proces přihlášky a nedokončí ho, dostane tři připomínky:
+            po 24 hodinách, po 3 dnech a po 7 dnech. Tohle bývá jeden z nejlevnějších zdrojů
+            návratových konverzí.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Post-course upsell</h4>
+          <p>
+            Po dokončení A2 kurzu by měla automaticky přijít návazná nabídka B1, B2, individuálních
+            lekcí nebo firemního kurzu. Pokud už student prošel kurzem a důvěřuje vám, je to výrazně
+            levnější než získávat nového člověka od nuly.
+          </p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>Re-engagement a čištění databáze</h4>
+          <p>
+            Kontakty, které 90 dní nereagují, by měly dostat jednoduchou otázku: „Je tohle pro vás
+            ještě relevantní?" Pokud ne, je lepší je postupně vyřadit. Čistší databáze zlepšuje
+            deliverability všem ostatním a zvyšuje reálný výkon newsletteru.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Datový kontext</div>
+      <p>
+        Bez emailu pracujete pouze s aktuálním poolem leadů. Každý lead, který nekoupil hned, je
+        propadlá hodnota, a v edu sektoru cyklus rozhodování často trvá týdny. Email tento čas
+        pokrývá s minimálními mediálními náklady a zároveň vrací uživatele zpět do funnelu bez
+        nutnosti znovu za něj platit v reklamních systémech.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE POSITION -->
+<section id="competitive">
+  <div class="container">
+    <div class="section-label">Competitive position</div>
+    <h2>Konkurence není široká. Skutečných přímých hráčů je málo.</h2>
+    <p class="section-lede">
+      EduJoy není běžná jazyková škola. Kombinuje češtinu pro cizince, ÚP hrazené kurzy a placené
+      individuální nebo firemní vzdělávání. Proto nedává smysl porovnávat se se všemi jazykovkami stejně.
+    </p>
+
+    <div class="comp-grid">
+      <div class="comp-card primary">
+        <div class="comp-name">ICJ</div>
+        <div class="comp-seg">Hlavní benchmark · přímý konkurent</div>
+        <div class="comp-desc">
+          ICJ se překrývá jak v češtině pro cizince, tak v integračních a veřejně financovaných
+          kurzech. To z něj dělá relevantnější benchmark než obecné jazykové školy zaměřené hlavně
+          na angličtinu, němčinu nebo firemní výuku.
+        </div>
+      </div>
+      <div class="comp-card secondary">
+        <div class="comp-name">Rekvalifikační projekty</div>
+        <div class="comp-seg">Sekundární hrozba · konkurence o publikum</div>
+        <div class="comp-desc">
+          Část konkurence nesoutěží produktem, ale publikem. Rekvalifikační projekty nemusí nabízet
+          stejný kurz, ale mohou cílit na podobné lidi: zájemce o ÚP podporu, změnu práce nebo
+          kvalifikaci. V placených kampaních tak mohou soutěžit o stejnou pozornost, i když prodávají
+          jiný obsah.
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">Dopad</div>
+      <p>
+        Pro kreativy, SEO, nabídky a positioning má největší smysl sledovat hlavně <strong>ICJ</strong>,
+        ne dlouhý seznam škol s jen okrajovým překryvem.
+      </p>
+    </div>
+
+    <div class="callout positive">
+      <div class="callout-label">Doporučení</div>
+      <p>
+        Oddělit přímé konkurenty podle <strong>nabídky</strong> a <strong>publika</strong>. Jinak se
+        bude strategie rozpadat mezi příliš mnoho irelevantních srovnání.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNEL ROLE MAP -->
+<section id="channels" class="section-alt">
+  <div class="container">
+    <div class="section-label">Channel role map</div>
+    <h2>Každý kanál musí mít jasnou roli. Teď se role překrývají.</h2>
+    <p class="section-lede">
+      Největší problém není samotný výběr kanálů. Problém je, že Meta, Google, web, landing pages
+      a email nepůsobí jako jeden systém. Každý kanál by měl dělat jinou práci a předávat data dál.
+    </p>
+
+    <div class="role-grid">
+      <div class="role-card r-meta">
+        <div class="role-channel">Meta</div>
+        <div class="role-title">Vytváří zájem</div>
+        <div class="role-desc">
+          Oslovuje nové publikum, testuje sdělení, zahřívá uživatele a sbírá první signály zájmu.
+        </div>
+      </div>
+      <div class="role-card r-google">
+        <div class="role-channel">Google</div>
+        <div class="role-title">Chytá intent</div>
+        <div class="role-desc">
+          Zachytává lidi, kteří už aktivně hledají kurz, rekvalifikaci nebo češtinu pro cizince.
+        </div>
+      </div>
+      <div class="role-card r-web">
+        <div class="role-channel">Website / LP</div>
+        <div class="role-title">Vysvětluje a filtruje</div>
+        <div class="role-desc">
+          Má vysvětlit nabídku, zodpovědět nejistoty a oddělit kvalitní zájemce od náhodných kontaktů.
+        </div>
+      </div>
+      <div class="role-card r-email">
+        <div class="role-channel">Email / CRM</div>
+        <div class="role-title">Dotahuje rozhodnutí</div>
+        <div class="role-desc">
+          Vrací nerozhodnuté leady, posílá užitečné informace a dává platformám zpět data o kvalitě
+          kontaktů.
+        </div>
+      </div>
+    </div>
+
+    <div class="conclusion">
+      <div class="conclusion-label">Co z toho plyne</div>
+      <p>
+        Bez jasně rozdělených rolí se kanály překrývají, výsledky se hůř vyhodnocují a část rozpočtu
+        se utrácí za stejnou cestu uživatele víckrát. <strong>Cílem není přidat další kanál. Cílem
+        je poskládat stávající kanály tak, aby každý dělal konkrétní část práce.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Připravil <strong>Michael Florián</strong> · <a href="https://off-plate.com">Off-Plate</a> · 23. 4. 2026
+  <div class="footer-sources">
+    Benchmarky: WordStream, Mailchimp, Unbounce, Klaviyo, SuperAds, Promodo (2025–2026).<br>
+    Všechna čísla EduJoy jsou ze self-reported dat a podléhají ověření v Ads Manageru.
+  </div>
+</footer>
+
+</body>
+</html>
