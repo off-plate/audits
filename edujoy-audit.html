@@ -437,7 +437,6 @@
       <a href="#email">Email &amp; nurture</a>
       <a href="#competitive">Competitive position</a>
       <a href="#channels">Channel role map</a>
-      <a href="#otazky">Otázky pro agentury</a>
       <a href="#roadmap">Priority &amp; další kroky</a>
     </div>
     <button type="button" class="toc-arrow" aria-label="Posunout navigaci doprava">›</button>
@@ -486,11 +485,12 @@
 <section id="meta">
   <div class="container">
     <div class="section-label">Facebook / Meta Ads audit</div>
-    <h2>Co ukazuje aktuální nastavení účtu</h2>
+    <h2>Stav účtu má více zásadních problémů</h2>
     <p class="section-lede">
-      Účet není zanedbaný ani technicky rozbitý. Reklamy běží, formuláře sbírají, Meta dostává
-      signál. Problém je o úroveň výš. Účet je postavený tak, aby co nejrychleji dotáhl uživatele
-      k formuláři, a mnohem méně řeší, jestli má reálnou šanci stát se studentem.
+      Meta účet má řadu zásadních problémů. Pixel není správně nasazený na hlavním webu. Účet
+      nepoužívá lookalike audiences ani systematický retargeting. Část kampaní je optimalizovaná
+      na špatné události a event „nákup" je nasazený technicky vadně. Reklamy běží a formuláře
+      sbírají, ale systém nesměřuje k tomu, aby produkoval kvalitní studenty.
     </p>
 
     <div class="callout">
@@ -513,32 +513,25 @@
         <div class="stat-label">Aktivní kampaně</div>
         <div class="stat-number">3 / 12</div>
         <div class="stat-note">
-          Pouze tři kampaně reálně utrácejí: A1/B2, Residence a CZFree. Devět dalších je vypnutých,
+          Reálně utrácejí pouze tři kampaně: A1/B2, Residence a CZFree. Devět dalších je vypnutých,
           včetně historicky úspěšných.
         </div>
       </div>
-      <div class="stat-card warning">
+      <div class="stat-card critical">
         <div class="stat-label">Aktivní reklamy</div>
         <div class="stat-number">33</div>
         <div class="stat-note">
-          33 reklam ve třech kampaních. Při daném rozpočtu příliš široký test, na kterém se algoritmus
-          nestihne ničemu naučit.
-        </div>
-      </div>
-      <div class="stat-card critical">
-        <div class="stat-label">Nevyřešená doporučení Meta</div>
-        <div class="stat-number">15+</div>
-        <div class="stat-note">
-          Meta sama hlásí přes 15 doporučení na kampaních a ad setech. Žádné z nich není označené
-          jako vyřízené.
+          33 reklam rozdělených do ad setů, ale <strong>všechny jsou nastavené jako konverzní
+          formulářové kampaně</strong>. Úspěšnost copy ani kreativ tak nelze správně vyhodnotit.
         </div>
       </div>
       <div class="stat-card critical">
         <div class="stat-label">Frekvence Residence EN</div>
         <div class="stat-number">10,94</div>
         <div class="stat-note">
-          Jeden ad set zobrazil stejnou reklamu stejnému uživateli v průměru 11×. Zdravá hranice
-          v edu je 2–4.
+          Jeden ad set zobrazil stejnou reklamu stejnému uživateli v průměru 11×. Rule of 7 říká,
+          že 7 expozic je <em>minimum</em>, ne strop, a v účtu chybí infrastruktura pro vyhodnocení
+          další frekvence.
         </div>
       </div>
     </div>
@@ -558,12 +551,13 @@
     <div class="finding">
       <div class="finding-head">
         <span class="finding-num">Zjištění 1</span>
-        <span class="finding-title">Účet stojí téměř výhradně na Facebook a Instagram formulářích</span>
+        <span class="finding-title">Všechny aktivní kampaně jsou výhradně formulářové</span>
       </div>
       <p>
-        Aktivní kampaně sbírají leady hlavně přes formuláře přímo ve Facebooku a Instagramu. Z reportingu
-        to vypadá dobře, formuláře typicky přinášejí levnější leady než landing page. U vzdělávací
-        služby s delším rozhodovacím cyklem je to ale rizikový základ.
+        Aktivní kampaně sbírají leady výhradně přes formuláře přímo ve Facebooku a Instagramu.
+        Z reportingu to vypadá dobře, formuláře typicky přinášejí levnější leady než landing page.
+        U vzdělávací služby s delším rozhodovacím cyklem je to ale rizikový základ a navíc vám to
+        zavírá možnost vyhodnotit copy a kreativy izolovaně.
       </p>
       <p>
         Formulář na Facebooku má pro uživatele velmi nízkou bariéru. Meta předvyplní jméno, e-mail
@@ -585,12 +579,13 @@
     <div class="finding">
       <div class="finding-head">
         <span class="finding-num">Zjištění 2</span>
-        <span class="finding-title">Kampaně málo pracují s retargetingem a daty, která už máte</span>
+        <span class="finding-title">Kampaně nepracují s retargetingem ani s daty, která už máte</span>
       </div>
       <p>
-        Z nastavení účtu nevyplývá, že by retargeting běžel systematicky. To je u vás velká ztráta,
-        protože jazykový kurz není impulzivní nákup. Uživatel potřebuje čas. Zjistit, jestli má nárok
-        na ÚP, jaká úroveň češtiny je pro něj vhodná, jestli zvládne termíny a jestli vám důvěřuje.
+        Retargeting v účtu neběží. Žádná systematická vrstva, která by oslovovala lidi po interakci
+        s reklamou, návštěvě webu nebo otevřeném formuláři bez odeslání. To je u vás zásadní ztráta,
+        protože jazykový kurz není impulzivní nákup. Uživatel potřebuje čas, aby zjistil, jestli má
+        nárok na ÚP, jaká úroveň češtiny je pro něj vhodná a jestli vám důvěřuje.
       </p>
       <p>
         Pokud kampaně oslovují hlavně cold publikum a nevrací se k lidem, kteří už projevili zájem,
@@ -599,8 +594,8 @@
         připomenout, ne přesvědčit od nuly.
       </p>
       <p>
-        Stejně podceněné jsou lookalike audiences. Ty, co v účtu existují, se podle nastavení skoro
-        nevyužívají, a navíc nejsou stavěné z kvalitních leadů ani reálných studentů.
+        Stejně podceněné jsou lookalike audiences. Účet je systematicky nevyužívá, a ty, které
+        v něm existují, nejsou stavěné z kvalitních leadů ani reálných studentů.
       </p>
       <p>
         Konkrétně se nabízí postavit retargetingovou vrstvu na pěti seedech: <strong>návštěvníci webu,
@@ -621,7 +616,7 @@
       </p>
       <p>
         Účet ale stále stojí hlavně na Advantage+ a širokém audience poolu. Advantage+ sám o sobě
-        není špatně. Problém je, když na něm stojí téměř celý účet. V takovém setupu ztrácíte
+        není špatně. Problém je, když na něm stojí celý účet. V takovém setupu ztrácíte
         kontrolu nad tím, komu se reklamy reálně zobrazují, a účet se hůř učí, kdo je váš
         ideální zákazník.
       </p>
@@ -649,11 +644,11 @@
     <div class="finding">
       <div class="finding-head">
         <span class="finding-num">Zjištění 4</span>
-        <span class="finding-title">Účet běží téměř výhradně na výkonových kampaních</span>
+        <span class="finding-title">Účet běží pouze na výkonových kampaních</span>
       </div>
       <p>
-        Největší strategický problém není cílení, ale skladba kampaní. Skoro všechno míří rovnou
-        na okamžitý výkon. Chybí vrstva, která buduje značku, vysvětluje nabídku a dlouhodobě
+        Největší strategický problém není cílení, ale skladba kampaní. Všechny aktivní kampaně míří
+        rovnou na okamžitý výkon. Chybí vrstva, která buduje značku, vysvětluje nabídku a dlouhodobě
         zahřívá publikum.
       </p>
       <p>
@@ -717,7 +712,7 @@
       <p>
         To by ještě nebyl zásadní problém, kdyby vedle toho běžela silná awareness vrstva. Ta ale neběží
         (viz Zjištění 4). Výsledek: <strong>každé zobrazení reklamy buduje slabší zapamatovatelnost
-        značky, než by mohlo</strong>. Platíte za impressions, ale skoro celá hodnota zůstává
+        značky, než by mohlo</strong>. Platíte za impressions, ale většina hodnoty zůstává
         ve výkonu, ne v brand recallu.
       </p>
       <p>
@@ -765,30 +760,34 @@
     <div class="finding">
       <div class="finding-head">
         <span class="finding-num">Zjištění 8</span>
-        <span class="finding-title">Frekvence zobrazení je dramaticky přes zdravou hranici</span>
+        <span class="finding-title">Frekvence sama o sobě není problém. Problém je, že na ní účet neumí pracovat</span>
       </div>
       <p>
         Ad set <strong>Residence&nbsp;–&nbsp;EN&nbsp;–&nbsp;Instant Form</strong> má v období
-        1. 2.&nbsp;–&nbsp;14. 5. 2026 frekvenci <strong>10,94</strong>. To znamená, že každý
-        z 84 601 zasažených lidí viděl reklamu v průměru téměř <strong>11krát</strong>. Ad set
+        1. 2.&nbsp;–&nbsp;14. 5. 2026 frekvenci <strong>10,94</strong>. Každý z 84 601 zasažených
+        lidí viděl reklamu v průměru téměř <strong>11krát</strong>. Ad set
         <strong>Residence&nbsp;–&nbsp;RU</strong> jede na frekvenci 6,63 a kampaň jako celek
         na 9,07.
       </p>
       <p>
-        Zdravá frekvence v edu sektoru se pohybuje mezi 2 a 4. Mezi 4 a 6 začíná ad fatigue.
-        Nad 6 platíte za zobrazení, která už mají negativní efekt: lidé reklamu ignorují, nebo
-        si s ní začnou spojovat značku negativně. Při frekvenci 10+ utrácíte rozpočet za to,
-        aby si vás stejní lidé už nechtěli pamatovat.
+        Klasický <strong>Rule of 7</strong> říká, že uživatel potřebuje vidět zprávu minimálně
+        sedmkrát, než vůbec zváží konverzi. Frekvence 7 až 10 tedy <em>není</em> sama o sobě
+        problém, zvlášť u dlouhého rozhodovacího cyklu, který jazykový kurz má. Skutečný problém
+        je jinde: účet nedokáže rozlišit, jestli na frekvenci 11 lidé reagují pozitivně (zrají
+        k rozhodnutí), nebo negativně (přestávají reagovat a značku si spojují s otravným spamem).
       </p>
       <p>
-        Příčiny dvě, obě v účtu vidět: <strong>kreativy se nerotují</strong> (poslední výrazná
-        úprava u většiny reklam je z 8. 5. nebo 12. 4.) a <strong>chybí exclude audiences</strong>
-        pro lidi, kteří už lead odeslali. Algoritmus tak opakovaně oslovuje stejné publikum.
+        Důvodů je víc, všechny v účtu vidět: <strong>kreativy se nerotují</strong> (poslední
+        výrazná úprava u většiny reklam je z 8. 5. nebo 12. 4.), <strong>chybí exclude
+        audiences</strong> pro lidi, kteří už lead odeslali, takže algoritmus opakovaně oslovuje
+        i ty, kteří už konvertovali, a <strong>chybí dělení publika</strong> podle doby od první
+        expozice. Bez toho je vysoká frekvence slepá metrika.
       </p>
       <p>
-        Praktický směr: <strong>rotace kreativ aspoň jednou za 3–4 týdny</strong>, exclude
-        audience pro odeslané leady (30 a 90 dní), a u Residence EN okamžitě vypnout nejunavenější
-        kreativy a refreshnout ad set.
+        Praktický směr: <strong>rotace kreativ jednou za 3–4 týdny</strong>, exclude audience
+        pro odeslané leady (30 a 90 dní), oddělení cold a warm publika do samostatných ad setů
+        a sledování CTR a quality score v čase, ne jen průměrné frekvence. Teprve to dá odpověď,
+        jestli 11 expozic prodává, nebo plýtvá.
       </p>
     </div>
 
@@ -827,43 +826,15 @@
       </p>
     </div>
 
-    <div class="finding">
-      <div class="finding-head">
-        <span class="finding-num">Zjištění 10</span>
-        <span class="finding-title">15+ nevyřešených doporučení od Meta a viditelné chyby v účtu</span>
-      </div>
-      <p>
-        Meta v rozhraní účtu sama hlásí přes 15 doporučení napříč aktivními kampaněmi a ad sety.
-        A1/B2 má 6 doporučení, Residence 5, CZFree 3 plus jednu chybu. Na ad set úrovni další
-        2–4 doporučení u každého z aktivních. Žádné z nich není v účtu označené jako vyřešené
-        nebo zamítnuté.
-      </p>
-      <p>
-        Doporučení od Meta nejsou vždy správná. Některá je smysl ignorovat (např. „přepněte
-        na Advantage+ kampaň", když vědomě chcete manuální kontrolu). Ale doporučení, která zůstávají
-        bez jakékoli reakce týdny, signalizují, že <strong>někdo se na účet pravidelně nedívá</strong>.
-      </p>
-      <p>
-        Stejný signál posílají dvě další věci, které by v účtu vůbec neměly být: zamítnutá reklama
-        <strong>CZFree&nbsp;–&nbsp;Ad 5&nbsp;–&nbsp;RU</strong> stále v účtu se statusem
-        „Nedoručuje se / Zamítnuto", a reklama <strong>Residence&nbsp;–&nbsp;EN&nbsp;–&nbsp;Ad 4</strong>
-        s aktivní chybou nastavení. Obě stavy jsou triviálně vyřešitelné, ale nikdo je nevyřešil.
-      </p>
-      <p>
-        Praktický krok: <strong>každý týden projít doporučení a chyby, rozhodnout o každém</strong>
-        (akceptovat, zamítnout, eskalovat). To není luxus, to je provozní minimum účtu, který
-        utrácí desítky tisíc měsíčně.
-      </p>
-    </div>
-
     <div class="conclusion">
       <div class="conclusion-label">Celkový závěr Meta auditu</div>
       <p>
-        Účet dnes pravděpodobně umí dodat levné kontakty, ale zároveň <strong>aktivně nikdo
-        nedrží jeho hygienu</strong>. Vidíme to v deseti samostatných signálech: přetížená frekvence,
-        nevyřešená doporučení, zamítnutá reklama bez zásahu, chybný Purchase event, čtyřnásobný
-        rozdíl CPL mezi RU a EN bez vysvětlení, kampaně optimalizované na špatné události, vypnuté
-        historicky úspěšné segmenty, nesjednocené kreativy a chybějící retargeting. Žádný z nich
+        Účet dnes umí dodat levné kontakty, ale zároveň <strong>aktivně nikdo nedrží jeho hygienu</strong>.
+        Vidíme to v devíti samostatných signálech: chybný Purchase event, čtyřnásobný rozdíl CPL
+        mezi RU a EN bez vysvětlení, kampaně optimalizované na špatné události, vypnuté historicky
+        úspěšné segmenty, nesjednocené kreativy, výhradně formulářové konverze bez možnosti
+        vyhodnocení copy, chybějící retargeting a lookalike audiences, vysoká frekvence bez
+        infrastruktury pro vyhodnocení a zamítnutá reklama a chyby v účtu bez zásahu. Žádný z nich
         sám o sobě neznamená katastrofu, ale dohromady tvoří účet, který běží <strong>na setrvačnost,
         ne na strategii</strong>.
       </p>
@@ -934,7 +905,7 @@
       <p>
         Aktuálně ale nepůsobí, že by hlavní web měl nativní landing page strukturu pro placené
         kampaně. Kampaně musí spoléhat na externí GHL stránky nebo na Facebook formuláře, a hlavní
-        web zůstává spíš v prezentační roli.
+        web zůstává v prezentační roli.
       </p>
       <p>
         Konkrétní směr je postavit landing page šablony pro hlavní kampaně přímo na hlavním webu:
@@ -1467,62 +1438,6 @@
   </div>
 </section>
 
-<!-- OTÁZKY PRO AGENTURY -->
-<section id="otazky">
-  <div class="container">
-    <div class="section-label">Otázky pro vaše agentury</div>
-    <h2>Co se zeptat jako první</h2>
-    <p class="section-lede">
-      Tyhle otázky vychází přímo z toho, co je vidět v účtu. Nejsou rétorické. Každá by měla mít
-      v odpovědi konkrétní rozhodnutí, datum nebo plán. Pokud agentura odpoví obecně („máme to
-      pod kontrolou", „je to algoritmus"), je to samo o sobě odpověď.
-    </p>
-
-    <ol class="clean">
-      <li>
-        <strong>Proč ad set Residence&nbsp;–&nbsp;EN běží s frekvencí 10,94?</strong> Jaký je
-        plán rotace kreativ a kdy se aktualizovala naposledy?
-      </li>
-      <li>
-        <strong>Proč je A1/B2&nbsp;–&nbsp;RU CPL 4× vyšší než A1/B2&nbsp;–&nbsp;EN</strong>
-        při identickém kurzu? Kdy se to naposledy analyzovalo a jaký je další krok?
-      </li>
-      <li>
-        <strong>Proč účet měří Purchase event,</strong> když 0&nbsp;% Purchase eventů má validní
-        cenu a měnu? Co je business definice nákupu pro EduJoy?
-      </li>
-      <li>
-        <strong>Co se stalo s kampaní Uni</strong> (276 leadů @ 164&nbsp;Kč) a B2 (72 leadů @ 198&nbsp;Kč)?
-        Proč jsou vypnuté a co se z nich naučilo pro aktuální kampaně?
-      </li>
-      <li>
-        <strong>Jak je nasazený Meta Pixel</strong> na hlavním webu vs. na GoHighLevel landing
-        pages? Posílá se Conversions API z obou prostředí?
-      </li>
-      <li>
-        <strong>Proč je v účtu 15+ nevyřešených doporučení od Meta?</strong> Existuje proces, jak
-        se na ně reaguje, nebo se ignorují plošně?
-      </li>
-      <li>
-        <strong>Jak vypadá retargeting vrstva?</strong> Které custom audiences a lookalike publika
-        se aktuálně používají a jaký je jejich seed?
-      </li>
-      <li>
-        <strong>Jak je sladěná Meta a Google strategie?</strong> Sdílí se publika, jak se rozhoduje
-        o atribuci a kdo má vlastnictví celého funnelu?
-      </li>
-      <li>
-        <strong>Proč jsou v účtu zamítnutá reklama</strong> (CZFree Ad 5 RU) a sada s chybou
-        nastavení (Residence EN Ad 4) bez zásahu?
-      </li>
-      <li>
-        <strong>Co je hlavní KPI agentury</strong> pro vyhodnocení vlastní práce — lead, kvalifikovaný
-        lead, student? A jakou hodnotu mají reálné studenty v reportingu?
-      </li>
-    </ol>
-  </div>
-</section>
-
 <!-- PRIORITY & ROADMAP -->
 <section id="roadmap" class="section-alt">
   <div class="container">
@@ -1537,9 +1452,9 @@
     <ul class="clean">
       <li><strong>Vyřešit Pixel a Purchase event.</strong> Přenastavit měření tak, aby Lead a kvalifikovaný Lead byly primární eventy. Bez tohoto kroku se Meta dál učí ze špatného signálu (Zjištění 7).</li>
       <li><strong>Refresh Residence EN ad setu.</strong> Vypnout nejunavenější kreativy, přidat 3–5 nových variant, nasadit exclude audience pro odeslané leady. Frekvence 10,94 je nejdražší metrika v účtu (Zjištění 8).</li>
-      <li><strong>Vyčistit účet od chyb a zamítnutí.</strong> Odstranit nebo opravit zamítnutou reklamu CZFree Ad 5 RU a Residence EN Ad 4. Projít 15 doporučení Meta, u každého rozhodnout (Zjištění 10).</li>
+      <li><strong>Vyčistit účet od chyb a zamítnutí.</strong> Odstranit nebo opravit zamítnutou reklamu CZFree Ad 5 RU a Residence EN Ad 4. Obě stavy jsou triviálně vyřešitelné.</li>
       <li><strong>Vypnout kampaně optimalizované na špatný event.</strong> Webinar Traffic, Citizenship Direct na Messenger, Residence Sales na Purchase. Buď přenastavit, nebo zavřít (Zjištění 9).</li>
-      <li><strong>Naplánovat týdenní hygienický review účtu.</strong> 30 minut, projití doporučení, chyb, frekvencí, deníku změn. Provozní minimum (Zjištění 10).</li>
+      <li><strong>Naplánovat týdenní hygienický review účtu.</strong> 30 minut, projití chyb, frekvencí, deníku změn. Provozní minimum.</li>
     </ul>
 
     <h3>30 dnů · střední dopad, vyžaduje plán</h3>
