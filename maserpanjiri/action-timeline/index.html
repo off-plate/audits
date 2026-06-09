@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Timeline — Masérství Pan Jiří</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a0f09;
+            color: #f5ede6;
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(67, 40, 27, 0.85), rgba(26, 15, 9, 0.95)),
+                        url('https://maserpanjiri.cz/wp-content/uploads/2025/07/cropped-IMG_0788-scaled-1.jpg') center/cover;
+            padding: 70px 20px 50px;
+            text-align: center;
+            border-bottom: 3px solid #43281b;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #e8d5c4;
+            margin-bottom: 12px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.05rem;
+            color: #a8917e;
+            margin-bottom: 24px;
+        }
+
+        .hero .meta {
+            font-size: 0.85rem;
+            color: #7a6555;
+        }
+
+        .hero .back {
+            display: inline-block;
+            margin-top: 22px;
+            font-size: 0.8rem;
+            color: #a8917e;
+            text-decoration: none;
+            border: 1px solid #43281b;
+            padding: 6px 16px;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .hero .back:hover { background: #43281b; color: #e8d5c4; }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* Status legend */
+        .legend {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 44px;
+        }
+        .legend .status { font-size: 0.78rem; }
+
+        .status {
+            display: inline-block;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .status-done    { background: #1a3a2a; color: #81c784; }
+        .status-progress{ background: #4a3010; color: #ffb74d; }
+        .status-waiting { background: #1a2a3a; color: #81b4ff; }
+        .status-blocked { background: #5a1a1a; color: #ff8a80; }
+
+        /* Progress summary */
+        .progress-box {
+            background: rgba(67, 40, 27, 0.4);
+            border: 1px solid #43281b;
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin-bottom: 50px;
+        }
+        .progress-box h2 {
+            color: #e8d5c4;
+            font-size: 1.15rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .progress-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #c4ad9a;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(67,40,27,0.5);
+        }
+        .progress-row:last-child { border-bottom: none; }
+        .progress-row .phase-name { color: #e8d5c4; }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: #43281b;
+        }
+
+        .entry {
+            position: relative;
+            margin-bottom: 36px;
+        }
+        .entry::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1a0f09;
+            border: 3px solid #43281b;
+        }
+        .entry.done::before    { border-color: #81c784; }
+        .entry.progress::before{ border-color: #ffb74d; }
+        .entry.waiting::before { border-color: #81b4ff; }
+
+        .entry-date {
+            font-size: 0.78rem;
+            color: #7a6555;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .entry-head {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .entry-title {
+            font-size: 1.15rem;
+            color: #e8d5c4;
+            font-weight: 500;
+        }
+        .entry-body {
+            color: #c4ad9a;
+            font-size: 0.93rem;
+        }
+        .entry-body ul {
+            margin: 8px 0 0 18px;
+        }
+        .entry-body li { margin-bottom: 4px; }
+        .entry-who {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: #8a7565;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            color: #7a6555;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 10px 0 28px;
+            text-align: center;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #43281b;
+            margin: 50px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 36px 20px;
+            font-size: 0.8rem;
+            color: #7a6555;
+            border-top: 1px solid #43281b;
+        }
+        .footer a { color: #a8917e; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>Action Timeline</h1>
+    <div class="subtitle">Masérství Pan Jiří &middot; Záznam provedených prací</div>
+    <div class="meta">Naposledy aktualizováno: 9. 6. 2026</div>
+    <a class="back" href="../../maserpanjiri.html">&larr; Zpět na audit</a>
+</div>
+
+<div class="container">
+
+    <div class="legend">
+        <span class="status status-done">Hotovo</span>
+        <span class="status status-progress">Probíhá</span>
+        <span class="status status-waiting">Čeká</span>
+        <span class="status status-blocked">Blokováno</span>
+    </div>
+
+    <!-- Progress summary -->
+    <div class="progress-box">
+        <h2>Přehled fází</h2>
+        <div class="progress-row"><span class="phase-name">Audit a návrh</span><span class="status status-done">Hotovo</span></div>
+        <div class="progress-row"><span class="phase-name">Fáze 1 — Google Firma</span><span class="status status-progress">Probíhá</span></div>
+        <div class="progress-row"><span class="phase-name">Fáze 1 — Analytics + Pixel</span><span class="status status-waiting">Čeká</span></div>
+        <div class="progress-row"><span class="phase-name">Fáze 1 — SEO optimalizace</span><span class="status status-waiting">Čeká</span></div>
+        <div class="progress-row"><span class="phase-name">Fáze 2 — Úprava webu</span><span class="status status-waiting">Čeká</span></div>
+        <div class="progress-row"><span class="phase-name">Fáze 3 — Facebook + Ads</span><span class="status status-waiting">Čeká</span></div>
+    </div>
+
+    <div class="section-label">Záznam aktivit</div>
+
+    <div class="timeline">
+
+        <div class="entry waiting">
+            <div class="entry-date">Čeká na rozhodnutí</div>
+            <div class="entry-head">
+                <span class="entry-title">Název pro Google Firmu</span>
+                <span class="status status-waiting">Čeká</span>
+            </div>
+            <div class="entry-body">
+                Klient preferuje <strong>"masér pan Jiří"</strong>. Cíl je předběhnout ve vyhledávání jiného již zavedeného maséra Jiřího. Klient se ptá na marketingový názor na variantu <strong>"masér Panjiří"</strong>. Před založením profilu potřebujeme finální název.
+                <span class="entry-who">Vlastník: Michael / Verča</span>
+            </div>
+        </div>
+
+        <div class="entry progress">
+            <div class="entry-date">7. 6. 2026</div>
+            <div class="entry-head">
+                <span class="entry-title">Klient dodal odpovědi a přístupy</span>
+                <span class="status status-done">Hotovo</span>
+            </div>
+            <div class="entry-body">
+                Eva Kaiserová (za Jiřího) poslala vyplněnou Fázi 1 (<em>Faze 1.docx</em>):
+                <ul>
+                    <li>Administrátorský přístup k webu maserpanjiri.cz dodán</li>
+                    <li>Vše se zakládá od nuly: Google kampaň nikdy neběžela, žádný Analytics profil</li>
+                    <li>Facebook pouze osobní profil (tváří se jako firemní) — pro měření potřeba firemní stránka</li>
+                    <li>SEO texty nikdy nenastavené, klíčová slova doladíme individuálně</li>
+                    <li>Souhlas s navrženým postupem bez výhrad</li>
+                </ul>
+                Kontakt pro realizaci: Eva Kaiserová, 728 713 757 (preferuje WhatsApp).
+                <span class="entry-who">Od: Eva Kaiserová &rarr; Verča &rarr; Michael</span>
+            </div>
+        </div>
+
+        <div class="entry done">
+            <div class="entry-date">2. 6. 2026</div>
+            <div class="entry-head">
+                <span class="entry-title">Fáze 1 odeslána klientovi</span>
+                <span class="status status-done">Hotovo</span>
+            </div>
+            <div class="entry-body">
+                Verča poslala Jiřímu konkrétní kroky a dotazy pro Fázi 1: Google Firma (dodání týden), Google Analytics + Pixel (14 dnů), SEO optimalizace (14 dnů). Postup po krocích, nejdřív základy, úprava webu až poté.
+                <span class="entry-who">Od: Verča &rarr; Jiří</span>
+            </div>
+        </div>
+
+        <div class="entry done">
+            <div class="entry-date">13. 4. 2026</div>
+            <div class="entry-head">
+                <span class="entry-title">Audit a návrh dodán</span>
+                <span class="status status-done">Hotovo</span>
+            </div>
+            <div class="entry-body">
+                Dodán audit online prezentace + návrh aktivit a nacenění. Hlavní zjištění: kvalitní služby a funkční rezervace (Termino), ale nulová online viditelnost. Priority dle cena/přínos, nejvýš Google Firma.
+                <div style="margin-top:8px;"><a href="../../maserpanjiri.html" style="color:#a8917e;">Zobrazit audit &rarr;</a></div>
+                <span class="entry-who">Od: Off-Plate</span>
+            </div>
+        </div>
+
+    </div>
+
+    <hr class="divider">
+
+</div>
+
+<div class="footer">
+    Off-Plate &middot; Interní záznam průběhu prací pro Masérství Pan Jiří
+</div>
+
+</body>
+</html>
