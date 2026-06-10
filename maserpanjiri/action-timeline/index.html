@@ -1,438 +1,387 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Action Timeline — Masérství Pan Jiří</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Průběh spolupráce — Masér pan Jiří</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1F2A44; --navy-deep:#151d33; --teal:#1F7A7A; --teal-bright:#2ea8a8;
+    --amber:#D08C2E; --amber-text:#B0721E; --cream:#F7F5F0; --cream-2:#EFEBE1;
+    --ink:#241d15; --muted:#6f6152; --brown:#5a4636; --brown-soft:#8a7565;
+    --line:rgba(36,29,21,.10); --green:#2f7d52; --green-soft:#e7f1ea;
+    --amber-soft:#f6ecd9; --card:#ffffff;
+    --shadow:0 1px 2px rgba(36,29,21,.04), 0 8px 24px rgba(36,29,21,.06);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+    background:var(--cream); color:var(--ink); line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Sora',sans-serif; line-height:1.2; color:var(--navy);}
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:780px; margin:0 auto; padding:0 20px;}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #1a0f09;
-            color: #f5ede6;
-            line-height: 1.7;
-        }
+  /* Top co-brand bar */
+  .topbar{background:var(--navy); color:var(--cream);}
+  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 20px; max-width:780px; margin:0 auto;}
+  .topbar img{height:24px; display:block;}
+  .topbar .client{font-family:'Sora',sans-serif; font-weight:600; font-size:.95rem; color:var(--cream); letter-spacing:.3px;}
+  .topbar .sep{flex:0 0 auto; opacity:.35;}
 
-        .hero {
-            background: linear-gradient(rgba(67, 40, 27, 0.85), rgba(26, 15, 9, 0.95)),
-                        url('https://maserpanjiri.cz/wp-content/uploads/2025/07/cropped-IMG_0788-scaled-1.jpg') center/cover;
-            padding: 70px 20px 50px;
-            text-align: center;
-            border-bottom: 3px solid #43281b;
-        }
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(120% 120% at 80% -10%, rgba(31,122,122,.10), transparent 55%),
+      linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 100%);
+    border-bottom:1px solid var(--line);
+    padding:46px 20px 40px; text-align:center;
+  }
+  .hero .rhino{width:108px; height:auto; margin:0 auto 18px; display:block; filter:drop-shadow(0 6px 14px rgba(90,70,54,.18));}
+  .hero h1{font-size:2.2rem; font-weight:700; margin-bottom:8px;}
+  .hero .tag{color:var(--brown); font-size:1.02rem; margin-bottom:18px;}
+  .hero .stamp{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:var(--muted); background:#fff; border:1px solid var(--line); padding:5px 12px; border-radius:999px;}
+  .hero .stamp .dot{width:7px; height:7px; border-radius:50%; background:var(--teal-bright);}
 
-        .hero h1 {
-            font-size: 2.2rem;
-            color: #e8d5c4;
-            margin-bottom: 12px;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
+  section{padding:38px 0;}
+  .eyebrow{font-family:'Sora',sans-serif; font-weight:600; font-size:.72rem; letter-spacing:1.6px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;}
+  h2.sec{font-size:1.5rem; margin-bottom:6px;}
+  .lead{color:var(--muted); margin-bottom:22px; font-size:1rem;}
 
-        .hero .subtitle {
-            font-size: 1.05rem;
-            color: #a8917e;
-            margin-bottom: 24px;
-        }
+  /* Progress */
+  .progress-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; box-shadow:var(--shadow);}
+  .progress-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
+  .progress-top .now{font-family:'Sora',sans-serif; font-weight:700; font-size:1.15rem; color:var(--navy);}
+  .progress-top .pct{font-family:'Sora',sans-serif; font-weight:700; font-size:1.15rem; color:var(--teal);}
+  .track{height:12px; background:var(--cream-2); border-radius:999px; overflow:hidden;}
+  .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg, var(--teal), var(--teal-bright)); transition:width .8s ease;}
+  .sub{margin-top:10px; font-size:.9rem; color:var(--muted);}
 
-        .hero .meta { font-size: 0.85rem; color: #7a6555; }
+  /* Stepper */
+  .steps{list-style:none; display:grid; gap:10px; margin-top:18px;}
+  .step{display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border:1px solid var(--line); border-radius:12px; background:#fff;}
+  .step .ic{flex:0 0 auto; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:.8rem; font-weight:700; color:#fff;}
+  .step.done .ic{background:var(--green);}
+  .step.active .ic{background:var(--amber);}
+  .step.todo .ic{background:#cbbfae; color:#fff;}
+  .step .body h4{font-size:1rem; margin-bottom:1px;}
+  .step .body .meta{font-size:.85rem; color:var(--muted);}
+  .step .pill{margin-left:auto; flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 9px; border-radius:999px; align-self:center;}
+  .pill.done{background:var(--green-soft); color:var(--green);}
+  .pill.active{background:var(--amber-soft); color:var(--amber-text);}
+  .pill.todo{background:#efe9df; color:var(--brown-soft);}
 
-        .hero .back {
-            display: inline-block;
-            margin-top: 22px;
-            font-size: 0.8rem;
-            color: #a8917e;
-            text-decoration: none;
-            border: 1px solid #43281b;
-            padding: 6px 16px;
-            border-radius: 20px;
-            transition: all 0.2s;
-        }
-        .hero .back:hover { background: #43281b; color: #e8d5c4; }
+  /* Need-from-you box */
+  .need{border-radius:16px; padding:20px 22px; display:flex; gap:14px; align-items:flex-start;}
+  .need.wait{background:var(--amber-soft); border:1px solid #e7d3ac;}
+  .need.ok{background:var(--green-soft); border:1px solid #cfe6d8;}
+  .need .bang{font-family:'Sora',sans-serif; font-weight:700; font-size:1.3rem; line-height:1;}
+  .need.wait .bang{color:var(--amber-text);}
+  .need.ok .bang{color:var(--green);}
+  .need h3{font-size:1.05rem; margin-bottom:4px;}
+  .need p{font-size:.95rem; color:var(--ink);}
+  .need .how{font-size:.85rem; color:var(--muted); margin-top:6px;}
 
-        .container {
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
-        }
+  /* Done cards */
+  .grid{display:grid; gap:12px;}
+  .done-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow);}
+  .done-card .head{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
+  .done-card .check{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--green); color:#fff; display:grid; place-items:center; font-size:.75rem; font-weight:700;}
+  .done-card .date{font-size:.78rem; color:var(--muted); margin-left:auto;}
+  .done-card h4{font-size:1.02rem;}
+  .done-card .benefit{font-size:.92rem; color:var(--brown); margin-top:3px;}
+  .done-card .benefit a{font-weight:600;}
 
-        .status {
-            display: inline-block;
-            padding: 3px 12px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .status-done     { background: #1a3a2a; color: #81c784; }
-        .status-progress { background: #4a3010; color: #ffb74d; }
-        .status-waiting  { background: #1a2a3a; color: #81b4ff; }
-        .status-blocked  { background: #5a1a1a; color: #ff8a80; }
+  /* Decision card */
+  .decision{background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow);}
+  .decision h4{font-size:1.05rem; margin-bottom:10px;}
+  .decision .kv{margin-bottom:8px;}
+  .decision .kv .k{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.6px; color:var(--teal); display:block;}
+  .decision .kv .v{font-size:.95rem; color:var(--ink);}
+  .decision .yours{margin-top:12px; font-size:.88rem; color:var(--muted); font-style:italic;}
 
-        .legend {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 44px;
-        }
+  /* Keywords table */
+  .kwbox{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow);}
+  .kwgroup{padding:14px 18px; border-top:1px solid var(--line);}
+  .kwgroup:first-child{border-top:none;}
+  .kwgroup .gname{font-family:'Sora',sans-serif; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.8px; color:var(--brown-soft); margin-bottom:10px;}
+  .kwlist{display:flex; flex-wrap:wrap; gap:8px;}
+  .kw{display:inline-flex; align-items:center; gap:7px; background:var(--cream); border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:.88rem;}
+  .kw .s{width:7px; height:7px; border-radius:50%; background:var(--amber); flex:0 0 auto;}
+  .kwnote{font-size:.85rem; color:var(--muted); padding:14px 18px; background:var(--cream-2);}
 
-        /* Cards / boxes */
-        .box {
-            background: rgba(67, 40, 27, 0.4);
-            border: 1px solid #43281b;
-            border-radius: 12px;
-            padding: 24px 28px;
-            margin-bottom: 32px;
-        }
-        .box h2 {
-            color: #e8d5c4;
-            font-size: 1.15rem;
-            font-weight: 500;
-            margin-bottom: 16px;
-        }
-        .box h3 {
-            color: #e8d5c4;
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 18px 0 8px;
-        }
-        .box p, .box li { color: #c4ad9a; font-size: 0.93rem; }
-        .box ul { margin: 6px 0 0 18px; }
-        .box li { margin-bottom: 5px; }
+  /* Next phases (locked) */
+  .next-card{background:#fff; border:1px dashed #cdbfa9; border-radius:14px; padding:18px 20px; position:relative;}
+  .next-card .lockrow{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+  .next-card .lock{font-size:.95rem;}
+  .next-card h4{font-size:1.08rem;}
+  .next-card .when{margin-left:auto; font-size:.7rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--brown-soft); background:#efe9df; padding:3px 9px; border-radius:999px;}
+  .next-card .benefit{font-size:.93rem; color:var(--brown); margin-top:2px;}
 
-        .kv-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            font-size: 0.9rem;
-            padding: 7px 0;
-            border-bottom: 1px solid rgba(67,40,27,0.5);
-        }
-        .kv-row:last-child { border-bottom: none; }
-        .kv-row .k { color: #a8917e; flex-shrink: 0; }
-        .kv-row .v { color: #e8d5c4; text-align: right; word-break: break-word; }
-        .kv-row .v a { color: #ffb74d; text-decoration: none; }
+  .context{font-size:.92rem; color:var(--muted); background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
 
-        .progress-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #c4ad9a;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(67,40,27,0.5);
-        }
-        .progress-row:last-child { border-bottom: none; }
-        .progress-row .phase-name { color: #e8d5c4; }
+  /* Tech info */
+  .tech{background:#fff; border:1px solid var(--line); border-radius:12px; padding:6px 18px;}
+  .tech .r{display:flex; justify-content:space-between; gap:14px; padding:11px 0; border-top:1px solid var(--line); font-size:.92rem;}
+  .tech .r:first-child{border-top:none;}
+  .tech .r .k{color:var(--muted);}
+  .tech .r .v{color:var(--ink); text-align:right; word-break:break-word;}
 
-        /* Recommendation callout */
-        .reco {
-            background: rgba(26, 58, 42, 0.35);
-            border: 1px solid #2e5a40;
-            border-left: 4px solid #81c784;
-            border-radius: 10px;
-            padding: 16px 20px;
-            margin: 16px 0 6px;
-        }
-        .reco strong { color: #a5d6a7; }
-        .reco p { color: #cfe6d4; }
+  /* Footer */
+  .footer{background:var(--navy); color:var(--cream); margin-top:24px;}
+  .footer .in{max-width:780px; margin:0 auto; padding:30px 20px; text-align:center;}
+  .footer img{height:26px; margin-bottom:14px;}
+  .footer .contact{font-size:.95rem; color:var(--cream); margin-bottom:6px;}
+  .footer .contact a{color:var(--teal-bright); font-weight:600;}
+  .footer .small{font-size:.8rem; color:rgba(247,245,240,.55); margin-top:12px;}
+  .footer .small a{color:rgba(247,245,240,.75);}
 
-        .warn {
-            background: rgba(90, 26, 26, 0.25);
-            border: 1px solid #5a3030;
-            border-left: 4px solid #ff8a80;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin: 16px 0 6px;
-        }
-        .warn p { color: #f0c8c4; font-size: 0.9rem; }
-
-        /* Naming comparison */
-        .name-opt {
-            border: 1px solid #43281b;
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin-bottom: 12px;
-        }
-        .name-opt .opt-head {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 6px;
-            flex-wrap: wrap;
-        }
-        .name-opt .opt-name { font-size: 1.05rem; color: #e8d5c4; font-weight: 600; }
-        .tag {
-            font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px;
-            text-transform: uppercase; padding: 2px 9px; border-radius: 12px;
-        }
-        .tag-yes { background: #1a3a2a; color: #81c784; }
-        .tag-no  { background: #5a1a1a; color: #ff8a80; }
-        .tag-meh { background: #4a3010; color: #ffb74d; }
-        .name-opt p { color: #b59d8a; font-size: 0.88rem; }
-
-        /* Timeline */
-        .timeline { position: relative; padding-left: 30px; }
-        .timeline::before {
-            content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px;
-            width: 2px; background: #43281b;
-        }
-        .entry { position: relative; margin-bottom: 36px; }
-        .entry::before {
-            content: ''; position: absolute; left: -30px; top: 5px;
-            width: 16px; height: 16px; border-radius: 50%;
-            background: #1a0f09; border: 3px solid #43281b;
-        }
-        .entry.done::before     { border-color: #81c784; }
-        .entry.progress::before { border-color: #ffb74d; }
-        .entry.waiting::before  { border-color: #81b4ff; }
-
-        .entry-date {
-            font-size: 0.78rem; color: #7a6555; letter-spacing: 1px;
-            text-transform: uppercase; margin-bottom: 6px;
-        }
-        .entry-head {
-            display: flex; align-items: baseline; gap: 12px;
-            flex-wrap: wrap; margin-bottom: 8px;
-        }
-        .entry-title { font-size: 1.15rem; color: #e8d5c4; font-weight: 500; }
-        .entry-body { color: #c4ad9a; font-size: 0.93rem; }
-        .entry-body ul { margin: 8px 0 0 18px; }
-        .entry-body li { margin-bottom: 4px; }
-        .entry-who { display: inline-block; margin-top: 10px; font-size: 0.78rem; color: #8a7565; }
-
-        .section-label {
-            font-size: 0.8rem; color: #7a6555; text-transform: uppercase;
-            letter-spacing: 2px; margin: 44px 0 28px; text-align: center;
-        }
-        .divider { border: none; border-top: 1px solid #43281b; margin: 50px 0; }
-
-        .footer {
-            text-align: center; padding: 36px 20px; font-size: 0.8rem;
-            color: #7a6555; border-top: 1px solid #43281b;
-        }
-        .footer a { color: #a8917e; text-decoration: none; }
-    </style>
+  @media (max-width:560px){
+    .hero h1{font-size:1.8rem;}
+    h2.sec{font-size:1.3rem;}
+    .topbar .client{font-size:.82rem;}
+    .step .pill{display:none;}
+  }
+</style>
 </head>
 <body>
 
-<div class="hero">
-    <h1>Action Timeline</h1>
-    <div class="subtitle">Masérství Pan Jiří &middot; Záznam prací a další kroky</div>
-    <div class="meta">Naposledy aktualizováno: 9. 6. 2026</div>
-    <a class="back" href="../../maserpanjiri.html">&larr; Zpět na audit</a>
+<!-- CO-BRAND TOP BAR -->
+<div class="topbar">
+  <div class="row">
+    <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
+    <span class="client">Masér pan Jiří</span>
+  </div>
 </div>
 
-<div class="container">
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <img class="rhino" src="assets/client-logo.png" alt="Masér pan Jiří" width="108">
+    <h1>Masér pan Jiří</h1>
+    <p class="tag">Průběh spolupráce a další kroky</p>
+    <span class="stamp"><span class="dot"></span> Naposledy aktualizováno: <strong id="updated">10. 6. 2026</strong></span>
+  </div>
+</header>
 
-    <div class="legend">
-        <span class="status status-done">Hotovo</span>
-        <span class="status status-progress">Probíhá</span>
-        <span class="status status-waiting">Čeká</span>
-        <span class="status status-blocked">Blokováno</span>
+<!-- KDE JSME TEĎ + PROGRESS -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Kde jsme teď</div>
+    <h2 class="sec">Jsme ve Fázi 1 ze 3</h2>
+    <p class="lead">Máme za sebou audit a strategii a teď stavíme základy, aby vás lidé našli na Googlu.</p>
+
+    <div class="progress-card">
+      <div class="progress-top">
+        <span class="now" id="progressLabel">Probíhá: Základy na Googlu</span>
+        <span class="pct" id="progressPct">0 %</span>
+      </div>
+      <div class="track"><div class="fill" id="progressFill"></div></div>
+      <p class="sub" id="progressSub">Hotovo: audit a strategie. Probíhá: Fáze 1.</p>
+
+      <ul class="steps" id="steps"><li class="step"><div class="ic">…</div><div class="body"><h4>Načítání…</h4></div></li></ul>
     </div>
+  </div>
+</section>
 
-    <!-- Who is who -->
-    <div class="box">
-        <h2>Kdo je kdo</h2>
-        <div class="kv-row"><span class="k">Náš klient</span><span class="v">Masérství s.r.o. — „Pan Jiří"<br>web maserpanjiri.cz</span></div>
-        <div class="kv-row"><span class="k">Konkurent (přeskočit)</span><span class="v">Masér Jiří (Mgr. Jiří Pešek)<br>Mezibranská 7, Praha 1 · maserjiri.cz</span></div>
+<!-- CO POTŘEBUJEME OD VÁS -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Co potřebujeme od vás</div>
+    <div class="need wait" id="needBox">
+      <span class="bang">!</span>
+      <div>
+        <h3 id="needTitle">Jedna věc k vám</h3>
+        <p id="needText">Projděte prosím níže navržená klíčová slova a potvrďte, které služby skutečně nabízíte. Podle toho doladíme finální seznam.</p>
+        <p class="how" id="needHow">Stačí krátká zpráva Evě na WhatsApp. Víc teď od vás nepotřebujeme.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- Progress summary -->
-    <div class="box">
-        <h2>Přehled fází</h2>
-        <div class="progress-row"><span class="phase-name">Audit a návrh</span><span class="status status-done">Hotovo</span></div>
-        <div class="progress-row"><span class="phase-name">Fáze 1 — Google Firma</span><span class="status status-progress">Probíhá</span></div>
-        <div class="progress-row"><span class="phase-name">Fáze 1 — Web: SEO základy (Yoast)</span><span class="status status-progress">Probíhá</span></div>
-        <div class="progress-row"><span class="phase-name">Fáze 1 — Analytics + Pixel</span><span class="status status-waiting">Čeká</span></div>
-        <div class="progress-row"><span class="phase-name">Fáze 2 — Úprava webu</span><span class="status status-waiting">Čeká</span></div>
-        <div class="progress-row"><span class="phase-name">Fáze 3 — Facebook + Ads</span><span class="status status-waiting">Čeká</span></div>
+<!-- CO MÁME HOTOVÉ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Co máme hotové</div>
+    <h2 class="sec">Hotová práce</h2>
+    <p class="lead">Konkrétní kroky, které už máme za sebou.</p>
+    <div class="grid" id="done"><div class="done-card">Načítání…</div></div>
+  </div>
+</section>
+
+<!-- ROZHODNUTÍ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Naše rozhodnutí a proč</div>
+    <h2 class="sec">Co jsme zvolili</h2>
+    <p class="lead">U důležitých kroků vám vždy vysvětlíme, proč jsme se tak rozhodli. Rozhodnutí je na vás, my doporučujeme.</p>
+    <div class="grid" id="decisions"><div class="decision">Načítání…</div></div>
+  </div>
+</section>
+
+<!-- KLÍČOVÁ SLOVA -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Klíčová slova k odsouhlasení</div>
+    <h2 class="sec">Na co vás chceme dostat na Google</h2>
+    <p class="lead">Toto jsou slova, na která chceme, aby vás Google ukazoval. Projděte je prosím a dejte vědět, jestli některá chybí nebo některou službu nenabízíte.</p>
+    <div class="kwbox" id="keywords"><div class="kwnote">Načítání…</div></div>
+  </div>
+</section>
+
+<!-- CO PŘIJDE DÁL -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Co přijde dál</div>
+    <h2 class="sec">Další fáze</h2>
+    <p class="lead">Postupujeme po krocích. Reklamu spouštíme až jako poslední, protože nemá smysl platit za návštěvníky, dokud web a profil nepřesvědčí. Tím šetříme vaše peníze.</p>
+    <div class="grid" id="next"><div class="next-card">Načítání…</div></div>
+    <div class="context" style="margin-top:16px;">
+      <strong>Pro kontext:</strong> ve vyhledávání je dnes napřed zavedená konkurence (Masér Jiří, Praha 1), hlavně díky kompletnímu profilu a recenzím. Náš plán cílí přesně na to, abychom je dohnali a předběhli.
     </div>
+  </div>
+</section>
 
-    <!-- Tech / access -->
-    <div class="box">
-        <h2>Web &amp; přístupy</h2>
-        <div class="kv-row"><span class="k">Platforma</span><span class="v">WordPress + Elementor Pro</span></div>
-        <div class="kv-row"><span class="k">Přihlášení do administrace</span><span class="v"><a href="https://maserpanjiri.cz/wp-login.php">maserpanjiri.cz/wp-login.php</a></span></div>
-        <div class="kv-row"><span class="k">Doména (web)</span><span class="v">maserpanjiri.cz</span></div>
-        <div class="kv-row"><span class="k">Druhá doména</span><span class="v">masazejiri.cz</span></div>
-        <div class="kv-row"><span class="k">Rezervační systém</span><span class="v">Termino (ponecháváme)</span></div>
-        <div class="kv-row"><span class="k">Admin přístup</span><span class="v">dodán klientem 7. 6. 2026</span></div>
-        <p style="margin-top:14px; font-size:0.82rem; color:#7a6555;">Login a heslo jsou uložené mimo tuto stránku (zaslány klientem v dokumentu Faze 1).</p>
+<!-- TECHNICKÉ INFORMACE -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Technické informace</div>
+    <div class="tech">
+      <div class="r"><span class="k">Web</span><span class="v"><a href="https://maserpanjiri.cz">maserpanjiri.cz</a></span></div>
+      <div class="r"><span class="k">Platforma</span><span class="v">WordPress + Elementor</span></div>
+      <div class="r"><span class="k">Přihlášení do administrace</span><span class="v"><a href="https://maserpanjiri.cz/wp-login.php">maserpanjiri.cz/wp-login.php</a></span></div>
+      <div class="r"><span class="k">Rezervace</span><span class="v">Termino</span></div>
     </div>
+  </div>
+</section>
 
-    <!-- Google profile -->
-    <div class="box">
-        <h2>Google profil — stav a co je potřeba</h2>
-        <p>Profil našeho klienta <strong>už existuje</strong> pod názvem „Masérství s.r.o." — nezakládáme od nuly, ale je potřeba ho nárokovat (claim), ověřit vlastnictví a hlavně doplnit. Aktuálně je skoro prázdný.</p>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="in">
+    <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
+    <p class="contact">Máte otázku? Napište Evě na <a href="https://wa.me/420728713757">WhatsApp</a>.</p>
+    <p class="small">Spolupráci připravuje a spravuje Off-Plate · <a href="https://off-plate.com">off-plate.com</a><br>
+    <a href="../../maserpanjiri.html">Zobrazit původní audit</a></p>
+  </div>
+</footer>
 
-        <h3>Cíl</h3>
-        <p>Přeskočit ve vyhledávání zavedeného konkurenta <strong>„Masér Jiří"</strong> (Mgr. Jiří Pešek, Mezibranská 7, Praha 1 – Nové Město, web maserjiri.cz). Ten je první hlavně proto, že má kompletní profil a recenze.</p>
+<script>
+/* ════════════════════════════════════════════════════════════
+   EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
+   status: 'done' | 'active' | 'todo'
+   ════════════════════════════════════════════════════════════ */
+const UPDATED = "10. 6. 2026";
 
-        <h3>Co je potřeba k dokončení profilu</h3>
-        <ul>
-            <li>Nárokovat a ověřit stávající profil „Masérství s.r.o." (ověření přijde poštou / telefonem / videem)</li>
-            <li>Finální název (viz doporučení níže)</li>
-            <li>Kategorie: hlavní „Masér / Masážní salon", vedlejší dle služeb</li>
-            <li>Adresa provozovny (pokud chodí klienti k němu) nebo oblast služeb</li>
-            <li>Telefon, web (maserpanjiri.cz), otevírací doba</li>
-            <li>Služby + popisy + ceny (z webu)</li>
-            <li>Fotky: interiér, exteriér, práce (min. 5–10 kvalitních)</li>
-            <li>Odkaz na rezervaci (Termino)</li>
-            <li><strong>Recenze</strong> — bez nich profil konkurenta nepřeskočíme. Naplánovat výzvu k recenzím pro stávající klienty.</li>
-        </ul>
+const PHASES = [
+  { name:"Audit a strategie",        meta:"Zmapování, plán a nacenění",                 status:"done"   },
+  { name:"Fáze 1 — Základy na Googlu", meta:"Google profil, měření a SEO základy webu", status:"active" },
+  { name:"Fáze 2 — Web, který přesvědčí", meta:"Úpravy webu pro víc objednávek",        status:"todo"   },
+  { name:"Fáze 3 — Placená propagace",    meta:"Facebook a Google reklama",             status:"todo"   },
+];
 
-        <div class="warn">
-            <p><strong>Chybí potvrzená lokalita klienta (město).</strong> Pro Google profil i lokální SEO je to nutný údaj — Google rankuje podle blízkosti hledajícího. Doplnit od klienta.</p>
-        </div>
-    </div>
+const DONE = [
+  { date:"13. 4. 2026", title:"Audit a návrh spolupráce",
+    benefit:"Zjistili jsme, kde vás lidé online nenajdou, a připravili plán krok za krokem." },
+  { date:"2. 6. 2026", title:"Naplánována Fáze 1",
+    benefit:"Jasné kroky pro Google profil, měření návštěvnosti a základy SEO." },
+  { date:"7. 6. 2026", title:"Získán přístup k webu",
+    benefit:"Můžeme začít s úpravami a nastavením přímo na vašem webu." },
+];
 
-    <!-- Naming research -->
-    <div class="box">
-        <h2>Research: název Google profilu</h2>
-        <p>Otázka klienta: „masér pan Jiří" vs. „masér Panjiří" — a dává smysl to nastavit tak, aby byl první na klíčové slovo?</p>
+const DECISIONS = [
+  { title:"Název vašeho profilu na Googlu",
+    choice:"Masér pan Jiří",
+    why:"Lidé na Googlu nehledají „Masérství s.r.o.“. Hledají slovo „masér“ a jméno. Tento název obsahuje obojí, takže Google i lidé hned chápou, co děláte.",
+    means:"Vyšší šance, že vás Google ukáže, když někdo ve vašem okolí hledá maséra.",
+    yours:"Je to vaše značka. Pokud chcete název upravit, dejte vědět." },
+];
 
-        <h3>Co říká Google (pravidla pojmenování)</h3>
-        <ul>
-            <li>Název musí odpovídat <strong>reálnému názvu firmy</strong>, jak ho zná zákazník — ne nacpaná klíčová slova.</li>
-            <li>Nacpávání klíčových slov do názvu (keyword stuffing) hrozí <strong>pozastavením profilu</strong> (měkké = ztráta správy, tvrdé = smazání profilu i s recenzemi).</li>
-            <li>Ale klíčové slovo, které je <strong>opravdu součástí názvu</strong>, je v pořádku a <strong>pomáhá rankingu</strong> v lokálním vyhledávání (studie to potvrzují).</li>
-            <li>Pravidlo: max. jeden popisný prvek, formát „Značka – popis".</li>
-        </ul>
+/* Keywords (Praha). All start as 'Navrženo'. */
+const KEYWORDS = [
+  { group:"Hlavní lokální", items:["masáže Praha","masér Praha","sportovní masáž Praha","relaxační masáž Praha","masáž zad a šíje Praha"] },
+  { group:"Když lidé chtějí objednat", items:["masáž Praha objednání","masáž Praha cena","masér v okolí","nejlepší masér Praha"] },
+  { group:"Vaše značka", items:["Masér pan Jiří","Masérství s.r.o."] },
+];
+const KW_NOTE = "Cílíme na Prahu. Jakmile potvrdíte, které typy masáží nabízíte (sportovní, relaxační, lymfatická, a další), doplníme i jejich konkrétní klíčová slova.";
 
-        <h3>Varianty</h3>
+const NEXT = [
+  { name:"Fáze 2 — Web, který přesvědčí", when:"až budete připraveni",
+    benefit:"Upravíme web tak, aby návštěvník nezůstal jen u koukání, ale objednal se." },
+  { name:"Fáze 3 — Placená propagace", when:"až budou základy hotové",
+    benefit:"Reklama, která přivede klienty rychle, ne za měsíce. Spouštíme ji až na konec." },
+];
+/* ════════════════ END EDIT BLOCK ════════════════ */
 
-        <div class="name-opt">
-            <div class="opt-head">
-                <span class="opt-name">Masér pan Jiří</span>
-                <span class="tag tag-yes">Doporučeno</span>
-            </div>
-            <p>Obsahuje klíčové slovo „masér" i jméno „Jiří" (přesně to, co lidé hledají), a zároveň je to jeho reálná značka (doména maserpanjiri.cz). Vyhovuje pravidlům a zároveň cílí na stejný dotaz jako konkurent „Masér Jiří".</p>
-        </div>
+/* ---- rendering (resilient: each section in its own try/catch) ---- */
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const W = { done:1, active:0.5, todo:0 };
+const LABEL = { done:"Hotovo", active:"Probíhá", todo:"Plánováno" };
+const ICON = { done:"✓", active:"●", todo:"·" };
+const $ = id => document.getElementById(id);
 
-        <div class="name-opt">
-            <div class="opt-head">
-                <span class="opt-name">Masér Panjiří</span>
-                <span class="tag tag-no">Nedoporučeno</span>
-            </div>
-            <p>„Panjiří" je přezdívka — nikdo ji ve vyhledávači nehledá. Spojením do jednoho slova se ztrácí čistá shoda na „Jiří". Z hlediska vyhledávání slabší než varianta nahoře.</p>
-        </div>
+function safe(fn){ try{ fn(); }catch(e){ console.error(e); } }
 
-        <div class="name-opt">
-            <div class="opt-head">
-                <span class="opt-name">Masérství s.r.o. (současný stav)</span>
-                <span class="tag tag-meh">Slabé</span>
-            </div>
-            <p>Vyhovuje pravidlům, ale je generické: žádné jméno, žádné odlišení, necílí na dotaz „masér Jiří". Sterilní.</p>
-        </div>
+safe(()=>{ if (UPDATED) $("updated").textContent = UPDATED; });
 
-        <div class="reco">
-            <p><strong>Doporučení: „Masér pan Jiří".</strong> Nejlepší poměr mezi pravidly Google (je to jeho skutečná značka) a shodou s klíčovým slovem. Samotný název ale na přeskočení konkurenta nestačí — rozhodnou hlavně <strong>recenze, kompletní profil a blízkost</strong>. Název je nutná podmínka, ne dostatečná.</p>
-        </div>
-    </div>
+safe(()=>{
+  const pct = Math.max(0, Math.min(100, Math.round(100 * PHASES.reduce((s,p)=>s+(W[p.status]??0),0) / PHASES.length)));
+  $("progressFill").style.width = pct + "%";
+  $("progressPct").textContent = pct + " %";
+  const done = PHASES.filter(p=>p.status==="done").length;
+  const active = PHASES.find(p=>p.status==="active");
+  $("progressLabel").textContent = active ? "Probíhá: " + active.name.replace(/^Fáze 1 — /,"") : "Spolupráce běží";
+  $("progressSub").textContent = "Dokončeno " + done + " z " + PHASES.length + " etap. Pokračujeme dál.";
+  $("steps").innerHTML = PHASES.map(p=>`
+    <li class="step ${esc(p.status)}">
+      <div class="ic">${ICON[p.status]||"·"}</div>
+      <div class="body"><h4>${esc(p.name)}</h4><div class="meta">${esc(p.meta)}</div></div>
+      <span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span>
+    </li>`).join("");
+});
 
-    <!-- Client-facing summary -->
-    <div class="box">
-        <h2>Shrnutí a doporučení</h2>
-        <p>Doporučujeme název <strong>„Masér pan Jiří"</strong>. Obsahuje klíčové slovo „masér" i jméno „Jiří", tedy přesně to, co lidé zadávají do vyhledávání, a zároveň odpovídá vaší skutečné značce a webu maserpanjiri.cz. Splňuje pravidla Google a nehrozí u něj postih za nadužívání klíčových slov, který může vést až ke zrušení profilu včetně recenzí.</p>
-        <p style="margin-top:12px;">Variantu „Masér Panjiří" nedoporučujeme, protože přezdívku lidé do vyhledávání nezadávají. Současný název „Masérství s.r.o." je obecný a ve výsledcích nevyniká.</p>
-        <div class="reco">
-            <p>Samotný název ale na první pozici nestačí. Konkurence je výše především díky plně vyplněnému profilu a recenzím. Klíčové proto bude profil kompletně doplnit a začít systematicky získávat recenze od spokojených klientů. Název je nutný základ, viditelnost v mapách a vyhledávání pak budují právě recenze a úplnost profilu.</p>
-        </div>
-    </div>
+safe(()=>{
+  $("done").innerHTML = DONE.map(d=>`
+    <div class="done-card">
+      <div class="head"><span class="check">✓</span><h4>${esc(d.title)}</h4><span class="date">${esc(d.date)}</span></div>
+      <div class="benefit">${esc(d.benefit)}</div>
+    </div>`).join("");
+});
 
-    <!-- Timeline -->
-    <div class="section-label">Záznam aktivit</div>
+safe(()=>{
+  $("decisions").innerHTML = DECISIONS.map(d=>`
+    <div class="decision">
+      <h4>${esc(d.title)}</h4>
+      <div class="kv"><span class="k">Rozhodnutí</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
+      <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
+      <div class="kv"><span class="k">Co to znamená pro vás</span><span class="v">${esc(d.means)}</span></div>
+      <div class="yours">${esc(d.yours)}</div>
+    </div>`).join("");
+});
 
-    <div class="timeline">
+safe(()=>{
+  $("keywords").innerHTML =
+    KEYWORDS.map(g=>`
+      <div class="kwgroup">
+        <div class="gname">${esc(g.group)}</div>
+        <div class="kwlist">${g.items.map(k=>`<span class="kw"><span class="s"></span>${esc(k)}</span>`).join("")}</div>
+      </div>`).join("")
+    + `<div class="kwnote">${esc(KW_NOTE)} <br><br>Stav všech slov: <strong>Navrženo</strong> — čeká na vaše schválení.</div>`;
+});
 
-        <div class="entry progress">
-            <div class="entry-date">Probíhá</div>
-            <div class="entry-head">
-                <span class="entry-title">Web: SEO základy (Yoast SEO)</span>
-                <span class="status status-progress">Probíhá</span>
-            </div>
-            <div class="entry-body">
-                Instalace pluginu Yoast SEO a nastavení základů přímo na webu:
-                <ul>
-                    <li>Instalace + konfigurace Yoast SEO</li>
-                    <li>Title tagy a meta description pro hlavní stránky</li>
-                    <li>Struktura nadpisů, indexace, sitemap</li>
-                    <li>Klíčová slova doladíme s klientem individuálně</li>
-                </ul>
-                <span class="entry-who">Vlastník: Michael</span>
-            </div>
-        </div>
-
-        <div class="entry progress">
-            <div class="entry-date">Probíhá</div>
-            <div class="entry-head">
-                <span class="entry-title">Google Firma — nárokování a doplnění</span>
-                <span class="status status-progress">Probíhá</span>
-            </div>
-            <div class="entry-body">
-                Profil existuje jako „Masérství s.r.o." — nárokujeme, ověříme a doplníme. Čeká se na rozhodnutí o názvu (doporučení: „Masér pan Jiří") a na potvrzení lokality od klienta.
-                <span class="entry-who">Vlastník: Michael / Verča</span>
-            </div>
-        </div>
-
-        <div class="entry done">
-            <div class="entry-date">7. 6. 2026</div>
-            <div class="entry-head">
-                <span class="entry-title">Klient dodal odpovědi a přístupy</span>
-                <span class="status status-done">Hotovo</span>
-            </div>
-            <div class="entry-body">
-                Eva Kaiserová (za Jiřího) poslala vyplněnou Fázi 1 (<em>Faze 1.docx</em>):
-                <ul>
-                    <li>Administrátorský přístup k webu maserpanjiri.cz dodán</li>
-                    <li>Vše se zakládá od nuly: Google kampaň nikdy neběžela, žádný Analytics profil</li>
-                    <li>Facebook pouze osobní profil — pro měření potřeba firemní stránka</li>
-                    <li>SEO texty nikdy nenastavené, klíčová slova doladíme individuálně</li>
-                    <li>Souhlas s navrženým postupem bez výhrad</li>
-                </ul>
-                Kontakt pro realizaci: Eva Kaiserová, 728 713 757 (preferuje WhatsApp).
-                <span class="entry-who">Od: Eva Kaiserová &rarr; Verča &rarr; Michael</span>
-            </div>
-        </div>
-
-        <div class="entry done">
-            <div class="entry-date">2. 6. 2026</div>
-            <div class="entry-head">
-                <span class="entry-title">Fáze 1 odeslána klientovi</span>
-                <span class="status status-done">Hotovo</span>
-            </div>
-            <div class="entry-body">
-                Verča poslala Jiřímu konkrétní kroky a dotazy pro Fázi 1: Google Firma (dodání týden), Google Analytics + Pixel (14 dnů), SEO optimalizace (14 dnů). Postup po krocích, nejdřív základy, úprava webu až poté.
-                <span class="entry-who">Od: Verča &rarr; Jiří</span>
-            </div>
-        </div>
-
-        <div class="entry done">
-            <div class="entry-date">13. 4. 2026</div>
-            <div class="entry-head">
-                <span class="entry-title">Audit a návrh dodán</span>
-                <span class="status status-done">Hotovo</span>
-            </div>
-            <div class="entry-body">
-                Dodán audit online prezentace + návrh aktivit a nacenění. Hlavní zjištění: kvalitní služby a funkční rezervace (Termino), ale nulová online viditelnost. Priority dle cena/přínos, nejvýš Google Firma.
-                <div style="margin-top:8px;"><a href="../../maserpanjiri.html" style="color:#a8917e;">Zobrazit audit &rarr;</a></div>
-                <span class="entry-who">Od: Off-Plate</span>
-            </div>
-        </div>
-
-    </div>
-
-    <hr class="divider">
-
-</div>
-
-<div class="footer">
-    Off-Plate &middot; Interní záznam průběhu prací pro Masérství Pan Jiří
-</div>
-
+safe(()=>{
+  $("next").innerHTML = NEXT.map(n=>`
+    <div class="next-card">
+      <div class="lockrow"><span class="lock">\u{1F512}</span><h4>${esc(n.name)}</h4><span class="when">${esc(n.when)}</span></div>
+      <div class="benefit">${esc(n.benefit)}</div>
+    </div>`).join("");
+});
+</script>
 </body>
 </html>
