@@ -101,7 +101,16 @@
 
   /* Decision card */
   .decision{background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow);}
+  .decision .dec-kicker{font-family:'Sora',sans-serif; font-weight:700; font-size:.68rem; letter-spacing:1.4px; text-transform:uppercase; color:var(--teal); margin-bottom:6px;}
   .decision h4{font-size:1.05rem; margin-bottom:10px;}
+  .decision .alts{margin:12px 0 4px;}
+  .decision .alts .k{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.6px; color:var(--teal); display:block; margin-bottom:6px;}
+  .decision .alts ul{list-style:none; display:grid; gap:6px;}
+  .decision .alts li{font-size:.92rem; color:var(--muted); padding-left:16px; position:relative;}
+  .decision .alts li::before{content:"×"; position:absolute; left:0; color:#c0563f; font-weight:700;}
+  .decision .alts li strong{color:var(--ink);}
+  .decision .honest{margin-top:14px; background:var(--cream-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:.92rem; color:var(--ink);}
+  .decision .honest strong{color:var(--brown);}
   .decision .kv{margin-bottom:8px;}
   .decision .kv .k{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.6px; color:var(--teal); display:block;}
   .decision .kv .v{font-size:.95rem; color:var(--ink);}
@@ -298,8 +307,12 @@ const DONE = [
 const DECISIONS = [
   { title:"Název vašeho profilu na Googlu",
     choice:"Masér pan Jiří",
-    why:"Lidé na Googlu nehledají „Masérství s.r.o.“. Hledají slovo „masér“ a jméno. Tento název obsahuje obojí, takže Google i lidé hned chápou, co děláte.",
-    means:"Vyšší šance, že vás Google ukáže, když někdo ve vašem okolí hledá maséra.",
+    why:"Obsahuje klíčové slovo „masér“ i jméno „Jiří“, tedy přesně to, co lidé zadávají do vyhledávání, a zároveň je to vaše skutečná značka (web maserpanjiri.cz). Díky tomu splňuje pravidla Googlu a nehrozí postih za nadužívání klíčových slov, který může vést až ke zrušení profilu včetně recenzí.",
+    alts:[
+      { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
+      { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
+    ],
+    honest:"Samotný název konkurenci nepřeskočí. Zavedená konkurence je dnes první hlavně díky plně vyplněnému profilu a recenzím. Bez doplnění profilu a postupného sběru recenzí se pozice nezvednou. Proto je obojí součástí Fáze 1.",
     yours:"Je to vaše značka. Pokud chcete název upravit, dejte vědět." },
 ];
 
@@ -357,10 +370,12 @@ safe(()=>{
 safe(()=>{
   $("decisions").innerHTML = DECISIONS.map(d=>`
     <div class="decision">
+      <div class="dec-kicker">Naše doporučení</div>
       <h4>${esc(d.title)}</h4>
-      <div class="kv"><span class="k">Rozhodnutí</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
+      <div class="kv"><span class="k">Doporučujeme</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
       <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
-      <div class="kv"><span class="k">Co to znamená pro vás</span><span class="v">${esc(d.means)}</span></div>
+      ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong> — ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
+      ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
       <div class="yours">${esc(d.yours)}</div>
     </div>`).join("");
 });
