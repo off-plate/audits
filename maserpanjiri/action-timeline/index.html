@@ -158,6 +158,24 @@
     .topbar .client{font-size:.82rem;}
     .step .pill{display:none;}
   }
+
+  /* Strategy explainer (SEO + AEO) */
+  .strat-intro{background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow); margin-bottom:8px;}
+  .strat-intro.aeo{background:linear-gradient(180deg,#eef6f6 0%,#fff 60%); border-color:#cfe6e6;}
+  .strat-intro h3{font-size:1.16rem; margin-bottom:8px;}
+  .strat-intro p{font-size:.97rem; color:var(--ink); margin-bottom:10px;}
+  .strat-intro p:last-of-type{margin-bottom:0;}
+  .benefit-line{display:flex; gap:9px; align-items:flex-start; background:var(--green-soft); border:1px solid #cfe6d8; border-radius:10px; padding:10px 13px; font-size:.9rem; color:var(--ink); margin-top:12px;}
+  .benefit-line .lab{font-weight:700; color:var(--green); white-space:nowrap;}
+  .subhead{font-family:'Sora',sans-serif; font-weight:600; font-size:1.06rem; color:var(--navy); margin:26px 0 12px; padding-top:6px; border-top:1px solid var(--line);}
+  .feat-grid{display:grid; gap:12px;}
+  @media(min-width:620px){ .feat-grid.two{grid-template-columns:1fr 1fr;} }
+  .feat{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow); display:flex; flex-direction:column;}
+  .feat .ic{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--teal); color:#fff; font-size:.78rem; font-weight:700; display:grid; place-items:center; margin-bottom:9px;}
+  .feat h4{font-size:1.01rem; margin-bottom:5px;}
+  .feat p{font-size:.9rem; color:var(--ink); margin-bottom:0;}
+  .feat .benefit-line{font-size:.84rem; margin-top:auto;}
+  .feat .benefit-line{margin-top:12px;}
 </style>
 </head>
 <body>
@@ -235,13 +253,35 @@
   </div>
 </section>
 
-<!-- KLÍČOVÁ SLOVA -->
+<!-- NAŠE SEO STRATEGIE -->
 <section>
   <div class="wrap">
-    <div class="eyebrow">Klíčová slova k odsouhlasení</div>
-    <h2 class="sec">Na jaká slova vás mají lidé najít</h2>
-    <p class="lead">Toto jsou slova, na která chceme, aby vás Google ukazoval. Projděte je prosím a dejte vědět, jestli některá chybí nebo některou službu nenabízíte.</p>
-    <div class="kwbox" id="keywords"><div class="kwnote">Načítání…</div></div>
+    <div class="eyebrow">Naše strategie, srozumitelně</div>
+    <h2 class="sec">Jak vás dostaneme na Google</h2>
+    <p class="lead">Bez cizích slov a bez balastu. Tady je přesně to, co pro vás děláme, proč to děláme a co vám to přinese.</p>
+
+    <div id="seoIntro"></div>
+
+    <div class="subhead">Která slova jsme vybrali a proč</div>
+    <div id="kwIntro"></div>
+    <div class="kwbox" id="keywords" style="margin-top:12px;"><div class="kwnote">Načítání…</div></div>
+
+    <div class="subhead">Co uděláme přímo na webu</div>
+    <div class="feat-grid two" id="seoTech"><div class="feat">Načítání…</div></div>
+
+    <div class="subhead">Jak doženeme a předběhneme konkurenci</div>
+    <div id="competition"></div>
+  </div>
+</section>
+
+<!-- AEO -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="eyebrow">Nová éra hledání</div>
+    <h2 class="sec">Aby vás našla i umělá inteligence</h2>
+    <p class="lead">Lidé se čím dál častěji ptají hlasem a umělé inteligence. Připravíme vás i na tohle, zatímco to konkurence zatím skoro nikdo nedělá.</p>
+    <div id="aeoIntro"></div>
+    <div class="feat-grid two" id="aeo" style="margin-top:14px;"><div class="feat">Načítání…</div></div>
   </div>
 </section>
 
@@ -312,8 +352,7 @@ const DECISIONS = [
       { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
       { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
     ],
-    honest:"Samotný název konkurenci nepřeskočí. Zavedená konkurence je dnes první hlavně díky plně vyplněnému profilu a recenzím. Bez doplnění profilu a postupného sběru recenzí se pozice nezvednou. Proto je obojí součástí Fáze 1.",
-    yours:"Je to vaše značka. Pokud chcete název upravit, dejte vědět." },
+    honest:"Samotný název konkurenci nepřeskočí. Zavedená konkurence je dnes první hlavně díky plně vyplněnému profilu a recenzím. Bez doplnění profilu a postupného sběru recenzí se pozice nezvednou. Proto je obojí součástí Fáze 1." },
 ];
 
 /* Keywords (Praha). All start as 'Navrženo'. */
@@ -323,6 +362,66 @@ const KEYWORDS = [
   { group:"Vaše značka", items:["Masér pan Jiří","pan Jiří masáže","Panjiří","maserpanjiri.cz"] },
 ];
 const KW_NOTE = "Cílíme na Prahu, a hlavně na centrum. Zaměřujeme se na zdravotní a terapeutickou masáž, ne na běžnou relaxační. Tím se odlišíte od konkurence a oslovíte lidi, kteří řeší konkrétní bolest. Jakmile potvrdíte, které typy masáží nabízíte, seznam společně doladíme.";
+
+const SEO_INTRO = {
+  title:"Co pro vás děláme a proč",
+  body:["Když dnes lidé hledají masáž, nezeptají se kamaráda, ale napíšou pár slov do Googlu. SEO je jednoduše práce na tom, aby vás Google ukázal právě těmto lidem v ten správný okamžik, když masáž potřebují. My to u vás neděláme tak, že bychom se přetlačovali s desítkami levných studií o slovo „masáž Praha“. Jdeme cíleně po lidech, kteří hledají odbornou pomoc s bolestí a konkrétní řešení, protože přesně to umíte nabídnout a v tom jste jiný než ostatní."],
+  benefit:"Lidé, kteří opravdu hledají to, co děláte, vás na Googlu najdou snáz a přijdou právě k vám." };
+
+const KW_INTRO = {
+  title:"",
+  body:[
+    "Klíčová slova jsou výrazy, které lidé píšou do Googlu, když něco hledají. Vybrali jsme pro vás slova, která vás vystihují a u kterých máte reálnou šanci se prosadit: zdravotní masáž, terapeutická masáž, diagnostická masáž, bolest zad a šíje, a spojení s místem, kde působíte, Praha 1, centrum. K tomu vaše jméno, pan Jiří, Panjiří, aby vás našel každý, kdo vás zná nebo o vás slyšel.",
+    "Naopak jsme se vědomě vyhnuli obecným slovům jako „masáže Praha“ nebo „relaxační masáž“. Tato slova totiž obsadily velké levné řetězce a srovnávací weby a souboj o ně by byl drahý a hlavně by k vám přivedl lidi, kteří hledají něco jiného, než nabízíte. Lépe je být první volbou pro člověka s bolestí zad než desátý v řadě pro někoho, kdo hledá hodinku relaxace za nejnižší cenu. Tahle cesta je pro vás výhodnější a férovější."],
+  benefit:"Méně náhodných návštěvníků a více lidí, kteří přesně vaši práci hledají a ocení." };
+
+const SEO_TECH = [
+  { title:"Profil na Googlu a v Mapách",
+    body:"Když někdo vyhledá masáž ve vašem okolí, Google vpravo nebo nahoře ukáže kartu s názvem, adresou, otevírací dobou, fotkami a hodnocením. Tomu se říká firemní profil na Googlu. Postaráme se, aby byl váš úplný, hezký a aby vás Mapy správně ukazovaly přímo na Soukenické 8.",
+    benefit:"Lidé vás najdou i v Mapách, uvidí kudy k vám a rovnou se mohou objednat." },
+  { title:"Měření návštěvnosti",
+    body:"Nasadíme na web nástroj, který přehledně počítá, kolik lidí web navštívilo, odkud přišli a na co klikli. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Díky tomu nepracujeme naslepo, ale podle skutečných čísel.",
+    benefit:"Víme, co funguje, a můžeme se soustředit na to, co vám reálně přivádí klienty." },
+  { title:"Popisky stránek a nadpisy",
+    body:"Každá stránka má v Googlu titulek a krátký popisek, který se zobrazí ve výsledcích hledání. Když je napsaný dobře, člověk hned pochopí, že jste to právě vy a že nabízíte přesně to, co hledá. Připravíme tyto popisky tak, aby byly lákavé a jasné, ne jen strohý výčet.",
+    benefit:"Ve výsledcích hledání zaujmete a více lidí klikne právě na vás." },
+  { title:"Rychlost a obrázky webu",
+    body:"Pomalý web lidi odradí, většina nečeká ani pár vteřin a odejde. Velké fotky web zpomalují, proto je zmenšíme tak, aby vypadaly stejně hezky, ale načítaly se rychle. Rychlý web mají rádi návštěvníci i Google.",
+    benefit:"Návštěvníci na webu zůstanou a Google vás odmění lepším umístěním." },
+  { title:"Aby Google rozuměl, kdo jste a kde jste",
+    body:"Kromě textu, který čtou lidé, přidáme na web také neviditelný úhledný štítek pro Google. Ten Googlu jasně řekne základní fakta: jak se jmenujete, kde jste, jakou máte otevírací dobu a ceny. Google tak nemusí nic hádat a může vás zobrazit přesněji.",
+    benefit:"Google ukáže o vás správné a úplné informace, někdy i s cenami a otevírací dobou rovnou ve výsledcích." },
+  { title:"Zápisy v katalozích a jednotné údaje",
+    body:"Vaše jméno, adresa a telefon by měly být všude na internetu uvedené úplně stejně, na webu, v Googlu i v katalozích firem. Když se údaje liší, Google znejistí a méně vám důvěřuje. My je sjednotíme a zapíšeme vás do správných katalogů.",
+    benefit:"Google vám víc důvěřuje a lidé vždy najdou aktuální a správný kontakt." },
+];
+
+const COMPETITION = {
+  title:"",
+  body:[
+    "V Praze 1 blízko centra působí jiný masér, který se také jmenuje Jiří. Dnes je v Googlu o kousek napřed, ale není to proto, že by byl lepší. Má hlavně dvě věci: kompletně vyplněný firemní profil a velké množství hodnocení, přes osmdesát. To jsou věci, které umíme dohnat, je to spíš o pořádku a čase než o nějakém tajemství.",
+    "Naše výhoda je, že nejdeme stejnou cestou jako on. Vy máte své vlastní téma, zdravotní a diagnostickou masáž, tedy odbornou pomoc s bolestí, ne jen relaxaci. K tomu máte za sebou skutečné vzdělání a praxi, kterým se málokdo vyrovná: školu pana Flandery, praxi v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. To není jen reklama, to je opravdová odbornost a přesně tohle u vás budeme dávat dopředu, protože to lidem dává důvěru.",
+    "Poslední dílek skládačky jsou hodnocení od spokojených klientů na Googlu. Budeme vám pomáhat je postupně a poctivě sbírat, jedno po druhém. Nezískáme jich osmdesát přes noc a ani to neslibujeme, ale s vaší odborností a stálým přísunem nových hodnocení se ke konkurenci dotáhneme a v tom, co umíte nejlíp, ji předběhneme."],
+  benefit:"Postupně se posunete nahoru ve výsledcích hledání a stanete se jasnou první volbou pro lidi, kteří hledají odbornou masáž proti bolesti." };
+
+const AEO_INTRO = {
+  title:"Aby vás našly i stroje, nejen lidé",
+  body:["Lidé dnes hledají jinak než dřív. Už nenapíšou jen pár slov do Googlu, ale stále častěji se ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají hotovou odpověď. AEO (z anglického Answer Engine Optimization, tedy „optimalizace pro odpovídací stroje“) znamená připravit váš web tak, aby když se někdo takhle zeptá stroje, bylo tou odpovědí vaše jméno. Je to novější přístup než klasické SEO a vaše konkurence ho zatím skoro nevyužívá, takže máte šanci být mezi prvními."] };
+
+const AEO = [
+  { title:"Odpovědi na časté otázky",
+    body:"Na webu připravíme přehlednou sekci s odpověďmi na otázky, které si lidé kladou nejčastěji. Co je diagnostická masáž a komu pomáhá, kolik stojí, jak se objednat a kde vás najdou. Tyto jasné, krátké odpovědi nečtou jen lidé, ale i vyhledávače a umělá inteligence, které je pak rovnou citují jako hotovou odpověď. Jednoduše řečeno, předžvýkáme strojům i lidem přesně to, co potřebují vědět.",
+    benefit:"Lidé i stroje dostanou jasnou odpověď okamžitě, takže se k vám snáz dostane ten, kdo zrovna hledá pomoc." },
+  { title:"Aby vás doporučila i umělá inteligence",
+    body:"Webu přidáme úhledný souhrn, kterému stroje rozumí. Kdo jste, co děláte, kde sídlíte a kolik vaše služby stojí, zapsané způsobem, který umělá inteligence umí přečíst a důvěřovat mu. Důležité je, aby tyhle údaje seděly všude stejně, na webu, na Googlu, v katalozích. Když stroj vidí stejné informace na více místech, je si jistý, že jde o jeden skutečný, existující podnik, a spíš vás doporučí.",
+    benefit:"Když se někdo zeptá umělé inteligence na maséra v Praze, je větší šance, že padne vaše jméno." },
+  { title:"Hlasové hledání a „masér blízko mě“",
+    body:"Když někdo řekne do telefonu „najdi maséra blízko mě“, asistent neodpovídá z dlouhého seznamu odkazů, ale vybere obvykle jedno místo. Tu odpověď bere hlavně z vašeho profilu na Googlu a z jasných, úplných informací o vás. Proto je důležité mít profil kompletní a všude stejné údaje, adresu, otevírací dobu, telefon. Kdo to má v pořádku, ten tyhle hlasové dotazy vyhrává.",
+    benefit:"Lidé ve vašem okolí, kteří hledají hlasem, narazí jako první na vás." },
+  { title:"Být vidět v odpovědích Googlu",
+    body:"Když dnes něco zadáte do Googlu, často se úplně nahoře objeví krátká shrnující odpověď ještě nad odkazy. Google ji skládá z webů, které dávají jasnou a přímou odpověď na položenou otázku. Když máme na vašem webu věci napsané srozumitelně a k věci, roste šance, že Google bude citovat zrovna vás. Je to jako být ten, koho si učitel vyvolá, protože odpovídá jasně a bez okolků.",
+    benefit:"Vaše jméno se může objevit úplně nahoře ještě dřív, než člověk začne klikat na odkazy." },
+];
 
 const NEXT = [
   { name:"Fáze 2 — Web, který přesvědčí", when:"až budete připraveni",
@@ -376,7 +475,7 @@ safe(()=>{
       <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
       ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong> — ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
       ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
-      <div class="yours">${esc(d.yours)}</div>
+      ${d.yours?`<div class="yours">${esc(d.yours)}</div>`:""}
     </div>`).join("");
 });
 
@@ -397,6 +496,18 @@ safe(()=>{
       <div class="benefit">${esc(n.benefit)}</div>
     </div>`).join("");
 });
+
+/* ---- SEO + AEO strategy explainer ---- */
+function benefitHTML(t){ return t?`<div class="benefit-line"><span class="lab">Co vám to přinese:</span><span>${esc(t)}</span></div>`:""; }
+function introHTML(d,cls){ return `<div class="strat-intro${cls?" "+cls:""}">${d.title?`<h3>${esc(d.title)}</h3>`:""}${(d.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}${benefitHTML(d.benefit)}</div>`; }
+function featHTML(items){ return items.map((f,i)=>`<div class="feat"><div class="ic">${i+1}</div><h4>${esc(f.title)}</h4><p>${esc(f.body)}</p>${benefitHTML(f.benefit)}</div>`).join(""); }
+
+safe(()=>{ $("seoIntro").innerHTML = introHTML(SEO_INTRO); });
+safe(()=>{ $("kwIntro").innerHTML = introHTML(KW_INTRO); });
+safe(()=>{ $("seoTech").innerHTML = featHTML(SEO_TECH); });
+safe(()=>{ $("competition").innerHTML = introHTML(COMPETITION); });
+safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
+safe(()=>{ $("aeo").innerHTML = featHTML(AEO); });
 </script>
 </body>
 </html>
