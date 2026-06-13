@@ -152,6 +152,38 @@
   .footer .small{font-size:.8rem; color:rgba(247,245,240,.55); margin-top:12px;}
   .footer .small a{color:rgba(247,245,240,.75);}
 
+  /* Plan: phases differentiated, each category its own section */
+  #plan{display:block;}
+  .phase{padding:30px 0;}
+  .phase + .phase{border-top:1px solid var(--line);}
+  .phase-head{display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-left:5px solid var(--teal); border-radius:14px; padding:14px 18px; box-shadow:var(--shadow); margin-bottom:16px;}
+  .phase.p1 .phase-head{border-left-color:var(--teal);}
+  .phase.p2 .phase-head{border-left-color:var(--amber);}
+  .phase.p3 .phase-head{border-left-color:var(--brown);}
+  .phase-head .pnum{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem;}
+  .phase.p1 .pnum{background:var(--teal);}
+  .phase.p2 .pnum{background:var(--amber);}
+  .phase.p3 .pnum{background:var(--brown);}
+  .phase-head .ph-meta{flex:1 1 auto; min-width:0;}
+  .phase-head .ph-title{font-size:1.3rem; margin:0;}
+  .phase-head .ph-when{font-size:.82rem; color:var(--muted); margin-top:1px;}
+  .phase-intro{color:var(--muted); font-size:1rem; max-width:820px; margin-bottom:18px;}
+  .items-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); align-items:start;}
+  .item{background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px 22px;}
+  .item.wide{grid-column:1 / -1;}
+  .item-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:12px;}
+  .item-head h4{font-size:1.18rem;}
+  .item-body{max-width:820px;}
+  .item-body p{font-size:.95rem; color:var(--ink); margin-bottom:10px;}
+  .item-body p:last-child{margin-bottom:0;}
+  .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.7px; color:var(--brown-soft); margin:18px 0 9px;}
+  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));}
+  .points li{position:relative; padding-left:23px; font-size:.92rem; color:var(--ink);}
+  .points li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
+  .kw-inline{box-shadow:none; max-width:none; background:var(--cream);}
+  .phase-note{margin-top:18px; background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.92rem; color:var(--ink); max-width:1000px;}
+  .phase-note strong{color:var(--brown);}
+
   /* Wider desktop: text stays readable, card collections fill the width */
   .lead{max-width:780px;}
   .progress-card{max-width:880px;}
@@ -240,7 +272,7 @@
       <p class="sub" id="progressSub">Hotovo: audit a strategie. Probíhá: Fáze 1.</p>
 
       <ul class="steps" id="steps"><li class="step"><div class="ic">…</div><div class="body"><h4>Načítání…</h4></div></li></ul>
-      <p class="audit-ref">Každá položka má svou vlastní cenu přesně podle původního auditu z 13. dubna 2026. Nic nesčítáme ani neměníme, jen ukazujeme, kde se právě nacházíme a co je na řadě.</p>
+      <p class="audit-ref">Fáze vychází z původního auditu z 13. dubna 2026. Podrobnosti a cenu u každé jednotlivé položky najdete níže. Nic nesčítáme ani neměníme.</p>
     </div>
   </div>
 </section>
@@ -280,39 +312,15 @@
   </div>
 </section>
 
-<!-- NAŠE SEO STRATEGIE -->
-<section>
+<!-- PLÁN PO FÁZÍCH -->
+<section style="padding-bottom:6px;">
   <div class="wrap">
-    <div class="eyebrow">Naše strategie, srozumitelně</div>
-    <h2 class="sec">Jak vás dostaneme na Google</h2>
-    <p class="lead">Bez cizích slov a bez balastu. Tady je přesně to, co pro vás děláme, proč to děláme a co vám to přinese.</p>
-
-    <div id="seoIntro"></div>
-
-    <div class="subhead">Která slova jsme vybrali a proč</div>
-    <div id="kwIntro"></div>
-    <div class="kwbox" id="keywords" style="margin-top:12px;"><div class="kwnote">Načítání…</div></div>
-
-    <div class="subhead">Co uděláme přímo na webu</div>
-    <div class="feat-grid two" id="seoTech"><div class="feat">Načítání…</div></div>
-
-    <div class="subhead">Jak doženeme a předběhneme konkurenci</div>
-    <div id="competition"></div>
+    <div class="eyebrow">Co přesně uděláme</div>
+    <h2 class="sec">Plán krok za krokem, po fázích</h2>
+    <p class="lead">Každá fáze a každá položka v ní má své vysvětlení a svou cenu přesně podle auditu. Postupujeme po krocích, placenou reklamu pouštíme až na konec, aby se neplatilo zbytečně.</p>
   </div>
 </section>
-
-<!-- CO PŘIJDE DÁL -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Co přijde dál</div>
-    <h2 class="sec">Další fáze</h2>
-    <p class="lead">Postupujeme po krocích. Reklamu spouštíme až jako poslední, protože nemá smysl platit za návštěvníky, dokud web a profil nepřesvědčí. Tím šetříme vaše peníze.</p>
-    <div class="grid" id="next"><div class="next-card">Načítání…</div></div>
-    <div class="context" style="margin-top:16px;">
-      <strong>Pro kontext:</strong> ve vyhledávání je dnes napřed zavedená konkurence (Masér Jiří, Praha 1), hlavně díky kompletnímu profilu a recenzím. Náš plán cílí přesně na to, abychom je dohnali a předběhli.
-    </div>
-  </div>
-</section>
+<div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
 
 <!-- TECHNICKÉ INFORMACE -->
 <section style="padding-top:0;">
@@ -403,46 +411,66 @@ const KEYWORDS = [
 ];
 const KW_NOTE = "Cílíme na Prahu, a hlavně na centrum. Zaměřujeme se na zdravotní a terapeutickou masáž, ne na běžnou relaxační. Tím se odlišíte od konkurence a oslovíte lidi, kteří řeší konkrétní bolest. Jakmile potvrdíte, které typy masáží nabízíte, seznam společně doladíme.";
 
-const SEO_INTRO = {
-  title:"Co pro vás děláme a proč",
-  body:["Když dnes lidé hledají masáž, nezeptají se kamaráda, ale napíšou pár slov do Googlu. SEO je jednoduše práce na tom, aby vás Google ukázal právě těmto lidem v ten správný okamžik, když masáž potřebují. My to u vás neděláme tak, že bychom se přetlačovali s desítkami levných studií o slovo „masáž Praha“. Jdeme cíleně po lidech, kteří hledají odbornou pomoc s bolestí a konkrétní řešení, protože přesně to umíte nabídnout a v tom jste jiný než ostatní."],
-  benefit:"Lidé, kteří opravdu hledají to, co děláte, vás na Googlu najdou snáz a přijdou právě k vám." };
-
-const KW_INTRO = {
-  title:"",
-  body:[
-    "Klíčová slova jsou výrazy, které lidé píšou do Googlu, když něco hledají. Vybrali jsme pro vás slova, která vás vystihují a u kterých máte reálnou šanci se prosadit: zdravotní masáž, terapeutická masáž, diagnostická masáž, bolest zad a šíje, a spojení s místem, kde působíte, Praha 1, centrum. K tomu vaše jméno, pan Jiří, Panjiří, aby vás našel každý, kdo vás zná nebo o vás slyšel.",
-    "Naopak jsme se vědomě vyhnuli obecným slovům jako „masáže Praha“ nebo „relaxační masáž“. Tato slova totiž obsadily velké levné řetězce a srovnávací weby a souboj o ně by byl drahý a hlavně by k vám přivedl lidi, kteří hledají něco jiného, než nabízíte. Lépe je být první volbou pro člověka s bolestí zad než desátý v řadě pro někoho, kdo hledá hodinku relaxace za nejnižší cenu. Tahle cesta je pro vás výhodnější a férovější."],
-  benefit:"Méně náhodných návštěvníků a více lidí, kteří přesně vaši práci hledají a ocení." };
-
-const SEO_TECH = [
-  { title:"Profil na Googlu a v Mapách",
-    body:"Když někdo vyhledá masáž ve vašem okolí, Google vpravo nebo nahoře ukáže kartu s názvem, adresou, otevírací dobou, fotkami a hodnocením. Tomu se říká firemní profil na Googlu. Postaráme se, aby byl váš úplný, hezký a aby vás Mapy správně ukazovaly přímo na Soukenické 8.",
-    benefit:"Lidé vás najdou i v Mapách, uvidí kudy k vám a rovnou se mohou objednat." },
-  { title:"Měření návštěvnosti",
-    body:"Nasadíme na web nástroj, který přehledně počítá, kolik lidí web navštívilo, odkud přišli a na co klikli. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Díky tomu nepracujeme naslepo, ale podle skutečných čísel.",
-    benefit:"Víme, co funguje, a můžeme se soustředit na to, co vám reálně přivádí klienty." },
-  { title:"Popisky stránek a nadpisy",
-    body:"Každá stránka má v Googlu titulek a krátký popisek, který se zobrazí ve výsledcích hledání. Když je napsaný dobře, člověk hned pochopí, že jste to právě vy a že nabízíte přesně to, co hledá. Připravíme tyto popisky tak, aby byly lákavé a jasné, ne jen strohý výčet.",
-    benefit:"Ve výsledcích hledání zaujmete a více lidí klikne právě na vás." },
-  { title:"Rychlost a obrázky webu",
-    body:"Pomalý web lidi odradí, většina nečeká ani pár vteřin a odejde. Velké fotky web zpomalují, proto je zmenšíme tak, aby vypadaly stejně hezky, ale načítaly se rychle. Rychlý web mají rádi návštěvníci i Google.",
-    benefit:"Návštěvníci na webu zůstanou a Google vás odmění lepším umístěním." },
-  { title:"Aby Google rozuměl, kdo jste a kde jste",
-    body:"Kromě textu, který čtou lidé, přidáme na web také neviditelný úhledný štítek pro Google. Ten Googlu jasně řekne základní fakta: jak se jmenujete, kde jste, jakou máte otevírací dobu a ceny. Google tak nemusí nic hádat a může vás zobrazit přesněji.",
-    benefit:"Google ukáže o vás správné a úplné informace, někdy i s cenami a otevírací dobou rovnou ve výsledcích." },
-  { title:"Zápisy v katalozích a jednotné údaje",
-    body:"Vaše jméno, adresa a telefon by měly být všude na internetu uvedené úplně stejně, na webu, v Googlu i v katalozích firem. Když se údaje liší, Google znejistí a méně vám důvěřuje. My je sjednotíme a zapíšeme vás do správných katalogů.",
-    benefit:"Google vám víc důvěřuje a lidé vždy najdou aktuální a správný kontakt." },
+/* Plán po fázích a kategoriích (ceny z auditu 13. 4. 2026, po jednotlivých položkách) */
+const PLAN = [
+  {
+    phase:"Fáze 1: Základy na Googlu", when:"Hned, do 1 týdne", status:"active",
+    intro:"Nejdřív vás dostaneme na mapu Googlu a začneme měřit, co se na webu děje. Bez toho jede všechno naslepo.",
+    items:[
+      { name:"Google Firma (Mapy)", price:"2 000 Kč",
+        body:["Když někdo vyhledá masáž ve vašem okolí, Google vpravo nebo nahoře ukáže kartu s názvem, adresou, otevírací dobou, fotkami a hodnocením. Tomu se říká firemní profil na Googlu. Postaráme se, aby byl váš úplný, hezký a aby vás Mapy správně ukazovaly přímo na Soukenické 8."],
+        benefit:"Lidé vás najdou i v Mapách, uvidí kudy k vám a rovnou se mohou objednat." },
+      { name:"Google Analytics", price:"2 000 Kč",
+        body:["Nasadíme na web nástroj, který přehledně počítá, kolik lidí web navštívilo, odkud přišli a na co klikli. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Díky tomu nepracujeme naslepo, ale podle skutečných čísel."],
+        benefit:"Víme, co funguje, a můžeme se soustředit na to, co vám reálně přivádí klienty." },
+    ],
+  },
+  {
+    phase:"Fáze 2: Web, který přesvědčí", when:"Do 2 až 3 týdnů", status:"todo",
+    intro:"Teď se postaráme, aby vás lidé z vyhledávání nejen našli, ale i objednali.",
+    items:[
+      { name:"Základní SEO", price:"3 000 až 5 000 Kč", wide:true, keywords:true,
+        body:[
+          "SEO je práce na tom, aby vás Google ukázal lidem přesně ve chvíli, kdy masáž potřebují. Neděláme to tak, že bychom se přetlačovali s desítkami levných studií o slovo „masáž Praha“. Jdeme cíleně po lidech, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte nabídnout a v tom jste jiný než ostatní.",
+          "Vybrali jsme proto slova, která vás vystihují a u kterých máte reálnou šanci se prosadit. Obecným slovům jako „masáže Praha“ nebo „relaxační masáž“ se vědomě vyhýbáme, protože je obsadily velké levné řetězce a přivedly by k vám lidi, kteří hledají něco jiného, než nabízíte."],
+        points:[
+          "Popisky stránek v Googlu, aby byly lákavé a jasné, ne jen strohý výčet",
+          "Neviditelný štítek pro Google se základními fakty o vás, tedy jméno, adresa, ceny a otevírací doba",
+          "Jednotné údaje všude na internetu a zápis do správných katalogů firem",
+        ],
+        benefit:"Méně náhodných návštěvníků a více lidí, kteří přesně vaši práci hledají a ocení." },
+      { name:"Vylepšení webu", price:"5 000 až 8 000 Kč", wide:true,
+        body:["Web teď máte, ale my ho upravíme tak, aby z lidí, kteří na něj přijdou, vznikli skuteční objednaní klienti, ne jen návštěvníci, co se podívají a odejdou. Projdeme každou stránku a doplníme to, co lidem chybí k rozhodnutí: jasný kontakt, mapu, čitelný popis služeb a viditelné tlačítko na rezervaci. Zároveň web zrychlíme, aby se načítal hned a nikdo nečekal."],
+        points:[
+          "Telefon a adresa viditelně na každé stránce, ne schované dole",
+          "Google mapa s adresou přímo na webu, aby každý hned viděl, kde vás najde",
+          "Lepší popis služeb a jejich přínosů, tedy proč si vybrat právě pana Jiřího",
+          "Sekce s recenzemi a referencemi od spokojených klientů",
+          "Výraznější tlačítko na rezervaci, aby ho člověk nemohl přehlédnout",
+          "Doplnění fotogalerie, ať si lidé udělají představu o prostředí",
+          "Rychlejší načítání díky zmenšeným obrázkům",
+        ],
+        benefit:"Více lidí, kteří si web otevřou, se opravdu objedná, místo aby odešli jinam." },
+    ],
+    note:"Ve vyhledávání je dnes napřed jiný masér Jiří z Prahy 1, hlavně díky kompletnímu profilu a velkému množství hodnocení, přes osmdesát. To se dá dohnat, je to spíš o pořádku a čase. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a skutečná odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu budeme dávat dopředu a postupně poctivě sbírat hodnocení od spokojených klientů.",
+  },
+  {
+    phase:"Fáze 3: Placená propagace", when:"Volitelně, po 1 měsíci", status:"todo",
+    intro:"Volitelný krok na konec. Pustíme ho, až budou hotové základy a vylepšený web, aby se neplatilo za reklamu nadarmo.",
+    items:[
+      { name:"Facebook stránka", price:"2 000 Kč",
+        body:["Založíme vám jednoduchou firemní stránku na Facebooku, tedy ne váš osobní profil, ale samostatnou stránku pro masáže. Doplníme na ni základní informace, fotky a odkaz na rezervaci, aby člověk hned věděl, co nabízíte a jak se objednat. Nemusíte na ni přispívat každý den, stačí, že existuje a je úhledná. Je to další místo, kde vás lidé najdou a kde vás mohou snadno doporučit svým známým."],
+        benefit:"Další místo, kde vás lidé objeví a odkud vás mohou doporučit dál." },
+      { name:"Google Ads", price:"nastavení 3 000 Kč, pak 3 000 až 5 000 Kč měsíčně",
+        body:["Google Ads jsou placené odkazy, které se ukážou úplně nahoře ve výsledcích vyhledávání, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Výhoda je, že klienty přivedou rychle, ne až za několik měsíců, a platíte jen tehdy, když na odkaz někdo opravdu klikne. Navíc je to měřitelné, takže přesně vidíme, kolik vás stojí jedna nová rezervace, a podle toho můžeme reklamu ladit. Jsme k vám upřímní: tohle pustíme jako poslední, až bude hotový firemní profil a vylepšený web, jinak by se peníze vyhazovaly za reklamu, ze které by člověk přišel na nepřesvědčivý web."],
+        points:[
+          "Jednorázové nastavení reklamy: 3 000 Kč",
+          "Měsíční rozpočet na samotnou reklamu: 3 000 až 5 000 Kč",
+        ],
+        benefit:"Rychlý přísun nových klientů, u kterého přesně vidíte, kolik vás každá nová rezervace stojí." },
+    ],
+  },
 ];
-
-const COMPETITION = {
-  title:"",
-  body:[
-    "V Praze 1 blízko centra působí jiný masér, který se také jmenuje Jiří. Dnes je v Googlu o kousek napřed, ale není to proto, že by byl lepší. Má hlavně dvě věci: kompletně vyplněný firemní profil a velké množství hodnocení, přes osmdesát. To jsou věci, které umíme dohnat, je to spíš o pořádku a čase než o nějakém tajemství.",
-    "Naše výhoda je, že nejdeme stejnou cestou jako on. Vy máte své vlastní téma, zdravotní a diagnostickou masáž, tedy odbornou pomoc s bolestí, ne jen relaxaci. K tomu máte za sebou skutečné vzdělání a praxi, kterým se málokdo vyrovná: školu pana Flandery, praxi v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. To není jen reklama, to je opravdová odbornost a přesně tohle u vás budeme dávat dopředu, protože to lidem dává důvěru.",
-    "Poslední dílek skládačky jsou hodnocení od spokojených klientů na Googlu. Budeme vám pomáhat je postupně a poctivě sbírat, jedno po druhém. Nezískáme jich osmdesát přes noc a ani to neslibujeme, ale s vaší odborností a stálým přísunem nových hodnocení se ke konkurenci dotáhneme a v tom, co umíte nejlíp, ji předběhneme."],
-  benefit:"Postupně se posunete nahoru ve výsledcích hledání a stanete se jasnou první volbou pro lidi, kteří hledají odbornou masáž proti bolesti." };
 
 const AEO_INTRO = {
   title:"Aby vás našly i stroje, nejen lidé",
@@ -463,21 +491,6 @@ const AEO = [
     benefit:"Vaše jméno se může objevit úplně nahoře ještě dřív, než člověk začne klikat na odkazy." },
 ];
 
-const NEXT = [
-  { name:"Fáze 2: Web, který přesvědčí", when:"do 2 až 3 týdnů",
-    benefit:"Aby vás lidé z vyhledávání nejen našli, ale i objednali.",
-    items:[
-      { name:"Základní SEO", price:"3 000 až 5 000 Kč" },
-      { name:"Vylepšení webu", price:"5 000 až 8 000 Kč" },
-    ] },
-  { name:"Fáze 3: Placená propagace", when:"volitelně, po 1 měsíci",
-    benefit:"Reklama, která přivede klienty rychle. Spouštíme ji až na konec.",
-    items:[
-      { name:"Facebook stránka", price:"2 000 Kč" },
-      { name:"Google Ads (nastavení)", price:"3 000 Kč" },
-      { name:"Google Ads (provoz reklamy)", price:"3 000 až 5 000 Kč měsíčně" },
-    ] },
-];
 /* ════════════════ END EDIT BLOCK ════════════════ */
 
 /* ---- rendering (resilient: each section in its own try/catch) ---- */
@@ -506,7 +519,6 @@ safe(()=>{
         <h4>${esc(p.name)}</h4>
         ${p.meta?`<div class="meta">${esc(p.meta)}</div>`:""}
         ${p.when?`<div class="when-inline">${esc(p.when)}</div>`:""}
-        ${p.items?`<ul class="items">${p.items.map(it=>`<li><span class="iname">${esc(it.name)}</span><span class="price">${esc(it.price)}</span></li>`).join("")}</ul>`:""}
       </div>
       <span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span>
     </li>`).join("");
@@ -533,34 +545,42 @@ safe(()=>{
     </div>`).join("");
 });
 
-safe(()=>{
-  $("keywords").innerHTML =
-    KEYWORDS.map(g=>`
-      <div class="kwgroup">
-        <div class="gname">${esc(g.group)}</div>
-        <div class="kwlist">${g.items.map(k=>`<span class="kw"><span class="s"></span>${esc(k)}</span>`).join("")}</div>
-      </div>`).join("")
-    + `<div class="kwnote">${esc(KW_NOTE)} <br><br>Stav všech slov: <strong>Navrženo</strong> — čeká na vaše schválení.</div>`;
-});
-
-safe(()=>{
-  $("next").innerHTML = NEXT.map(n=>`
-    <div class="next-card">
-      <div class="lockrow"><span class="lock">\u{1F512}</span><h4>${esc(n.name)}</h4><span class="when">${esc(n.when)}</span></div>
-      <div class="benefit">${esc(n.benefit)}</div>
-      ${n.items?`<ul class="items">${n.items.map(it=>`<li><span class="iname">${esc(it.name)}</span><span class="price">${esc(it.price)}</span></li>`).join("")}</ul>`:""}
-    </div>`).join("");
-});
-
-/* ---- SEO + AEO strategy explainer ---- */
+/* ---- shared helpers (used by plan and AEO) ---- */
 function benefitHTML(t){ return t?`<div class="benefit-line"><span class="lab">Co vám to přinese:</span><span>${esc(t)}</span></div>`:""; }
 function introHTML(d,cls){ return `<div class="strat-intro${cls?" "+cls:""}">${d.title?`<h3>${esc(d.title)}</h3>`:""}${(d.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}${benefitHTML(d.benefit)}</div>`; }
 function featHTML(items){ return items.map((f,i)=>`<div class="feat"><div class="ic">${i+1}</div><h4>${esc(f.title)}</h4><p>${esc(f.body)}</p>${benefitHTML(f.benefit)}</div>`).join(""); }
 
-safe(()=>{ $("seoIntro").innerHTML = introHTML(SEO_INTRO); });
-safe(()=>{ $("kwIntro").innerHTML = introHTML(KW_INTRO); });
-safe(()=>{ $("seoTech").innerHTML = featHTML(SEO_TECH); });
-safe(()=>{ $("competition").innerHTML = introHTML(COMPETITION); });
+/* ---- Plan: phases -> categories, each its own section ---- */
+function kwChips(){
+  return `<div class="kwbox kw-inline">`
+    + KEYWORDS.map(g=>`<div class="kwgroup"><div class="gname">${esc(g.group)}</div><div class="kwlist">${g.items.map(k=>`<span class="kw"><span class="s"></span>${esc(k)}</span>`).join("")}</div></div>`).join("")
+    + `<div class="kwnote">${esc(KW_NOTE)}<br><br>Stav všech slov: <strong>Navrženo</strong>, čeká na vaše schválení.</div></div>`;
+}
+function itemHTML(it){
+  return `<article class="item${it.wide?" wide":""}">
+    <div class="item-head"><h4>${esc(it.name)}</h4><span class="price">${esc(it.price)}</span></div>
+    <div class="item-body">${(it.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    ${it.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}
+    ${it.points?`<div class="sub-label">Co je v tom zahrnuto</div><ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}
+    ${benefitHTML(it.benefit)}
+  </article>`;
+}
+function phaseHTML(ph,i){
+  return `<section class="phase p${i+1} ${esc(ph.status)}">
+    <div class="wrap">
+      <div class="phase-head">
+        <span class="pnum">${i+1}</span>
+        <div class="ph-meta"><h3 class="ph-title">${esc(ph.phase)}</h3><div class="ph-when">${esc(ph.when)}</div></div>
+        <span class="pill ${esc(ph.status)}">${LABEL[ph.status]||""}</span>
+      </div>
+      ${ph.intro?`<p class="phase-intro">${esc(ph.intro)}</p>`:""}
+      <div class="items-grid">${ph.items.map(itemHTML).join("")}</div>
+      ${ph.note?`<div class="phase-note"><strong>Jak doženeme konkurenci:</strong> ${esc(ph.note)}</div>`:""}
+    </div>
+  </section>`;
+}
+safe(()=>{ $("plan").innerHTML = PLAN.map(phaseHTML).join(""); });
+
 safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
 safe(()=>{ $("aeo").innerHTML = featHTML(AEO); });
 </script>
