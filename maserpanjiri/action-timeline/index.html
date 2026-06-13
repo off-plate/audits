@@ -186,6 +186,10 @@
   .status-note{background:#eef6f6; border:1px solid #cfe6e6; border-radius:10px; padding:9px 13px; font-size:.9rem; color:var(--ink); margin-bottom:16px;}
   .phase.active .status-note{background:var(--amber-soft); border-color:#e7d3ac;}
   .phase-head .price{align-self:center;}
+  .action-note{display:flex; gap:11px; align-items:flex-start; background:var(--amber-soft); border:1px solid #e7d3ac; border-radius:12px; padding:13px 15px; margin:8px 0 14px; font-size:.93rem; color:var(--ink);}
+  .action-note .bang{flex:0 0 auto; font-family:'Sora',sans-serif; font-weight:700; font-size:1.2rem; line-height:1.2; color:var(--amber-text);}
+  .action-note strong{color:var(--amber-text);}
+  .decision.in-phase{margin-top:18px;}
   .item-body p{font-size:.95rem; color:var(--ink); margin-bottom:10px;}
   .item-body p:last-child{margin-bottom:0;}
   .item-extra{min-width:0;}
@@ -202,6 +206,8 @@
   .anchor-wrap{position:sticky; top:0; z-index:30; background:rgba(247,245,240,.94); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
   .anchor-nav{max-width:1500px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
   .anchor-nav a{font-family:'Sora',sans-serif; font-size:.8rem; font-weight:600; color:var(--navy); background:#fff; border:1px solid var(--line); padding:6px 13px; border-radius:999px; white-space:nowrap;}
+  .anchor-nav a .anum{display:inline-block; font-weight:700; color:var(--teal); margin-right:5px;}
+  .anchor-nav a:hover .anum{color:var(--cream);}
   .anchor-nav a:hover{background:var(--navy); color:var(--cream); text-decoration:none;}
   .phase, #aeo{scroll-margin-top:62px;}
 
@@ -295,50 +301,15 @@
   </div>
 </section>
 
-<!-- CO POTŘEBUJEME OD VÁS -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="eyebrow">Co potřebujeme od vás</div>
-    <div class="need wait" id="needBox">
-      <span class="bang">!</span>
-      <div>
-        <h3 id="needTitle">Jedna věc k vám</h3>
-        <p id="needText">Potvrďte prosím navržená klíčová slova, na která vás chceme dostat na Googlu. Najdete je níže ve Fázi 3 (SEO optimalizace). Stačí říct, co sedí a co případně nenabízíte.</p>
-        <p class="how" id="needHow">Stačí nám krátká zpráva. Víc teď od vás nepotřebujeme.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLÁN PO FÁZÍCH (jediná páteř stránky) -->
+<!-- PLÁN PO FÁZÍCH (jediná páteř stránky; vše k dané fázi je přímo pod ní) -->
 <section style="padding-bottom:6px;">
   <div class="wrap">
     <div class="eyebrow">Plán spolupráce</div>
     <h2 class="sec">Co děláme, po fázích</h2>
-    <p class="lead">Celý plán na jednom místě. Každá fáze má stejnou strukturu: co je v ní zahrnuté, cena podle auditu z 13. dubna 2026 a co vám to přinese.</p>
+    <p class="lead">Celý plán na jednom místě. Každá fáze má stejnou strukturu: co je v ní zahrnuté, cena podle auditu z 13. dubna 2026 a co vám to přinese. Všechno k dané fázi, včetně rozhodnutí a toho, co od vás potřebujeme, najdete přímo u ní.</p>
   </div>
 </section>
 <div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
-
-<!-- ROZHODNUTÍ -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Naše rozhodnutí a proč</div>
-    <h2 class="sec">Co jsme zvolili</h2>
-    <p class="lead">U důležitých kroků vám vždy vysvětlíme, proč jsme se tak rozhodli. Rozhodnutí je na vás, my doporučujeme.</p>
-    <div class="grid" id="decisions"><div class="decision">Načítání…</div></div>
-  </div>
-</section>
-
-<!-- CO MÁME HOTOVÉ -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Co máme hotové</div>
-    <h2 class="sec">Hotová práce</h2>
-    <p class="lead">Konkrétní kroky, které už máme za sebou.</p>
-    <div class="grid" id="done"><div class="done-card">Načítání…</div></div>
-  </div>
-</section>
 
 <!-- AEO (návrh do budoucna) -->
 <section id="aeo">
@@ -381,30 +352,6 @@
    ════════════════════════════════════════════════════════════ */
 const UPDATED = "13. 6. 2026";
 
-const DONE = [
-  { date:"13. 6. 2026", title:"Vyměnili jsme SEO nástroj a připojili měření", wide:true,
-    points:[
-      "Na webu byl nástroj Rank Math SEO, ale byl vypnutý, nic neměřil a nebyl správně nastavený. Vyměnili jsme ho za Yoast SEO, který je teď plně nakonfigurovaný.",
-      "Připojili jsme na váš web Google Analytics. Právě probíhá ověření ze strany Googlu. Jakmile bude správně připojené a ověřené, zašleme vám přístupy.",
-    ],
-    benefit:"Web má pořádný základ pro vyhledávače a začínáme měřit, kolik lidí na něj chodí." },
-  { date:"7. 6. 2026", title:"Získán přístup k webu",
-    benefit:"Můžeme začít s úpravami a nastavením přímo na vašem webu." },
-  { date:"2. 6. 2026", title:"Naplánována Fáze 1",
-    benefit:"Jasné kroky pro Google profil, měření návštěvnosti a základy SEO." },
-];
-
-const DECISIONS = [
-  { title:"Název vašeho profilu na Googlu",
-    choice:"Masér pan Jiří",
-    why:"Název „Masér pan Jiří“ funguje hned ze dvou důvodů. Obsahuje slovo „masér“, které lidé skutečně píší do vyhledávání, a zároveň jméno „Jiří“, takže působí jako konkrétní člověk, kterého si objednáte, ne jako anonymní studio. Je to navíc vaše skutečná značka a stejný název máte i na webu maserpanjiri.cz. Když se název na profilu, na webu i v dalších odkazech shoduje, Google i lidé snadno poznají, že jde o jednu a tu samou důvěryhodnou firmu, a snáz vás najdou i objednají.",
-    alts:[
-      { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
-      { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
-    ],
-    honest:"Samotný název konkurenci nepřeskočí. Proto je doplnění profilu a postupný sběr recenzí součástí plánu (viz Fáze 1 a 2)." },
-];
-
 /* Keywords (Praha). All start as 'Navrženo'. */
 const KEYWORDS = [
   { group:"Hlavní lokální", items:["zdravotní masáž Praha 1","terapeutická masáž centrum Prahy","masáž na bolesti zad Praha","masáž šíje a krční páteře Praha"] },
@@ -416,7 +363,7 @@ const KW_NOTE = "Cílíme na Prahu, a hlavně na centrum. Zaměřujeme se na zdr
 /* Plán = 6 fází přesně podle auditu z 13. 4. 2026 (+ audit jako hotový základ). status: done|active|todo */
 const PLAN = [
   {
-    num:"✓", phase:"Audit a strategie online prezentace", when:"Hotovo 13. 4. 2026", status:"done",
+    num:"✓", nav:"Audit", phase:"Audit a strategie online prezentace", when:"Hotovo 13. 4. 2026", status:"done",
     body:["Prošli jsme váš web, vyhledávání i konkurenci a zjistili, kde vás lidé online nenajdou. Z toho vznikl tento plán rozdělený do šesti fází i s cenami, podle kterého teď krok po kroku postupujeme."],
     points:[
       "Rozbor webu, vyhledávání a konkurence",
@@ -425,7 +372,7 @@ const PLAN = [
     ],
     benefit:"Víme přesně, kde začít a proč, takže se nic nedělá náhodně." },
   {
-    num:"1", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", price:"2 000 Kč",
+    num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", price:"2 000 Kč",
     statusNote:"Probíhá. Název profilu je zvolený (Masér pan Jiří) a profil zakládáme.",
     body:["Profil firmy na Googlu se ukáže, když někdo hledá maséra ve vašem okolí, a na Mapách. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Teď žádný nemáte, takže vás při hledání v okolí nenajdou. Proto je to první a nejdůležitější krok."],
     points:[
@@ -435,9 +382,18 @@ const PLAN = [
       "Nastavení pro postupný sběr recenzí od klientů",
     ],
     benefit:"Lidé vás najdou na Googlu i v Mapách bez placené reklamy a rovnou se mohou objednat.",
+    decision:{
+      title:"Název profilu na Googlu",
+      choice:"Masér pan Jiří",
+      why:"Název „Masér pan Jiří“ funguje hned ze dvou důvodů. Obsahuje slovo „masér“, které lidé skutečně píší do vyhledávání, a zároveň jméno „Jiří“, takže působí jako konkrétní člověk, kterého si objednáte, ne jako anonymní studio. Je to navíc vaše skutečná značka a stejný název máte i na webu maserpanjiri.cz. Když se název na profilu, na webu i v dalších odkazech shoduje, Google i lidé snadno poznají, že jde o jednu a tu samou důvěryhodnou firmu, a snáz vás najdou i objednají.",
+      alts:[
+        { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
+        { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
+      ],
+      honest:"Samotný název konkurenci nepřeskočí. Proto k němu patří kompletní profil a postupný sběr recenzí." },
     note:"Ve vyhledávání je dnes napřed jiný masér Jiří z Prahy 1, hlavně díky kompletnímu profilu a velkému množství hodnocení, přes osmdesát. To se dá dohnat, je to spíš o pořádku a čase. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a skutečná odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu budeme dávat dopředu a postupně poctivě sbírat hodnocení od spokojených klientů." },
   {
-    num:"2", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"active", price:"2 000 Kč",
+    num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"active", price:"2 000 Kč",
     statusNote:"Probíhá. Google Analytics je už připojený, čeká se na ověření ze strany Googlu. Jakmile bude ověřené, pošleme vám přístupy.",
     body:["Nasadíme na web nástroj od Googlu, který přehledně počítá, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Bez dat se nedá měřit, jestli cokoliv funguje."],
     points:[
@@ -448,8 +404,9 @@ const PLAN = [
     ],
     benefit:"Přestáváme pracovat naslepo a soustředíme se na to, co vám reálně přivádí klienty." },
   {
-    num:"3", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"todo", price:"3 000 až 5 000 Kč", keywords:true,
+    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"todo", price:"3 000 až 5 000 Kč", keywords:true,
     statusNote:"SEO nástroj Yoast je už nasazený, vyměnili jsme za něj rozbitý Rank Math. Čekáme na potvrzení klíčových slov od vás.",
+    action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte. Stačí krátká zpráva, víc teď nepotřebujeme.",
     body:["Upravíme web tak, aby se zobrazoval výš, když lidé v Praze hledají masáž. Necílíme na obecné, přeplněné dotazy, které ovládají agregátory a levná studia, ale na lidi, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte."],
     points:[
       "Lákavé popisky stránek v Googlu, ne jen strohý výčet sekcí",
@@ -459,7 +416,7 @@ const PLAN = [
     ],
     benefit:"Víc lidí vás najde z vyhledávání bez placení za reklamu a tenhle efekt se časem zvyšuje." },
   {
-    num:"4", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"todo", price:"5 000 až 8 000 Kč",
+    num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"todo", price:"5 000 až 8 000 Kč",
     body:["Web teď máte, ale upravíme ho tak, aby z návštěvníků vznikli objednaní klienti, ne jen lidé, co se podívají a odejdou. Doplníme to, co jim chybí k rozhodnutí, a web zrychlíme."],
     points:[
       "Telefon a adresa viditelně na každé stránce",
@@ -472,7 +429,7 @@ const PLAN = [
     ],
     benefit:"Víc lidí, kteří si web otevřou, se opravdu objedná, a web působí profesionálněji." },
   {
-    num:"5", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"2 000 Kč",
+    num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"2 000 Kč",
     body:["Založíme jednoduchou firemní stránku na Facebooku, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je úhledná."],
     points:[
       "Samostatná firemní stránka, ne osobní profil",
@@ -481,7 +438,7 @@ const PLAN = [
     ],
     benefit:"Další místo, kde vás lidé najdou a odkud vás mohou doporučit známým." },
   {
-    num:"6", phase:"Fáze 6: Placená propagace (Google Ads a Facebook reklama)", when:"Nastavení 2 až 3 dny, pak průběžná správa", status:"todo", price:"nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
+    num:"6", nav:"Reklama", phase:"Fáze 6: Placená propagace (Google Ads a Facebook reklama)", when:"Nastavení 2 až 3 dny, pak průběžná správa", status:"todo", price:"nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
     body:["Placená reklama, která se ukáže úplně nahoře, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Přivede klienty rychle, platíte jen za klik a je to měřitelné. Pouštíme ji jako úplně poslední, až budou hotové základy a web, jinak by se peníze vyhazovaly za reklamu na nepřesvědčivý web."],
     points:[
       "Google Ads ve vyhledávání: nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
@@ -534,27 +491,16 @@ safe(()=>{
   $("progressSub").textContent = "Audit hotový. Teď probíhají Fáze " + (nums.join(" a ") || "1") + " ze 6, stavíme základy na Googlu.";
 });
 
-safe(()=>{
-  $("done").innerHTML = DONE.map(d=>`
-    <div class="done-card${d.wide?" wide":""}">
-      <div class="head"><span class="check">✓</span><h4>${esc(d.title)}</h4><span class="date">${esc(d.date)}</span></div>
-      ${d.points?`<ul class="points">${d.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:""}
-      <div class="benefit">${esc(d.benefit)}</div>
-    </div>`).join("");
-});
-
-safe(()=>{
-  $("decisions").innerHTML = DECISIONS.map(d=>`
-    <div class="decision">
-      <div class="dec-kicker">Naše doporučení</div>
-      <h4>${esc(d.title)}</h4>
-      <div class="kv"><span class="k">Doporučujeme</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
-      <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
-      ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong>, ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
-      ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
-      ${d.yours?`<div class="yours">${esc(d.yours)}</div>`:""}
-    </div>`).join("");
-});
+function decisionHTML(d){
+  return `<div class="decision in-phase">
+    <div class="dec-kicker">Naše doporučení</div>
+    <h4>${esc(d.title)}</h4>
+    <div class="kv"><span class="k">Doporučujeme</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
+    <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
+    ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong>, ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
+    ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
+  </div>`;
+}
 
 /* ---- shared helpers (used by plan and AEO) ---- */
 function benefitHTML(t){ return t?`<div class="benefit-line"><span class="lab">Co vám to přinese:</span><span>${esc(t)}</span></div>`:""; }
@@ -604,7 +550,9 @@ function phaseHTML(ph,i){
         <div class="item-body">${(ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
         <div class="item-extra">${right}</div>
       </div>
+      ${ph.action?`<div class="action-note"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><br>${esc(ph.action)}</div></div>`:""}
       ${benefitHTML(ph.benefit)}
+      ${ph.decision?decisionHTML(ph.decision):""}
       ${ph.note?`<div class="phase-note"><strong>Jak doženeme konkurenci:</strong> ${esc(ph.note)}</div>`:""}
     </div>
   </section>`;
@@ -613,9 +561,9 @@ safe(()=>{ $("plan").innerHTML = PLAN.map(phaseHTML).join(""); });
 
 safe(()=>{
   $("anchorNav").innerHTML = PLAN.map((ph,i)=>{
-    const label = (ph.num && ph.num!=="✓") ? ("Fáze "+ph.num) : "Audit";
-    return `<a href="#faze-${i+1}">${esc(label)}</a>`;
-  }).join("") + `<a href="#aeo">Návrh</a>`;
+    const num = (ph.num && ph.num!=="✓") ? `<span class="anum">${esc(ph.num)}</span>` : "";
+    return `<a href="#faze-${i+1}">${num}${esc(ph.nav || ph.phase)}</a>`;
+  }).join("") + `<a href="#aeo">Budoucnost</a>`;
 });
 
 safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
