@@ -176,6 +176,14 @@
   .feat p{font-size:.9rem; color:var(--ink); margin-bottom:0;}
   .feat .benefit-line{font-size:.84rem; margin-top:auto;}
   .feat .benefit-line{margin-top:12px;}
+
+  /* Phase pricing (from audit) */
+  .step .pinfo{display:flex; gap:9px; flex-wrap:wrap; align-items:center; margin-top:6px;}
+  .price{font-family:'Sora',sans-serif; font-weight:700; font-size:.82rem; color:var(--amber-text); background:var(--amber-soft); border:1px solid #e7d3ac; padding:2px 10px; border-radius:999px; display:inline-block;}
+  .step .when-inline{font-size:.78rem; color:var(--muted);}
+  .next-card .price{margin-top:10px;}
+  .audit-ref{margin-top:14px; font-size:.82rem; color:var(--muted); background:var(--cream-2); border:1px solid var(--line); border-radius:10px; padding:9px 13px;}
+  .audit-ref strong{color:var(--brown);}
 </style>
 </head>
 <body>
@@ -214,6 +222,7 @@
       <p class="sub" id="progressSub">Hotovo: audit a strategie. Probíhá: Fáze 1.</p>
 
       <ul class="steps" id="steps"><li class="step"><div class="ic">…</div><div class="body"><h4>Načítání…</h4></div></li></ul>
+      <p class="audit-ref">Fáze i ceny odpovídají původnímu auditu z 13. dubna 2026. Nic jsme neměnili, jen vám ukazujeme, kde se právě nacházíme.</p>
     </div>
   </div>
 </section>
@@ -329,10 +338,10 @@
 const UPDATED = "11. 6. 2026";
 
 const PHASES = [
-  { name:"Audit a strategie",        meta:"Zmapování, plán a nacenění",                 status:"done"   },
-  { name:"Fáze 1 — Základy na Googlu", meta:"Google profil, měření a SEO základy webu", status:"active" },
-  { name:"Fáze 2 — Web, který přesvědčí", meta:"Úpravy webu pro víc objednávek",        status:"todo"   },
-  { name:"Fáze 3 — Placená propagace",    meta:"Facebook a Google reklama",             status:"todo"   },
+  { name:"Audit a strategie", meta:"Zmapování, plán a nacenění", status:"done" },
+  { name:"Fáze 1: Základy na Googlu", meta:"Google Firma a Google Analytics", price:"4 000 Kč jednorázově", when:"hned, do 1 týdne", status:"active" },
+  { name:"Fáze 2: Web, který přesvědčí", meta:"Základní SEO a vylepšení webu", price:"8 000 až 13 000 Kč jednorázově", when:"do 2 až 3 týdnů", status:"todo" },
+  { name:"Fáze 3: Placená propagace", meta:"Facebook a Google reklama", price:"5 000 Kč jednorázově, pak 3 000 až 5 000 Kč měsíčně", when:"volitelně, po 1 měsíci", status:"todo" },
 ];
 
 const DONE = [
@@ -424,10 +433,10 @@ const AEO = [
 ];
 
 const NEXT = [
-  { name:"Fáze 2 — Web, který přesvědčí", when:"až budete připraveni",
-    benefit:"Upravíme web tak, aby návštěvník nezůstal jen u koukání, ale objednal se." },
-  { name:"Fáze 3 — Placená propagace", when:"až budou základy hotové",
-    benefit:"Reklama, která přivede klienty rychle, ne za měsíce. Spouštíme ji až na konec." },
+  { name:"Fáze 2: Web, který přesvědčí", when:"do 2 až 3 týdnů", price:"8 000 až 13 000 Kč jednorázově",
+    benefit:"Základní SEO a vylepšení webu, aby návštěvník nezůstal jen u koukání, ale objednal se." },
+  { name:"Fáze 3: Placená propagace", when:"volitelně, po 1 měsíci", price:"5 000 Kč jednorázově, pak 3 000 až 5 000 Kč měsíčně",
+    benefit:"Facebook a Google reklama, která přivede klienty rychle. Spouštíme ji až na konec." },
 ];
 /* ════════════════ END EDIT BLOCK ════════════════ */
 
@@ -448,12 +457,12 @@ safe(()=>{
   $("progressPct").textContent = pct + " %";
   const done = PHASES.filter(p=>p.status==="done").length;
   const active = PHASES.find(p=>p.status==="active");
-  $("progressLabel").textContent = active ? "Probíhá: " + active.name.replace(/^Fáze 1 — /,"") : "Spolupráce běží";
+  $("progressLabel").textContent = active ? "Probíhá: " + active.name.replace(/^Fáze \d+:\s*/,"") : "Spolupráce běží";
   $("progressSub").textContent = "Dokončeno " + done + " z " + PHASES.length + " etap. Pokračujeme dál.";
   $("steps").innerHTML = PHASES.map(p=>`
     <li class="step ${esc(p.status)}">
       <div class="ic">${ICON[p.status]||"·"}</div>
-      <div class="body"><h4>${esc(p.name)}</h4><div class="meta">${esc(p.meta)}</div></div>
+      <div class="body"><h4>${esc(p.name)}</h4><div class="meta">${esc(p.meta)}</div>${(p.price||p.when)?`<div class="pinfo">${p.price?`<span class="price">${esc(p.price)}</span>`:""}${p.when?`<span class="when-inline">${esc(p.when)}</span>`:""}</div>`:""}</div>
       <span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span>
     </li>`).join("");
 });
@@ -494,6 +503,7 @@ safe(()=>{
     <div class="next-card">
       <div class="lockrow"><span class="lock">\u{1F512}</span><h4>${esc(n.name)}</h4><span class="when">${esc(n.when)}</span></div>
       <div class="benefit">${esc(n.benefit)}</div>
+      ${n.price?`<div class="price">${esc(n.price)}</div>`:""}
     </div>`).join("");
 });
 
