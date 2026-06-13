@@ -202,6 +202,18 @@
   .phase-note{margin-top:18px; background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.92rem; color:var(--ink); max-width:1100px;}
   .phase-note strong{color:var(--brown);}
 
+  /* Otázky pro klienta */
+  .q-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); align-items:start;}
+  .qcard{background:#fff; border:1px solid var(--line); border-left:4px solid var(--amber); border-radius:14px; box-shadow:var(--shadow); padding:20px 22px;}
+  .qcard .qhead{display:flex; gap:12px; align-items:center; margin-bottom:10px;}
+  .qcard .qnum{flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--amber); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700; font-size:.85rem;}
+  .qcard h4{font-size:1.08rem;}
+  .qcard p{font-size:.93rem; color:var(--ink); margin-bottom:9px;}
+  .qcard p:last-of-type{margin-bottom:0;}
+  .qcard .opts{list-style:none; margin:12px 0 0; display:grid; gap:9px;}
+  .qcard .opts li{position:relative; font-size:.92rem; color:var(--ink); background:var(--cream); border:1px solid var(--line); border-radius:9px; padding:9px 12px 9px 28px;}
+  .qcard .opts li::before{content:"›"; position:absolute; left:12px; top:9px; color:var(--amber-text); font-weight:700;}
+
   /* Sticky anchor menu */
   .anchor-wrap{position:sticky; top:0; z-index:30; background:rgba(247,245,240,.94); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
   .anchor-nav{max-width:1500px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
@@ -209,7 +221,7 @@
   .anchor-nav a .anum{display:inline-block; font-weight:700; color:var(--teal); margin-right:5px;}
   .anchor-nav a:hover .anum{color:var(--cream);}
   .anchor-nav a:hover{background:var(--navy); color:var(--cream); text-decoration:none;}
-  .phase, #aeo{scroll-margin-top:62px;}
+  .phase, #aeo, #otazky{scroll-margin-top:62px;}
 
   /* Card collections fill the width; only long text blocks keep a reading cap */
   .lead{max-width:860px;}
@@ -311,6 +323,16 @@
 </section>
 <div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
 
+<!-- OTÁZKY PRO KLIENTA -->
+<section id="otazky">
+  <div class="wrap">
+    <div class="eyebrow">Co potřebujeme vyřešit</div>
+    <h2 class="sec">Otázky pro vás</h2>
+    <p class="lead">Pár věcí, které od vás potřebujeme, abychom mohli hladce pokračovat. Stačí odpovědět krátkou zprávou.</p>
+    <div class="q-grid" id="questions"><div class="qcard">Načítání…</div></div>
+  </div>
+</section>
+
 <!-- AEO (návrh do budoucna) -->
 <section id="aeo">
   <div class="wrap">
@@ -359,6 +381,26 @@ const KEYWORDS = [
   { group:"Vaše značka", items:["Masér pan Jiří","pan Jiří masáže","Panjiří","maserpanjiri.cz"] },
 ];
 const KW_NOTE = "Cílíme na Prahu, a hlavně na centrum. Zaměřujeme se na zdravotní a terapeutickou masáž, ne na běžnou relaxační. Tím se odlišíte od konkurence a oslovíte lidi, kteří řeší konkrétní bolest. Jakmile potvrdíte, které typy masáží nabízíte, seznam společně doladíme.";
+
+const QUESTIONS = [
+  { title:"Rezervace přes termino.eu",
+    body:["Všimli jsme si, že rezervace vedete přes službu termino.eu, která posílá zájemce na úplně jiný web. Vždycky je lepší zákazníka nikam neposílat, protože každý odkaz pryč ho může cestou ztratit. Rezervaci přitom umíme udělat přehledně a jednoduše přímo na vašem webu na WordPressu.",
+      "Má pro vás termino.eu nějaký důvod, třeba napojení na kalendář nebo platby, nebo můžeme rezervaci přesunout přímo na váš web?"] },
+  { title:"Fotky na Google profil",
+    body:["Na Google profil by se hodily jedna až dvě dobré fotky vás v pracovním prostředí. Profilům s fotkami lidé víc důvěřují a Google je radši ukazuje. Zkusili jsme použít fotky z vašeho webu, ale jsou bohužel dost tmavé a nepříliš povedené. Vidíme dvě cesty, dejte nám prosím vědět, která vám sedí."],
+    options:[
+      "Uděláte rychlou fotku, klidně na mobil. Nemusí to být nic profesionálního.",
+      "Použijeme generativní umělou inteligenci. Chápeme ale, že je to osobní věc a že vaše práce stojí na kontaktu s lidmi, takže tahle cesta nemusí být ve vašem stylu.",
+    ] },
+  { title:"E-mail pro přístup do Google Analytics",
+    body:["Komu máme dát přístup do Google Analytics? Potřebujeme k tomu e-mail registrovaný u Googlu, tedy Gmail. Jiný typ e-mailu Google bohužel nepodporuje."] },
+  { title:"Kdo vlastní vaši doménu",
+    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console, díky které Google ví, že má váš web ukazovat ve vyhledávání. Ověření se dělá přes takzvané DNS a musí ho provést ten, kdo má přístup ke správě domény. Samotné ověření je snadné, máme dvě možnosti."],
+    options:[
+      "Pošleme jednoduchý návod tomu, kdo doménu spravuje, a ten ověření nastaví.",
+      "Nebo nám dáte dočasný přístup k doméně, my to nastavíme a přístup zase odebereme.",
+    ] },
+];
 
 /* Plán = 6 fází přesně podle auditu z 13. 4. 2026 (+ audit jako hotový základ). status: done|active|todo */
 const PLAN = [
@@ -560,10 +602,19 @@ function phaseHTML(ph,i){
 safe(()=>{ $("plan").innerHTML = PLAN.map(phaseHTML).join(""); });
 
 safe(()=>{
+  $("questions").innerHTML = QUESTIONS.map((q,i)=>`
+    <div class="qcard">
+      <div class="qhead"><span class="qnum">${i+1}</span><h4>${esc(q.title)}</h4></div>
+      ${(q.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+      ${q.options?`<ul class="opts">${q.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>`:""}
+    </div>`).join("");
+});
+
+safe(()=>{
   $("anchorNav").innerHTML = PLAN.map((ph,i)=>{
     const num = (ph.num && ph.num!=="✓") ? `<span class="anum">${esc(ph.num)}</span>` : "";
     return `<a href="#faze-${i+1}">${num}${esc(ph.nav || ph.phase)}</a>`;
-  }).join("") + `<a href="#aeo">Budoucnost</a>`;
+  }).join("") + `<a href="#otazky">Otázky</a><a href="#aeo">Budoucnost</a>`;
 });
 
 safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
