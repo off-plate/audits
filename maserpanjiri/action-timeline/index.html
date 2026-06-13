@@ -159,14 +159,17 @@
   #plan{display:block;}
   .phase{padding:30px 0;}
   .phase + .phase{border-top:1px solid var(--line);}
-  .phase-head{display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-left:5px solid var(--teal); border-radius:14px; padding:14px 18px; box-shadow:var(--shadow); margin-bottom:16px;}
-  .phase.p1 .phase-head{border-left-color:var(--teal);}
-  .phase.p2 .phase-head{border-left-color:var(--amber);}
-  .phase.p3 .phase-head{border-left-color:var(--brown);}
-  .phase-head .pnum{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem;}
-  .phase.p1 .pnum{background:var(--teal);}
-  .phase.p2 .pnum{background:var(--amber);}
-  .phase.p3 .pnum{background:var(--brown);}
+  /* phase look is driven ONLY by status (done/active/todo), not by phase index */
+  .phase-head{display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-left:5px solid #cbbfae; border-radius:14px; padding:14px 18px; box-shadow:var(--shadow); margin-bottom:16px;}
+  .phase.done .phase-head{border-left-color:var(--green);}
+  .phase.active .phase-head{border-left-color:var(--amber); background:var(--amber-soft);}
+  .phase.todo .phase-head{border-left-color:#cbbfae;}
+  .phase-head .pnum{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem; background:#cbbfae;}
+  .phase.done .pnum{background:var(--green);}
+  .phase.active .pnum{background:var(--amber);}
+  .phase.todo .pnum{background:#cbbfae;}
+  .phase.done .item-head h4, .phase.done .ph-title{color:var(--navy);}
+  .done-chip{color:var(--green) !important; background:var(--green-soft) !important; border-color:#cfe6d8 !important;}
   .phase-head .ph-meta{flex:1 1 auto; min-width:0;}
   .phase-head .ph-title{font-size:1.3rem; margin:0;}
   .phase-head .ph-when{font-size:.82rem; color:var(--muted); margin-top:1px;}
@@ -270,12 +273,12 @@
 <!-- KOTVÍCÍ MENU -->
 <div class="anchor-wrap"><nav class="anchor-nav" id="anchorNav"></nav></div>
 
-<!-- KDE JSME TEĎ + PROGRESS -->
+<!-- STAV / PRŮBĚH (jen status, žádné ceny ani obsah fází) -->
 <section>
   <div class="wrap">
     <div class="eyebrow">Kde jsme teď</div>
     <h2 class="sec">Jsme ve Fázi 1 ze 3</h2>
-    <p class="lead">Máme za sebou audit a strategii a teď stavíme základy, aby vás lidé našli na Googlu.</p>
+    <p class="lead">Máme za sebou audit a teď stavíme základy na Googlu. Celý plán a co je v každé fázi zahrnuté najdete níže.</p>
 
     <div class="progress-card">
       <div class="progress-top">
@@ -284,9 +287,6 @@
       </div>
       <div class="track"><div class="fill" id="progressFill"></div></div>
       <p class="sub" id="progressSub">Hotovo: audit a strategie. Probíhá: Fáze 1.</p>
-
-      <ul class="steps" id="steps"><li class="step"><div class="ic">…</div><div class="body"><h4>Načítání…</h4></div></li></ul>
-      <p class="audit-ref">Fáze vychází z původního auditu z 13. dubna 2026. Podrobnosti a cenu u každé jednotlivé položky najdete níže. Nic nesčítáme ani neměníme.</p>
     </div>
   </div>
 </section>
@@ -299,10 +299,30 @@
       <span class="bang">!</span>
       <div>
         <h3 id="needTitle">Jedna věc k vám</h3>
-        <p id="needText">Projděte prosím níže navržená klíčová slova a potvrďte, které služby skutečně nabízíte. Podle toho doladíme finální seznam.</p>
+        <p id="needText">Potvrďte prosím navržená klíčová slova, na která vás chceme dostat na Googlu. Najdete je níže ve Fázi 2, u položky Základní SEO. Stačí říct, co sedí a co případně nenabízíte.</p>
         <p class="how" id="needHow">Stačí nám krátká zpráva. Víc teď od vás nepotřebujeme.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PLÁN PO FÁZÍCH (jediná páteř stránky) -->
+<section style="padding-bottom:6px;">
+  <div class="wrap">
+    <div class="eyebrow">Plán spolupráce</div>
+    <h2 class="sec">Co děláme, po fázích</h2>
+    <p class="lead">Celý plán na jednom místě. Každá fáze má stejnou strukturu: co je v ní zahrnuté, cena podle auditu z 13. dubna 2026 a co vám to přinese.</p>
+  </div>
+</section>
+<div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
+
+<!-- ROZHODNUTÍ -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Naše rozhodnutí a proč</div>
+    <h2 class="sec">Co jsme zvolili</h2>
+    <p class="lead">U důležitých kroků vám vždy vysvětlíme, proč jsme se tak rozhodli. Rozhodnutí je na vás, my doporučujeme.</p>
+    <div class="grid" id="decisions"><div class="decision">Načítání…</div></div>
   </div>
 </section>
 
@@ -316,25 +336,16 @@
   </div>
 </section>
 
-<!-- ROZHODNUTÍ -->
-<section>
+<!-- AEO (návrh do budoucna) -->
+<section id="aeo">
   <div class="wrap">
-    <div class="eyebrow">Naše rozhodnutí a proč</div>
-    <h2 class="sec">Co jsme zvolili</h2>
-    <p class="lead">U důležitých kroků vám vždy vysvětlíme, proč jsme se tak rozhodli. Rozhodnutí je na vás, my doporučujeme.</p>
-    <div class="grid" id="decisions"><div class="decision">Načítání…</div></div>
+    <div class="eyebrow">Návrh do budoucna</div>
+    <h2 class="sec">Aby vás našla i umělá inteligence</h2>
+    <p class="lead">Tohle teď neřešíme a není to součást současné práce. Je to návrh, který doporučujeme pustit později, až budou hotové základy a web. Zatím to skoro nikdo nedělá, takže byste byl mezi prvními.</p>
+    <div id="aeoIntro"></div>
+    <div class="feat-grid two" id="aeoGrid" style="margin-top:14px;"><div class="feat">Načítání…</div></div>
   </div>
 </section>
-
-<!-- PLÁN PO FÁZÍCH -->
-<section style="padding-bottom:6px;">
-  <div class="wrap">
-    <div class="eyebrow">Co přesně uděláme</div>
-    <h2 class="sec">Plán krok za krokem, po fázích</h2>
-    <p class="lead">Každá fáze a každá položka v ní má své vysvětlení a svou cenu přesně podle auditu. Postupujeme po krocích, placenou reklamu pouštíme až na konec, aby se neplatilo zbytečně.</p>
-  </div>
-</section>
-<div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
 
 <!-- TECHNICKÉ INFORMACE -->
 <section style="padding-top:0;">
@@ -346,17 +357,6 @@
       <div class="r"><span class="k">Přihlášení do administrace</span><span class="v"><a href="https://maserpanjiri.cz/wp-login.php">maserpanjiri.cz/wp-login.php</a></span></div>
       <div class="r"><span class="k">Rezervace</span><span class="v">Termino</span></div>
     </div>
-  </div>
-</section>
-
-<!-- AEO (návrh do budoucna) -->
-<section id="aeo">
-  <div class="wrap">
-    <div class="eyebrow">Návrh do budoucna</div>
-    <h2 class="sec">Aby vás našla i umělá inteligence</h2>
-    <p class="lead">Tohle teď neřešíme a není to součást současné práce. Je to návrh, který doporučujeme pustit později, až budou hotové základy a web. Zatím to skoro nikdo nedělá, takže byste byl mezi prvními.</p>
-    <div id="aeoIntro"></div>
-    <div class="feat-grid two" id="aeo" style="margin-top:14px;"><div class="feat">Načítání…</div></div>
   </div>
 </section>
 
@@ -377,26 +377,6 @@
    ════════════════════════════════════════════════════════════ */
 const UPDATED = "13. 6. 2026";
 
-const PHASES = [
-  { name:"Audit a strategie", meta:"Zmapování, plán a nacenění", status:"done" },
-  { name:"Fáze 1: Základy na Googlu", when:"hned, do 1 týdne", status:"active",
-    items:[
-      { name:"Google Firma (Mapy)", price:"2 000 Kč" },
-      { name:"Google Analytics", price:"2 000 Kč" },
-    ] },
-  { name:"Fáze 2: Web, který přesvědčí", when:"do 2 až 3 týdnů", status:"todo",
-    items:[
-      { name:"Základní SEO", price:"3 000 až 5 000 Kč" },
-      { name:"Vylepšení webu", price:"5 000 až 8 000 Kč" },
-    ] },
-  { name:"Fáze 3: Placená propagace", when:"volitelně, po 1 měsíci", status:"todo",
-    items:[
-      { name:"Facebook stránka", price:"2 000 Kč" },
-      { name:"Google Ads (nastavení)", price:"3 000 Kč" },
-      { name:"Google Ads (provoz reklamy)", price:"3 000 až 5 000 Kč měsíčně" },
-    ] },
-];
-
 const DONE = [
   { date:"13. 6. 2026", title:"Vyměnili jsme SEO nástroj a připojili měření", wide:true,
     points:[
@@ -408,8 +388,6 @@ const DONE = [
     benefit:"Můžeme začít s úpravami a nastavením přímo na vašem webu." },
   { date:"2. 6. 2026", title:"Naplánována Fáze 1",
     benefit:"Jasné kroky pro Google profil, měření návštěvnosti a základy SEO." },
-  { date:"13. 4. 2026", title:"Audit a návrh spolupráce",
-    benefit:"Zjistili jsme, kde vás lidé online nenajdou, a připravili plán krok za krokem." },
 ];
 
 const DECISIONS = [
@@ -420,7 +398,7 @@ const DECISIONS = [
       { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
       { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
     ],
-    honest:"Samotný název konkurenci nepřeskočí. Zavedená konkurence je dnes první hlavně díky plně vyplněnému profilu a recenzím. Bez doplnění profilu a postupného sběru recenzí se pozice nezvednou. Proto je obojí součástí Fáze 1." },
+    honest:"Samotný název konkurenci nepřeskočí. Proto je doplnění profilu a postupný sběr recenzí součástí plánu (viz Fáze 1 a 2)." },
 ];
 
 /* Keywords (Praha). All start as 'Navrženo'. */
@@ -431,22 +409,46 @@ const KEYWORDS = [
 ];
 const KW_NOTE = "Cílíme na Prahu, a hlavně na centrum. Zaměřujeme se na zdravotní a terapeutickou masáž, ne na běžnou relaxační. Tím se odlišíte od konkurence a oslovíte lidi, kteří řeší konkrétní bolest. Jakmile potvrdíte, které typy masáží nabízíte, seznam společně doladíme.";
 
-/* Plán po fázích a kategoriích (ceny z auditu 13. 4. 2026, po jednotlivých položkách) */
+/* Plán po fázích a kategoriích (ceny z auditu 13. 4. 2026, po jednotlivých položkách). status: done|active|todo */
 const PLAN = [
   {
-    phase:"Fáze 1: Základy na Googlu", when:"Hned, do 1 týdne", status:"active",
+    phase:"Audit a strategie", num:"✓", when:"Hotovo 13. 4. 2026", status:"done",
+    intro:"Než jsme začali, zmapovali jsme váš web a celou online prezentaci a připravili plán krok za krokem.",
+    items:[
+      { name:"Audit a návrh spolupráce", done:true,
+        body:["Prošli jsme web, vyhledávání i konkurenci a zjistili, kde vás lidé online nenajdou. Z toho vznikl plán rozdělený do fází i s cenami, který teď krok po kroku plníme."],
+        points:[
+          "Rozbor webu, vyhledávání a konkurence",
+          "Priority podle poměru cena a přínos",
+          "Plán po fázích s cenami, podle kterého postupujeme",
+        ],
+        benefit:"Víme přesně, kde začít a proč, takže se nic nedělá náhodně." },
+    ],
+  },
+  {
+    phase:"Fáze 1: Základy na Googlu", num:"1", when:"Hned, do 1 týdne", status:"active",
     intro:"Nejdřív vás dostaneme na mapu Googlu a začneme měřit, co se na webu děje. Bez toho jede všechno naslepo.",
     items:[
       { name:"Google Firma (Mapy)", price:"2 000 Kč",
         body:["Když někdo vyhledá masáž ve vašem okolí, Google vpravo nebo nahoře ukáže kartu s názvem, adresou, otevírací dobou, fotkami a hodnocením. Tomu se říká firemní profil na Googlu. Postaráme se, aby byl váš úplný, hezký a aby vás Mapy správně ukazovaly přímo na Soukenické 8."],
+        points:[
+          "Založení a kompletní vyplnění firemního profilu",
+          "Správné umístění na Mapách na adrese Soukenická 8",
+          "Fotky, otevírací doba a odkaz na rezervaci",
+        ],
         benefit:"Lidé vás najdou i v Mapách, uvidí kudy k vám a rovnou se mohou objednat." },
       { name:"Google Analytics", price:"2 000 Kč",
         body:["Nasadíme na web nástroj, který přehledně počítá, kolik lidí web navštívilo, odkud přišli a na co klikli. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Díky tomu nepracujeme naslepo, ale podle skutečných čísel."],
+        points:[
+          "Nasazení měřicího kódu na web",
+          "Přehled, kolik lidí chodí a co na webu dělají",
+          "Předání přístupů, jakmile Google ověření dokončí",
+        ],
         benefit:"Víme, co funguje, a můžeme se soustředit na to, co vám reálně přivádí klienty." },
     ],
   },
   {
-    phase:"Fáze 2: Web, který přesvědčí", when:"Do 2 až 3 týdnů", status:"todo",
+    phase:"Fáze 2: Web, který přesvědčí", num:"2", when:"Do 2 až 3 týdnů", status:"todo",
     intro:"Teď se postaráme, aby vás lidé z vyhledávání nejen našli, ale i objednali.",
     items:[
       { name:"Základní SEO", price:"3 000 až 5 000 Kč", wide:true, keywords:true,
@@ -475,17 +477,23 @@ const PLAN = [
     note:"Ve vyhledávání je dnes napřed jiný masér Jiří z Prahy 1, hlavně díky kompletnímu profilu a velkému množství hodnocení, přes osmdesát. To se dá dohnat, je to spíš o pořádku a čase. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a skutečná odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu budeme dávat dopředu a postupně poctivě sbírat hodnocení od spokojených klientů.",
   },
   {
-    phase:"Fáze 3: Placená propagace", when:"Volitelně, po 1 měsíci", status:"todo",
+    phase:"Fáze 3: Placená propagace", num:"3", when:"Volitelně, po 1 měsíci", status:"todo",
     intro:"Volitelný krok na konec. Pustíme ho, až budou hotové základy a vylepšený web, aby se neplatilo za reklamu nadarmo.",
     items:[
       { name:"Facebook stránka", price:"2 000 Kč",
         body:["Založíme vám jednoduchou firemní stránku na Facebooku, tedy ne váš osobní profil, ale samostatnou stránku pro masáže. Doplníme na ni základní informace, fotky a odkaz na rezervaci, aby člověk hned věděl, co nabízíte a jak se objednat. Nemusíte na ni přispívat každý den, stačí, že existuje a je úhledná. Je to další místo, kde vás lidé najdou a kde vás mohou snadno doporučit svým známým."],
+        points:[
+          "Samostatná firemní stránka, ne osobní profil",
+          "Základní informace, fotky a odkaz na rezervaci",
+          "Připravená tak, abyste nemuseli přispívat každý den",
+        ],
         benefit:"Další místo, kde vás lidé objeví a odkud vás mohou doporučit dál." },
       { name:"Google Ads", price:"nastavení 3 000 Kč, pak 3 000 až 5 000 Kč měsíčně",
         body:["Google Ads jsou placené odkazy, které se ukážou úplně nahoře ve výsledcích vyhledávání, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Výhoda je, že klienty přivedou rychle, ne až za několik měsíců, a platíte jen tehdy, když na odkaz někdo opravdu klikne. Navíc je to měřitelné, takže přesně vidíme, kolik vás stojí jedna nová rezervace, a podle toho můžeme reklamu ladit. Jsme k vám upřímní: tohle pustíme jako poslední, až bude hotový firemní profil a vylepšený web, jinak by se peníze vyhazovaly za reklamu, ze které by člověk přišel na nepřesvědčivý web."],
         points:[
-          "Jednorázové nastavení reklamy: 3 000 Kč",
-          "Měsíční rozpočet na samotnou reklamu: 3 000 až 5 000 Kč",
+          "Nastavení a spuštění reklamy ve vyhledávání Googlu",
+          "Cílení na dotazy jako masáž na bolesti zad Praha",
+          "Průběžné ladění a měření ceny za jednu rezervaci",
         ],
         benefit:"Rychlý přísun nových klientů, u kterého přesně vidíte, kolik vás každá nová rezervace stojí." },
     ],
@@ -525,21 +533,13 @@ function safe(fn){ try{ fn(); }catch(e){ console.error(e); } }
 safe(()=>{ if (UPDATED) $("updated").textContent = UPDATED; });
 
 safe(()=>{
-  const pct = Math.max(0, Math.min(100, Math.round(100 * PHASES.reduce((s,p)=>s+(W[p.status]??0),0) / PHASES.length)));
+  const pct = Math.max(0, Math.min(100, Math.round(100 * PLAN.reduce((s,p)=>s+(W[p.status]??0),0) / PLAN.length)));
   $("progressFill").style.width = pct + "%";
   $("progressPct").textContent = pct + " %";
-  const done = PHASES.filter(p=>p.status==="done").length;
-  const active = PHASES.find(p=>p.status==="active");
-  $("progressLabel").textContent = active ? "Probíhá: " + active.name.replace(/^Fáze \d+:\s*/,"") : "Spolupráce běží";
-  $("progressSub").textContent = "Dokončeno " + done + " z " + PHASES.length + " etap. Pokračujeme dál.";
-  $("steps").innerHTML = PHASES.map(p=>`
-    <li class="step ${esc(p.status)}">
-      <div class="step-top"><span class="ic">${ICON[p.status]||"·"}</span><span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span></div>
-      <h4>${esc(p.name)}</h4>
-      ${p.when?`<div class="when-inline">${esc(p.when)}</div>`:""}
-      ${p.meta?`<div class="meta">${esc(p.meta)}</div>`:""}
-      ${p.items?`<ul class="items">${p.items.map(it=>`<li><span class="iname">${esc(it.name)}</span><span class="price">${esc(it.price)}</span></li>`).join("")}</ul>`:""}
-    </li>`).join("");
+  const done = PLAN.filter(p=>p.status==="done").length;
+  const active = PLAN.find(p=>p.status==="active");
+  $("progressLabel").textContent = active ? "Probíhá: " + active.phase.replace(/^Fáze \d+:\s*/,"") : "Spolupráce běží";
+  $("progressSub").textContent = "Hotovo " + done + " z " + PLAN.length + ". Teď probíhá " + (active ? active.phase : "další krok") + ".";
 });
 
 safe(()=>{
@@ -558,7 +558,7 @@ safe(()=>{
       <h4>${esc(d.title)}</h4>
       <div class="kv"><span class="k">Doporučujeme</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
       <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
-      ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong> — ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
+      ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong>, ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
       ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
       ${d.yours?`<div class="yours">${esc(d.yours)}</div>`:""}
     </div>`).join("");
@@ -576,22 +576,27 @@ function kwChips(){
     + `<div class="kwnote">${esc(KW_NOTE)}<br><br>Stav všech slov: <strong>Navrženo</strong>, čeká na vaše schválení.</div></div>`;
 }
 function itemHTML(it){
+  const incl = (it.points && it.points.length)
+    ? `<ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`
+    : `<ul class="points"><li>Kompletní příprava a nastavení této položky.</li></ul>`;
   const extra = `${it.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}`
-    + `${it.points?`<div class="sub-label">Co je v tom zahrnuto</div><ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}`;
+    + `<div class="sub-label">Co je v tom zahrnuto</div>${incl}`;
+  const chip = it.price ? `<span class="price">${esc(it.price)}</span>`
+    : (it.done ? `<span class="price done-chip">Hotovo</span>` : "");
   return `<article class="item${it.wide?" wide":""}">
-    <div class="item-head"><h4>${esc(it.name)}</h4><span class="price">${esc(it.price)}</span></div>
+    <div class="item-head"><h4>${esc(it.name)}</h4>${chip}</div>
     <div class="item-cols">
       <div class="item-body">${(it.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
-      ${extra?`<div class="item-extra">${extra}</div>`:""}
+      <div class="item-extra">${extra}</div>
     </div>
     ${benefitHTML(it.benefit)}
   </article>`;
 }
 function phaseHTML(ph,i){
-  return `<section id="faze-${i+1}" class="phase p${i+1} ${esc(ph.status)}">
+  return `<section id="faze-${i+1}" class="phase ${esc(ph.status)}">
     <div class="wrap">
       <div class="phase-head">
-        <span class="pnum">${i+1}</span>
+        <span class="pnum">${esc(ph.num || (i+1))}</span>
         <div class="ph-meta"><h3 class="ph-title">${esc(ph.phase)}</h3><div class="ph-when">${esc(ph.when)}</div></div>
         <span class="pill ${esc(ph.status)}">${LABEL[ph.status]||""}</span>
       </div>
@@ -609,7 +614,7 @@ safe(()=>{
 });
 
 safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
-safe(()=>{ $("aeo").innerHTML = featHTML(AEO); });
+safe(()=>{ $("aeoGrid").innerHTML = featHTML(AEO); });
 </script>
 </body>
 </html>
