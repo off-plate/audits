@@ -27,11 +27,11 @@
   h1,h2,h3,h4{font-family:'Sora',sans-serif; line-height:1.2; color:var(--navy);}
   a{color:var(--teal); text-decoration:none;}
   a:hover{text-decoration:underline;}
-  .wrap{max-width:1140px; margin:0 auto; padding:0 24px;}
+  .wrap{max-width:1500px; margin:0 auto; padding:0 32px;}
 
   /* Top co-brand bar */
   .topbar{background:var(--navy); color:var(--cream);}
-  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 24px; max-width:1140px; margin:0 auto;}
+  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 32px; max-width:1500px; margin:0 auto;}
   .topbar img{height:24px; display:block;}
   .topbar .client{font-family:'Sora',sans-serif; font-weight:600; font-size:.95rem; color:var(--cream); letter-spacing:.3px;}
   .topbar .sep{flex:0 0 auto; opacity:.35;}
@@ -64,16 +64,19 @@
   .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg, var(--teal), var(--teal-bright)); transition:width .8s ease;}
   .sub{margin-top:10px; font-size:.9rem; color:var(--muted);}
 
-  /* Stepper */
-  .steps{list-style:none; display:grid; gap:10px; margin-top:18px;}
-  .step{display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border:1px solid var(--line); border-radius:12px; background:#fff;}
+  /* Stepper as a phase roadmap (fills width) */
+  .steps{list-style:none; display:grid; gap:12px; margin-top:18px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); align-items:start;}
+  .step{display:block; padding:15px 16px; border:1px solid var(--line); border-radius:12px; background:#fff;}
+  .step-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:9px;}
   .step .ic{flex:0 0 auto; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:.8rem; font-weight:700; color:#fff;}
   .step.done .ic{background:var(--green);}
   .step.active .ic{background:var(--amber);}
   .step.todo .ic{background:#cbbfae; color:#fff;}
-  .step .body h4{font-size:1rem; margin-bottom:1px;}
-  .step .body .meta{font-size:.85rem; color:var(--muted);}
-  .step .pill{margin-left:auto; flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 9px; border-radius:999px; align-self:center;}
+  .step h4{font-size:1.02rem; margin-bottom:2px;}
+  .step .meta{font-size:.85rem; color:var(--muted);}
+  .step .pill{flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 9px; border-radius:999px;}
+  .step .items{margin-top:11px;}
+  .step .items li{font-size:.84rem;}
   .pill.done{background:var(--green-soft); color:var(--green);}
   .pill.active{background:var(--amber-soft); color:var(--amber-text);}
   .pill.todo{background:#efe9df; color:var(--brown-soft);}
@@ -145,7 +148,7 @@
 
   /* Footer */
   .footer{background:var(--navy); color:var(--cream); margin-top:24px;}
-  .footer .in{max-width:1140px; margin:0 auto; padding:30px 24px; text-align:center;}
+  .footer .in{max-width:1500px; margin:0 auto; padding:30px 32px; text-align:center;}
   .footer img{height:26px; margin-bottom:14px;}
   .footer .contact{font-size:.95rem; color:var(--cream); margin-bottom:6px;}
   .footer .contact a{color:var(--teal-bright); font-weight:600;}
@@ -167,34 +170,42 @@
   .phase-head .ph-meta{flex:1 1 auto; min-width:0;}
   .phase-head .ph-title{font-size:1.3rem; margin:0;}
   .phase-head .ph-when{font-size:.82rem; color:var(--muted); margin-top:1px;}
-  .phase-intro{color:var(--muted); font-size:1rem; max-width:820px; margin-bottom:18px;}
+  .phase-intro{color:var(--muted); font-size:1.02rem; max-width:920px; margin-bottom:18px;}
   .items-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); align-items:start;}
-  .item{background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:20px 22px;}
+  .item{background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:22px 24px;}
   .item.wide{grid-column:1 / -1;}
-  .item-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:12px;}
+  .item-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px;}
   .item-head h4{font-size:1.18rem;}
-  .item-body{max-width:820px;}
+  .item-cols{display:grid; gap:24px;}
+  .item.wide .item-cols{grid-template-columns:1.05fr 1fr;}
+  @media(max-width:820px){ .item.wide .item-cols{grid-template-columns:1fr;} }
   .item-body p{font-size:.95rem; color:var(--ink); margin-bottom:10px;}
   .item-body p:last-child{margin-bottom:0;}
-  .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.7px; color:var(--brown-soft); margin:18px 0 9px;}
-  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));}
+  .item-extra{min-width:0;}
+  .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.7px; color:var(--brown-soft); margin:0 0 9px;}
+  .item-extra .sub-label ~ .sub-label{margin-top:18px;}
+  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));}
   .points li{position:relative; padding-left:23px; font-size:.92rem; color:var(--ink);}
   .points li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
   .kw-inline{box-shadow:none; max-width:none; background:var(--cream);}
-  .phase-note{margin-top:18px; background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.92rem; color:var(--ink); max-width:1000px;}
+  .phase-note{margin-top:18px; background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.92rem; color:var(--ink); max-width:1100px;}
   .phase-note strong{color:var(--brown);}
 
-  /* Wider desktop: text stays readable, card collections fill the width */
-  .lead{max-width:780px;}
-  .progress-card{max-width:880px;}
-  .need{max-width:880px;}
-  .strat-intro{max-width:840px;}
-  .context{max-width:840px;}
-  .kwbox{max-width:900px;}
-  .tech{max-width:720px;}
-  #decisions .decision{max-width:900px;}
-  #done{grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));}
-  #next{grid-template-columns:repeat(auto-fit, minmax(330px, 1fr));}
+  /* Sticky anchor menu */
+  .anchor-wrap{position:sticky; top:0; z-index:30; background:rgba(247,245,240,.94); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
+  .anchor-nav{max-width:1500px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
+  .anchor-nav a{font-family:'Sora',sans-serif; font-size:.8rem; font-weight:600; color:var(--navy); background:#fff; border:1px solid var(--line); padding:6px 13px; border-radius:999px; white-space:nowrap;}
+  .anchor-nav a:hover{background:var(--navy); color:var(--cream); text-decoration:none;}
+  .phase, #aeo{scroll-margin-top:62px;}
+
+  /* Card collections fill the width; only long text blocks keep a reading cap */
+  .lead{max-width:860px;}
+  .need{max-width:940px;}
+  .strat-intro{max-width:900px;}
+  .context{max-width:900px;}
+  #decisions .decision{max-width:1000px;}
+  #done{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));}
+  .done-card.wide{grid-column:1 / -1;}
 
   @media (max-width:560px){
     .hero h1{font-size:1.8rem;}
@@ -252,9 +263,12 @@
     <img class="rhino" src="assets/client-logo.png" alt="Masér pan Jiří" width="108">
     <h1>Masér pan Jiří</h1>
     <p class="tag">Průběh spolupráce a další kroky</p>
-    <span class="stamp"><span class="dot"></span> Naposledy aktualizováno: <strong id="updated">11. 6. 2026</strong></span>
+    <span class="stamp"><span class="dot"></span> Naposledy aktualizováno: <strong id="updated">13. 6. 2026</strong></span>
   </div>
 </header>
+
+<!-- KOTVÍCÍ MENU -->
+<div class="anchor-wrap"><nav class="anchor-nav" id="anchorNav"></nav></div>
 
 <!-- KDE JSME TEĎ + PROGRESS -->
 <section>
@@ -336,7 +350,7 @@
 </section>
 
 <!-- AEO (návrh do budoucna) -->
-<section>
+<section id="aeo">
   <div class="wrap">
     <div class="eyebrow">Návrh do budoucna</div>
     <h2 class="sec">Aby vás našla i umělá inteligence</h2>
@@ -361,7 +375,7 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "11. 6. 2026";
+const UPDATED = "13. 6. 2026";
 
 const PHASES = [
   { name:"Audit a strategie", meta:"Zmapování, plán a nacenění", status:"done" },
@@ -384,12 +398,18 @@ const PHASES = [
 ];
 
 const DONE = [
-  { date:"13. 4. 2026", title:"Audit a návrh spolupráce",
-    benefit:"Zjistili jsme, kde vás lidé online nenajdou, a připravili plán krok za krokem." },
-  { date:"2. 6. 2026", title:"Naplánována Fáze 1",
-    benefit:"Jasné kroky pro Google profil, měření návštěvnosti a základy SEO." },
+  { date:"13. 6. 2026", title:"Vyměnili jsme SEO nástroj a připojili měření", wide:true,
+    points:[
+      "Na webu byl nástroj Rank Math SEO, ale byl vypnutý, nic neměřil a nebyl správně nastavený. Vyměnili jsme ho za Yoast SEO, který je teď plně nakonfigurovaný.",
+      "Připojili jsme na váš web Google Analytics. Právě probíhá ověření ze strany Googlu. Jakmile bude správně připojené a ověřené, zašleme vám přístupy.",
+    ],
+    benefit:"Web má pořádný základ pro vyhledávače a začínáme měřit, kolik lidí na něj chodí." },
   { date:"7. 6. 2026", title:"Získán přístup k webu",
     benefit:"Můžeme začít s úpravami a nastavením přímo na vašem webu." },
+  { date:"2. 6. 2026", title:"Naplánována Fáze 1",
+    benefit:"Jasné kroky pro Google profil, měření návštěvnosti a základy SEO." },
+  { date:"13. 4. 2026", title:"Audit a návrh spolupráce",
+    benefit:"Zjistili jsme, kde vás lidé online nenajdou, a připravili plán krok za krokem." },
 ];
 
 const DECISIONS = [
@@ -514,20 +534,19 @@ safe(()=>{
   $("progressSub").textContent = "Dokončeno " + done + " z " + PHASES.length + " etap. Pokračujeme dál.";
   $("steps").innerHTML = PHASES.map(p=>`
     <li class="step ${esc(p.status)}">
-      <div class="ic">${ICON[p.status]||"·"}</div>
-      <div class="body">
-        <h4>${esc(p.name)}</h4>
-        ${p.meta?`<div class="meta">${esc(p.meta)}</div>`:""}
-        ${p.when?`<div class="when-inline">${esc(p.when)}</div>`:""}
-      </div>
-      <span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span>
+      <div class="step-top"><span class="ic">${ICON[p.status]||"·"}</span><span class="pill ${esc(p.status)}">${LABEL[p.status]||""}</span></div>
+      <h4>${esc(p.name)}</h4>
+      ${p.when?`<div class="when-inline">${esc(p.when)}</div>`:""}
+      ${p.meta?`<div class="meta">${esc(p.meta)}</div>`:""}
+      ${p.items?`<ul class="items">${p.items.map(it=>`<li><span class="iname">${esc(it.name)}</span><span class="price">${esc(it.price)}</span></li>`).join("")}</ul>`:""}
     </li>`).join("");
 });
 
 safe(()=>{
   $("done").innerHTML = DONE.map(d=>`
-    <div class="done-card">
+    <div class="done-card${d.wide?" wide":""}">
       <div class="head"><span class="check">✓</span><h4>${esc(d.title)}</h4><span class="date">${esc(d.date)}</span></div>
+      ${d.points?`<ul class="points">${d.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:""}
       <div class="benefit">${esc(d.benefit)}</div>
     </div>`).join("");
 });
@@ -557,16 +576,19 @@ function kwChips(){
     + `<div class="kwnote">${esc(KW_NOTE)}<br><br>Stav všech slov: <strong>Navrženo</strong>, čeká na vaše schválení.</div></div>`;
 }
 function itemHTML(it){
+  const extra = `${it.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}`
+    + `${it.points?`<div class="sub-label">Co je v tom zahrnuto</div><ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}`;
   return `<article class="item${it.wide?" wide":""}">
     <div class="item-head"><h4>${esc(it.name)}</h4><span class="price">${esc(it.price)}</span></div>
-    <div class="item-body">${(it.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
-    ${it.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}
-    ${it.points?`<div class="sub-label">Co je v tom zahrnuto</div><ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}
+    <div class="item-cols">
+      <div class="item-body">${(it.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+      ${extra?`<div class="item-extra">${extra}</div>`:""}
+    </div>
     ${benefitHTML(it.benefit)}
   </article>`;
 }
 function phaseHTML(ph,i){
-  return `<section class="phase p${i+1} ${esc(ph.status)}">
+  return `<section id="faze-${i+1}" class="phase p${i+1} ${esc(ph.status)}">
     <div class="wrap">
       <div class="phase-head">
         <span class="pnum">${i+1}</span>
@@ -580,6 +602,11 @@ function phaseHTML(ph,i){
   </section>`;
 }
 safe(()=>{ $("plan").innerHTML = PLAN.map(phaseHTML).join(""); });
+
+safe(()=>{
+  $("anchorNav").innerHTML = PLAN.map((ph,i)=>`<a href="#faze-${i+1}">${esc(ph.phase)}</a>`).join("")
+    + `<a href="#aeo">Návrh do budoucna</a>`;
+});
 
 safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
 safe(()=>{ $("aeo").innerHTML = featHTML(AEO); });
