@@ -27,11 +27,11 @@
   h1,h2,h3,h4{font-family:'Sora',sans-serif; line-height:1.2; color:var(--navy);}
   a{color:var(--teal); text-decoration:none;}
   a:hover{text-decoration:underline;}
-  .wrap{max-width:1500px; margin:0 auto; padding:0 32px;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 32px;}
 
   /* Top co-brand bar */
   .topbar{background:var(--navy); color:var(--cream);}
-  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 32px; max-width:1500px; margin:0 auto;}
+  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 32px; max-width:960px; margin:0 auto;}
   .topbar img{height:24px; display:block;}
   .topbar .client{font-family:'Sora',sans-serif; font-weight:600; font-size:.95rem; color:var(--cream); letter-spacing:.3px;}
   .topbar .sep{flex:0 0 auto; opacity:.35;}
@@ -148,7 +148,7 @@
 
   /* Footer */
   .footer{background:var(--navy); color:var(--cream); margin-top:24px;}
-  .footer .in{max-width:1500px; margin:0 auto; padding:30px 32px; text-align:center;}
+  .footer .in{max-width:960px; margin:0 auto; padding:30px 32px; text-align:center;}
   .footer img{height:26px; margin-bottom:14px;}
   .footer .contact{font-size:.95rem; color:var(--cream); margin-bottom:6px;}
   .footer .contact a{color:var(--teal-bright); font-weight:600;}
@@ -179,9 +179,9 @@
   .item.wide{grid-column:1 / -1;}
   .item-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px;}
   .item-head h4{font-size:1.18rem;}
-  .item-cols{display:grid; gap:24px;}
-  .item.wide .item-cols{grid-template-columns:1.05fr 1fr;}
-  .phase-cols{grid-template-columns:1.05fr 1fr; margin-bottom:4px;}
+  .item-cols{display:grid; gap:16px;}
+  .item.wide .item-cols{grid-template-columns:1fr;}
+  .phase-cols{grid-template-columns:1fr; margin-bottom:4px;}
   @media(max-width:820px){ .item.wide .item-cols, .phase-cols{grid-template-columns:1fr;} }
   .status-note{background:#eef6f6; border:1px solid #cfe6e6; border-radius:10px; padding:9px 13px; font-size:.9rem; color:var(--ink); margin-bottom:16px;}
   .phase.active .status-note{background:var(--amber-soft); border-color:#e7d3ac;}
@@ -195,7 +195,7 @@
   .item-extra{min-width:0;}
   .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.7px; color:var(--brown-soft); margin:0 0 9px;}
   .item-extra .sub-label ~ .sub-label{margin-top:18px;}
-  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));}
+  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:1fr;}
   .points li{position:relative; padding-left:23px; font-size:.92rem; color:var(--ink);}
   .points li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
   .kw-inline{box-shadow:none; max-width:none; background:var(--cream);}
@@ -203,7 +203,7 @@
   .phase-note strong{color:var(--brown);}
 
   /* Otázky pro klienta */
-  .q-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); align-items:start;}
+  .q-grid{display:grid; gap:16px; grid-template-columns:1fr;}
   .qcard{background:#fff; border:1px solid var(--line); border-left:4px solid var(--amber); border-radius:14px; box-shadow:var(--shadow); padding:20px 22px;}
   .qcard .qhead{display:flex; gap:12px; align-items:center; margin-bottom:10px;}
   .qcard .qnum{flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--amber); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700; font-size:.85rem;}
@@ -216,7 +216,7 @@
 
   /* Sticky anchor menu */
   .anchor-wrap{position:sticky; top:0; z-index:30; background:rgba(247,245,240,.94); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
-  .anchor-nav{max-width:1500px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
+  .anchor-nav{max-width:960px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
   .anchor-nav a{font-family:'Sora',sans-serif; font-size:.8rem; font-weight:600; color:var(--navy); background:#fff; border:1px solid var(--line); padding:6px 13px; border-radius:999px; white-space:nowrap;}
   .anchor-nav a .anum{display:inline-block; font-weight:700; color:var(--teal); margin-right:5px;}
   .anchor-nav a:hover .anum{color:var(--cream);}
@@ -253,7 +253,7 @@
   .benefit-line{display:flex; gap:9px; align-items:flex-start; background:var(--green-soft); border:1px solid #cfe6d8; border-radius:10px; padding:10px 13px; font-size:.9rem; color:var(--ink); margin-top:12px;}
   .benefit-line .lab{font-weight:700; color:var(--green); white-space:nowrap;}
   .subhead{font-family:'Sora',sans-serif; font-weight:600; font-size:1.06rem; color:var(--navy); margin:26px 0 12px; padding-top:6px; border-top:1px solid var(--line);}
-  .feat-grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));}
+  .feat-grid{display:grid; gap:14px; grid-template-columns:1fr;}
   .feat{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow); display:flex; flex-direction:column;}
   .feat .ic{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--teal); color:#fff; font-size:.78rem; font-weight:700; display:grid; place-items:center; margin-bottom:9px;}
   .feat h4{font-size:1.01rem; margin-bottom:5px;}
@@ -415,13 +415,14 @@ const PLAN = [
     benefit:"Víme přesně, kde začít a proč, takže se nic nedělá náhodně." },
   {
     num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", price:"2 000 Kč",
-    statusNote:"Probíhá. Název profilu je zvolený (Masér pan Jiří) a profil zakládáme.",
-    body:["Profil firmy na Googlu se ukáže, když někdo hledá maséra ve vašem okolí, a na Mapách. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Teď žádný nemáte, takže vás při hledání v okolí nenajdou. Proto je to první a nejdůležitější krok."],
+    statusNote:"Profil jsme už založili a vyplnili, co šlo: název Masér pan Jiří, otevírací dobu a odkaz na web i na rezervaci. Propojili jsme i vaše recenze ze Slevomatu, takže profil má hned nějakou relevanci, i když zatím nemáte přímo Google recenze. Na ty se zaměříme později.",
+    body:["Profil firmy na Googlu se ukáže, když někdo hledá maséra ve vašem okolí, a na Mapách. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto je to první a nejdůležitější krok, který jsme rovnou rozjeli.",
+      "Profil se ale na Googlu nerozjede ze dne na den. Google si musí nejdřív ověřit, že existuje a je relevantní, a k tomu pomůžou i úpravy v dalších fázích. Je to normální postupný proces, vyhledávání je dlouhodobá práce. Zato je profil zdarma a je to úplné minimum, jak být vidět na Googlu a v Mapách."],
     points:[
-      "Založení a kompletní vyplnění firemního profilu",
+      "Založení a vyplnění profilu: název, otevírací doba, odkaz na web i na rezervaci",
       "Správné umístění na Mapách, Soukenická 8, Praha 1",
-      "Fotky, otevírací doba a odkaz na rezervaci",
-      "Nastavení pro postupný sběr recenzí od klientů",
+      "Propojení vašich recenzí ze Slevomatu pro úvodní relevanci",
+      "Postupný sběr Google recenzí, na ten se zaměříme později",
     ],
     benefit:"Lidé vás najdou na Googlu i v Mapách bez placené reklamy a rovnou se mohou objednat.",
     decision:{
