@@ -206,7 +206,7 @@
 <!-- KDE JSME TEĎ: roadmap = přehled i menu -->
 <section class="status"><div class="wrap">
   <div class="eyebrow">Kde jsme teď</div>
-  <p id="statusLine">Hotový máme audit, měření i založení profilu na Googlu. Teď čekáme, až Google profil ověří, což chvíli trvá, a souběžně ladíme SEO a texty webu. Celý plán po fázích je níže, kliknutím každou fázi rozbalíte.</p>
+  <p id="statusLine">Hotový máme audit, měření i profil na Googlu. Teď čekáme, až Google profil ověří, to pár týdnů trvá, a mezitím ladíme SEO a texty webu. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
   <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
   <a class="needyou" id="needYou" href="#otazky"></a>
 </div></section>
@@ -215,7 +215,7 @@
 <section><div class="wrap">
   <div class="eyebrow">Plán spolupráce</div>
   <h2 class="sec">Co děláme, po fázích</h2>
-  <p class="lead">Otevřená je fáze, na které právě pracujeme. Hotové a budoucí fáze jsou sbalené, kliknutím je rozbalíte.</p>
+  <p class="lead">Rozbalená je fáze, na které právě pracujeme. Hotové a budoucí fáze jsou sbalené, kliknutím je otevřete.</p>
   <div id="plan" class="phases"></div>
 </div></section>
 
@@ -223,7 +223,7 @@
 <section id="otazky"><div class="wrap">
   <div class="eyebrow">Co potřebujeme vyřešit</div>
   <h2 class="sec">Otázky pro vás</h2>
-  <p class="lead">Pár věcí, se kterými nám pomůžete posunout práci dál. U každé stačí krátká zpráva.</p>
+  <p class="lead">Pár věcí, kterými nám práci posunete dál. U každé stačí krátká odpověď.</p>
   <div id="questions" class="qlist"></div>
 </div></section>
 
@@ -270,18 +270,18 @@ const KW_NOTE = "Soustředíme se na lidi, kteří hledají řešení konkrétn�
 
 const QUESTIONS = [
   { title:"Rezervace přes termino.eu",
-    body:["Všimli jsme si, že rezervace vedete přes službu termino.eu, která posílá zájemce na úplně jiný web. Vždycky je lepší zákazníka nikam neposílat, protože každý odkaz pryč ho může cestou ztratit. Rezervaci přitom umíme udělat přehledně a jednoduše přímo na vašem webu na WordPressu.",
-      "Má pro vás termino.eu nějaký důvod, třeba napojení na kalendář nebo platby, nebo můžeme rezervaci přesunout přímo na váš web?"] },
+    body:["Všimli jsme si, že rezervace vedete přes službu termino.eu, která zájemce odešle na úplně jiný web. Každý takový odskok pryč může člověka cestou ztratit, proto je lepší ho nikam neposílat. Rezervaci přitom zvládneme udělat přehledně přímo na vašem webu na WordPressu.",
+      "Drží vás u termino.eu nějaký důvod, třeba napojení na kalendář nebo platby, nebo můžeme rezervaci přesunout přímo na váš web?"] },
   { title:"Fotky na Google profil",
-    body:["Na Google profil by se hodily jedna až dvě dobré fotky vás v pracovním prostředí. Profilům s fotkami lidé víc důvěřují a Google je radši ukazuje. Zkusili jsme použít fotky z vašeho webu, ale jsou bohužel dost tmavé a nepříliš povedené. Vidíme dvě cesty, dejte nám prosím vědět, která vám sedí."],
+    body:["Na Google profil by se hodily jedna až dvě dobré fotky vás v práci. Profilům s fotkami lidé víc věří a Google je radši ukazuje. Zkusili jsme vzít fotky z webu, jenže jsou dost tmavé a nepovedené. Nabízejí se dvě cesty, dejte nám prosím vědět, která vám sedí."],
     options:[
       "Uděláte rychlou fotku, klidně na mobil. Nemusí to být nic profesionálního.",
-      "Použijeme generativní umělou inteligenci. Chápeme ale, že je to osobní věc a že vaše práce stojí na kontaktu s lidmi, takže tahle cesta nemusí být ve vašem stylu.",
+      "Vygenerujeme fotku umělou inteligencí. Chápeme ale, že je to osobní věc a vaše práce stojí na kontaktu s lidmi, takže tahle cesta vám sedět nemusí.",
     ] },
   { title:"E-mail pro přístup do Google Analytics",
-    body:["Komu máme dát přístup do Google Analytics? Potřebujeme k tomu e-mail registrovaný u Googlu, tedy Gmail. Jiný typ e-mailu Google bohužel nepodporuje."] },
+    body:["Komu máme dát přístup do Google Analytics? Potřebujeme e-mail registrovaný u Googlu, tedy Gmail. Jiný typ e-mailu Google nepodporuje."] },
   { title:"Kdo vlastní vaši doménu",
-    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console. Ta Googlu pomáhá správně zařadit váš web do vyhledávání. Ověření se dělá přes takzvané DNS a musí ho provést ten, kdo má přístup ke správě domény. Samotné ověření je snadné, máme dvě možnosti."],
+    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console, která Googlu pomáhá správně zařadit váš web do vyhledávání. Ověření se dělá přes takzvané DNS a může ho provést jen ten, kdo doménu spravuje. Je to snadné, máme dvě možnosti."],
     options:[
       "Pošleme jednoduchý návod tomu, kdo doménu spravuje, a ten ověření nastaví.",
       "Nebo nám dáte dočasný přístup k doméně, my to nastavíme a přístup zase odebereme.",
@@ -292,124 +292,124 @@ const QUESTIONS = [
 const PLAN = [
   {
     num:"✓", nav:"Audit", phase:"Audit a strategie online prezentace", when:"Hotovo 13. 4. 2026", status:"done",
-    body:["Prošli jsme váš web, vyhledávání i konkurenci a zjistili, kde vás lidé online nenajdou. Z toho vznikl tento plán rozdělený do šesti fází i s cenami, podle kterého teď krok po kroku postupujeme."],
+    body:["Prošli jsme váš web, vyhledávání i konkurenci a našli místa, kde vás lidé online minou. Z toho vznikl tento plán o šesti fázích i s cenami, podle kterého teď postupujeme krok po kroku."],
     points:[
       "Rozbor webu, vyhledávání a konkurence",
       "Priority podle poměru cena a přínos",
-      "Plán po šesti fázích s cenami, podle kterého jdeme",
+      "Plán o šesti fázích s cenami, podle kterého jdeme",
     ],
-    benefit:"Víme přesně, kde začít a proč, takže se nic nedělá náhodně." },
+    benefit:"Víme přesně, kde začít a proč. Žádný krok naslepo." },
   {
     num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", wait:true, price:"2 000 Kč",
-    statusNote:"Profil jsme dokončili a vyplnili: název Masér pan Jiří, otevírací dobu a odkaz na web i na rezervaci. Propojili jsme i vaše recenze ze Slevomatu. Teď čekáme, až Google profil ověří, což trvá několik týdnů a nedá se uspíšit. Proto je tato fáze stále otevřená, i když pozdější věci, třeba měření, už máme hotové.",
-    body:["Profil firmy na Googlu se ukáže, když někdo hledá maséra ve vašem okolí, a na Mapách. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto je to první a nejdůležitější krok, který jsme rovnou rozjeli.",
-      "Profil se ale na Googlu nerozjede ze dne na den. Google si musí nejdřív ověřit, že existuje a je relevantní, a k tomu pomůžou i úpravy v dalších fázích. Je to normální postupný proces, vyhledávání je dlouhodobá práce. Zato je profil zdarma a je to úplné minimum, jak být vidět na Googlu a v Mapách."],
+    statusNote:"Profil je hotový a vyplněný: název Masér pan Jiří, otevírací doba a odkaz na web i na rezervaci. Připojili jsme i vaše recenze ze Slevomatu. Teď čekáme, až ho Google ověří, to trvá několik týdnů a nedá se uspíšit. Proto je tahle fáze pořád otevřená, i když pozdější věci, třeba měření, už máme za sebou.",
+    body:["Profil firmy na Googlu se ukáže na Mapách a vždy, když někdo ve vašem okolí hledá maséra. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto jím celý plán začínáme.",
+      "Naskočit naplno ale chvíli trvá. Google si nejdřív ověří, že firma existuje a je relevantní, a pomůžou mu k tomu i úpravy v dalších fázích. Tak vyhledávání funguje, je to běh na delší trať. Profil je přitom zdarma a je to úplný základ, bez kterého vás na Googlu ani v Mapách nikdo neuvidí."],
     points:[
       "Založení a vyplnění profilu: název, otevírací doba, odkaz na web i na rezervaci",
       "Správné umístění na Mapách, Soukenická 8, Praha 1",
       "Propojení vašich recenzí ze Slevomatu pro úvodní relevanci",
       "Postupný sběr Google recenzí, na ten se zaměříme později",
     ],
-    benefit:"Lidé vás najdou na Googlu i v Mapách bez placené reklamy a rovnou se mohou objednat.",
+    benefit:"Lidé vás najdou na Googlu i v Mapách bez jediné koruny za reklamu a mohou se rovnou objednat.",
     decision:{
       title:"Název profilu na Googlu",
       choice:"Masér pan Jiří",
-      why:"Název „Masér pan Jiří“ funguje hned ze dvou důvodů. Obsahuje slovo „masér“, které lidé skutečně píší do vyhledávání, a zároveň jméno „Jiří“, takže působí jako konkrétní člověk, kterého si objednáte, ne jako anonymní studio. Je to navíc vaše skutečná značka a stejný název máte i na webu maserpanjiri.cz. Když se název na profilu, na webu i v dalších odkazech shoduje, Google i lidé snadno poznají, že jde o jednu a tu samou důvěryhodnou firmu, a snáz vás najdou i objednají.",
+      why:"Název „Masér pan Jiří“ funguje ze dvou důvodů. Obsahuje slovo „masér“, které lidé do vyhledávání opravdu píší, a jméno „Jiří“, takže za ním vidí konkrétního člověka, ke kterému jdou, ne anonymní studio. Je to navíc vaše skutečná značka, stejnou máte i na webu maserpanjiri.cz. Když název na profilu, na webu i v dalších odkazech sedí na sebe, Google i lidé poznají jednu a tu samou firmu, a snáz vás najdou i objednají.",
       alts:[
-        { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nezadává" },
+        { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nepíše" },
         { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
       ],
-      honest:"Samotný název konkurenci nepřeskočí. Proto k němu patří kompletní profil a postupný sběr recenzí." },
-    note:"Ve vyhledávání je dnes napřed jiný masér Jiří z Prahy 1, hlavně díky kompletnímu profilu a velkému množství hodnocení, přes osmdesát. To se dá dohnat, je to spíš o pořádku a čase. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a skutečná odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu budeme dávat dopředu a postupně poctivě sbírat hodnocení od spokojených klientů." },
+      honest:"Samotný název konkurenci nepřeskočí. Sílu mu dá kompletní profil a recenze, které postupně přibudou." },
+    note:"Ve vyhledávání je dnes před vámi jiný masér Jiří z Prahy 1, hlavně proto, že má kompletní profil a přes osmdesát hodnocení. Dá se to dohnat, je to otázka pořádku a času. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a opravdová odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu dáváme dopředu a k ní postupně sbíráme hodnocení od spokojených klientů." },
   {
     num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"done", price:"2 000 Kč",
-    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou úspěšně připojené a měření už běží. Sledujeme i to, kolik lidí klikne na tlačítko rezervace, a kdo vás na webu navštěvuje, třeba odkud lidé jsou, na jakém zařízení web prohlížejí a přibližně i jejich věk.",
-    action:"Tady od vás potřebujeme jednu věc: vaši gmailovou adresu, které pak přidáme přístup do Google Analytics, abyste si data mohl prohlížet sám.",
-    body:["Nasadili jsme na web nástroje od Googlu, které přehledně počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Bez dat se nedá měřit, jestli cokoliv funguje.",
-      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Díky tomu víte, kolik lidí o rezervaci projeví zájem i jací to jsou lidé, a do budoucna i to, jak účinné jsou vaše online kampaně."],
+    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou připojené a měření už běží. Vidíme, kolik lidí klikne na tlačítko rezervace, odkud návštěvníci jsou, na jakém zařízení web prohlížejí a přibližně i jejich věk.",
+    action:"Chybí poslední krok na vaší straně: pošlete nám svou gmailovou adresu a přidáme jí přístup do Google Analytics, ať si data prohlížíte sám.",
+    body:["Nasadili jsme na web nástroje od Googlu, které počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka za web, jen místo peněz na ní vidíte zájem lidí. Bez těch dat se nedá poznat, co funguje a co ne.",
+      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Tím poznáte, kolik lidí o rezervaci stojí a jací to jsou, a později i to, jak vám fungují online kampaně."],
     points:[
-      "Připojení Google Analytics i Google Tag Manageru, hotovo",
+      "Google Analytics i Google Tag Manager připojené a měřící",
       "Přehled návštěvnosti, kdo přišel a co na webu dělal",
-      "Vlastní měření prokliků na tlačítko rezervace, kolik lidí a jak často kliká",
-      "Do budoucna i přehled, jak účinné jsou vaše online kampaně",
-      "Zbývá jen vaše gmailová adresa, které přidáme přístup do Google Analytics",
+      "Měření prokliků na tlačítko rezervace, kolik lidí a jak často kliká",
+      "Později i přehled, jak vám fungují online kampaně",
+      "Zbývá jen vaše gmailová adresa pro přístup do Google Analytics",
     ],
-    benefit:"Víc informací o vašem publiku a jasná zpětná vazba, co funguje, takže se soustředíme na to, co vám reálně přivádí klienty." },
+    benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co vám reálně přivádí klienty." },
   {
     num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", flag:"Nutná kontrola", price:"3 000 až 5 000 Kč", keywords:true,
-    statusNote:"Technickou stránku SEO máme hotovou. Yoast je nasazený, vyměnili jsme za něj rozbitý Rank Math, nastavili jsme jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a doplnili texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, abychom je doladili přímo na webu.",
-    action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte.",
+    statusNote:"Technickou stránku SEO máme hotovou. Místo rozbitého Rank Math jsme nasadili Yoast, nastavili jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a dopsali texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, ať je doladíme přímo na webu.",
+    action:"Teď je řada na vás: projděte navržená klíčová slova níže a označte, co sedí a co naopak neděláte.",
     checkup:{
-      intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Hotové je tohle:",
+      intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Konkrétně:",
       points:[
-        "Titulky a popisky stránek v Googlu. Místo strohého automatického textu se teď ukazují srozumitelné a lákavé.",
-        "Informace o vaší firmě, kterým Google rozumí, tedy adresa, otevírací doba i ceny rovnou ve výsledcích.",
-        "Srovnané nadpisy a struktura stránek, aby bylo jasné, o čem každá stránka je.",
+        "Titulky a popisky stránek v Googlu. Místo strohého automatického textu se teď ukazuje srozumitelný a lákavý popis.",
+        "Údaje o firmě, kterým Google rozumí: adresa, otevírací doba i ceny se mohou ukázat rovnou ve výsledcích.",
+        "Srovnané nadpisy a struktura, aby bylo jasné, o čem každá stránka je.",
         "Sjednocená značka. Stará adresa masazejiri.cz už v patičce není, všude je Masér pan Jiří.",
       ],
       note:"Fotky webu vylepšíme až ve Fázi 4, kde web upravujeme. Zmenšíme je a popíšeme tak, aby je Google viděl a aby se web načítal rychle.",
     },
-    body:["Web ladíme tak, aby se zobrazoval výš, když lidé v Praze hledají masáž. Necílíme na obecné, přeplněné dotazy, které ovládají agregátory a levná studia, ale na lidi, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte."],
+    body:["Web ladíme tak, aby se ukazoval výš, když lidé v Praze hledají masáž. Obecné přeplněné dotazy přenecháváme agregátorům a levným studiím a míříme na lidi, kteří hledají odbornou pomoc s bolestí. Přesně to umíte."],
     points:[
-      "Lákavé popisky stránek v Googlu, které lidi navedou ke kliknutí",
-      "Neviditelný štítek pro Google se základními fakty o vás",
+      "Popisky stránek v Googlu, které lidi navedou ke kliknutí",
+      "Skrytý štítek pro Google se základními fakty o vás",
       "Optimalizované nadpisy a struktura stránek",
       "Propojení s Google profilem a jednotné údaje v katalozích",
     ],
-    benefit:"Víc lidí vás najde z vyhledávání bez placení za reklamu a tenhle efekt se časem zvyšuje." },
+    benefit:"Víc lidí vás najde ve vyhledávání bez placené reklamy a tahle výhoda časem roste." },
   {
     num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"todo", price:"5 000 až 8 000 Kč",
-    body:["Web teď máte, ale upravíme ho tak, aby z návštěvníků vznikli objednaní klienti, místo aby se jen podívali a odešli. Zpřehledníme ovládání, hlavně na mobilu a v menu, doplníme to, co lidem chybí k rozhodnutí, a web zrychlíme."],
+    body:["Web máte hotový, my ho upravíme tak, aby z návštěvníků dělal objednané klienty, ne jen lidi, co se podívají a odejdou. Zpřehledníme ovládání na mobilu i v menu, doplníme, co lidem chybí k rozhodnutí, a celý web zrychlíme."],
     points:[
       "Lepší ovládání na mobilu, kde se web teď používá těžko",
       "Viditelné menu na všech podstránkách, aby se návštěvník dostal kamkoli, teď je na podstránkách schované",
-      "Přesun matoucího tlačítka zpět, té malé šipky dole, na místo, kde ho lidé čekají",
+      "Přesun matoucího tlačítka zpět, té malé šipky dole, tam, kde ho lidé čekají",
       "Telefon a adresa viditelně na každé stránce",
       "Google mapa s adresou přímo na webu",
-      "Lepší popis služeb a proč si vybrat právě pana Jiřího",
+      "Jasnější popis služeb a důvod, proč si vybrat právě pana Jiřího",
       "Sekce s recenzemi a referencemi od klientů",
       "Výraznější tlačítko na rezervaci",
       "Doplnění fotogalerie",
       "Rychlejší načítání díky zmenšeným obrázkům",
     ],
-    benefit:"Víc lidí, kteří si web otevřou, se opravdu objedná, a web působí profesionálněji." },
+    benefit:"Z těch, kdo web otevřou, se reálně objedná víc lidí a web působí profesionálně." },
   {
     num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"2 000 Kč",
-    body:["Založíme jednoduchou firemní stránku na Facebooku, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je úhledná."],
+    body:["Založíme firemní stránku na Facebooku, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
     points:[
       "Samostatná firemní stránka, ne osobní profil",
       "Základní informace, fotky a odkaz na rezervaci",
       "Připravená k občasným příspěvkům i doporučení od klientů",
     ],
-    benefit:"Další místo, kde vás lidé najdou a odkud vás mohou doporučit známým." },
+    benefit:"Další místo, kde vás lidé najdou a odkud vás doporučí dál." },
   {
     num:"6", nav:"Reklama", phase:"Fáze 6: Placená propagace (Google Ads a Facebook reklama)", when:"Nastavení 2 až 3 dny, pak průběžná správa", status:"todo", price:"nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
-    body:["Placená reklama, která se ukáže úplně nahoře, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Přivede klienty rychle, platíte jen za klik a je to měřitelné. Pouštíme ji jako úplně poslední, až budou hotové základy a web, jinak by se peníze vyhazovaly za reklamu na nepřesvědčivý web."],
+    body:["Placená reklama se ukáže úplně nahoře, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Přivede klienty rychle, platíte jen za proklik a všechno se dá změřit. Necháváme ji ale úplně nakonec, až budou hotové základy a web. Posílat lidi na nehotový web by znamenalo platit reklamu nadarmo."],
     points:[
       "Google Ads ve vyhledávání: nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
       "Facebook reklama na cílené publikum, rozpočet podle dohody",
       "Cílení na lidi, kteří právě hledají maséra",
       "Průběžné měření ceny za jednu rezervaci a ladění reklamy",
     ],
-    benefit:"Rychlý přísun nových klientů, u kterého přesně vidíte, kolik vás každá rezervace stála." },
+    benefit:"Budete víc vidět pod klíčovými slovy, která vaši potenciální klienti hledají." },
 ];
 
 const AEO_INTRO = {
   title:"Aby vás našly i stroje, nejen lidé",
-  body:["Lidé dnes hledají jinak než dřív. Už nenapíšou jen pár slov do Googlu, ale stále častěji se ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají hotovou odpověď. AEO (z anglického Answer Engine Optimization, tedy optimalizace pro odpovídací stroje) znamená připravit váš web tak, aby tou odpovědí bylo vaše jméno, když se někdo takhle zeptá stroje. Je to novější přístup než klasické SEO a vaše konkurence ho zatím skoro nevyužívá, takže máte šanci být mezi prvními."] };
+  body:["Lidé dnes hledají jinak. Místo pár slov do Googlu se čím dál častěji ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají rovnou odpověď. AEO (z anglického Answer Engine Optimization, tedy optimalizace pro odpovídací stroje) znamená připravit web tak, aby tou odpovědí bylo vaše jméno. Je to novější přístup než klasické SEO a konkurence ho zatím skoro nevyužívá, takže můžete být mezi prvními."] };
 
 const AEO = [
   { title:"Odpovědi na časté otázky",
-    body:"Na webu připravíme přehlednou sekci s odpověďmi na otázky, které si lidé kladou nejčastěji. Co je diagnostická masáž a komu pomáhá, kolik stojí, jak se objednat a kde vás najdou. Tyto jasné, krátké odpovědi čtou lidé i vyhledávače a umělá inteligence, které je pak rovnou citují jako hotovou odpověď. Strojům i lidem tak naservírujeme přesně to, co potřebují vědět.",
-    benefit:"Lidé i stroje dostanou jasnou odpověď okamžitě, takže se k vám snáz dostane ten, kdo zrovna hledá pomoc." },
+    body:"Na webu připravíme přehlednou sekci s odpověďmi na nejčastější otázky. Co je diagnostická masáž a komu pomáhá, kolik stojí, jak se objednat a kde vás najdou. Krátké jasné odpovědi čtou lidé i vyhledávače a umělá inteligence si je rovnou převezme jako hotovou odpověď. Lidem i strojům tak dáme přesně to, co potřebují vědět.",
+    benefit:"Kdo hledá pomoc s bolestí, dostane odpověď hned a dojde rovnou k vám." },
   { title:"Aby vás doporučila i umělá inteligence",
-    body:"Webu přidáme úhledný souhrn, kterému stroje rozumí. Kdo jste, co děláte, kde sídlíte a kolik vaše služby stojí, zapsané způsobem, který umělá inteligence umí přečíst a důvěřovat mu. Důležité je, aby tyhle údaje seděly všude stejně, na webu, na Googlu, v katalozích. Když stroj vidí stejné informace na více místech, je si jistý, že jde o jeden skutečný, existující podnik, a spíš vás doporučí.",
-    benefit:"Když se někdo zeptá umělé inteligence na maséra v Praze, je větší šance, že padne vaše jméno." },
+    body:"Webu přidáme úhledný souhrn, kterému stroje rozumí. Kdo jste, co děláte, kde sídlíte a kolik vaše služby stojí, zapsané tak, aby to umělá inteligence přečetla a věřila tomu. Důležité je, aby tyhle údaje seděly všude stejně, na webu, na Googlu i v katalozích. Když stroj vidí stejné informace na víc místech, ví, že jde o skutečný existující podnik, a spíš vás doporučí.",
+    benefit:"Zeptá-li se někdo umělé inteligence na maséra v Praze, je větší šance, že zazní vaše jméno." },
   { title:"Hlasové hledání a „masér blízko mě“",
-    body:"Když někdo řekne do telefonu „najdi maséra blízko mě“, asistent neodpovídá z dlouhého seznamu odkazů, ale vybere obvykle jedno místo. Tu odpověď bere hlavně z vašeho profilu na Googlu a z jasných, úplných informací o vás. Proto je důležité mít profil kompletní a všude stejné údaje, adresu, otevírací dobu, telefon. Kdo to má v pořádku, ten tyhle hlasové dotazy vyhrává.",
-    benefit:"Lidé ve vašem okolí, kteří hledají hlasem, narazí jako první na vás." },
+    body:"Když někdo řekne do telefonu „najdi maséra blízko mě“, asistent nečte dlouhý seznam odkazů, obvykle vybere jedno místo. Tu odpověď bere hlavně z vašeho profilu na Googlu a z úplných informací o vás. Proto má smysl mít profil kompletní a všude stejné údaje, adresu, otevírací dobu, telefon. Kdo to má v pořádku, ten tyhle hlasové dotazy vyhrává.",
+    benefit:"Když někdo ve vašem okolí hledá hlasem, jako první uslyší vás." },
   { title:"Být vidět v odpovědích Googlu",
-    body:"Když dnes něco zadáte do Googlu, často se úplně nahoře objeví krátká shrnující odpověď ještě nad odkazy. Google ji skládá z webů, které dávají jasnou a přímou odpověď na položenou otázku. Když máme na vašem webu věci napsané srozumitelně a k věci, roste šance, že Google bude citovat zrovna vás. Je to jako být ten, koho si učitel vyvolá, protože odpovídá jasně a bez okolků.",
+    body:"Když dnes něco zadáte do Googlu, často se úplně nahoře nad odkazy objeví krátká shrnující odpověď. Google ji skládá z webů, které na otázku odpovídají jasně a přímo. Když je váš web napsaný srozumitelně a k věci, roste šance, že Google odcituje zrovna vás. Je to jako být ten, koho učitel vyvolá, protože odpovídá jasně a bez okolků.",
     benefit:"Vaše jméno se může objevit úplně nahoře ještě dřív, než člověk začne klikat na odkazy." },
 ];
 /* ════════════════ END EDIT BLOCK ════════════════ */
