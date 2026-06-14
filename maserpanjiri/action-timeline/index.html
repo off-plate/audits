@@ -277,7 +277,7 @@ const QUESTIONS = [
   { title:"E-mail pro přístup do Google Analytics",
     body:["Komu máme dát přístup do Google Analytics? Potřebujeme k tomu e-mail registrovaný u Googlu, tedy Gmail. Jiný typ e-mailu Google bohužel nepodporuje."] },
   { title:"Kdo vlastní vaši doménu",
-    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console, díky které Google ví, že má váš web ukazovat ve vyhledávání. Ověření se dělá přes takzvané DNS a musí ho provést ten, kdo má přístup ke správě domény. Samotné ověření je snadné, máme dvě možnosti."],
+    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console. Ta Googlu pomáhá správně zařadit váš web do vyhledávání. Ověření se dělá přes takzvané DNS a musí ho provést ten, kdo má přístup ke správě domény. Samotné ověření je snadné, máme dvě možnosti."],
     options:[
       "Pošleme jednoduchý návod tomu, kdo doménu spravuje, a ten ověření nastaví.",
       "Nebo nám dáte dočasný přístup k doméně, my to nastavíme a přístup zase odebereme.",
@@ -319,16 +319,16 @@ const PLAN = [
     note:"Ve vyhledávání je dnes napřed jiný masér Jiří z Prahy 1, hlavně díky kompletnímu profilu a velkému množství hodnocení, přes osmdesát. To se dá dohnat, je to spíš o pořádku a čase. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a skutečná odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu budeme dávat dopředu a postupně poctivě sbírat hodnocení od spokojených klientů." },
   {
     num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"done", price:"2 000 Kč",
-    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou úspěšně připojené a měření už běží. Sledujeme i to, kolik lidí a jací lidé kliknou na tlačítko rezervace.",
-    action:"Tady od vás potřebujeme jednu věc: e-mail, na který vám přidáme přístup, abyste si analytiku mohl sám prohlížet. Stačí krátká zpráva.",
+    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou úspěšně připojené a měření už běží. Sledujeme i to, kolik lidí klikne na tlačítko rezervace.",
+    action:"Tady od vás potřebujeme jednu věc: vaši gmailovou adresu, které pak přidáme přístup do Google Analytics, abyste si data mohl prohlížet sám. Stačí krátká zpráva.",
     body:["Nasadili jsme na web nástroje od Googlu, které přehledně počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Bez dat se nedá měřit, jestli cokoliv funguje.",
-      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Díky tomu víte, kolik lidí a jací lidé o rezervaci projeví zájem, a do budoucna i to, jak účinné jsou vaše online kampaně."],
+      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Díky tomu víte, kolik lidí o rezervaci projeví zájem, a do budoucna i to, jak účinné jsou vaše online kampaně."],
     points:[
       "Připojení Google Analytics i Google Tag Manageru, hotovo",
       "Přehled návštěvnosti, kdo přišel a co na webu dělal",
-      "Vlastní měření prokliků na tlačítko rezervace, kolik lidí a jak často klikají",
+      "Vlastní měření prokliků na tlačítko rezervace, kolik lidí a jak často kliká",
       "Do budoucna i přehled, jak účinné jsou vaše online kampaně",
-      "Zbývá jen váš e-mail, na který vám přidáme přístup do Google Analytics",
+      "Zbývá jen vaše gmailová adresa, které přidáme přístup do Google Analytics",
     ],
     benefit:"Víc informací o vašem publiku a jasná zpětná vazba, co funguje, takže se soustředíme na to, co vám reálně přivádí klienty." },
   {
@@ -379,7 +379,7 @@ const PLAN = [
 
 const AEO_INTRO = {
   title:"Aby vás našly i stroje, nejen lidé",
-  body:["Lidé dnes hledají jinak než dřív. Už nenapíšou jen pár slov do Googlu, ale stále častěji se ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají hotovou odpověď. AEO (z anglického Answer Engine Optimization, tedy „optimalizace pro odpovídací stroje“) znamená připravit váš web tak, aby když se někdo takhle zeptá stroje, bylo tou odpovědí vaše jméno. Je to novější přístup než klasické SEO a vaše konkurence ho zatím skoro nevyužívá, takže máte šanci být mezi prvními."] };
+  body:["Lidé dnes hledají jinak než dřív. Už nenapíšou jen pár slov do Googlu, ale stále častěji se ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají hotovou odpověď. AEO (z anglického Answer Engine Optimization, tedy optimalizace pro odpovídací stroje) znamená připravit váš web tak, aby tou odpovědí bylo vaše jméno, když se někdo takhle zeptá stroje. Je to novější přístup než klasické SEO a vaše konkurence ho zatím skoro nevyužívá, takže máte šanci být mezi prvními."] };
 
 const AEO = [
   { title:"Odpovědi na časté otázky",
