@@ -60,6 +60,8 @@
   .rm.active{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber), var(--shadow-soft);}
   .rm.active .rm-ic{background:var(--amber);} .rm.active .rm-s{color:var(--amber-text);}
   .rm.todo .rm-ic{background:var(--sand);} .rm.todo .rm-s{color:var(--sand-text);}
+  .rm.review{border-color:var(--navy); box-shadow:0 0 0 1px var(--navy), var(--shadow-soft);}
+  .rm.review .rm-ic{background:var(--navy);} .rm.review .rm-s{color:var(--navy);}
 
   .needyou{display:inline-flex; align-items:center; gap:10px; margin-top:18px; background:var(--navy); color:var(--cream); padding:11px 16px; border-radius:12px; font-size:.95rem; box-shadow:var(--shadow);}
   .needyou:hover{text-decoration:none; background:var(--navy-deep); color:var(--cream);}
@@ -72,6 +74,9 @@
   .phase.done{border-left-color:var(--green); opacity:.94;}
   .phase.active{border-left-color:var(--amber); box-shadow:var(--shadow);}
   .phase.todo{border-left-color:var(--sand);}
+  .phase.review{border-left-color:var(--navy); box-shadow:var(--shadow);}
+  .phase.review > summary{background:#eef1f6;}
+  .phase.review .pnum{background:var(--navy);}
   .phase > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px;}
   .phase > summary::-webkit-details-marker{display:none;}
   .phase.active > summary{background:var(--amber-soft);}
@@ -89,16 +94,19 @@
   .pill.done{background:var(--green-soft); color:var(--green);}
   .pill.active{background:var(--amber-soft); color:var(--amber-text);}
   .pill.flag{background:var(--navy); color:var(--cream);}
+  .pill.review{background:var(--navy); color:var(--cream);}
   .pill.todo{background:var(--sand-soft); color:var(--sand-text);}
   .chev{flex:0 0 auto; color:var(--muted); font-size:1.1rem; transition:transform .2s; margin-left:2px;}
   .phase[open] .chev{transform:rotate(180deg);}
-  @media(max-width:620px){ .ph-right .chip, .ph-right .pill{display:none;} .phase.active > summary .pill.active, .ph-right .pill.flag{display:inline-block;} }
+  @media(max-width:620px){ .ph-right .chip, .ph-right .pill{display:none;} .phase.active > summary .pill.active, .phase.review > summary .pill.review, .ph-right .pill.flag{display:inline-block;} }
 
   .ph-body{padding:4px 18px 20px 18px; border-top:1px solid var(--line);}
   .ph-body p{font-size:.95rem; color:var(--ink); margin:12px 0 0; max-width:680px;}
   .statusnote{font-size:.93rem; color:var(--ink); background:var(--cream); border-left:3px solid var(--sand); border-radius:8px; padding:10px 13px; margin-top:14px !important;}
   .phase.done .statusnote{border-left-color:var(--green);}
   .phase.active .statusnote{border-left-color:var(--amber);}
+  .ph-link{display:inline-block; margin-top:14px; background:var(--teal); color:#fff; font-family:'Sora',sans-serif; font-weight:600; font-size:.9rem; padding:9px 15px; border-radius:10px;}
+  .ph-link:hover{text-decoration:none; background:var(--navy); color:#fff;}
 
   .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.8px; color:var(--sand-text); margin:18px 0 9px;}
   ul.checks{list-style:none; display:grid; gap:8px;}
@@ -206,7 +214,7 @@
 <!-- KDE JSME TEĎ: roadmap = přehled i menu -->
 <section class="status"><div class="wrap">
   <div class="eyebrow">Kde jsme teď</div>
-  <p id="statusLine">Hotový máme audit, měření i profil na Googlu. Teď čekáme, až Google profil ověří, to pár týdnů trvá, a mezitím ladíme SEO a texty webu. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
+  <p id="statusLine">Hotový máme audit, měření, profil na Googlu i technické SEO. Teď čekáme na dvě věci: až Google profil ověří, a až nám potvrdíte navržená klíčová slova. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
   <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
   <a class="needyou" id="needYou" href="#otazky"></a>
 </div></section>
@@ -301,6 +309,7 @@ const PLAN = [
     benefit:"Víme přesně, kde začít a proč. Žádný krok naslepo." },
   {
     num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", wait:true, price:"2 000 Kč",
+    link:{url:"https://www.google.com/search?q=Mas%C3%A9r+pan+Ji%C5%99%C3%AD&stick=H4sIAAAAAAAA_-NgU1I1qDAxN0iyNLW0NLQ0S7U0sLS0MqhIMkszTLK0MDG1MEkxMzVNWcQq6JtYfHhlkUJBYp6CV-bRmYfXAgBW_LzGPQAAAA&hl=en&mat=Ce14Wuf4pSjDElYBa0lj_xYa2e5qwwhcVyh--GvNfLEI0E_Wno-iioyB7T9OIo0GsdWfJi1jXG-JTnj33-DcqElEMggd89utcczCdlTH6eUKEj-QVfSW8uh_xsZNmIQKwg&authuser=0", label:"Otevřít svůj profil na Googlu"},
     statusNote:"Profil je hotový a vyplněný: název Masér pan Jiří, otevírací doba a odkaz na web i na rezervaci. Připojili jsme i vaše recenze ze Slevomatu. Teď čekáme, až ho Google ověří, to trvá několik týdnů a nedá se uspíšit. Proto je tahle fáze pořád otevřená, i když pozdější věci, třeba měření, už máme za sebou.",
     body:["Profil firmy na Googlu se ukáže na Mapách a vždy, když někdo ve vašem okolí hledá maséra. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto jím celý plán začínáme.",
       "Naskočit naplno ale chvíli trvá. Google si nejdřív ověří, že firma existuje a je relevantní, a pomůžou mu k tomu i úpravy v dalších fázích. Tak vyhledávání funguje, je to běh na delší trať. Profil je přitom zdarma a je to úplný základ, bez kterého vás na Googlu ani v Mapách nikdo neuvidí."],
@@ -336,7 +345,7 @@ const PLAN = [
     ],
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co vám reálně přivádí klienty." },
   {
-    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", flag:"Nutná kontrola", price:"3 000 až 5 000 Kč", keywords:true,
+    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true,
     statusNote:"Technickou stránku SEO máme hotovou. Místo rozbitého Rank Math jsme nasadili Yoast, nastavili jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a dopsali texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, ať je doladíme přímo na webu.",
     action:"Teď je řada na vás: projděte navržená klíčová slova níže a označte, co sedí a co naopak neděláte.",
     checkup:{
@@ -422,10 +431,12 @@ const STATE = {
   done:   { cls:"done",   word:"Hotovo",                ic:"✓" },
   active: { cls:"active", word:"Probíhá",               ic:"●" },
   wait:   { cls:"active", word:"Čeká na ověření Googlem", ic:"◷" },
+  review: { cls:"review", word:"Nutná kontrola",         ic:"!" },
   todo:   { cls:"todo",   word:"Naplánováno",           ic:"○" },
 };
 function stateOf(ph){
   if(ph.status==="done") return STATE.done;
+  if(ph.status==="review") return STATE.review;
   if(ph.status==="active") return ph.wait ? STATE.wait : STATE.active;
   return STATE.todo;
 }
@@ -468,11 +479,12 @@ function decisionBlock(d){
 }
 function phaseCard(ph,i){
   const st = stateOf(ph);
-  const open = ph.status==="active" ? " open" : "";
+  const open = (ph.status==="active" || ph.status==="review") ? " open" : "";
   const chip = ph.status==="done" ? `<span class="chip hotovo">Hotovo</span>`
              : (ph.price ? `<span class="chip price">${esc(ph.price)}</span>` : "");
   let b = "";
   if(ph.statusNote) b += `<p class="statusnote">${esc(ph.statusNote)}</p>`;
+  if(ph.link) b += `<a class="ph-link" href="${esc(ph.link.url)}" target="_blank" rel="noopener">${esc(ph.link.label)} &rarr;</a>`;
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
   if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
