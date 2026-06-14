@@ -323,7 +323,7 @@ const PLAN = [
   {
     num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"done", price:"2 000 Kč",
     statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou úspěšně připojené a měření už běží. Sledujeme i to, kolik lidí klikne na tlačítko rezervace, a kdo vás na webu navštěvuje, třeba odkud lidé jsou, na jakém zařízení web prohlížejí a přibližně i jejich věk.",
-    action:"Tady od vás potřebujeme jednu věc: vaši gmailovou adresu, které pak přidáme přístup do Google Analytics, abyste si data mohl prohlížet sám. Stačí krátká zpráva.",
+    action:"Tady od vás potřebujeme jednu věc: vaši gmailovou adresu, které pak přidáme přístup do Google Analytics, abyste si data mohl prohlížet sám.",
     body:["Nasadili jsme na web nástroje od Googlu, které přehledně počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka pro web, jen místo peněz vidíte zájem lidí. Bez dat se nedá měřit, jestli cokoliv funguje.",
       "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Díky tomu víte, kolik lidí o rezervaci projeví zájem i jací to jsou lidé, a do budoucna i to, jak účinné jsou vaše online kampaně."],
     points:[
@@ -336,19 +336,19 @@ const PLAN = [
     benefit:"Víc informací o vašem publiku a jasná zpětná vazba, co funguje, takže se soustředíme na to, co vám reálně přivádí klienty." },
   {
     num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", price:"3 000 až 5 000 Kč", keywords:true,
-    statusNote:"Web jsme prošli po technické stránce a základ je zdravý, je zabezpečený, rychlý a Google ho bez problémů vidí. SEO nástroj Yoast je nasazený, vyměnili jsme za něj rozbitý Rank Math. Nastavili jsme jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří napříč stránkami a doplnili texty, které se o vás ukazují ve výsledcích vyhledávání, aby byly lákavé a srozumitelné. Teď ladíme klíčová slova a čekáme na jejich potvrzení od vás.",
-    action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte. Stačí krátká zpráva, víc teď nepotřebujeme.",
+    statusNote:"Technickou stránku SEO máme hotovou. Yoast je nasazený, vyměnili jsme za něj rozbitý Rank Math, nastavili jsme jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a doplnili texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, abychom je doladili přímo na webu.",
+    action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte.",
     checkup:{
-      intro:"Web stojí na zdravém základu, takže žádné velké zásahy nepotřebuje. V této fázi řešíme tyhle věci, aby vás Google ukazoval líp:",
+      intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Hotové je tohle:",
       points:[
-        "Titulky a popisky stránek v Googlu. Teď se u nich ukazuje jen strohý automatický text, nahradíme ho srozumitelným a lákavým.",
-        "Informace o vaší firmě, kterým Google rozumí. Doplníme adresu, otevírací dobu a ceny, aby je mohl ukázat rovnou ve výsledcích.",
-        "Nadpisy a strukturu stránek, aby bylo jasné, o čem každá stránka je.",
-        "Stará adresa masazejiri.cz, která je ještě v patičce webu. Sjednotíme všechno na Masér pan Jiří.",
+        "Titulky a popisky stránek v Googlu. Místo strohého automatického textu se teď ukazují srozumitelné a lákavé.",
+        "Informace o vaší firmě, kterým Google rozumí, tedy adresa, otevírací doba i ceny rovnou ve výsledcích.",
+        "Srovnané nadpisy a struktura stránek, aby bylo jasné, o čem každá stránka je.",
+        "Sjednocená značka. Stará adresa masazejiri.cz už v patičce není, všude je Masér pan Jiří.",
       ],
       note:"Fotky webu vylepšíme až ve Fázi 4, kde web upravujeme. Zmenšíme je a popíšeme tak, aby je Google viděl a aby se web načítal rychle.",
     },
-    body:["Upravíme web tak, aby se zobrazoval výš, když lidé v Praze hledají masáž. Necílíme na obecné, přeplněné dotazy, které ovládají agregátory a levná studia, ale na lidi, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte."],
+    body:["Web ladíme tak, aby se zobrazoval výš, když lidé v Praze hledají masáž. Necílíme na obecné, přeplněné dotazy, které ovládají agregátory a levná studia, ale na lidi, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte."],
     points:[
       "Lákavé popisky stránek v Googlu, které lidi navedou ke kliknutí",
       "Neviditelný štítek pro Google se základními fakty o vás",
@@ -475,7 +475,7 @@ function phaseCard(ph,i){
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
   if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
-  if(ph.checkup) b += `<details class="mini" open><summary>Technická kontrola webu</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
+  if(ph.checkup) b += `<details class="mini" open><summary>Technické SEO, co je hotové</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
   if(ph.keywords) b += kwBlock();
   if(ph.decision) b += decisionBlock(ph.decision);
   if(ph.note) b += `<details class="mini"><summary>Jak doženeme konkurenci</summary><div class="mini-body"><p>${esc(ph.note)}</p></div></details>`;
