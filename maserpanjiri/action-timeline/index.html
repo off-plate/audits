@@ -103,6 +103,9 @@
   ul.checks{list-style:none; display:grid; gap:8px;}
   ul.checks li{position:relative; padding-left:24px; font-size:.93rem; color:var(--ink);}
   ul.checks li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
+  ul.fixlist{list-style:none; display:grid; gap:8px; margin-top:8px;}
+  ul.fixlist li{position:relative; padding-left:22px; font-size:.92rem; color:var(--ink);}
+  ul.fixlist li::before{content:"\2192"; position:absolute; left:0; top:0; color:var(--sand-text); font-weight:700;}
 
   /* action box = solid navy = your turn */
   .action{display:flex; gap:12px; align-items:flex-start; background:var(--navy); color:var(--cream); border-radius:12px; padding:14px 16px; margin-top:16px;}
@@ -333,8 +336,18 @@ const PLAN = [
     benefit:"Víc informací o vašem publiku a jasná zpětná vazba, co funguje, takže se soustředíme na to, co vám reálně přivádí klienty." },
   {
     num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"todo", price:"3 000 až 5 000 Kč", keywords:true,
-    statusNote:"SEO nástroj Yoast je už nasazený, vyměnili jsme za něj rozbitý Rank Math. Čekáme na potvrzení klíčových slov od vás.",
+    statusNote:"Před úpravami jsme web prošli po technické stránce a základ je zdravý. Web je zabezpečený, rychlý a Google ho bez problémů vidí, takže nemusíme nic zachraňovat. SEO nástroj Yoast je nasazený, vyměnili jsme za něj rozbitý Rank Math. Teď čekáme na potvrzení klíčových slov od vás.",
     action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte. Stačí krátká zpráva, víc teď nepotřebujeme.",
+    checkup:{
+      intro:"Web stojí na zdravém základu, takže žádné velké zásahy nepotřebuje. V této fázi doladíme tyhle věci, aby vás Google ukazoval líp:",
+      points:[
+        "Titulky a popisky stránek v Googlu. Teď se u nich ukazuje jen strohý automatický text, nahradíme ho srozumitelným a lákavým.",
+        "Informace o vaší firmě, kterým Google rozumí. Doplníme adresu, otevírací dobu a ceny, aby je mohl ukázat rovnou ve výsledcích.",
+        "Nadpisy a strukturu stránek, aby bylo jasné, o čem každá stránka je.",
+        "Stará adresa masazejiri.cz, která je ještě v patičce webu. Sjednotíme všechno na Masér pan Jiří.",
+      ],
+      note:"Fotky webu vylepšíme až ve Fázi 4, kde web upravujeme. Zmenšíme je a popíšeme tak, aby je Google viděl a aby se web načítal rychle.",
+    },
     body:["Upravíme web tak, aby se zobrazoval výš, když lidé v Praze hledají masáž. Necílíme na obecné, přeplněné dotazy, které ovládají agregátory a levná studia, ale na lidi, kteří hledají odbornou pomoc s bolestí, protože přesně to umíte."],
     points:[
       "Lákavé popisky stránek v Googlu, které lidi navedou ke kliknutí",
@@ -459,6 +472,7 @@ function phaseCard(ph,i){
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
   if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
+  if(ph.checkup) b += `<details class="mini" open><summary>Technická kontrola webu</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
   if(ph.keywords) b += kwBlock();
   if(ph.decision) b += decisionBlock(ph.decision);
   if(ph.note) b += `<details class="mini"><summary>Jak doženeme konkurenci</summary><div class="mini-body"><p>${esc(ph.note)}</p></div></details>`;
