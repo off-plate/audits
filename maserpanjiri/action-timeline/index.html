@@ -88,10 +88,11 @@
   .pill{font-size:.68rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap;}
   .pill.done{background:var(--green-soft); color:var(--green);}
   .pill.active{background:var(--amber-soft); color:var(--amber-text);}
+  .pill.flag{background:var(--navy); color:var(--cream);}
   .pill.todo{background:var(--sand-soft); color:var(--sand-text);}
   .chev{flex:0 0 auto; color:var(--muted); font-size:1.1rem; transition:transform .2s; margin-left:2px;}
   .phase[open] .chev{transform:rotate(180deg);}
-  @media(max-width:620px){ .ph-right .chip, .ph-right .pill{display:none;} .phase.active > summary .pill.active{display:inline-block;} }
+  @media(max-width:620px){ .ph-right .chip, .ph-right .pill{display:none;} .phase.active > summary .pill.active, .ph-right .pill.flag{display:inline-block;} }
 
   .ph-body{padding:4px 18px 20px 18px; border-top:1px solid var(--line);}
   .ph-body p{font-size:.95rem; color:var(--ink); margin:12px 0 0; max-width:680px;}
@@ -335,7 +336,7 @@ const PLAN = [
     ],
     benefit:"Víc informací o vašem publiku a jasná zpětná vazba, co funguje, takže se soustředíme na to, co vám reálně přivádí klienty." },
   {
-    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", price:"3 000 až 5 000 Kč", keywords:true,
+    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", flag:"Nutná kontrola", price:"3 000 až 5 000 Kč", keywords:true,
     statusNote:"Technickou stránku SEO máme hotovou. Yoast je nasazený, vyměnili jsme za něj rozbitý Rank Math, nastavili jsme jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a doplnili texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, abychom je doladili přímo na webu.",
     action:"Tady od vás potřebujeme jednu věc: projděte navržená klíčová slova níže a potvrďte, co sedí a co případně nenabízíte.",
     checkup:{
@@ -490,6 +491,7 @@ function phaseCard(ph,i){
       <span class="ph-right">
         ${chip}
         <span class="pill ${st.cls}">${esc(st.word)}</span>
+        ${ph.flag?`<span class="pill flag">${esc(ph.flag)}</span>`:""}
         <span class="chev" aria-hidden="true">&#9662;</span>
       </span>
     </summary>
