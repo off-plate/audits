@@ -7,370 +7,250 @@
 <title>Průběh spolupráce — Masér pan Jiří</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1F2A44; --navy-deep:#151d33; --teal:#1F7A7A; --teal-bright:#2ea8a8;
-    --amber:#D08C2E; --amber-text:#B0721E; --cream:#F7F5F0; --cream-2:#EFEBE1;
-    --ink:#241d15; --muted:#6f6152; --brown:#5a4636; --brown-soft:#8a7565;
-    --line:rgba(36,29,21,.10); --green:#2f7d52; --green-soft:#e7f1ea;
-    --amber-soft:#f6ecd9; --card:#ffffff;
-    --shadow:0 1px 2px rgba(36,29,21,.04), 0 8px 24px rgba(36,29,21,.06);
+    --navy:#1F2A44; --navy-deep:#151d33; --teal:#1F7A7A;
+    --amber:#D08C2E; --amber-text:#B0721E; --amber-soft:#faf0dd;
+    --green:#2f7d52; --green-soft:#e7f1ea;
+    --sand:#b7a890; --sand-soft:#efe9df; --sand-text:#8a7565;
+    --cream:#F7F5F0; --cream-2:#EFEBE1; --card:#ffffff;
+    --ink:#241d15; --muted:#6f6152; --line:rgba(36,29,21,.12);
+    --shadow:0 1px 2px rgba(36,29,21,.05), 0 10px 26px rgba(36,29,21,.07);
+    --shadow-soft:0 1px 2px rgba(36,29,21,.04);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-    background:var(--cream); color:var(--ink); line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; background:var(--cream); color:var(--ink); line-height:1.6; -webkit-font-smoothing:antialiased;}
   h1,h2,h3,h4{font-family:'Sora',sans-serif; line-height:1.2; color:var(--navy);}
   a{color:var(--teal); text-decoration:none;}
   a:hover{text-decoration:underline;}
-  .wrap{max-width:960px; margin:0 auto; padding:0 32px;}
+  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
 
-  /* Top co-brand bar */
-  .topbar{background:var(--navy); color:var(--cream);}
-  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 32px; max-width:960px; margin:0 auto;}
-  .topbar img{height:24px; display:block;}
-  .topbar .client{font-family:'Sora',sans-serif; font-weight:600; font-size:.95rem; color:var(--cream); letter-spacing:.3px;}
-  .topbar .sep{flex:0 0 auto; opacity:.35;}
+  /* topbar */
+  .topbar{background:var(--navy);}
+  .topbar .row{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 24px; max-width:960px; margin:0 auto;}
+  .topbar img{height:22px; display:block;}
+  .topbar .client{font-family:'Sora',sans-serif; font-weight:600; font-size:.92rem; color:var(--cream); letter-spacing:.3px;}
 
-  /* Hero */
-  .hero{
-    background:
-      radial-gradient(120% 120% at 80% -10%, rgba(31,122,122,.10), transparent 55%),
-      linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 100%);
-    border-bottom:1px solid var(--line);
-    padding:46px 20px 40px; text-align:center;
-  }
-  .hero .rhino{width:108px; height:auto; margin:0 auto 18px; display:block; filter:drop-shadow(0 6px 14px rgba(90,70,54,.18));}
-  .hero h1{font-size:2.2rem; font-weight:700; margin-bottom:8px;}
-  .hero .tag{color:var(--brown); font-size:1.02rem; margin-bottom:18px;}
-  .hero .stamp{display:inline-flex; align-items:center; gap:8px; font-size:.8rem; color:var(--muted); background:#fff; border:1px solid var(--line); padding:5px 12px; border-radius:999px;}
-  .hero .stamp .dot{width:7px; height:7px; border-radius:50%; background:var(--teal-bright);}
+  /* hero (slim) */
+  .hero{background:linear-gradient(180deg, var(--cream-2), var(--cream)); border-bottom:1px solid var(--line); padding:30px 20px 26px; text-align:center;}
+  .hero .rhino{width:72px; height:auto; margin:0 auto 10px; display:block; filter:drop-shadow(0 5px 12px rgba(90,70,54,.16));}
+  .hero h1{font-size:1.85rem; font-weight:700; margin-bottom:5px;}
+  .hero .tag{color:var(--muted); font-size:.98rem; margin-bottom:14px;}
+  .hero .stamp{display:inline-flex; align-items:center; gap:7px; font-size:.78rem; color:var(--muted); background:#fff; border:1px solid var(--line); padding:4px 12px; border-radius:999px;}
+  .hero .stamp .dot{width:7px; height:7px; border-radius:50%; background:var(--teal);}
 
-  section{padding:38px 0;}
+  section{padding:34px 0;}
   .eyebrow{font-family:'Sora',sans-serif; font-weight:600; font-size:.72rem; letter-spacing:1.6px; text-transform:uppercase; color:var(--teal); margin-bottom:10px;}
-  h2.sec{font-size:1.5rem; margin-bottom:6px;}
-  .lead{color:var(--muted); margin-bottom:22px; font-size:1rem;}
+  h2.sec{font-size:1.7rem; margin-bottom:8px;}
+  .lead{color:var(--muted); font-size:1rem; max-width:680px; margin-bottom:22px;}
 
-  /* Progress */
-  .progress-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; box-shadow:var(--shadow);}
-  .progress-top{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px;}
-  .progress-top .now{font-family:'Sora',sans-serif; font-weight:700; font-size:1.15rem; color:var(--navy);}
-  .progress-top .pct{font-family:'Sora',sans-serif; font-weight:700; font-size:1.15rem; color:var(--teal);}
-  .track{height:12px; background:var(--cream-2); border-radius:999px; overflow:hidden;}
-  .fill{height:100%; width:0; border-radius:999px; background:linear-gradient(90deg, var(--teal), var(--teal-bright)); transition:width .8s ease;}
-  .sub{margin-top:10px; font-size:.9rem; color:var(--muted);}
+  /* ===== STATUS / ROADMAP ===== */
+  .status{padding-top:30px; padding-bottom:22px;}
+  #statusLine{color:var(--ink); font-size:1.05rem; max-width:720px; margin-bottom:20px;}
+  #statusLine strong{color:var(--navy);}
+  .roadmap{display:flex; gap:6px; align-items:stretch; counter-reset:rm; overflow-x:auto; padding-bottom:4px;}
+  .rm{flex:1 1 0; min-width:96px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; padding:12px 6px 11px; border-radius:12px; background:#fff; border:1px solid var(--line); box-shadow:var(--shadow-soft); color:var(--ink); position:relative;}
+  .rm:hover{text-decoration:none; border-color:var(--sand);}
+  .rm-ic{width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:.82rem; font-weight:700; color:#fff;}
+  .rm-l{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; color:var(--navy); line-height:1.15;}
+  .rm-s{font-size:.66rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase;}
+  .rm.done .rm-ic{background:var(--green);} .rm.done .rm-s{color:var(--green);}
+  .rm.active{border-color:var(--amber); box-shadow:0 0 0 1px var(--amber), var(--shadow-soft);}
+  .rm.active .rm-ic{background:var(--amber);} .rm.active .rm-s{color:var(--amber-text);}
+  .rm.todo .rm-ic{background:var(--sand);} .rm.todo .rm-s{color:var(--sand-text);}
 
-  /* Stepper as a phase roadmap (fills width) */
-  .steps{list-style:none; display:grid; gap:12px; margin-top:18px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); align-items:start;}
-  .step{display:block; padding:15px 16px; border:1px solid var(--line); border-radius:12px; background:#fff;}
-  .step-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:9px;}
-  .step .ic{flex:0 0 auto; width:26px; height:26px; border-radius:50%; display:grid; place-items:center; font-size:.8rem; font-weight:700; color:#fff;}
-  .step.done .ic{background:var(--green);}
-  .step.active .ic{background:var(--amber);}
-  .step.todo .ic{background:#cbbfae; color:#fff;}
-  .step h4{font-size:1.02rem; margin-bottom:2px;}
-  .step .meta{font-size:.85rem; color:var(--muted);}
-  .step .pill{flex:0 0 auto; font-size:.66rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; padding:3px 9px; border-radius:999px;}
-  .step .items{margin-top:11px;}
-  .step .items li{font-size:.84rem;}
+  .needyou{display:inline-flex; align-items:center; gap:10px; margin-top:18px; background:var(--navy); color:var(--cream); padding:11px 16px; border-radius:12px; font-size:.95rem; box-shadow:var(--shadow);}
+  .needyou:hover{text-decoration:none; background:var(--navy-deep); color:var(--cream);}
+  .needyou strong{font-family:'Sora',sans-serif;}
+  .needyou .arrow{opacity:.7;}
+
+  /* ===== PHASE CARDS (details) ===== */
+  .phases{display:grid; gap:14px;}
+  .phase{background:var(--card); border:1px solid var(--line); border-left:4px solid var(--sand); border-radius:16px; box-shadow:var(--shadow-soft); overflow:hidden;}
+  .phase.done{border-left-color:var(--green); opacity:.94;}
+  .phase.active{border-left-color:var(--amber); box-shadow:var(--shadow);}
+  .phase.todo{border-left-color:var(--sand);}
+  .phase > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px;}
+  .phase > summary::-webkit-details-marker{display:none;}
+  .phase.active > summary{background:var(--amber-soft);}
+  .pnum{flex:0 0 auto; width:32px; height:32px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:.95rem;}
+  .phase.done .pnum{background:var(--green);} .phase.active .pnum{background:var(--amber);} .phase.todo .pnum{background:var(--sand);}
+  .ph-main{flex:1 1 auto; min-width:0;}
+  .ph-title{display:block; font-family:'Sora',sans-serif; font-weight:600; font-size:1.18rem; color:var(--navy); line-height:1.25;}
+  .ph-teaser{display:block; font-size:.9rem; color:var(--muted); margin-top:2px;}
+  .phase[open] .ph-teaser{display:none;}
+  .ph-right{flex:0 0 auto; display:flex; align-items:center; gap:10px;}
+  .chip{font-family:'Sora',sans-serif; font-weight:600; font-size:.78rem; padding:3px 10px; border-radius:999px; white-space:nowrap;}
+  .chip.price{color:var(--navy); background:#fff; border:1px solid var(--line);}
+  .chip.hotovo{color:var(--green); background:var(--green-soft); border:1px solid #cfe6d8;}
+  .pill{font-size:.68rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap;}
   .pill.done{background:var(--green-soft); color:var(--green);}
   .pill.active{background:var(--amber-soft); color:var(--amber-text);}
-  .pill.todo{background:#efe9df; color:var(--brown-soft);}
+  .pill.todo{background:var(--sand-soft); color:var(--sand-text);}
+  .chev{flex:0 0 auto; color:var(--muted); font-size:1.1rem; transition:transform .2s; margin-left:2px;}
+  .phase[open] .chev{transform:rotate(180deg);}
+  @media(max-width:620px){ .ph-right .chip, .ph-right .pill{display:none;} .phase.active > summary .pill.active{display:inline-block;} }
 
-  /* Need-from-you box */
-  .need{border-radius:16px; padding:20px 22px; display:flex; gap:14px; align-items:flex-start;}
-  .need.wait{background:var(--amber-soft); border:1px solid #e7d3ac;}
-  .need.ok{background:var(--green-soft); border:1px solid #cfe6d8;}
-  .need .bang{font-family:'Sora',sans-serif; font-weight:700; font-size:1.3rem; line-height:1;}
-  .need.wait .bang{color:var(--amber-text);}
-  .need.ok .bang{color:var(--green);}
-  .need h3{font-size:1.05rem; margin-bottom:4px;}
-  .need p{font-size:.95rem; color:var(--ink);}
-  .need .how{font-size:.85rem; color:var(--muted); margin-top:6px;}
+  .ph-body{padding:4px 18px 20px 18px; border-top:1px solid var(--line);}
+  .ph-body p{font-size:.95rem; color:var(--ink); margin:12px 0 0; max-width:680px;}
+  .statusnote{font-size:.93rem; color:var(--ink); background:var(--cream); border-left:3px solid var(--sand); border-radius:8px; padding:10px 13px; margin-top:14px !important;}
+  .phase.done .statusnote{border-left-color:var(--green);}
+  .phase.active .statusnote{border-left-color:var(--amber);}
 
-  /* Done cards */
-  .grid{display:grid; gap:12px;}
-  .done-card{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow);}
-  .done-card .head{display:flex; align-items:center; gap:10px; margin-bottom:4px;}
-  .done-card .check{flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--green); color:#fff; display:grid; place-items:center; font-size:.75rem; font-weight:700;}
-  .done-card .date{font-size:.78rem; color:var(--muted); margin-left:auto;}
-  .done-card h4{font-size:1.02rem;}
-  .done-card .benefit{font-size:.92rem; color:var(--brown); margin-top:3px;}
-  .done-card .benefit a{font-weight:600;}
+  .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.8px; color:var(--sand-text); margin:18px 0 9px;}
+  ul.checks{list-style:none; display:grid; gap:8px;}
+  ul.checks li{position:relative; padding-left:24px; font-size:.93rem; color:var(--ink);}
+  ul.checks li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
 
-  /* Decision card */
-  .decision{background:#fff; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow);}
-  .decision .dec-kicker{font-family:'Sora',sans-serif; font-weight:700; font-size:.68rem; letter-spacing:1.4px; text-transform:uppercase; color:var(--teal); margin-bottom:6px;}
-  .decision h4{font-size:1.05rem; margin-bottom:10px;}
-  .decision .alts{margin:12px 0 4px;}
-  .decision .alts .k{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.6px; color:var(--teal); display:block; margin-bottom:6px;}
-  .decision .alts ul{list-style:none; display:grid; gap:6px;}
-  .decision .alts li{font-size:.92rem; color:var(--muted); padding-left:16px; position:relative;}
-  .decision .alts li::before{content:"×"; position:absolute; left:0; color:#c0563f; font-weight:700;}
-  .decision .alts li strong{color:var(--ink);}
-  .decision .honest{margin-top:14px; background:var(--cream-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:.92rem; color:var(--ink);}
-  .decision .honest strong{color:var(--brown);}
-  .decision .kv{margin-bottom:8px;}
-  .decision .kv .k{font-family:'Sora',sans-serif; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.6px; color:var(--teal); display:block;}
-  .decision .kv .v{font-size:.95rem; color:var(--ink);}
-  .decision .yours{margin-top:12px; font-size:.88rem; color:var(--muted); font-style:italic;}
+  /* action box = solid navy = your turn */
+  .action{display:flex; gap:12px; align-items:flex-start; background:var(--navy); color:var(--cream); border-radius:12px; padding:14px 16px; margin-top:16px;}
+  .action .bang{flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:rgba(255,255,255,.16); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700;}
+  .action strong{display:block; font-family:'Sora',sans-serif; font-size:.95rem; color:#fff; margin-bottom:2px;}
+  .action p{font-size:.92rem; color:rgba(247,245,240,.9); margin:0 !important; max-width:none;}
 
-  /* Keywords table */
-  .kwbox{background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow);}
-  .kwgroup{padding:14px 18px; border-top:1px solid var(--line);}
-  .kwgroup:first-child{border-top:none;}
-  .kwgroup .gname{font-family:'Sora',sans-serif; font-weight:600; font-size:.78rem; text-transform:uppercase; letter-spacing:.8px; color:var(--brown-soft); margin-bottom:10px;}
-  .kwlist{display:flex; flex-wrap:wrap; gap:8px;}
-  .kw{display:inline-flex; align-items:center; gap:7px; background:var(--cream); border:1px solid var(--line); border-radius:999px; padding:5px 12px; font-size:.88rem;}
-  .kw .s{width:7px; height:7px; border-radius:50%; background:var(--amber); flex:0 0 auto;}
-  .kwnote{font-size:.85rem; color:var(--muted); padding:14px 18px; background:var(--cream-2);}
+  /* benefit footer line (neutral, no color) */
+  .benefit{margin-top:18px; padding-top:13px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:baseline;}
+  .benefit .b-lab{font-family:'Sora',sans-serif; font-weight:600; font-size:.7rem; text-transform:uppercase; letter-spacing:.7px; color:var(--sand-text); white-space:nowrap;}
+  .benefit span:last-child{font-size:.93rem; color:var(--ink);}
 
-  /* Next phases (locked) */
-  .next-card{background:#fff; border:1px dashed #cdbfa9; border-radius:14px; padding:18px 20px; position:relative;}
-  .next-card .lockrow{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
-  .next-card .lock{font-size:.95rem;}
-  .next-card h4{font-size:1.08rem;}
-  .next-card .when{margin-left:auto; font-size:.7rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--brown-soft); background:#efe9df; padding:3px 9px; border-radius:999px;}
-  .next-card .benefit{font-size:.93rem; color:var(--brown); margin-top:2px;}
+  /* nested mini details (keywords, decision, competition) */
+  details.mini{margin-top:14px; border:1px solid var(--line); border-radius:10px; background:var(--cream); overflow:hidden;}
+  details.mini > summary{list-style:none; cursor:pointer; padding:10px 14px; font-family:'Sora',sans-serif; font-weight:600; font-size:.85rem; color:var(--navy); display:flex; align-items:center; gap:8px;}
+  details.mini > summary::-webkit-details-marker{display:none;}
+  details.mini > summary::before{content:"+"; font-size:1rem; color:var(--muted);}
+  details.mini[open] > summary::before{content:"–";}
+  .mini-body{padding:4px 14px 14px;}
+  .mini-body p{font-size:.92rem; color:var(--ink); margin:8px 0 0; max-width:680px;}
+  .mini-body .honest{background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 12px;}
+  .kv{margin-bottom:6px;} .kv-k{font-family:'Sora',sans-serif; font-weight:600; font-size:.72rem; text-transform:uppercase; letter-spacing:.6px; color:var(--sand-text); display:block;}
+  ul.alts{list-style:none; margin-top:6px;} ul.alts li{font-size:.9rem; color:var(--muted); padding-left:16px; position:relative; margin-bottom:4px;}
+  ul.alts li::before{content:"×"; position:absolute; left:0; color:var(--sand-text); font-weight:700;}
+  ul.alts li strong{color:var(--ink);}
+  .kwgroups{display:grid; gap:12px; margin-top:6px;}
+  .kwg-h{font-family:'Sora',sans-serif; font-weight:600; font-size:.74rem; text-transform:uppercase; letter-spacing:.6px; color:var(--sand-text); margin-bottom:6px;}
+  .kwl{display:flex; flex-wrap:wrap; gap:7px;}
+  .kw{font-size:.85rem; background:#fff; border:1px solid var(--line); border-radius:999px; padding:4px 11px; color:var(--ink);}
+  .kwnote{font-size:.88rem; color:var(--muted); margin-top:12px;}
 
-  .context{font-size:.92rem; color:var(--muted); background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:16px 18px;}
-
-  /* Tech info */
-  .tech{background:#fff; border:1px solid var(--line); border-radius:12px; padding:6px 18px;}
-  .tech .r{display:flex; justify-content:space-between; gap:14px; padding:11px 0; border-top:1px solid var(--line); font-size:.92rem;}
-  .tech .r:first-child{border-top:none;}
-  .tech .r .k{color:var(--muted);}
-  .tech .r .v{color:var(--ink); text-align:right; word-break:break-word;}
-
-  /* Footer */
-  .footer{background:var(--navy); color:var(--cream); margin-top:24px;}
-  .footer .in{max-width:960px; margin:0 auto; padding:30px 32px; text-align:center;}
-  .footer img{height:26px; margin-bottom:14px;}
-  .footer .contact{font-size:.95rem; color:var(--cream); margin-bottom:6px;}
-  .footer .contact a{color:var(--teal-bright); font-weight:600;}
-  .footer .small{font-size:.8rem; color:rgba(247,245,240,.55); margin-top:12px;}
-  .footer .small a{color:rgba(247,245,240,.75);}
-
-  /* Plan: phases differentiated, each category its own section */
-  #plan{display:block;}
-  .phase{padding:30px 0;}
-  .phase + .phase{border-top:1px solid var(--line);}
-  /* phase look is driven ONLY by status (done/active/todo), not by phase index */
-  .phase-head{display:flex; align-items:center; gap:14px; flex-wrap:wrap; background:#fff; border:1px solid var(--line); border-left:5px solid #cbbfae; border-radius:14px; padding:14px 18px; box-shadow:var(--shadow); margin-bottom:16px;}
-  .phase.done .phase-head{border-left-color:var(--green);}
-  .phase.active .phase-head{border-left-color:var(--amber); background:var(--amber-soft);}
-  .phase.todo .phase-head{border-left-color:#cbbfae;}
-  .phase-head .pnum{flex:0 0 auto; width:34px; height:34px; border-radius:50%; display:grid; place-items:center; color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem; background:#cbbfae;}
-  .phase.done .pnum{background:var(--green);}
-  .phase.active .pnum{background:var(--amber);}
-  .phase.todo .pnum{background:#cbbfae;}
-  .phase.done .item-head h4, .phase.done .ph-title{color:var(--navy);}
-  .done-chip{color:var(--green) !important; background:var(--green-soft) !important; border-color:#cfe6d8 !important;}
-  .phase-head .ph-meta{flex:1 1 auto; min-width:0;}
-  .phase-head .ph-title{font-size:1.3rem; margin:0;}
-  .phase-head .ph-when{font-size:.82rem; color:var(--muted); margin-top:1px;}
-  .phase-intro{color:var(--muted); font-size:1.02rem; max-width:920px; margin-bottom:18px;}
-  .items-grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); align-items:start;}
-  .item{background:#fff; border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:22px 24px;}
-  .item.wide{grid-column:1 / -1;}
-  .item-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:14px;}
-  .item-head h4{font-size:1.18rem;}
-  .item-cols{display:grid; gap:16px;}
-  .item.wide .item-cols{grid-template-columns:1fr;}
-  .phase-cols{grid-template-columns:1fr; margin-bottom:4px;}
-  @media(max-width:820px){ .item.wide .item-cols, .phase-cols{grid-template-columns:1fr;} }
-  .status-note{background:#eef6f6; border:1px solid #cfe6e6; border-radius:10px; padding:9px 13px; font-size:.9rem; color:var(--ink); margin-bottom:16px;}
-  .phase.active .status-note{background:var(--amber-soft); border-color:#e7d3ac;}
-  .phase-head .price{align-self:center;}
-  .action-note{display:flex; gap:11px; align-items:flex-start; background:var(--amber-soft); border:1px solid #e7d3ac; border-radius:12px; padding:13px 15px; margin:8px 0 14px; font-size:.93rem; color:var(--ink);}
-  .action-note .bang{flex:0 0 auto; font-family:'Sora',sans-serif; font-weight:700; font-size:1.2rem; line-height:1.2; color:var(--amber-text);}
-  .action-note strong{color:var(--amber-text);}
-  .decision.in-phase{margin-top:18px;}
-  .item-body p{font-size:.95rem; color:var(--ink); margin-bottom:10px;}
-  .item-body p:last-child{margin-bottom:0;}
-  .item-extra{min-width:0;}
-  .sub-label{font-family:'Sora',sans-serif; font-weight:600; font-size:.76rem; text-transform:uppercase; letter-spacing:.7px; color:var(--brown-soft); margin:0 0 9px;}
-  .item-extra .sub-label ~ .sub-label{margin-top:18px;}
-  .points{list-style:none; margin:0; display:grid; gap:9px; grid-template-columns:1fr;}
-  .points li{position:relative; padding-left:23px; font-size:.92rem; color:var(--ink);}
-  .points li::before{content:"✓"; position:absolute; left:0; top:0; color:var(--green); font-weight:700;}
-  .kw-inline{box-shadow:none; max-width:none; background:var(--cream);}
-  .phase-note{margin-top:18px; background:var(--cream-2); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:.92rem; color:var(--ink); max-width:1100px;}
-  .phase-note strong{color:var(--brown);}
-
-  /* Otázky pro klienta */
-  .q-grid{display:grid; gap:16px; grid-template-columns:1fr;}
-  .qcard{background:#fff; border:1px solid var(--line); border-left:4px solid var(--amber); border-radius:14px; box-shadow:var(--shadow); padding:20px 22px;}
-  .qcard .qhead{display:flex; gap:12px; align-items:center; margin-bottom:10px;}
-  .qcard .qnum{flex:0 0 auto; width:28px; height:28px; border-radius:50%; background:var(--amber); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700; font-size:.85rem;}
+  /* questions */
+  .qlist{display:grid; gap:14px;}
+  .qcard{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow-soft);}
+  .qhead{display:flex; align-items:center; gap:11px; margin-bottom:6px;}
+  .qnum{flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700; font-size:.82rem;}
   .qcard h4{font-size:1.08rem;}
-  .qcard p{font-size:.93rem; color:var(--ink); margin-bottom:9px;}
-  .qcard p:last-of-type{margin-bottom:0;}
-  .qcard .opts{list-style:none; margin:12px 0 0; display:grid; gap:9px;}
-  .qcard .opts li{position:relative; font-size:.92rem; color:var(--ink); background:var(--cream); border:1px solid var(--line); border-radius:9px; padding:9px 12px 9px 28px;}
-  .qcard .opts li::before{content:"›"; position:absolute; left:12px; top:9px; color:var(--amber-text); font-weight:700;}
+  .qcard p{font-size:.94rem; color:var(--ink); margin-top:8px; max-width:680px;}
+  ul.qopts{list-style:none; margin-top:10px; display:grid; gap:8px;}
+  ul.qopts li{position:relative; padding:10px 12px 10px 30px; background:var(--cream); border:1px solid var(--line); border-radius:9px; font-size:.92rem; color:var(--ink);}
+  ul.qopts li::before{content:"○"; position:absolute; left:12px; top:10px; color:var(--sand-text);}
 
-  /* Sticky anchor menu */
-  .anchor-wrap{position:sticky; top:0; z-index:30; background:rgba(247,245,240,.94); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); border-bottom:1px solid var(--line);}
-  .anchor-nav{max-width:960px; margin:0 auto; padding:10px 32px; display:flex; gap:8px; flex-wrap:wrap; justify-content:center;}
-  .anchor-nav a{font-family:'Sora',sans-serif; font-size:.8rem; font-weight:600; color:var(--navy); background:#fff; border:1px solid var(--line); padding:6px 13px; border-radius:999px; white-space:nowrap;}
-  .anchor-nav a .anum{display:inline-block; font-weight:700; color:var(--teal); margin-right:5px;}
-  .anchor-nav a:hover .anum{color:var(--cream);}
-  .anchor-nav a:hover{background:var(--navy); color:var(--cream); text-decoration:none;}
-  .phase, #aeo, #otazky{scroll-margin-top:62px;}
+  /* AEO = quiet upcoming block */
+  details.aeo{border:1px solid var(--line); border-left:4px solid var(--sand); border-radius:16px; background:#fff; box-shadow:var(--shadow-soft); overflow:hidden;}
+  details.aeo > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px;}
+  details.aeo > summary::-webkit-details-marker{display:none;}
+  .aeo-ic{flex:0 0 auto; width:32px; height:32px; border-radius:50%; background:var(--sand); color:#fff; display:grid; place-items:center; font-weight:700;}
+  .aeo-main{flex:1 1 auto;}
+  .aeo-main h3{font-family:'Sora',sans-serif; font-weight:600; font-size:1.15rem; color:var(--navy);}
+  .aeo-main .aeo-sub{font-size:.88rem; color:var(--muted); margin-top:2px;}
+  .aeo .chev{margin-left:auto;}
+  .aeo-body{padding:4px 18px 20px; border-top:1px solid var(--line);}
+  .aeo-body > p{font-size:.95rem; color:var(--ink); margin-top:12px; max-width:680px;}
+  .aeo-grid{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:14px;}
+  .aeo-card{background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:15px 16px;}
+  .aeo-card h4{font-size:1rem; margin-bottom:5px;}
+  .aeo-card p{font-size:.88rem; color:var(--ink);}
+  .aeo-card .benefit{margin-top:11px; padding-top:10px;}
 
-  /* Card collections fill the width; only long text blocks keep a reading cap */
-  .lead{max-width:860px;}
-  .need{max-width:940px;}
-  .strat-intro{max-width:900px;}
-  .context{max-width:900px;}
-  #decisions .decision{max-width:1000px;}
-  #done{grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));}
-  .done-card.wide{grid-column:1 / -1;}
+  /* tech */
+  .techbox{background:#fff; border:1px solid var(--line); border-radius:12px; padding:4px 16px;}
+  .techbox .r{display:flex; justify-content:space-between; gap:14px; padding:11px 0; border-top:1px solid var(--line); font-size:.92rem;}
+  .techbox .r:first-child{border-top:none;}
+  .techbox .r .k{color:var(--muted);} .techbox .r .v{color:var(--ink); text-align:right; word-break:break-word;}
 
-  @media (max-width:560px){
-    .hero h1{font-size:1.8rem;}
-    h2.sec{font-size:1.3rem;}
-    .topbar .client{font-size:.82rem;}
-    .step .pill{display:none;}
+  footer.ft{background:var(--navy); color:var(--cream); margin-top:20px;}
+  footer.ft .in{max-width:960px; margin:0 auto; padding:28px 24px; text-align:center;}
+  footer.ft img{height:24px; margin-bottom:12px;}
+  footer.ft .contact{font-size:.92rem; margin-bottom:6px;}
+  footer.ft .contact a{color:#7fd0d0; font-weight:600;}
+  footer.ft .small{font-size:.8rem; color:rgba(247,245,240,.55); margin-top:10px;}
+  footer.ft .small a{color:rgba(247,245,240,.75);}
+
+  @media(max-width:560px){
     .wrap{padding:0 16px;}
-    .hero{padding:44px 16px 34px;}
-    .feat-grid{gap:12px;}
-    .progress-card{padding:20px 18px;}
-    .strat-intro{padding:18px 18px;}
+    h2.sec{font-size:1.4rem;}
+    .hero h1{font-size:1.6rem;}
+    .rm{min-width:108px;}
+    .ph-title{font-size:1.08rem;}
   }
-
-  /* Strategy explainer (SEO + AEO) */
-  .strat-intro{background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 24px; box-shadow:var(--shadow); margin-bottom:8px;}
-  .strat-intro.aeo{background:linear-gradient(180deg,#eef6f6 0%,#fff 60%); border-color:#cfe6e6;}
-  .strat-intro h3{font-size:1.16rem; margin-bottom:8px;}
-  .strat-intro p{font-size:.97rem; color:var(--ink); margin-bottom:10px;}
-  .strat-intro p:last-of-type{margin-bottom:0;}
-  .benefit-line{display:flex; gap:9px; align-items:flex-start; background:var(--green-soft); border:1px solid #cfe6d8; border-radius:10px; padding:10px 13px; font-size:.9rem; color:var(--ink); margin-top:12px;}
-  .benefit-line .lab{font-weight:700; color:var(--green); white-space:nowrap;}
-  .subhead{font-family:'Sora',sans-serif; font-weight:600; font-size:1.06rem; color:var(--navy); margin:26px 0 12px; padding-top:6px; border-top:1px solid var(--line);}
-  .feat-grid{display:grid; gap:14px; grid-template-columns:1fr;}
-  .feat{background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:var(--shadow); display:flex; flex-direction:column;}
-  .feat .ic{flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:var(--teal); color:#fff; font-size:.78rem; font-weight:700; display:grid; place-items:center; margin-bottom:9px;}
-  .feat h4{font-size:1.01rem; margin-bottom:5px;}
-  .feat p{font-size:.9rem; color:var(--ink); margin-bottom:0;}
-  .feat .benefit-line{font-size:.84rem; margin-top:auto;}
-  .feat .benefit-line{margin-top:12px;}
-
-  /* Phase pricing (individual items, from audit, no sums) */
-  .when-inline{font-size:.78rem; color:var(--muted); margin-top:2px;}
-  .items{list-style:none; margin:10px 0 0; display:grid; gap:7px;}
-  .items li{display:flex; justify-content:space-between; align-items:center; gap:12px; font-size:.88rem; border-top:1px dashed var(--line); padding-top:7px;}
-  .items li:first-child{border-top:none; padding-top:0;}
-  .items .iname{color:var(--ink);}
-  .price{flex:0 0 auto; font-family:'Sora',sans-serif; font-weight:700; font-size:.8rem; color:var(--amber-text); background:var(--amber-soft); border:1px solid #e7d3ac; padding:2px 10px; border-radius:999px; white-space:nowrap;}
-  .audit-ref{margin-top:14px; font-size:.82rem; color:var(--muted); background:var(--cream-2); border:1px solid var(--line); border-radius:10px; padding:9px 13px;}
-  .audit-ref strong{color:var(--brown);}
 </style>
 </head>
 <body>
 
-<!-- CO-BRAND TOP BAR -->
-<div class="topbar">
-  <div class="row">
-    <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
-    <span class="client">Masér pan Jiří</span>
-  </div>
-</div>
+<div class="topbar"><div class="row">
+  <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
+  <span class="client">Masér pan Jiří</span>
+</div></div>
 
-<!-- HERO -->
 <header class="hero">
-  <div class="wrap">
-    <img class="rhino" src="assets/client-logo.png" alt="Masér pan Jiří" width="108">
-    <h1>Masér pan Jiří</h1>
-    <p class="tag">Průběh spolupráce a další kroky</p>
-    <span class="stamp"><span class="dot"></span> Naposledy aktualizováno: <strong id="updated">13. 6. 2026</strong></span>
-  </div>
+  <img class="rhino" src="assets/client-logo.png" alt="Masér pan Jiří" width="72">
+  <h1>Masér pan Jiří</h1>
+  <p class="tag">Průběh spolupráce</p>
+  <span class="stamp"><span class="dot"></span> Naposledy aktualizováno: <strong id="updated">13. 6. 2026</strong></span>
 </header>
 
-<!-- KOTVÍCÍ MENU -->
-<div class="anchor-wrap"><nav class="anchor-nav" id="anchorNav"></nav></div>
+<!-- KDE JSME TEĎ: roadmap = přehled i menu -->
+<section class="status"><div class="wrap">
+  <div class="eyebrow">Kde jsme teď</div>
+  <p id="statusLine">Hotový máme audit, měření i založení profilu na Googlu. Teď čekáme, až Google profil ověří, což chvíli trvá, a souběžně chystáme web. Celý plán po fázích je níže, kliknutím každou fázi rozbalíte.</p>
+  <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
+  <a class="needyou" id="needYou" href="#otazky"></a>
+</div></section>
 
-<!-- STAV / PRŮBĚH (jen status, žádné ceny ani obsah fází) -->
-<section>
-  <div class="wrap">
-    <div class="eyebrow">Kde jsme teď</div>
-    <h2 class="sec">Stavíme základy na Googlu</h2>
-    <p class="lead">Audit máme hotový, měření je hotové a zapnuté a teď běží Fáze 1, nastavení Google profilu. Celý plán je šest fází přesně podle auditu, najdete je níže i s tím, co je v každé zahrnuté.</p>
+<!-- PLÁN PO FÁZÍCH -->
+<section><div class="wrap">
+  <div class="eyebrow">Plán spolupráce</div>
+  <h2 class="sec">Co děláme, po fázích</h2>
+  <p class="lead">Otevřená je fáze, na které právě pracujeme. Hotové a budoucí fáze jsou sbalené, kliknutím je rozbalíte.</p>
+  <div id="plan" class="phases"></div>
+</div></section>
 
-    <div class="progress-card">
-      <div class="progress-top">
-        <span class="now" id="progressLabel">Probíhá: Základy na Googlu</span>
-        <span class="pct" id="progressPct">0 %</span>
-      </div>
-      <div class="track"><div class="fill" id="progressFill"></div></div>
-      <p class="sub" id="progressSub">Hotovo: audit a strategie. Probíhá: Fáze 1.</p>
-    </div>
-  </div>
-</section>
+<!-- OTÁZKY PRO VÁS -->
+<section id="otazky"><div class="wrap">
+  <div class="eyebrow">Co potřebujeme vyřešit</div>
+  <h2 class="sec">Otázky pro vás</h2>
+  <p class="lead">Pár věcí, se kterými nám pomůžete posunout práci dál. U každé stačí krátká zpráva.</p>
+  <div id="questions" class="qlist"></div>
+</div></section>
 
-<!-- PLÁN PO FÁZÍCH (jediná páteř stránky; vše k dané fázi je přímo pod ní) -->
-<section style="padding-bottom:6px;">
-  <div class="wrap">
-    <div class="eyebrow">Plán spolupráce</div>
-    <h2 class="sec">Co děláme, po fázích</h2>
-    <p class="lead">Celý plán na jednom místě. Každá fáze má stejnou strukturu: co je v ní zahrnuté, cena podle auditu z 13. dubna 2026 a co vám to přinese. Všechno k dané fázi, včetně rozhodnutí a toho, co od vás potřebujeme, najdete přímo u ní.</p>
-  </div>
-</section>
-<div id="plan"><div class="wrap"><p class="lead">Načítání…</p></div></div>
-
-<!-- OTÁZKY PRO KLIENTA -->
-<section id="otazky">
-  <div class="wrap">
-    <div class="eyebrow">Co potřebujeme vyřešit</div>
-    <h2 class="sec">Otázky pro vás</h2>
-    <p class="lead">Pár věcí, které od vás potřebujeme, abychom mohli hladce pokračovat. Stačí odpovědět krátkou zprávou.</p>
-    <div class="q-grid" id="questions"><div class="qcard">Načítání…</div></div>
-  </div>
-</section>
-
-<!-- AEO (návrh do budoucna) -->
-<section id="aeo">
-  <div class="wrap">
-    <div class="eyebrow">Návrh do budoucna</div>
-    <h2 class="sec">Aby vás našla i umělá inteligence</h2>
-    <p class="lead">Tohle teď neřešíme a není to součást současné práce. Je to návrh, který doporučujeme pustit později, až budou hotové základy a web. Zatím to skoro nikdo nedělá, takže byste byl mezi prvními.</p>
-    <div id="aeoIntro"></div>
-    <div class="feat-grid two" id="aeoGrid" style="margin-top:14px;"><div class="feat">Načítání…</div></div>
-  </div>
-</section>
+<!-- NÁVRH DO BUDOUCNA -->
+<section><div class="wrap">
+  <div class="eyebrow">Návrh do budoucna</div>
+  <div id="aeo"></div>
+</div></section>
 
 <!-- TECHNICKÉ INFORMACE -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="eyebrow">Technické informace</div>
-    <div class="tech">
-      <div class="r"><span class="k">Web</span><span class="v"><a href="https://maserpanjiri.cz">maserpanjiri.cz</a></span></div>
-      <div class="r"><span class="k">Platforma</span><span class="v">WordPress + Elementor</span></div>
-      <div class="r"><span class="k">Přihlášení do administrace</span><span class="v"><a href="https://maserpanjiri.cz/wp-login.php">maserpanjiri.cz/wp-login.php</a></span></div>
-      <div class="r"><span class="k">Rezervace</span><span class="v">Termino</span></div>
-    </div>
+<section><div class="wrap">
+  <div class="eyebrow">Technické informace</div>
+  <div class="techbox">
+    <div class="r"><span class="k">Web</span><span class="v"><a href="https://maserpanjiri.cz">maserpanjiri.cz</a></span></div>
+    <div class="r"><span class="k">Platforma</span><span class="v">WordPress + Elementor</span></div>
+    <div class="r"><span class="k">SEO nástroj</span><span class="v">Yoast SEO</span></div>
+    <div class="r"><span class="k">Měření</span><span class="v">Google Analytics + Google Tag Manager</span></div>
+    <div class="r"><span class="k">Rezervace</span><span class="v">Termino</span></div>
   </div>
-</section>
+</div></section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="in">
-    <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
-    <p class="contact">Spolupráci připravuje a spravuje <a href="https://off-plate.com">Off-Plate</a>.</p>
-    <p class="small">off-plate.com<br>
-    <a href="../../maserpanjiri.html">Zobrazit původní audit</a></p>
-  </div>
-</footer>
+<footer class="ft"><div class="in">
+  <img src="assets/offplate-logo-dark.png" alt="Off-Plate">
+  <p class="contact">Spolupráci připravuje a spravuje <a href="https://off-plate.com">Off-Plate</a>.</p>
+  <p class="small">off-plate.com<br><a href="../../maserpanjiri.html">Zobrazit původní audit</a></p>
+</div></footer>
 
 <script>
 /* ════════════════════════════════════════════════════════════
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
-   status: 'done' | 'active' | 'todo'
+   status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
 const UPDATED = "13. 6. 2026";
 
@@ -404,7 +284,7 @@ const QUESTIONS = [
     ] },
 ];
 
-/* Plán = 6 fází přesně podle auditu z 13. 4. 2026 (+ audit jako hotový základ). status: done|active|todo */
+/* Plán = 6 fází přesně podle auditu z 13. 4. 2026 (+ audit jako hotový základ). */
 const PLAN = [
   {
     num:"✓", nav:"Audit", phase:"Audit a strategie online prezentace", when:"Hotovo 13. 4. 2026", status:"done",
@@ -416,8 +296,8 @@ const PLAN = [
     ],
     benefit:"Víme přesně, kde začít a proč, takže se nic nedělá náhodně." },
   {
-    num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", price:"2 000 Kč",
-    statusNote:"Profil jsme už založili a vyplnili, co šlo: název Masér pan Jiří, otevírací dobu a odkaz na web i na rezervaci. Propojili jsme i vaše recenze ze Slevomatu, takže profil má hned nějakou relevanci, i když zatím nemáte přímo Google recenze. Na ty se zaměříme později.",
+    num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", wait:true, price:"2 000 Kč",
+    statusNote:"Profil jsme dokončili a vyplnili: název Masér pan Jiří, otevírací dobu a odkaz na web i na rezervaci. Propojili jsme i vaše recenze ze Slevomatu. Teď čekáme, až Google profil ověří, což trvá několik týdnů a nedá se uspíšit. Proto je tato fáze stále otevřená, i když pozdější věci, třeba měření, už máme hotové.",
     body:["Profil firmy na Googlu se ukáže, když někdo hledá maséra ve vašem okolí, a na Mapách. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto je to první a nejdůležitější krok, který jsme rovnou rozjeli.",
       "Profil se ale na Googlu nerozjede ze dne na den. Google si musí nejdřív ověřit, že existuje a je relevantní, a k tomu pomůžou i úpravy v dalších fázích. Je to normální postupný proces, vyhledávání je dlouhodobá práce. Zato je profil zdarma a je to úplné minimum, jak být vidět na Googlu a v Mapách."],
     points:[
@@ -515,116 +395,124 @@ const AEO = [
     body:"Když dnes něco zadáte do Googlu, často se úplně nahoře objeví krátká shrnující odpověď ještě nad odkazy. Google ji skládá z webů, které dávají jasnou a přímou odpověď na položenou otázku. Když máme na vašem webu věci napsané srozumitelně a k věci, roste šance, že Google bude citovat zrovna vás. Je to jako být ten, koho si učitel vyvolá, protože odpovídá jasně a bez okolků.",
     benefit:"Vaše jméno se může objevit úplně nahoře ještě dřív, než člověk začne klikat na odkazy." },
 ];
-
 /* ════════════════ END EDIT BLOCK ════════════════ */
 
-/* ---- rendering (resilient: each section in its own try/catch) ---- */
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const W = { done:1, active:0.5, todo:0 };
-const LABEL = { done:"Hotovo", active:"Probíhá", todo:"Plánováno" };
-const ICON = { done:"✓", active:"●", todo:"·" };
 const $ = id => document.getElementById(id);
-
 function safe(fn){ try{ fn(); }catch(e){ console.error(e); } }
 
-safe(()=>{ if (UPDATED) $("updated").textContent = UPDATED; });
+const STATE = {
+  done:   { cls:"done",   word:"Hotovo",                ic:"✓" },
+  active: { cls:"active", word:"Probíhá",               ic:"●" },
+  wait:   { cls:"active", word:"Čeká na ověření Googlem", ic:"◷" },
+  todo:   { cls:"todo",   word:"Naplánováno",           ic:"○" },
+};
+function stateOf(ph){
+  if(ph.status==="done") return STATE.done;
+  if(ph.status==="active") return ph.wait ? STATE.wait : STATE.active;
+  return STATE.todo;
+}
 
+safe(()=>{ if(UPDATED) $("updated").textContent = UPDATED; });
+
+/* roadmap */
 safe(()=>{
-  const pct = Math.max(0, Math.min(100, Math.round(100 * PLAN.reduce((s,p)=>s+(W[p.status]??0),0) / PLAN.length)));
-  $("progressFill").style.width = pct + "%";
-  $("progressPct").textContent = pct + " %";
-  const actives = PLAN.filter(p=>p.status==="active");
-  const nums = actives.map(p=>p.num).filter(n=>n && n!=="✓");
-  $("progressLabel").textContent = nums.length ? ("Probíhá: Fáze " + nums.join(" a ")) : (actives.length ? "Probíhá" : "Spolupráce běží");
-  $("progressSub").textContent = "Audit hotový. Teď probíhají Fáze " + (nums.join(" a ") || "1") + " ze 6, stavíme základy na Googlu.";
+  $("roadmap").innerHTML = PLAN.map((ph,i)=>{
+    const st = stateOf(ph);
+    return `<a class="rm ${st.cls}" href="#faze-${i}">
+      <span class="rm-ic">${ph.status==="done"?"✓":esc(ph.num)}</span>
+      <span class="rm-l">${esc(ph.nav)}</span>
+      <span class="rm-s">${esc(st.word.replace("Čeká na ověření Googlem","Čeká na Google"))}</span>
+    </a>`;
+  }).join("");
 });
 
-function decisionHTML(d){
-  return `<div class="decision in-phase">
-    <div class="dec-kicker">Naše doporučení</div>
-    <h4>${esc(d.title)}</h4>
-    <div class="kv"><span class="k">Doporučujeme</span><span class="v"><strong>${esc(d.choice)}</strong></span></div>
-    <div class="kv"><span class="k">Proč</span><span class="v">${esc(d.why)}</span></div>
-    ${(d.alts&&d.alts.length)?`<div class="alts"><span class="k">Zvažovali jsme i</span><ul>${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong>, ${esc(a.note)}</li>`).join("")}</ul></div>`:""}
-    ${d.honest?`<div class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</div>`:""}
-  </div>`;
-}
+/* "čekáme na vás" pointer */
+safe(()=>{
+  const n = QUESTIONS.length;
+  $("needYou").innerHTML = `<span>Čekáme na vás: <strong>${n} ${n===1?"odpověď":(n<5?"odpovědi":"odpovědí")}</strong></span><span class="arrow">přejít na otázky &darr;</span>`;
+});
 
-/* ---- shared helpers (used by plan and AEO) ---- */
-function benefitHTML(t){ return t?`<div class="benefit-line"><span class="lab">Co vám to přinese:</span><span>${esc(t)}</span></div>`:""; }
-function introHTML(d,cls){ return `<div class="strat-intro${cls?" "+cls:""}">${d.title?`<h3>${esc(d.title)}</h3>`:""}${(d.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}${benefitHTML(d.benefit)}</div>`; }
-function featHTML(items){ return items.map((f,i)=>`<div class="feat"><div class="ic">${i+1}</div><h4>${esc(f.title)}</h4><p>${esc(f.body)}</p>${benefitHTML(f.benefit)}</div>`).join(""); }
-
-/* ---- Plan: phases -> categories, each its own section ---- */
-function kwChips(){
-  return `<div class="kwbox kw-inline">`
-    + KEYWORDS.map(g=>`<div class="kwgroup"><div class="gname">${esc(g.group)}</div><div class="kwlist">${g.items.map(k=>`<span class="kw"><span class="s"></span>${esc(k)}</span>`).join("")}</div></div>`).join("")
-    + `<div class="kwnote">${esc(KW_NOTE)}<br><br>Stav všech slov: <strong>Navrženo</strong>, čeká na vaše schválení.</div></div>`;
+/* phase cards */
+function kwBlock(){
+  return `<details class="mini"><summary>Zobrazit navržená klíčová slova</summary><div class="mini-body">
+    <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(k=>`<span class="kw">${esc(k)}</span>`).join("")}</div></div>`).join("")}</div>
+    <p class="kwnote">${esc(KW_NOTE)}</p>
+    <p class="kwnote"><strong>Stav všech slov: Navrženo, čeká na vaše schválení.</strong></p>
+  </div></details>`;
 }
-function itemHTML(it){
-  const incl = (it.points && it.points.length)
-    ? `<ul class="points">${it.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`
-    : `<ul class="points"><li>Kompletní příprava a nastavení této položky.</li></ul>`;
-  const extra = `${it.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}`
-    + `<div class="sub-label">Co je v tom zahrnuto</div>${incl}`;
-  const chip = it.price ? `<span class="price">${esc(it.price)}</span>`
-    : (it.done ? `<span class="price done-chip">Hotovo</span>` : "");
-  return `<article class="item${it.wide?" wide":""}">
-    <div class="item-head"><h4>${esc(it.name)}</h4>${chip}</div>
-    <div class="item-cols">
-      <div class="item-body">${(it.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
-      <div class="item-extra">${extra}</div>
-    </div>
-    ${benefitHTML(it.benefit)}
-  </article>`;
+function decisionBlock(d){
+  return `<details class="mini"><summary>Proč jsme zvolili tento název</summary><div class="mini-body">
+    <div class="kv"><span class="kv-k">Doporučujeme</span><strong>${esc(d.choice)}</strong></div>
+    <p>${esc(d.why)}</p>
+    ${(d.alts&&d.alts.length)?`<div class="kv-k" style="margin-top:10px;">Zvažovali jsme i</div><ul class="alts">${d.alts.map(a=>`<li><strong>${esc(a.name)}</strong>, ${esc(a.note)}</li>`).join("")}</ul>`:""}
+    ${d.honest?`<p class="honest"><strong>Upřímně:</strong> ${esc(d.honest)}</p>`:""}
+  </div></details>`;
 }
-function phaseHTML(ph,i){
-  const incl = (ph.points && ph.points.length)
-    ? `<ul class="points">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>` : "";
-  const right = `${ph.keywords?`<div class="sub-label">Klíčová slova, na která vás chceme najít</div>${kwChips()}`:""}`
-    + `${incl?`<div class="sub-label">Co je v tom zahrnuto</div>${incl}`:""}`;
-  const chip = ph.price ? `<span class="price">${esc(ph.price)}</span>`
-    : (ph.status==="done" ? `<span class="price done-chip">Hotovo</span>` : "");
-  return `<section id="faze-${i+1}" class="phase ${esc(ph.status)}">
-    <div class="wrap">
-      <div class="phase-head">
-        <span class="pnum">${esc(ph.num || (i+1))}</span>
-        <div class="ph-meta"><h3 class="ph-title">${esc(ph.phase)}</h3>${ph.when?`<div class="ph-when">${esc(ph.when)}</div>`:""}</div>
+function phaseCard(ph,i){
+  const st = stateOf(ph);
+  const open = ph.status==="active" ? " open" : "";
+  const chip = ph.status==="done" ? `<span class="chip hotovo">Hotovo</span>`
+             : (ph.price ? `<span class="chip price">${esc(ph.price)}</span>` : "");
+  let b = "";
+  if(ph.statusNote) b += `<p class="statusnote">${esc(ph.statusNote)}</p>`;
+  b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
+  if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
+  if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
+  if(ph.keywords) b += kwBlock();
+  if(ph.decision) b += decisionBlock(ph.decision);
+  if(ph.note) b += `<details class="mini"><summary>Jak doženeme konkurenci</summary><div class="mini-body"><p>${esc(ph.note)}</p></div></details>`;
+  if(ph.benefit) b += `<div class="benefit"><span class="b-lab">Co vám to přinese</span><span>${esc(ph.benefit)}</span></div>`;
+  return `<details id="faze-${i}" class="phase ${st.cls}"${open}>
+    <summary>
+      <span class="pnum">${ph.status==="done"?"✓":esc(ph.num)}</span>
+      <span class="ph-main">
+        <span class="ph-title">${esc(ph.phase)}</span>
+        <span class="ph-teaser">${esc(ph.benefit||"")}</span>
+      </span>
+      <span class="ph-right">
         ${chip}
-        <span class="pill ${esc(ph.status)}">${LABEL[ph.status]||""}</span>
-      </div>
-      ${ph.statusNote?`<div class="status-note">${esc(ph.statusNote)}</div>`:""}
-      <div class="item-cols phase-cols">
-        <div class="item-body">${(ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}</div>
-        <div class="item-extra">${right}</div>
-      </div>
-      ${ph.action?`<div class="action-note"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><br>${esc(ph.action)}</div></div>`:""}
-      ${benefitHTML(ph.benefit)}
-      ${ph.decision?decisionHTML(ph.decision):""}
-      ${ph.note?`<div class="phase-note"><strong>Jak doženeme konkurenci:</strong> ${esc(ph.note)}</div>`:""}
-    </div>
-  </section>`;
+        <span class="pill ${st.cls}">${esc(st.word)}</span>
+        <span class="chev" aria-hidden="true">&#9662;</span>
+      </span>
+    </summary>
+    <div class="ph-body">${b}</div>
+  </details>`;
 }
-safe(()=>{ $("plan").innerHTML = PLAN.map(phaseHTML).join(""); });
+safe(()=>{ $("plan").innerHTML = PLAN.map(phaseCard).join(""); });
 
+/* questions */
 safe(()=>{
-  $("questions").innerHTML = QUESTIONS.map((q,i)=>`
-    <div class="qcard">
-      <div class="qhead"><span class="qnum">${i+1}</span><h4>${esc(q.title)}</h4></div>
-      ${(q.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
-      ${q.options?`<ul class="opts">${q.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>`:""}
-    </div>`).join("");
+  $("questions").innerHTML = QUESTIONS.map((q,i)=>`<div class="qcard">
+    <div class="qhead"><span class="qnum">${i+1}</span><h4>${esc(q.title)}</h4></div>
+    ${(q.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+    ${(q.options&&q.options.length)?`<ul class="qopts">${q.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>`:""}
+  </div>`).join("");
 });
 
+/* AEO = quiet collapsed upcoming block */
 safe(()=>{
-  $("anchorNav").innerHTML = PLAN.map((ph,i)=>{
-    const num = (ph.num && ph.num!=="✓") ? `<span class="anum">${esc(ph.num)}</span>` : "";
-    return `<a href="#faze-${i+1}">${num}${esc(ph.nav || ph.phase)}</a>`;
-  }).join("") + `<a href="#otazky">Otázky</a><a href="#aeo">Budoucnost</a>`;
+  $("aeo").innerHTML = `<details class="aeo">
+    <summary>
+      <span class="aeo-ic">+</span>
+      <span class="aeo-main"><h3>Aby vás našla i umělá inteligence</h3><div class="aeo-sub">Návrh do budoucna, zatím to neřešíme</div></span>
+      <span class="pill todo">Návrh</span>
+      <span class="chev" aria-hidden="true">&#9662;</span>
+    </summary>
+    <div class="aeo-body">
+      ${(AEO_INTRO.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+      <div class="aeo-grid">${AEO.map(c=>`<div class="aeo-card"><h4>${esc(c.title)}</h4><p>${esc(c.body)}</p><div class="benefit"><span class="b-lab">Co vám to přinese</span><span>${esc(c.benefit)}</span></div></div>`).join("")}</div>
+    </div>
+  </details>`;
 });
 
-safe(()=>{ $("aeoIntro").innerHTML = introHTML(AEO_INTRO, "aeo"); });
-safe(()=>{ $("aeoGrid").innerHTML = featHTML(AEO); });
+/* clicking a roadmap node opens its phase */
+safe(()=>{
+  document.querySelectorAll(".rm").forEach(a=>a.addEventListener("click",()=>{
+    const t = document.querySelector(a.getAttribute("href"));
+    if(t && t.tagName==="DETAILS") t.open = true;
+  }));
+});
 </script>
 </body>
 </html>
