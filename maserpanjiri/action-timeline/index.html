@@ -131,15 +131,6 @@
   .updates li::before{content:"\2713"; position:absolute; left:0; top:0; color:var(--teal); font-weight:700;}
   .updates .u-foot{margin-top:13px; padding-top:12px; border-top:1px solid rgba(31,122,122,.22); font-size:.9rem; color:var(--ink);}
   .updates .u-intro{font-size:.91rem; color:var(--ink); margin-bottom:11px; font-weight:500;}
-  .kwch{margin-top:13px; padding-top:12px; border-top:1px solid rgba(31,122,122,.22); display:grid; gap:9px;}
-  .kwch-row{display:flex; gap:9px; flex-wrap:wrap; align-items:flex-start;}
-  .kwch-lab{font-family:'Sora',sans-serif; font-weight:700; font-size:.66rem; text-transform:uppercase; letter-spacing:.5px; padding:3px 9px; border-radius:999px; flex:0 0 auto; margin-top:1px;}
-  .kwch-lab.out{background:#f4e2df; color:#9e4030;}
-  .kwch-lab.in{background:var(--green-soft); color:var(--green);}
-  .kwch-terms{display:flex; flex-wrap:wrap; gap:6px;}
-  .term{font-size:.82rem; padding:2px 9px; border-radius:6px;}
-  .term.out{background:#f8ece9; color:#8a5148; text-decoration:line-through;}
-  .term.in{background:var(--green-soft); color:var(--green); font-weight:600;}
 
   /* benefit footer line (neutral, no color) */
   .benefit{margin-top:18px; padding-top:13px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:baseline;}
@@ -162,7 +153,15 @@
   .kwgroups{display:grid; gap:12px; margin-top:6px;}
   .kwg-h{font-family:'Sora',sans-serif; font-weight:600; font-size:.74rem; text-transform:uppercase; letter-spacing:.6px; color:var(--sand-text); margin-bottom:6px;}
   .kwl{display:flex; flex-wrap:wrap; gap:7px;}
-  .kw{font-size:.85rem; background:#fff; border:1px solid var(--line); border-radius:999px; padding:4px 11px; color:var(--ink);}
+  .kw{font-size:.85rem; background:#fff; border:1px solid var(--line); border-radius:999px; padding:4px 11px; color:var(--ink); display:inline-flex; align-items:center; gap:6px;}
+  .kw.kw-in{background:var(--green-soft); border-color:rgba(47,125,82,.35); color:var(--green); font-weight:600;}
+  .kw.kw-out{background:#f8ece9; border-color:rgba(158,64,48,.28); color:#8a5148; text-decoration:line-through;}
+  .kw .kw-tag{font-size:.6rem; text-transform:uppercase; letter-spacing:.4px; font-weight:700; background:var(--green); color:#fff; padding:1px 6px; border-radius:999px; text-decoration:none;}
+  .kwlegend{font-size:.82rem; color:var(--muted); margin:2px 0 10px; display:flex; flex-wrap:wrap; gap:14px;}
+  .kwlegend b{font-weight:600;}
+  .kwlegend .sw{display:inline-block; width:11px; height:11px; border-radius:3px; vertical-align:middle; margin-right:5px;}
+  .kwlegend .sw-in{background:var(--green-soft); border:1px solid rgba(47,125,82,.5);}
+  .kwlegend .sw-out{background:#f8ece9; border:1px solid rgba(158,64,48,.4);}
   .kwnote{font-size:.88rem; color:var(--muted); margin-top:12px;}
 
   /* questions */
@@ -286,12 +285,38 @@
 const UPDATED = "10. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
+/* items: "text" = ponecháno; {t,n:1} = navrhujeme přidat; {t,x:1} = navrhujeme vyřadit */
 const KEYWORDS = [
-  { group:"Bolavá záda, ztuhlá šíje a bederka", items:["masáž na bolest zad Praha","masáž na ztuhlou šíji Praha 1","masáž na zatuhlý krk Praha","masáž na bolest beder Praha","masáž zad a šíje Praha 1","hloubková masáž zad Praha centrum","bolest mezi lopatkama masáž Praha"] },
-  { group:"Konkrétní potíže (tenisový loket, bolavá ramena, zablokovaný krk)", items:["tenisový loket masáž Praha","masáž na bolavá ramena Praha","zablokovaný krk masáž Praha 1","zablokovaná bederka masáž Praha","masáž na bolest krční páteře Praha","masáž na uvolnění svalového napětí Praha","terapeutická masáž Praha centrum"] },
-  { group:"Napětí ze sezení a práce u počítače", items:["masáž na ztuhlý krk ze sezení Praha","masáž na bolavá záda od sezení Praha","masáž na ztuhlá ramena z kanceláře Praha 1","masáž na napětí mezi lopatkama z práce u PC","masáž pro lidi u počítače Praha 1","masáž pro kancelářské pracovníky Praha centrum"] },
-  { group:"Firmy a benefitní karty", items:["masáž na benefitní kartu Praha","masáž Pluxee Praha 1","masáž Edenred Praha centrum","firemní masáž Praha 1","masáž jako zaměstnanecký benefit Praha","masáž na benefity pro zaměstnance Praha 1","masáž Up Benefity / Benefit Plus Praha"] },
-  { group:"Vaše jméno a adresa", items:["Masér pan Jiří","Panjiří masáže","Panjiří","masér Soukenická Praha 1","masér Soukenická 8","masér Praha 1 centrum","Masérství pan Jiří Praha"] },
+  { group:"Bolavá záda, ztuhlá šíje a bederka", items:[
+    "masáž na bolest zad Praha","masáž na ztuhlou šíji Praha 1",
+    {t:"masáž na zatuhlý krk Praha",n:1},{t:"masáž na bolest beder Praha",n:1},
+    "masáž zad a šíje Praha 1","hloubková masáž zad Praha centrum",
+    {t:"bolest mezi lopatkama masáž Praha",n:1},
+  ] },
+  { group:"Konkrétní potíže (tenisový loket, bolavá ramena, zablokovaný krk)", items:[
+    {t:"tenisový loket masáž Praha",n:1},{t:"masáž na bolavá ramena Praha",n:1},
+    {t:"zablokovaný krk masáž Praha 1",n:1},{t:"zablokovaná bederka masáž Praha",n:1},
+    "masáž na bolest krční páteře Praha","masáž na uvolnění svalového napětí Praha","terapeutická masáž Praha centrum",
+    {t:"diagnostická masáž Praha",x:1},{t:"diagnosticko-fyzioterapeutická masáž",x:1},
+    {t:"masér pro zdravotnictví Praha",x:1},{t:"zdravotní masáž Praha 1 (jako hlavní slovo)",x:1},
+  ] },
+  { group:"Napětí ze sezení a práce u počítače", items:[
+    {t:"masáž na ztuhlý krk ze sezení Praha",n:1},{t:"masáž na bolavá záda od sezení Praha",n:1},
+    {t:"masáž na ztuhlá ramena z kanceláře Praha 1",n:1},{t:"masáž na napětí mezi lopatkama z práce u PC",n:1},
+    "masáž pro lidi u počítače Praha 1","masáž pro kancelářské pracovníky Praha centrum",
+    {t:"masáž na bolest krční páteře z práce u PC",x:1},
+  ] },
+  { group:"Firmy a benefitní karty", items:[
+    "masáž na benefitní kartu Praha",{t:"masáž Pluxee Praha 1",n:1},{t:"masáž Edenred Praha centrum",n:1},
+    "firemní masáž Praha 1","masáž jako zaměstnanecký benefit Praha",
+    {t:"masáž na benefity pro zaměstnance Praha 1",n:1},{t:"masáž Up Benefity / Benefit Plus Praha",n:1},
+    {t:"zdravotní masáž pro zaměstnance Praha 1",x:1},
+  ] },
+  { group:"Vaše jméno a adresa", items:[
+    "Masér pan Jiří","Panjiří masáže",{t:"Panjiří",n:1},
+    "masér Soukenická Praha 1",{t:"masér Soukenická 8",n:1},
+    "masér Praha 1 centrum",{t:"Masérství pan Jiří Praha",n:1},
+  ] },
 ];
 const KW_NOTE = "Klíčová slova níže jsou náš návrh podle Vaší zpětné vazby, zatím nic není nasazené. Navrhujeme je vést tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ navrhujeme podržet, protože se hledá, ale opatrně, jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ zatím necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ navrhujeme vypustit, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
 
@@ -379,10 +404,6 @@ const PLAN = [
         "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 chceme držet všude stejně, kvůli odlišení od druhého Jiřího.",
         "Vaši etickou obavu bereme vážně a navrhujeme přidat na web poctivou větu, že nejste zdravotnické zařízení.",
       ],
-      kwChanges:{
-        removed:["zdravotní masáž Praha 1 (jako hlavní slovo)","diagnostická masáž Praha","diagnosticko-fyzioterapeutická masáž","masér pro zdravotnictví Praha","zdravotní masáž pro zaměstnance Praha 1"],
-        added:["tenisový loket masáž Praha","masáž na bolavá ramena Praha","zablokovaný krk masáž Praha 1","zablokovaná bederka masáž Praha","bolest mezi lopatkama masáž Praha","masáž na ztuhlý krk ze sezení Praha","masáž na ztuhlá ramena z kanceláře Praha 1","masáž Pluxee / Edenred / Up Benefity / Benefit Plus Praha"],
-      },
       foot:"Jak by texty na webu zněly: web by vedl problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody by zůstal uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje. Na web bychom dali i poctivou větu: „Nejsem zdravotnické zařízení, jsem masér se zdravotním zázemím.“",
     },
     action:"Projděte prosím navržená klíčová slova a úpravy níže a dejte nám vědět, co odsouhlasíte a co ještě změnit. Klidně si k tomu zavoláme, jak jste navrhoval.",
@@ -500,9 +521,16 @@ safe(()=>{
 });
 
 /* phase cards */
+function kwChip(k){
+  if(typeof k === "string") return `<span class="kw">${esc(k)}</span>`;
+  if(k.x) return `<span class="kw kw-out">${esc(k.t)}</span>`;
+  if(k.n) return `<span class="kw kw-in">${esc(k.t)}<span class="kw-tag">nové</span></span>`;
+  return `<span class="kw">${esc(k.t)}</span>`;
+}
 function kwBlock(){
-  return `<details class="mini"><summary>Zobrazit navržená klíčová slova</summary><div class="mini-body">
-    <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(k=>`<span class="kw">${esc(k)}</span>`).join("")}</div></div>`).join("")}</div>
+  return `<details class="mini" open><summary>Navržená klíčová slova (zvýrazněné změny)</summary><div class="mini-body">
+    <p class="kwlegend"><span><span class="sw sw-in"></span><b>zeleně „nové“</b> = navrhujeme přidat</span><span><span class="sw sw-out"></span><b>přeškrtnuté</b> = navrhujeme vyřadit</span></p>
+    <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(kwChip).join("")}</div></div>`).join("")}</div>
     <p class="kwnote">${esc(KW_NOTE)}</p>
     <p class="kwnote"><strong>Stav: návrh podle Vaší zpětné vazby, čeká na Vaše odsouhlasení. Zatím nic není na webu.</strong></p>
   </div></details>`;
@@ -527,10 +555,6 @@ function phaseCard(ph,i){
     let ub = `<div class="updates"><div class="u-head"><span class="u-badge">Návrh k odsouhlasení</span>${esc(u.title)}</div>`;
     if(u.intro) ub += `<p class="u-intro">${esc(u.intro)}</p>`;
     ub += `<ul>${u.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`;
-    if(u.kwChanges){
-      const line = (lab,cls,arr) => `<div class="kwch-row"><span class="kwch-lab ${cls}">${lab}</span><span class="kwch-terms">${arr.map(t=>`<span class="term ${cls}">${esc(t)}</span>`).join("")}</span></div>`;
-      ub += `<div class="kwch"><div class="sub-label" style="margin:0 0 2px;">Změny v klíčových slovech oproti minulé verzi</div>${line("Vyřazujeme","out",u.kwChanges.removed)}${line("Přidáváme","in",u.kwChanges.added)}</div>`;
-    }
     if(u.foot) ub += `<div class="u-foot">${esc(u.foot)}</div>`;
     ub += `</div>`;
     b += ub;
