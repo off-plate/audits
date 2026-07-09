@@ -214,7 +214,7 @@
 <!-- KDE JSME TEĎ: roadmap = přehled i menu -->
 <section class="status"><div class="wrap">
   <div class="eyebrow">Kde jsme teď</div>
-  <p id="statusLine">Hotový máme audit, měření, profil na Googlu i technické SEO. Teď čekáme na dvě věci: až Google profil ověří, a až nám potvrdíte navržená klíčová slova. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
+  <p id="statusLine">Hotový máme audit, měření, ověřený profil na Googlu i technické SEO. Teď zbývá jedna věc: potvrdit navržená klíčová slova, ať se pustíme do obsahového SEO a začneme vás tlačit před konkurenci. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
   <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
   <a class="needyou" id="needYou" href="#otazky"></a>
 </div></section>
@@ -264,7 +264,7 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "13. 6. 2026";
+const UPDATED = "9. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
 const KEYWORDS = [
@@ -308,11 +308,11 @@ const PLAN = [
     ],
     benefit:"Víme přesně, kde začít a proč. Žádný krok naslepo." },
   {
-    num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Náročnost: 1 až 2 dny", status:"active", wait:true, price:"2 000 Kč",
-    link:{url:"https://www.google.com/search?q=Mas%C3%A9r+pan+Ji%C5%99%C3%AD&stick=H4sIAAAAAAAA_-NgU1I1qDAxN0iyNLW0NLQ0S7U0sLS0MqhIMkszTLK0MDG1MEkxMzVNWcQq6JtYfHhlkUJBYp6CV-bRmYfXAgBW_LzGPQAAAA&hl=en&mat=Ce14Wuf4pSjDElYBa0lj_xYa2e5qwwhcVyh--GvNfLEI0E_Wno-iioyB7T9OIo0GsdWfJi1jXG-JTnj33-DcqElEMggd89utcczCdlTH6eUKEj-QVfSW8uh_xsZNmIQKwg&authuser=0", label:"Otevřít svůj profil na Googlu"},
-    statusNote:"Profil je hotový a vyplněný: název Masér pan Jiří, otevírací doba a odkaz na web i na rezervaci. Připojili jsme i vaše recenze ze Slevomatu. Teď čekáme, až ho Google ověří, to trvá několik týdnů a nedá se uspíšit. Proto je tahle fáze pořád otevřená, i když pozdější věci, třeba měření, už máme za sebou.",
+    num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Hotovo", status:"done", price:"2 000 Kč",
+    link:{url:"https://www.google.com/search?q=Mas%C3%A9r+pan+Ji%C5%99%C3%AD", label:"Otevřít svůj profil na Googlu"},
+    statusNote:"Hotovo. Google profil je ověřený a schválený, od teď vás lidé najdou na Googlu i v Mapách, když zadají Masér pan Jiří. Profil má název, otevírací dobu, odkaz na web i na rezervaci a připojené recenze ze Slevomatu. Fotky ještě vyměníme za nové a lepší, ale dohledatelný jste už teď. Jak vysoko se budete ukazovat, poroste s návštěvností, recenzemi a reklamou. Hlavní je, že od téhle chvíle jste konkurenceschopný vůči druhému masérovi Jiřímu.",
     body:["Profil firmy na Googlu se ukáže na Mapách a vždy, když někdo ve vašem okolí hledá maséra. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto jím celý plán začínáme.",
-      "Naskočit naplno ale chvíli trvá. Google si nejdřív ověří, že firma existuje a je relevantní, a pomůžou mu k tomu i úpravy v dalších fázích. Tak vyhledávání funguje, je to běh na delší trať. Profil je přitom zdarma a je to úplný základ, bez kterého vás na Googlu ani v Mapách nikdo neuvidí."],
+      "Naskočit naplno ale chvíli trvá. Google potřebuje čas, aby firmu vyhodnotil jako relevantní, a pomůžou mu k tomu i úpravy v dalších fázích. Tak vyhledávání funguje, je to běh na delší trať. Profil je přitom zdarma a je to úplný základ, bez kterého vás na Googlu ani v Mapách nikdo neuvidí."],
     points:[
       "Založení a vyplnění profilu: název, otevírací doba, odkaz na web i na rezervaci",
       "Správné umístění na Mapách, Soukenická 8, Praha 1",
@@ -332,16 +332,18 @@ const PLAN = [
     note:"Ve vyhledávání je dnes před vámi jiný masér Jiří z Prahy 1, hlavně proto, že má kompletní profil a přes osmdesát hodnocení. Dá se to dohnat, je to otázka pořádku a času. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a opravdová odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu dáváme dopředu a k ní postupně sbíráme hodnocení od spokojených klientů." },
   {
     num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"done", price:"2 000 Kč",
-    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou připojené a měření už běží. Vidíme, kolik lidí klikne na tlačítko rezervace, odkud návštěvníci jsou, na jakém zařízení web prohlížejí a přibližně i jejich věk.",
-    action:"Chybí poslední krok na vaší straně: pošlete nám svou gmailovou adresu a přidáme jí přístup do Google Analytics, ať si data prohlížíte sám.",
+    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou připojené a měření běží. Máme za sebou prvních 30 dní sbírání dat a už z nich jde vidět pár užitečných věcí.",
+    action:"Poslali jsme pozvánku k přístupu do Google Analytics na váš e-mail maserpanjiri@gmail.com. Stačí ji potvrdit a data si prohlédnete sám, kdykoli budete chtít.",
     body:["Nasadili jsme na web nástroje od Googlu, které počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka za web, jen místo peněz na ní vidíte zájem lidí. Bez těch dat se nedá poznat, co funguje a co ne.",
-      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Tím poznáte, kolik lidí o rezervaci stojí a jací to jsou, a později i to, jak vám fungují online kampaně."],
+      "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Tím poznáte, kolik lidí o rezervaci stojí, a později i to, jak vám fungují online kampaně.",
+      "První čísla za 30 dní (9. 6. až 8. 7.): web si otevřelo 151 nových lidí a 23 se jich vrátilo. Nejvíc jich bylo z Prahy. Chodí hlavně napřímo a přes vyhledávání na Googlu, dál přes Slevomat, Seznam, Facebook a Instagram. Nejčtenější je úvodní stránka, ceník a stránka O mně. A hlavně: na tlačítko rezervace lidé klikli 83krát, přesně tuhle akci teď sledujeme.",
+      "Na podrobnější rozpad návštěvníků podle věku a pohlaví je zatím brzy. Aby čísla byla spolehlivá, potřebuje Google nasbírat víc dat, doplníme je, jakmile jich bude dost."],
     points:[
       "Google Analytics i Google Tag Manager připojené a měřící",
       "Přehled návštěvnosti, kdo přišel a co na webu dělal",
       "Měření prokliků na tlačítko rezervace, kolik lidí a jak často kliká",
       "Později i přehled, jak vám fungují online kampaně",
-      "Zbývá jen vaše gmailová adresa pro přístup do Google Analytics",
+      "Přístup do Google Analytics jsme vám poslali na maserpanjiri@gmail.com",
     ],
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co vám reálně přivádí klienty." },
   {
