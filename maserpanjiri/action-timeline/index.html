@@ -122,6 +122,15 @@
   .action strong{display:block; font-family:'Sora',sans-serif; font-size:.95rem; color:#fff; margin-bottom:2px;}
   .action p{font-size:.92rem; color:rgba(247,245,240,.9); margin:0 !important; max-width:none;}
 
+  /* "co jsme upravili" highlight (teal) */
+  .updates{background:#eaf4f3; border:1px solid rgba(31,122,122,.3); border-left:4px solid var(--teal); border-radius:12px; padding:15px 17px; margin-top:16px;}
+  .updates .u-head{font-family:'Sora',sans-serif; font-weight:700; font-size:1rem; color:var(--teal); display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin-bottom:11px;}
+  .updates .u-badge{font-size:.64rem; text-transform:uppercase; letter-spacing:.6px; background:var(--teal); color:#fff; padding:3px 9px; border-radius:999px; font-weight:600;}
+  .updates ul{list-style:none; display:grid; gap:9px;}
+  .updates li{position:relative; padding-left:25px; font-size:.93rem; color:var(--ink);}
+  .updates li::before{content:"\2713"; position:absolute; left:0; top:0; color:var(--teal); font-weight:700;}
+  .updates .u-foot{margin-top:13px; padding-top:12px; border-top:1px solid rgba(31,122,122,.22); font-size:.9rem; color:var(--ink);}
+
   /* benefit footer line (neutral, no color) */
   .benefit{margin-top:18px; padding-top:13px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:baseline;}
   .benefit .b-lab{font-family:'Sora',sans-serif; font-weight:600; font-size:.7rem; text-transform:uppercase; letter-spacing:.7px; color:var(--sand-text); white-space:nowrap;}
@@ -264,17 +273,17 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "9. 7. 2026";
+const UPDATED = "10. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
 const KEYWORDS = [
-  { group:"Lidé s bolestí zad a šíje", items:["masáž na bolesti zad Praha","masáž na bolest šíje Praha","masáž na ztuhlou šíji","hloubková masáž zad a šíje Praha","uvolnění svalového napětí"] },
-  { group:"Zdravotní a diagnostická masáž (vaše odlišení)", items:["zdravotní masáž Praha 1","terapeutická masáž Praha centrum","diagnostická masáž Praha","diagnosticko-fyzioterapeutická masáž","masér pro zdravotnictví Praha"] },
-  { group:"Napětí ze sedavé práce a počítače", items:["masáž na bolest zad od sezení","masáž zad pro lidi u počítače","masáž na bolest krční páteře z práce u PC","masáž pro kancelářské pracovníky Praha 1"] },
-  { group:"Firmy a benefitní karty", items:["masáž na benefitní karty Praha (Edenred, Pluxee, Up, Benefit Plus)","firemní masáž Praha","masáž jako zaměstnanecký benefit","zdravotní masáž pro zaměstnance Praha 1"] },
-  { group:"Vaše jméno a adresa", items:["Masér pan Jiří","Panjiří masáže","masér Soukenická Praha 1","masér centrum Prahy"] },
+  { group:"Bolavá záda, ztuhlá šíje a bederka", items:["masáž na bolest zad Praha","masáž na ztuhlou šíji Praha 1","masáž na zatuhlý krk Praha","masáž na bolest beder Praha","masáž zad a šíje Praha 1","hloubková masáž zad Praha centrum","bolest mezi lopatkama masáž Praha"] },
+  { group:"Konkrétní potíže (tenisový loket, bolavá ramena, zablokovaný krk)", items:["tenisový loket masáž Praha","masáž na bolavá ramena Praha","zablokovaný krk masáž Praha 1","zablokovaná bederka masáž Praha","masáž na bolest krční páteře Praha","masáž na uvolnění svalového napětí Praha","terapeutická masáž Praha centrum"] },
+  { group:"Napětí ze sezení a práce u počítače", items:["masáž na ztuhlý krk ze sezení Praha","masáž na bolavá záda od sezení Praha","masáž na ztuhlá ramena z kanceláře Praha 1","masáž na napětí mezi lopatkama z práce u PC","masáž pro lidi u počítače Praha 1","masáž pro kancelářské pracovníky Praha centrum"] },
+  { group:"Firmy a benefitní karty", items:["masáž na benefitní kartu Praha","masáž Pluxee Praha 1","masáž Edenred Praha centrum","firemní masáž Praha 1","masáž jako zaměstnanecký benefit Praha","masáž na benefity pro zaměstnance Praha 1","masáž Up Benefity / Benefit Plus Praha"] },
+  { group:"Vaše jméno a adresa", items:["Masér pan Jiří","Panjiří masáže","Panjiří","masér Soukenická Praha 1","masér Soukenická 8","masér Praha 1 centrum","Masérství pan Jiří Praha"] },
 ];
-const KW_NOTE = "Soustředíme se na lidi, kteří hledají řešení konkrétního problému, tedy bolest zad, ztuhlou šíji nebo napětí ze sezení, ne na ty, kdo hledají levný relax. V centru Prahy je relaxačních a wellness studií mnoho a soutěží hlavně cenou. Vaše síla je zdravotní a diagnostický přístup a doložené zázemí z lázní a kliniky, proto cílíme na slova jako zdravotní a diagnostická masáž a vyhýbáme se obecným a levným výrazům. Je to užší skupina lidí, ale jsou to přesně ti, kteří u vás zůstanou a vrátí se. K vašemu jménu: v Praze 1 působí i jiný masér Jiří, proto vás všude uvádíme jako Masér pan Jiří nebo Panjiří a vždy přidáváme adresu Soukenická a slovo zdravotní nebo diagnostická, aby bylo jasné, že jste to vy a v čem jste jiný.";
+const KW_NOTE = "Klíčová slova teď vedeme tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ držíme, protože se hledá, ale opatrně. Používáme ji jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ teď necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ pouštíme úplně, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
 
 const QUESTIONS = [
   { title:"Rezervace přes termino.eu",
@@ -347,8 +356,21 @@ const PLAN = [
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co vám reálně přivádí klienty." },
   {
     num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true,
-    statusNote:"Technickou stránku SEO máme hotovou. Místo rozbitého Rank Math jsme nasadili Yoast, nastavili jednotné základní SEO pro celý web, sjednotili značku Masér pan Jiří a dopsali texty, které se o vás ukazují ve vyhledávání. Zbývá poslední věc a ta je na vás: potvrdit navržená klíčová slova, ať je doladíme přímo na webu.",
-    action:"Teď je řada na vás: projděte navržená klíčová slova níže a označte, co sedí a co naopak neděláte.",
+    statusNote:"Technické SEO máme hotové. Klíčová slova jsme podle Vaší zpětné vazby zrevidovali, texty jsme přepsali do Vaší reálné mluvy a citlivá slova jsme vyřešili podle Vašich připomínek. Verze je teď připravená k finálnímu odsouhlasení. Čekáme na Vaše OK, potom nasazujeme.",
+    updates:{
+      title:"Co jsme upravili podle Vaší zpětné vazby",
+      points:[
+        "Přestali jsme cílit na slovo „diagnostická“, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody do budoucna.",
+        "Slovo „fyzioterapeutická“ pouštíme úplně, protože „fyzioterapeut“ je chráněný zdravotnický titul, kterým nejste. Zůstane jen měkké „s prvky fyzioterapie“ jako popis techniky.",
+        "„Zdravotní masáž“ jsme podrželi, ale sundali z hlavního nadpisu. Používáme ji jen spojenou s konkrétním problémem a v otázkách a odpovědích.",
+        "Texty jsme přepsali do Vaší reálné mluvy: bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket, napětí ze sezení.",
+        "Firemní a benefitní stránka dostala vlastní prostor a jmenuje Vaše karty: Pluxee, Edenred, Up Benefity, Benefit Plus.",
+        "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 držíme všude stejně, kvůli odlišení od druhého Jiřího.",
+        "Vaši etickou obavu jsme vzali vážně a přidáme na web poctivou větu, že nejste zdravotnické zařízení.",
+      ],
+      foot:"Jak budou znít texty na webu: web povede problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody zůstává uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje. Na web dáme i poctivou větu: „Nejsem zdravotnické zařízení, jsem masér se zdravotním zázemím.“",
+    },
+    action:"Projděte prosím zrevidovaná klíčová slova níže a dejte nám finální OK, nebo napište, co ještě upravit. Klidně si k tomu zavoláme, jak jste navrhoval.",
     checkup:{
       intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Konkrétně:",
       points:[
@@ -467,7 +489,7 @@ function kwBlock(){
   return `<details class="mini"><summary>Zobrazit navržená klíčová slova</summary><div class="mini-body">
     <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(k=>`<span class="kw">${esc(k)}</span>`).join("")}</div></div>`).join("")}</div>
     <p class="kwnote">${esc(KW_NOTE)}</p>
-    <p class="kwnote"><strong>Stav všech slov: Navrženo, čeká na vaše schválení.</strong></p>
+    <p class="kwnote"><strong>Stav: zrevidováno podle Vaší zpětné vazby, čeká na finální OK.</strong></p>
   </div></details>`;
 }
 function decisionBlock(d){
@@ -485,6 +507,7 @@ function phaseCard(ph,i){
              : (ph.price ? `<span class="chip price">${esc(ph.price)}</span>` : "");
   let b = "";
   if(ph.statusNote) b += `<p class="statusnote">${esc(ph.statusNote)}</p>`;
+  if(ph.updates) b += `<div class="updates"><div class="u-head"><span class="u-badge">Aktualizováno 10. 7.</span>${esc(ph.updates.title)}</div><ul>${ph.updates.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>${ph.updates.foot?`<div class="u-foot">${esc(ph.updates.foot)}</div>`:""}</div>`;
   if(ph.link) b += `<a class="ph-link" href="${esc(ph.link.url)}" target="_blank" rel="noopener">${esc(ph.link.label)} &rarr;</a>`;
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
