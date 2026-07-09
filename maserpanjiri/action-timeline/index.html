@@ -130,6 +130,16 @@
   .updates li{position:relative; padding-left:25px; font-size:.93rem; color:var(--ink);}
   .updates li::before{content:"\2713"; position:absolute; left:0; top:0; color:var(--teal); font-weight:700;}
   .updates .u-foot{margin-top:13px; padding-top:12px; border-top:1px solid rgba(31,122,122,.22); font-size:.9rem; color:var(--ink);}
+  .updates .u-intro{font-size:.91rem; color:var(--ink); margin-bottom:11px; font-weight:500;}
+  .kwch{margin-top:13px; padding-top:12px; border-top:1px solid rgba(31,122,122,.22); display:grid; gap:9px;}
+  .kwch-row{display:flex; gap:9px; flex-wrap:wrap; align-items:flex-start;}
+  .kwch-lab{font-family:'Sora',sans-serif; font-weight:700; font-size:.66rem; text-transform:uppercase; letter-spacing:.5px; padding:3px 9px; border-radius:999px; flex:0 0 auto; margin-top:1px;}
+  .kwch-lab.out{background:#f4e2df; color:#9e4030;}
+  .kwch-lab.in{background:var(--green-soft); color:var(--green);}
+  .kwch-terms{display:flex; flex-wrap:wrap; gap:6px;}
+  .term{font-size:.82rem; padding:2px 9px; border-radius:6px;}
+  .term.out{background:#f8ece9; color:#8a5148; text-decoration:line-through;}
+  .term.in{background:var(--green-soft); color:var(--green); font-weight:600;}
 
   /* benefit footer line (neutral, no color) */
   .benefit{margin-top:18px; padding-top:13px; border-top:1px solid var(--line); display:flex; gap:10px; flex-wrap:wrap; align-items:baseline;}
@@ -283,7 +293,7 @@ const KEYWORDS = [
   { group:"Firmy a benefitní karty", items:["masáž na benefitní kartu Praha","masáž Pluxee Praha 1","masáž Edenred Praha centrum","firemní masáž Praha 1","masáž jako zaměstnanecký benefit Praha","masáž na benefity pro zaměstnance Praha 1","masáž Up Benefity / Benefit Plus Praha"] },
   { group:"Vaše jméno a adresa", items:["Masér pan Jiří","Panjiří masáže","Panjiří","masér Soukenická Praha 1","masér Soukenická 8","masér Praha 1 centrum","Masérství pan Jiří Praha"] },
 ];
-const KW_NOTE = "Klíčová slova teď vedeme tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ držíme, protože se hledá, ale opatrně. Používáme ji jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ teď necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ pouštíme úplně, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
+const KW_NOTE = "Klíčová slova níže jsou náš návrh podle Vaší zpětné vazby, zatím nic není nasazené. Navrhujeme je vést tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ navrhujeme podržet, protože se hledá, ale opatrně, jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ zatím necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ navrhujeme vypustit, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
 
 const QUESTIONS = [
   { title:"Rezervace přes termino.eu",
@@ -356,21 +366,26 @@ const PLAN = [
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co vám reálně přivádí klienty." },
   {
     num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true,
-    statusNote:"Technické SEO máme hotové. Klíčová slova jsme podle Vaší zpětné vazby zrevidovali, texty jsme přepsali do Vaší reálné mluvy a citlivá slova jsme vyřešili podle Vašich připomínek. Verze je teď připravená k finálnímu odsouhlasení. Čekáme na Vaše OK, potom nasazujeme.",
+    statusNote:"Technické SEO máme hotové. Na základě Vaší zpětné vazby jsme připravili návrh úprav klíčových slov a textů. Zatím je to jenom návrh, nic z toho ještě není na webu. Projděte ho prosím níže a dejte nám vědět, co sedí a co ještě upravit. Jakmile to odsouhlasíte, zapracujeme to.",
     updates:{
-      title:"Co jsme upravili podle Vaší zpětné vazby",
+      title:"Návrhy úprav podle Vaší zpětné vazby",
+      intro:"Tohle jsou navržené změny na základě Vašich připomínek. Zatím nic z toho není na webu, čekáme na Vaše odsouhlasení.",
       points:[
-        "Přestali jsme cílit na slovo „diagnostická“, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody do budoucna.",
-        "Slovo „fyzioterapeutická“ pouštíme úplně, protože „fyzioterapeut“ je chráněný zdravotnický titul, kterým nejste. Zůstane jen měkké „s prvky fyzioterapie“ jako popis techniky.",
-        "„Zdravotní masáž“ jsme podrželi, ale sundali z hlavního nadpisu. Používáme ji jen spojenou s konkrétním problémem a v otázkách a odpovědích.",
-        "Texty jsme přepsali do Vaší reálné mluvy: bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket, napětí ze sezení.",
-        "Firemní a benefitní stránka dostala vlastní prostor a jmenuje Vaše karty: Pluxee, Edenred, Up Benefity, Benefit Plus.",
-        "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 držíme všude stejně, kvůli odlišení od druhého Jiřího.",
-        "Vaši etickou obavu jsme vzali vážně a přidáme na web poctivou větu, že nejste zdravotnické zařízení.",
+        "Navrhujeme přestat cílit na slovo „diagnostická“, protože ho lidé do vyhledávače nepíšou. Necháme si ho jako název Vaší metody do budoucna.",
+        "Navrhujeme vypustit slovo „fyzioterapeutická“, protože „fyzioterapeut“ je chráněný zdravotnický titul, kterým nejste. V textech by zůstalo jen měkké „s prvky fyzioterapie“ jako popis techniky.",
+        "„Zdravotní masáž“ navrhujeme podržet, ale sundat z hlavního nadpisu. Použili bychom ji jen spojenou s konkrétním problémem a v otázkách a odpovědích.",
+        "Navrhujeme přepsat texty do Vaší reálné mluvy: bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket, napětí ze sezení.",
+        "Navrhujeme dát firemní a benefitní stránce vlastní prostor a jmenovat Vaše karty: Pluxee, Edenred, Up Benefity, Benefit Plus.",
+        "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 chceme držet všude stejně, kvůli odlišení od druhého Jiřího.",
+        "Vaši etickou obavu bereme vážně a navrhujeme přidat na web poctivou větu, že nejste zdravotnické zařízení.",
       ],
-      foot:"Jak budou znít texty na webu: web povede problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody zůstává uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje. Na web dáme i poctivou větu: „Nejsem zdravotnické zařízení, jsem masér se zdravotním zázemím.“",
+      kwChanges:{
+        removed:["zdravotní masáž Praha 1 (jako hlavní slovo)","diagnostická masáž Praha","diagnosticko-fyzioterapeutická masáž","masér pro zdravotnictví Praha","zdravotní masáž pro zaměstnance Praha 1"],
+        added:["tenisový loket masáž Praha","masáž na bolavá ramena Praha","zablokovaný krk masáž Praha 1","zablokovaná bederka masáž Praha","bolest mezi lopatkama masáž Praha","masáž na ztuhlý krk ze sezení Praha","masáž na ztuhlá ramena z kanceláře Praha 1","masáž Pluxee / Edenred / Up Benefity / Benefit Plus Praha"],
+      },
+      foot:"Jak by texty na webu zněly: web by vedl problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody by zůstal uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje. Na web bychom dali i poctivou větu: „Nejsem zdravotnické zařízení, jsem masér se zdravotním zázemím.“",
     },
-    action:"Projděte prosím zrevidovaná klíčová slova níže a dejte nám finální OK, nebo napište, co ještě upravit. Klidně si k tomu zavoláme, jak jste navrhoval.",
+    action:"Projděte prosím navržená klíčová slova a úpravy níže a dejte nám vědět, co odsouhlasíte a co ještě změnit. Klidně si k tomu zavoláme, jak jste navrhoval.",
     checkup:{
       intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Konkrétně:",
       points:[
@@ -489,7 +504,7 @@ function kwBlock(){
   return `<details class="mini"><summary>Zobrazit navržená klíčová slova</summary><div class="mini-body">
     <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(k=>`<span class="kw">${esc(k)}</span>`).join("")}</div></div>`).join("")}</div>
     <p class="kwnote">${esc(KW_NOTE)}</p>
-    <p class="kwnote"><strong>Stav: zrevidováno podle Vaší zpětné vazby, čeká na finální OK.</strong></p>
+    <p class="kwnote"><strong>Stav: návrh podle Vaší zpětné vazby, čeká na Vaše odsouhlasení. Zatím nic není na webu.</strong></p>
   </div></details>`;
 }
 function decisionBlock(d){
@@ -507,7 +522,19 @@ function phaseCard(ph,i){
              : (ph.price ? `<span class="chip price">${esc(ph.price)}</span>` : "");
   let b = "";
   if(ph.statusNote) b += `<p class="statusnote">${esc(ph.statusNote)}</p>`;
-  if(ph.updates) b += `<div class="updates"><div class="u-head"><span class="u-badge">Aktualizováno 10. 7.</span>${esc(ph.updates.title)}</div><ul>${ph.updates.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>${ph.updates.foot?`<div class="u-foot">${esc(ph.updates.foot)}</div>`:""}</div>`;
+  if(ph.updates){
+    const u = ph.updates;
+    let ub = `<div class="updates"><div class="u-head"><span class="u-badge">Návrh k odsouhlasení</span>${esc(u.title)}</div>`;
+    if(u.intro) ub += `<p class="u-intro">${esc(u.intro)}</p>`;
+    ub += `<ul>${u.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`;
+    if(u.kwChanges){
+      const line = (lab,cls,arr) => `<div class="kwch-row"><span class="kwch-lab ${cls}">${lab}</span><span class="kwch-terms">${arr.map(t=>`<span class="term ${cls}">${esc(t)}</span>`).join("")}</span></div>`;
+      ub += `<div class="kwch"><div class="sub-label" style="margin:0 0 2px;">Změny v klíčových slovech oproti minulé verzi</div>${line("Vyřazujeme","out",u.kwChanges.removed)}${line("Přidáváme","in",u.kwChanges.added)}</div>`;
+    }
+    if(u.foot) ub += `<div class="u-foot">${esc(u.foot)}</div>`;
+    ub += `</div>`;
+    b += ub;
+  }
   if(ph.link) b += `<a class="ph-link" href="${esc(ph.link.url)}" target="_blank" rel="noopener">${esc(ph.link.label)} &rarr;</a>`;
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
