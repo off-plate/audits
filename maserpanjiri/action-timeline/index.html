@@ -282,7 +282,7 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "10. 7. 2026";
+const UPDATED = "11. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
 /* items: "text" = ponecháno; {t,n:1} = navrhujeme přidat; {t,x:1} = navrhujeme vyřadit */
@@ -354,7 +354,7 @@ const PLAN = [
   {
     num:"1", nav:"Google profil", phase:"Fáze 1: Nastavení Google profilu", when:"Hotovo", status:"done", price:"2 000 Kč",
     link:{url:"https://www.google.com/search?q=Mas%C3%A9r+pan+Ji%C5%99%C3%AD", label:"Otevřít svůj profil na Googlu"},
-    statusNote:"Hotovo. Google profil je ověřený a schválený, od teď vás lidé najdou na Googlu i v Mapách, když zadají Masér pan Jiří. Profil má název, otevírací dobu, odkaz na web i na rezervaci a připojené recenze ze Slevomatu. Fotky ještě vyměníme za nové a lepší, ale dohledatelný jste už teď. Jak vysoko se budete ukazovat, poroste s návštěvností, recenzemi a reklamou. Hlavní je, že od téhle chvíle jste konkurenceschopný vůči druhému masérovi Jiřímu.",
+    statusNote:"Hotovo. Google profil je ověřený a schválený, od teď vás lidé najdou na Googlu i v Mapách, když zadají Masér pan Jiří. Profil má název, otevírací dobu, odkaz na web i na rezervaci a připojené recenze ze Slevomatu. Nové fotky z focení jsme na profil nahráli, Google je teď ověřuje a měly by naskočit během chvíle. Dohledatelný jste už teď. Jak vysoko se budete ukazovat, poroste s návštěvností, recenzemi a reklamou. Hlavní je, že od téhle chvíle jste konkurenceschopný vůči druhému masérovi Jiřímu.",
     body:["Profil firmy na Googlu se ukáže na Mapách a vždy, když někdo ve vašem okolí hledá maséra. Lidé hned vidí adresu, otevírací dobu, recenze, fotky a odkaz na rezervaci. Proto jím celý plán začínáme.",
       "Naskočit naplno ale chvíli trvá. Google potřebuje čas, aby firmu vyhodnotil jako relevantní, a pomůžou mu k tomu i úpravy v dalších fázích. Tak vyhledávání funguje, je to běh na delší trať. Profil je přitom zdarma a je to úplný základ, bez kterého vás na Googlu ani v Mapách nikdo neuvidí."],
     points:[
@@ -460,6 +460,25 @@ const PLAN = [
       "Průběžné měření ceny za jednu rezervaci a ladění reklamy",
     ],
     benefit:"Budete víc vidět pod klíčovými slovy, která vaši potenciální klienti hledají." },
+  {
+    num:"7", nav:"Recenze", phase:"Fáze 7: Sběr Google recenzí přes QR kód", when:"Návrh do budoucna", status:"todo", flag:"Nový návrh",
+    body:["Recenze jsou to hlavní, čím dnes druhý masér Jiří vede. Připravíme jednoduchý způsob, jak je od spokojených klientů sbírat. Kartička nebo stojánek s QR kódem, který po sezení otevře rovnou vaše hodnocení na Googlu. Klient jen naskenuje telefonem a napíše pár vět."],
+    points:[
+      "QR kód, který vede přímo na napsání Google recenze",
+      "Kartička nebo stojánek do provozovny",
+      "Krátký návod, kdy a jak o recenzi říct",
+      "Postupné dohnání náskoku konkurence v počtu hodnocení",
+    ],
+    benefit:"Víc recenzí znamená vyšší pozici v Mapách a víc důvěry u nových klientů." },
+  {
+    num:"8", nav:"Logo", phase:"Fáze 8: Nové standardizované logo", when:"Návrh do budoucna", status:"todo", flag:"Nový návrh",
+    body:["Navrhneme nové, jednotné logo, které bude vypadat stejně dobře na webu, na Google profilu, na kartičce s QR kódem i na tiskovinách. Jedna verze pro všechno, ať vás lidé poznají na první pohled."],
+    points:[
+      "Návrh nového loga v několika variantách",
+      "Jednotná podoba pro web, Google, tisk i sociální sítě",
+      "Podklady ve všech potřebných formátech",
+    ],
+    benefit:"Jednotný a profesionální vzhled, který si lidé spojí právě s vámi." },
 ];
 
 const AEO_INTRO = {
