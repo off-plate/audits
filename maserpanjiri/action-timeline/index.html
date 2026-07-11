@@ -255,7 +255,7 @@
 
 <!-- NÁVRH DO BUDOUCNA -->
 <section><div class="wrap">
-  <div class="eyebrow">Návrh do budoucna</div>
+  <div class="eyebrow">Návrhy do budoucna</div>
   <div id="aeo"></div>
 </div></section>
 
@@ -321,22 +321,11 @@ const KEYWORDS = [
 const KW_NOTE = "Klíčová slova níže jsou náš návrh podle Vaší zpětné vazby, zatím nic není nasazené. Navrhujeme je vést tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ navrhujeme podržet, protože se hledá, ale opatrně, jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ zatím necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ navrhujeme vypustit, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
 
 const QUESTIONS = [
-  { title:"Rezervace přes termino.eu",
-    body:["Všimli jsme si, že rezervace vedete přes službu termino.eu, která zájemce odešle na úplně jiný web. Každý takový odskok pryč může člověka cestou ztratit, proto je lepší ho nikam neposílat. Rezervaci přitom zvládneme udělat přehledně přímo na vašem webu na WordPressu.",
-      "Drží vás u termino.eu nějaký důvod, třeba napojení na kalendář nebo platby, nebo můžeme rezervaci přesunout přímo na váš web?"] },
-  { title:"Fotky na Google profil",
-    body:["Na Google profil by se hodily jedna až dvě dobré fotky vás v práci. Profilům s fotkami lidé víc věří a Google je radši ukazuje. Zkusili jsme vzít fotky z webu, jenže jsou dost tmavé a nepovedené. Nabízejí se dvě cesty, dejte nám prosím vědět, která vám sedí."],
+  { title:"Přístup k doméně pro Google Search Console",
+    body:["Ještě potřebujeme dořešit doménu. Abychom nastavili Google Search Console, která Googlu pomáhá správně zařadit váš web do vyhledávání, potřebujeme na chvíli přístup k doméně, konkrétně k jejímu takzvanému DNS. Může to udělat jen ten, kdo doménu spravuje. Zmiňoval jste, že web zařizoval externí člověk, tak stačí říct, jak to nejlíp uděláme."],
     options:[
-      "Uděláte rychlou fotku, klidně na mobil. Nemusí to být nic profesionálního.",
-      "Vygenerujeme fotku umělou inteligencí. Chápeme ale, že je to osobní věc a vaše práce stojí na kontaktu s lidmi, takže tahle cesta vám sedět nemusí.",
-    ] },
-  { title:"E-mail pro přístup do Google Analytics",
-    body:["Komu máme dát přístup do Google Analytics? Potřebujeme e-mail registrovaný u Googlu, tedy Gmail. Jiný typ e-mailu Google nepodporuje."] },
-  { title:"Kdo vlastní vaši doménu",
-    body:["Potřebujeme vědět, kdo vlastní vaši doménu, tedy kdo ji koupil a má k ní přístup. Je to kvůli nastavení Google Search Console, která Googlu pomáhá správně zařadit váš web do vyhledávání. Ověření se dělá přes takzvané DNS a může ho provést jen ten, kdo doménu spravuje. Je to snadné, máme dvě možnosti."],
-    options:[
-      "Pošleme jednoduchý návod tomu, kdo doménu spravuje, a ten ověření nastaví.",
-      "Nebo nám dáte dočasný přístup k doméně, my to nastavíme a přístup zase odebereme.",
+      "Domluvíte nás se správcem domény a my mu pošleme jednoduchý návod.",
+      "Nebo nám na chvíli dáte přístup k doméně, my nastavení uděláme a přístup zase odebereme.",
     ] },
 ];
 
@@ -442,8 +431,8 @@ const PLAN = [
     ],
     benefit:"Z těch, kdo web otevřou, se reálně objedná víc lidí a web působí profesionálně." },
   {
-    num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"2 000 Kč",
-    body:["Založíme firemní stránku na Facebooku, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
+    num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"Zdarma",
+    body:["Firemní stránku na Facebooku vám založíme zdarma, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
     points:[
       "Samostatná firemní stránka, ne osobní profil",
       "Základní informace, fotky a odkaz na rezervaci",
@@ -451,18 +440,21 @@ const PLAN = [
     ],
     benefit:"Další místo, kde vás lidé najdou a odkud vás doporučí dál." },
   {
-    num:"6", nav:"Reklama", phase:"Fáze 6: Placená propagace (Google Ads a Facebook reklama)", when:"Nastavení 2 až 3 dny, pak průběžná správa", status:"todo", price:"nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
-    body:["Placená reklama se ukáže úplně nahoře, když někdo v Praze hledá třeba „masáž na bolesti zad Praha“. Přivede klienty rychle, platíte jen za proklik a všechno se dá změřit. Necháváme ji ale úplně nakonec, až budou hotové základy a web. Posílat lidi na nehotový web by znamenalo platit reklamu nadarmo."],
+    num:"6", nav:"Reklama", phase:"Fáze 6: Placená propagace (Google Ads a Facebook reklama)", when:"Nastavení 2 až 3 dny, pak průběžná správa", status:"todo", price:"nastavení 4 000 Kč, pak správa 2 000 Kč měsíčně a rozpočet na reklamu 10 000 Kč měsíčně",
+    body:["Placená reklama se ukáže úplně nahoře, když někdo v Praze hledá třeba „masáž na bolest zad Praha“. Přivede klienty rychle, platíte jen za proklik a všechno se dá změřit. Necháváme ji ale úplně nakonec, až budou hotové základy a web. Posílat lidi na nehotový web by znamenalo platit reklamu nadarmo."],
     points:[
-      "Google Ads ve vyhledávání: nastavení 3 000 Kč, pak rozpočet 3 000 až 5 000 Kč měsíčně",
-      "Facebook reklama na cílené publikum, rozpočet podle dohody",
-      "Cílení na lidi, kteří právě hledají maséra",
-      "Průběžné měření ceny za jednu rezervaci a ladění reklamy",
+      "Nastavení Google Ads i Facebook reklamy: 4 000 Kč jednorázově",
+      "Správa a průběžné ladění reklamy: 2 000 Kč měsíčně",
+      "Rozpočet na samotnou reklamu: 10 000 Kč měsíčně, jde přímo Googlu a Facebooku za zobrazení",
+      "Cílení na lidi, kteří právě hledají maséra, a měření ceny za jednu rezervaci",
     ],
     benefit:"Budete víc vidět pod klíčovými slovy, která vaši potenciální klienti hledají." },
-  {
-    num:"7", nav:"Recenze", phase:"Fáze 7: Sběr Google recenzí přes QR kód", when:"Návrh do budoucna", status:"todo", flag:"Nový návrh",
-    body:["Recenze jsou to hlavní, čím dnes druhý masér Jiří vede. Připravíme jednoduchý způsob, jak je od spokojených klientů sbírat. Kartička nebo stojánek s QR kódem, který po sezení otevře rovnou vaše hodnocení na Googlu. Klient jen naskenuje telefonem a napíše pár vět."],
+];
+
+/* Návrhy do budoucna (kromě AEO) */
+const FUTURE = [
+  { title:"Sběr Google recenzí přes QR kód", sub:"Návrh do budoucna, zatím to neřešíme",
+    body:["Recenze jsou to hlavní, čím dnes druhý masér Jiří vede. Do budoucna připravíme jednoduchý způsob, jak je od spokojených klientů sbírat. Kartička nebo stojánek s QR kódem, který po sezení otevře rovnou vaše hodnocení na Googlu. Klient jen naskenuje telefonem a napíše pár vět."],
     points:[
       "QR kód, který vede přímo na napsání Google recenze",
       "Kartička nebo stojánek do provozovny",
@@ -470,9 +462,8 @@ const PLAN = [
       "Postupné dohnání náskoku konkurence v počtu hodnocení",
     ],
     benefit:"Víc recenzí znamená vyšší pozici v Mapách a víc důvěry u nových klientů." },
-  {
-    num:"8", nav:"Logo", phase:"Fáze 8: Nové standardizované logo", when:"Návrh do budoucna", status:"todo", flag:"Nový návrh",
-    body:["Navrhneme nové, jednotné logo, které bude vypadat stejně dobře na webu, na Google profilu, na kartičce s QR kódem i na tiskovinách. Jedna verze pro všechno, ať vás lidé poznají na první pohled."],
+  { title:"Nové standardizované logo", sub:"Návrh do budoucna, zatím to neřešíme",
+    body:["Do budoucna navrhneme nové, jednotné logo, které bude vypadat stejně dobře na webu, na Google profilu, na kartičce s QR kódem i na tiskovinách. Jedna verze pro všechno, ať vás lidé poznají na první pohled."],
     points:[
       "Návrh nového loga v několika variantách",
       "Jednotná podoba pro web, Google, tisk i sociální sítě",
@@ -615,20 +606,26 @@ safe(()=>{
   </div>`).join("");
 });
 
-/* AEO = quiet collapsed upcoming block */
+/* Návrhy do budoucna = quiet collapsed proposal blocks (QR recenze, logo, AEO) */
 safe(()=>{
-  $("aeo").innerHTML = `<details class="aeo">
+  const proposal = (title,sub,bodyArr,points,benefit,inner) => `<details class="aeo">
     <summary>
       <span class="aeo-ic">+</span>
-      <span class="aeo-main"><h3>Aby vás našla i umělá inteligence</h3><div class="aeo-sub">Návrh do budoucna, zatím to neřešíme</div></span>
+      <span class="aeo-main"><h3>${esc(title)}</h3><div class="aeo-sub">${esc(sub)}</div></span>
       <span class="pill todo">Návrh</span>
       <span class="chev" aria-hidden="true">&#9662;</span>
     </summary>
     <div class="aeo-body">
-      ${(AEO_INTRO.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
-      <div class="aeo-grid">${AEO.map(c=>`<div class="aeo-card"><h4>${esc(c.title)}</h4><p>${esc(c.body)}</p><div class="benefit"><span class="b-lab">Co vám to přinese</span><span>${esc(c.benefit)}</span></div></div>`).join("")}</div>
+      ${(bodyArr||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
+      ${(points&&points.length)?`<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}
+      ${inner||""}
+      ${benefit?`<div class="benefit"><span class="b-lab">Co vám to přinese</span><span>${esc(benefit)}</span></div>`:""}
     </div>
   </details>`;
+  const future = FUTURE.map(f=>proposal(f.title,f.sub,f.body,f.points,f.benefit,"")).join("");
+  const aeoInner = `<div class="aeo-grid">${AEO.map(c=>`<div class="aeo-card"><h4>${esc(c.title)}</h4><p>${esc(c.body)}</p><div class="benefit"><span class="b-lab">Co vám to přinese</span><span>${esc(c.benefit)}</span></div></div>`).join("")}</div>`;
+  const aeo = proposal("Aby vás našla i umělá inteligence","Návrh do budoucna, zatím to neřešíme",AEO_INTRO.body,null,null,aeoInner);
+  $("aeo").innerHTML = future + aeo;
 });
 
 /* clicking a roadmap node opens its phase */
