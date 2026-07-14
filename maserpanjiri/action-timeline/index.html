@@ -235,7 +235,6 @@
   <div class="eyebrow">Kde jsme teď</div>
   <p id="statusLine">Hotový máme audit, měření, ověřený profil na Googlu i technické SEO. Teď zbývá jedna věc: potvrdit navržená klíčová slova, ať se pustíme do obsahového SEO a začneme Vás tlačit před konkurenci. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
   <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
-  <a class="needyou" id="needYou" href="#otazky"></a>
 </div></section>
 
 <!-- PLÁN PO FÁZÍCH -->
@@ -244,14 +243,6 @@
   <h2 class="sec">Co děláme, po fázích</h2>
   <p class="lead">Rozbalená je fáze, na které právě pracujeme. Hotové a budoucí fáze jsou sbalené, kliknutím je otevřete.</p>
   <div id="plan" class="phases"></div>
-</div></section>
-
-<!-- OTÁZKY PRO VÁS -->
-<section id="otazky"><div class="wrap">
-  <div class="eyebrow">Co potřebujeme vyřešit</div>
-  <h2 class="sec">Otázky pro Vás</h2>
-  <p class="lead">Jedna věc, kterou nám práci posunete dál. Stačí krátká odpověď.</p>
-  <div id="questions" class="qlist"></div>
 </div></section>
 
 <!-- NÁVRH DO BUDOUCNA -->
@@ -283,7 +274,7 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "11. 7. 2026";
+const UPDATED = "12. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
 /* items: "text" = ponecháno; {t,n:1} = navrhujeme přidat; {t,x:1} = navrhujeme vyřadit */
@@ -366,7 +357,7 @@ const PLAN = [
     note:"Ve vyhledávání je dnes před Vámi jiný masér Jiří z Prahy 1, hlavně proto, že má kompletní profil a přes osmdesát hodnocení. Dá se to dohnat, je to otázka pořádku a času. Vaše výhoda je vlastní téma, zdravotní a diagnostická masáž, a opravdová odbornost: škola pana Flandery, praxe v lázních a působení na revmatologii a rehabilitaci fakultní nemocnice. Tu dáváme dopředu a k ní postupně sbíráme hodnocení od spokojených klientů." },
   {
     num:"2", nav:"Měření", phase:"Fáze 2: Google Analytics a měření", when:"Náročnost: 1 den", status:"done", price:"2 000 Kč",
-    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou připojené a měření běží. Máme za sebou prvních 30 dní sbírání dat a už z nich vidíme pár užitečných věcí. První čísla za 30 dní (9. 6. až 8. 7.): web si otevřelo 151 nových lidí a 23 se jich vrátilo. Nejvíc jich bylo z Prahy. Chodí hlavně napřímo a přes vyhledávání na Googlu, dál přes Slevomat, Seznam, Facebook a Instagram. Nejčtenější jsou úvodní stránka, ceník a stránka O mně. A hlavně: na tlačítko rezervace lidé klikli 83krát, přesně tuhle akci teď sledujeme.",
+    statusNote:"Hotovo. Google Analytics i Google Tag Manager jsou připojené a měření běží. Máme za sebou prvních 30 dní sbírání dat a už z nich vidíme pár užitečných věcí. První čísla za 30 dní (9. 6. až 8. 7.): web si otevřelo 151 nových lidí a 23 se jich vrátilo. Nejvíc jich bylo z Prahy. Chodí hlavně napřímo a přes vyhledávání na Googlu, dál přes Slevomat, Seznam, Facebook a Instagram. Nejčtenější jsou úvodní stránka, ceník a stránka O mně. A hlavně: na tlačítko rezervace lidé klikli 83krát, přesně tuhle akci teď sledujeme. Napojili jsme i Google Search Console, nástroj, který ukazuje, pod jakými slovy Vás lidé na Googlu hledají a jak si web ve vyhledávání vede. Zatím jen sbírá data, na závěry je ještě brzy.",
     action:"Poslali jsme pozvánku k přístupu do Google Analytics na Váš e-mail maserpanjiri@gmail.com. Stačí ji potvrdit a data si prohlédnete sám, kdykoli budete chtít.",
     body:["Nasadili jsme na web nástroje od Googlu, které počítají, kolik lidí web navštívilo, odkud přišli a kolik z nich kliklo na rezervaci. Je to jako účtenka za web, jen místo peněz na ní vidíte zájem lidí. Bez těch dat se nedá poznat, co funguje a co ne.",
       "Přes Google Tag Manager k tomu měříme i konkrétní akce, třeba prokliky na tlačítko rezervace. Tím poznáte, kolik lidí o rezervaci stojí, a později i to, jak Vám fungují online kampaně.",
@@ -525,12 +516,6 @@ safe(()=>{
   }).join("");
 });
 
-/* "čekáme na vás" pointer */
-safe(()=>{
-  const n = QUESTIONS.length;
-  $("needYou").innerHTML = `<span>Čekáme na Vás: <strong>${n} ${n===1?"odpověď":(n<5?"odpovědi":"odpovědí")}</strong></span><span class="arrow">přejít na otázky &darr;</span>`;
-});
-
 /* phase cards */
 function kwChip(k){
   if(typeof k === "string") return `<span class="kw">${esc(k)}</span>`;
@@ -597,15 +582,6 @@ function phaseCard(ph,i){
   </details>`;
 }
 safe(()=>{ $("plan").innerHTML = PLAN.map(phaseCard).join(""); });
-
-/* questions */
-safe(()=>{
-  $("questions").innerHTML = QUESTIONS.map((q,i)=>`<div class="qcard">
-    <div class="qhead"><span class="qnum">${i+1}</span><h4>${esc(q.title)}</h4></div>
-    ${(q.body||[]).map(p=>`<p>${esc(p)}</p>`).join("")}
-    ${(q.options&&q.options.length)?`<ul class="qopts">${q.options.map(o=>`<li>${esc(o)}</li>`).join("")}</ul>`:""}
-  </div>`).join("");
-});
 
 /* Návrhy do budoucna = quiet collapsed proposal blocks (QR recenze, logo, AEO) */
 safe(()=>{
