@@ -165,6 +165,23 @@
   .kwlegend .sw-out{background:#f8ece9; border:1px solid rgba(158,64,48,.4);}
   .kwnote{font-size:.88rem; color:var(--muted); margin-top:12px;}
 
+  /* page-copy sub-section (návrhy nových textů) */
+  .pc-intro{font-size:.9rem; color:var(--muted); margin:2px 0 6px;}
+  .pc-page{border:1px solid var(--line); border-radius:12px; padding:15px 17px; margin-top:14px; background:#fff;}
+  .pc-head{display:flex; align-items:center; gap:11px; padding-bottom:10px; border-bottom:1px solid var(--line); margin-bottom:10px;}
+  .pc-num{flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--teal); color:#fff; display:grid; place-items:center; font-family:'Sora',sans-serif; font-weight:700; font-size:.85rem;}
+  .pc-name{font-family:'Sora',sans-serif; font-weight:700; font-size:1.05rem; color:var(--navy);}
+  .pc-url{font-size:.78rem; color:var(--muted); margin-left:auto; white-space:nowrap;}
+  .pc-lab{font-family:'Sora',sans-serif; font-weight:700; font-size:.66rem; text-transform:uppercase; letter-spacing:.7px; color:var(--sand-text); margin:13px 0 5px;}
+  .pc-ucel{font-size:.9rem; color:var(--muted);}
+  .pc-h1{font-family:'Sora',sans-serif; font-weight:600; font-size:1rem; color:var(--navy); background:var(--cream); border-left:3px solid var(--teal); border-radius:6px; padding:8px 12px;}
+  .pc-sub{font-family:'Sora',sans-serif; font-weight:700; font-size:.92rem; color:var(--navy); margin:13px 0 3px;}
+  .pc-p{font-size:.92rem; color:var(--ink); margin:6px 0;}
+  .pc-meta{font-size:.86rem; color:var(--ink); background:var(--cream); border-radius:6px; padding:9px 12px; line-height:1.5;}
+  .pc-meta b{color:var(--navy);}
+  .pc-kw{display:flex; flex-wrap:wrap; gap:6px; margin-top:2px;}
+  @media(max-width:620px){ .pc-url{display:none;} }
+
   /* questions */
   .qlist{display:grid; gap:14px;}
   .qcard{background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow-soft);}
@@ -371,7 +388,7 @@ const PLAN = [
     ],
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co Vám reálně přivádí klienty." },
   {
-    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true,
+    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true, pagecopy:true,
     statusNote:"Technické SEO máme hotové. Na základě Vaší zpětné vazby jsme připravili návrh úprav klíčových slov a textů. Zatím je to jenom návrh, nic z toho ještě není na webu. Projděte ho prosím níže a dejte nám vědět, co sedí a co ještě upravit. Jakmile to odsouhlasíte, zapracujeme to.",
     updates:{
       title:"Návrhy úprav podle Vaší zpětné vazby",
@@ -383,9 +400,9 @@ const PLAN = [
         "Navrhujeme přepsat texty do Vaší reálné mluvy: bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket, napětí ze sezení.",
         "Navrhujeme dát firemní a benefitní stránce vlastní prostor a jmenovat Vaše karty: Pluxee, Edenred, Up Benefity, Benefit Plus.",
         "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 chceme držet všude stejně, kvůli odlišení od druhého Jiřího.",
-        "Vaši etickou obavu bereme vážně a navrhujeme přidat na web poctivou větu, že nejste zdravotnické zařízení.",
+        "Vaši pozici „masér ve zdravotnictví“ jsme jasně zapracovali do textů, ať je poznat, čím se lišíte od relaxačních studií.",
       ],
-      foot:"Jak by texty na webu zněly: web by vedl problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody by zůstal uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje. Na web bychom dali i poctivou větu: „Nejsem zdravotnické zařízení, jsem masér ve zdravotnictví.“",
+      foot:"Jak by texty na webu zněly: web by vedl problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody by zůstal uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje.",
     },
     action:"Projděte prosím navržená klíčová slova a úpravy níže a dejte nám vědět, co odsouhlasíte a co ještě změnit. Klidně si k tomu zavoláme, jak jste navrhoval.",
     checkup:{
@@ -482,6 +499,98 @@ const AEO = [
     body:"Když dnes něco zadáte do Googlu, často se úplně nahoře nad odkazy objeví krátká shrnující odpověď. Google ji skládá z webů, které na otázku odpovídají jasně a přímo. Když je Váš web napsaný srozumitelně a k věci, roste šance, že Google odcituje zrovna Vás. Je to jako být ten, koho učitel vyvolá, protože odpovídá jasně a bez okolků.",
     benefit:"Vaše jméno se může objevit úplně nahoře ještě dřív, než člověk začne klikat na odkazy." },
 ];
+/* Návrhy nových textů po stránkách (Fáze 3). Prošlo copywriterem, SEO i AEO specialistou. */
+const PAGECOPY = [
+  { num:"1", name:"O mně", url:"maserpanjiri.cz/o-mne/",
+    ucel:"Kdo jste, budování důvěry a odbornosti.",
+    h1:"Panjiří, masér ve zdravotnictví",
+    title:"Masér pan Jiří | O mně, masér ve zdravotnictví Praha 1",
+    meta:"Masér pan Jiří, klienti mi říkají Panjiří. Jsem masér ve zdravotnictví, vyškolený u pana Flandery, s praxí z lázní a kliniky rehabilitace. Řeším příčinu bolesti.",
+    sections:[{paras:[
+      "Klienti a přátelé mi říkají Panjiří. Jsem masér ve zdravotnictví a masáž beru jako práci s příčinou, ne jako hodinu odpočinku.",
+      "Řemeslo jsem se učil v masérské škole pana Flandery. Praxi jsem sbíral v lázních a potom na klinice revmatologie a rehabilitace fakultní nemocnice, kde jsem denně pracoval s lidmi, které trápila bolest zad, ztuhlá šíje nebo omezený pohyb.",
+      "Jako masér ve zdravotnictví Vaše bolavá záda, zablokovaný krk nebo napětí mezi lopatkami neřeším naslepo. Nejdřív najdu, kde je problém, a teprve pak volím techniku. Spojuji diagnostický přístup, klasickou masáž a prvky fyzioterapie.",
+      "Tomuhle přístupu říkám masáž v souvislostech. Tělo funguje jako celek a bolest v jednom místě má často příčinu jinde.",
+      "Najdete mě v centru Prahy, na Soukenické 8, Praha 1. Vyrábíme nové lidi." ]}],
+    keywords:["Panjiří","Masér pan Jiří","masér ve zdravotnictví","masér Soukenická Praha 1","Soukenická 8","bolest zad","ztuhlá šíje","zablokovaný krk","napětí mezi lopatkami","bolavá záda","masáž v souvislostech"] },
+
+  { num:"2", name:"Služby", url:"maserpanjiri.cz/sluzby/",
+    ucel:"Hlavní stránka. Co děláte a čím se lišíte. Nejdůležitější pro vyhledávání.",
+    h1:"Masáž v souvislostech: terapeutická masáž na bolest zad a šíje",
+    title:"Terapeutická masáž na bolest zad a šíje | Praha 1",
+    meta:"Masáž na bolest zad, ztuhlou šíji, zablokovaný krk i napětí ze sezení. Najdu příčinu a techniku volím na míru. Terapeutická masáž v centru Prahy.",
+    sections:[
+      {paras:[
+        "Terapeutická masáž v centru Prahy, u které nejdřív najdu příčinu bolesti zad nebo šíje a pak ji cíleně uvolním. Soukenická 8, Praha 1.",
+        "Jsem praktický masér a jdu po výsledku. Dělám terapeutickou masáž na bolest zad, ztuhlou šíji a napětí ze sezení. Záleží mi na tom, abyste odešli s volnějším pohybem a bez bolesti, se kterou jste přišli.",
+        "Každou masáž začínám diagnostikou. Zjistím, kde máte přetížené svaly a odkud Vaše bolest vychází. Teprve pak volím techniku. Masáž má být příjemná. Především ale výkonná, a proto efektivní. Normální je žít bez bolesti." ]},
+      {sub:"S čím za mnou nejčastěji chodíte", paras:[
+        "Bolavá a ztuhlá záda. Masáž na bolest zad v Praze je to, s čím ke mně míří nejvíc lidí. Hloubková masáž zad v centru Prahy uvolní svaly, které bolest drží.",
+        "Ztuhlá šíje a zablokovaný krk. Masáž na ztuhlou šíji v Praze 1 uvolní napětí kolem krční páteře. Často za tím stojí hodiny u monitoru.",
+        "Napětí mezi lopatkami. Klasika od sezení a práce u PC. Rozpracuji ztuhlé svaly kolem hrudní páteře.",
+        "Bolavá ramena a tenisový loket. Přetížené šlachy a svaly na paži i rameni cíleně uvolním a vrátím Vám rozsah pohybu.",
+        "Napětí ze sezení a práce u počítače. Terapeutická masáž v centru Prahy je pro kancelářské pracovníky z Prahy 1 nejrychlejší cesta, jak napětí dostat ven." ]},
+      {sub:"Jak masáž probíhá", paras:[
+        "1. Diagnostika. Zjistím, kde je problém a odkud vychází.",
+        "2. Masáž na míru. Techniku volím podle Vašeho těla, spojuji klasickou masáž a prvky fyzioterapie.",
+        "3. Výsledek. Uvolněné svalové napětí, větší rozsah pohybu, méně bolesti." ]},
+      {sub:"Časté otázky", paras:[
+        "Co je diagnostická masáž? Terapeutická masáž, u které nejdřív najdu příčinu bolesti a teprve pak cíleně pracuji s konkrétními svaly.",
+        "Pomáhá masáž na bolest zad? Ano. Cílená masáž zad a šíje uvolní přetížené svaly a vrátí do zad pohyb.",
+        "Kolik stojí masáž v centru Prahy? 900 Kč za 35 minut, 1290 Kč za 60 minut, 1990 Kč za 80 minut.",
+        "Jak se objednat? Online přes rezervační systém na webu, nebo telefonicky na +420 608 984 523.",
+        "Berete benefitní karty? Ano. Edenred, Pluxee, Up Benefity a Benefit Plus." ]} ],
+    keywords:["masáž na bolest zad Praha","masáž na bolest zad v Praze","hloubková masáž zad v centru Prahy","masáž na ztuhlou šíji v Praze 1","zablokovaný krk","bolest mezi lopatkami","napětí mezi lopatkami","bolavá ramena","tenisový loket","napětí ze sezení","bolavá záda od sezení","masáž pro kancelářské pracovníky z Prahy 1","terapeutická masáž v centru Prahy","uvolnění svalového napětí","masáž v souvislostech"] },
+
+  { num:"3", name:"Rezervace", url:"maserpanjiri.cz/rezervace/",
+    ucel:"Nasměrovat na objednání.",
+    h1:"Rezervace",
+    title:"Rezervace masáže online | Masér pan Jiří, Praha 1",
+    meta:"Rezervujte si masáž online, kdykoli se Vám hodí. Vyberte délku a termín, nebo zavolejte na +420 608 984 523. Soukenická 8, Praha 1.",
+    sections:[{paras:[
+      "Objednat se můžete online přes rezervační systém na webu, nebo telefonicky na +420 608 984 523.",
+      "Vyberte si délku masáže a volný termín, potvrzení Vám přijde hned. Na jednu oblast, třeba ztuhlou šíji nebo zablokovaný krk, stačí 35 minut. Když chcete projít víc partií nebo řešit dlouhodobější bolest zad, vezměte si 60 nebo 80 minut.",
+      "Platit můžete i benefitní kartou. Beru Edenred, Pluxee, Up Benefity i Benefit Plus. Těším se na Vaši návštěvu na Soukenické 8 v Praze 1." ]}],
+    keywords:["Masér pan Jiří","masér Soukenická Praha 1","ztuhlá šíje","zablokovaný krk","bolest zad","masáž na benefitní kartu Praha","Edenred","Pluxee","Up Benefity","Benefit Plus"] },
+
+  { num:"4", name:"Kudy k nám", url:"maserpanjiri.cz/cesta/",
+    ucel:"Kontakt, adresa, první návštěva. Nosná stránka lokálního vyhledávání.",
+    h1:"Kudy k nám?",
+    title:"Kudy k nám | Masér pan Jiří, Soukenická 8, Praha 1",
+    meta:"Najdete mě přímo v centru Prahy, na adrese Soukenická 8, Praha 1. Přijďte o 10 minut dříve, převléknete se v šatně a voda, káva i čaj jsou u mě zdarma.",
+    sections:[
+      {paras:["Maséra v centru Prahy najdete na Soukenické 8, Praha 1, pár minut pěšky od náměstí Republiky."]},
+      {sub:"První návštěva", paras:["Přijďte prosím o 10 minut dřív. Převléknete se v šatně a osobní věci si uzamknete. Zabalení do prostěradla počkáte v čekárně. Voda, káva i čaj jsou u mě zdarma. V předsíni najdete WC a sprchu."]},
+      {sub:"Platba a benefitní karty", paras:["Zaplatit můžete hotově, kartou i benefitní kartou. Beru Edenred, Pluxee, Up Benefity a Benefit Plus. Pokud Vám masáže proplácí zaměstnavatel, benefitní kartou to vyřídíte přímo na místě."]},
+      {sub:"Kontakt", paras:["Masér pan Jiří. Soukenická 8, 110 00 Praha 1. Telefon: +420 608 984 523. Provozovatel: Masérství s.r.o., IČO 22270728."]} ],
+    keywords:["masér Soukenická Praha 1","Soukenická 8","masér Praha 1 centrum","centrum Prahy","Masér pan Jiří","masáž na benefitní kartu Praha","Edenred","Pluxee","Up Benefity","Benefit Plus"] },
+
+  { num:"5", name:"Foto (Prostředí)", url:"maserpanjiri.cz/prostredi/",
+    ucel:"Fotogalerie prostředí. Vizuální důvěra a hygiena.",
+    h1:"Prostředí",
+    title:"Masérna v centru Prahy | fotogalerie, Masér pan Jiří",
+    meta:"Podívejte se, jak to u mě vypadá. Čistá masérna v centru Prahy, Soukenická 8, Praha 1. Voda, káva i čaj zdarma. Rezervujte si termín.",
+    sections:[{paras:[
+      "Podívejte se, kde se budeme potkávat. Mám tu klidnou a čistou masérnu v centru Prahy, na Soukenické 8. Žádné přeplněné wellness, jen prostor, kde se dá v klidu pracovat s tělem.",
+      "K dispozici je šatna na převlečení, čekárna, WC a sprcha. Voda, káva i čaj jsou u mě zdarma. Přijďte o 10 minut dřív a v klidu se usaďte." ]}],
+    keywords:["masérna v centru Prahy","masér Praha 1 centrum","masér Soukenická Praha 1","Soukenická 8","Masér pan Jiří","Panjiří"] },
+
+  { num:"6", name:"Ceník", url:"maserpanjiri.cz/cenik/",
+    ucel:"Ceny, benefitní karty, dlouhodobá spolupráce, firmy.",
+    h1:"Ceník masáží v centru Prahy",
+    title:"Ceník masáží v centru Prahy | Masér pan Jiří",
+    meta:"Ceník masáží v centru Prahy: 35 min 900 Kč, 60 min 1290 Kč, 80 min 1990 Kč. Beru benefitní karty Edenred, Pluxee, Up i Benefit Plus.",
+    sections:[
+      {paras:[
+        "Platíte za čas a odbornost, ne za typ masáže. Podle toho, co řešíte, si vyberete délku.",
+        "35 minut, 900 Kč. Na jednu oblast, třeba ztuhlou šíji nebo zablokovaný krk.",
+        "60 minut, 1290 Kč. Na záda a šíji dohromady nebo víc partií najednou.",
+        "80 minut, 1990 Kč. Na dlouhodobější potíže a důkladnou práci s celým tělem." ]},
+      {sub:"Benefitní karty", paras:["Beru benefitní karty Edenred, Pluxee, Up Benefity a Benefit Plus. Firmám z Prahy 1, které chtějí masáž jako zaměstnanecký benefit, rád domluvím podmínky napřímo."]},
+      {sub:"Dlouhodobá spolupráce", paras:["Preferuji dlouhodobou spolupráci. Pro stálé klienty mám cenové zvýhodnění. Pravidelná masáž je investice do kvality Vašeho života. Normální je žít bez bolesti."]} ],
+    keywords:["ceník masáží v centru Prahy","ceník masáží","centrum Prahy","masáž na benefitní kartu Praha","firemní masáž Praha 1","masáž jako zaměstnanecký benefit","Edenred","Pluxee","Up Benefity","Benefit Plus","ztuhlá šíje","zablokovaný krk"] },
+];
+
 /* ════════════════ END EDIT BLOCK ════════════════ */
 
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -517,6 +626,36 @@ safe(()=>{
 });
 
 /* phase cards */
+function hlKw(text, kws){
+  if(!kws || !kws.length) return esc(text);
+  const sorted = kws.slice().sort((a,b)=>b.length-a.length);
+  const pat = new RegExp(sorted.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"), "gi");
+  let out="", i=0, m;
+  while((m=pat.exec(text))!==null){
+    if(m.index===pat.lastIndex){ pat.lastIndex++; continue; }
+    out += esc(text.slice(i, m.index)) + "<strong>"+esc(m[0])+"</strong>";
+    i = m.index + m[0].length;
+  }
+  out += esc(text.slice(i));
+  return out;
+}
+function pageCopyBlock(){
+  return `<details class="mini"><summary>Návrhy nových textů pro jednotlivé stránky</summary><div class="mini-body">
+    <p class="pc-intro">Takhle by mohly znít texty na jednotlivých stránkách. Prošly copywriterem i kontrolou pro vyhledávání. Tučně zvýrazněná slova jsou klíčová slova, na která cílíme.</p>
+    ${PAGECOPY.map(pg=>`<div class="pc-page">
+      <div class="pc-head"><span class="pc-num">${esc(pg.num)}</span><span class="pc-name">${esc(pg.name)}</span><span class="pc-url">${esc(pg.url)}</span></div>
+      <div class="pc-ucel">${esc(pg.ucel)}</div>
+      <div class="pc-lab">Navrhovaný nadpis stránky</div>
+      <div class="pc-h1">${esc(pg.h1)}</div>
+      <div class="pc-lab">Navrhovaný text</div>
+      ${pg.sections.map(s=>`${s.sub?`<div class="pc-sub">${esc(s.sub)}</div>`:""}${s.paras.map(p=>`<p class="pc-p">${hlKw(p, pg.keywords)}</p>`).join("")}`).join("")}
+      <div class="pc-lab">Titulek a popisek ve vyhledávání Google</div>
+      <div class="pc-meta"><b>${esc(pg.title)}</b><br>${esc(pg.meta)}</div>
+      <div class="pc-lab">Klíčová slova použitá na této stránce</div>
+      <div class="pc-kw">${pg.keywords.map(k=>`<span class="kw">${esc(k)}</span>`).join("")}</div>
+    </div>`).join("")}
+  </div></details>`;
+}
 function kwChip(k){
   if(typeof k === "string") return `<span class="kw">${esc(k)}</span>`;
   if(k.x) return `<span class="kw kw-out">${esc(k.t)}</span>`;
@@ -561,6 +700,7 @@ function phaseCard(ph,i){
   if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
   if(ph.checkup) b += `<details class="mini" open><summary>Technické SEO, co je hotové</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
   if(ph.keywords) b += kwBlock();
+  if(ph.pagecopy) b += pageCopyBlock();
   if(ph.decision) b += decisionBlock(ph.decision);
   if(ph.note) b += `<details class="mini"><summary>Jak doženeme konkurenci</summary><div class="mini-body"><p>${esc(ph.note)}</p></div></details>`;
   if(ph.benefit) b += `<div class="benefit"><span class="b-lab">Co Vám to přinese</span><span>${esc(ph.benefit)}</span></div>`;
