@@ -250,7 +250,7 @@
 <!-- KDE JSME TEĎ: roadmap = přehled i menu -->
 <section class="status"><div class="wrap">
   <div class="eyebrow">Kde jsme teď</div>
-  <p id="statusLine">Hotový máme audit, měření, ověřený profil na Googlu i technické SEO. Teď zbývá jedna věc: potvrdit navržená klíčová slova, ať se pustíme do obsahového SEO a začneme Vás tlačit před konkurenci. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
+  <p id="statusLine">Hotový máme audit, měření, ověřený profil na Googlu i technické SEO. Klíčová slova jste odsouhlasil, takže teď zapracováváme nové texty na jednotlivé stránky a zároveň stavíme nový rezervační systém přímo na Vašem webu. Celý plán po fázích najdete níže, kliknutím každou fázi rozbalíte.</p>
   <nav class="roadmap" id="roadmap" aria-label="Fáze spolupráce"></nav>
 </div></section>
 
@@ -291,7 +291,7 @@
    EDIT ONLY THIS DATA BLOCK FOR ROUTINE UPDATES
    status: 'done' | 'active' | 'todo'   (Fáze 1 má wait:true = čeká na Google)
    ════════════════════════════════════════════════════════════ */
-const UPDATED = "14. 7. 2026";
+const UPDATED = "19. 7. 2026";
 
 /* Keywords (Praha). All start as 'Navrženo'. */
 /* items: "text" = ponecháno; {t,n:1} = navrhujeme přidat; {t,x:1} = navrhujeme vyřadit */
@@ -388,23 +388,8 @@ const PLAN = [
     ],
     benefit:"Uvidíte, kdo na web chodí a co ho zaujme, a my můžeme tlačit na to, co Vám reálně přivádí klienty." },
   {
-    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"review", price:"3 000 až 5 000 Kč", keywords:true, pagecopy:true,
-    statusNote:"Technické SEO máme hotové. Na základě Vaší zpětné vazby jsme připravili návrh úprav klíčových slov a textů. Zatím je to jenom návrh, nic z toho ještě není na webu. Projděte ho prosím níže a dejte nám vědět, co sedí a co ještě upravit. Jakmile to odsouhlasíte, zapracujeme to.",
-    updates:{
-      title:"Návrhy úprav podle Vaší zpětné vazby",
-      intro:"Tohle jsou navržené změny na základě Vašich připomínek. Zatím nic z toho není na webu, čekáme na Vaše odsouhlasení.",
-      points:[
-        "Navrhujeme přestat cílit na slovo „diagnostická“, protože ho lidé do vyhledávače nepíšou. Necháme si ho jako název Vaší metody do budoucna.",
-        "Navrhujeme vypustit slovo „fyzioterapeutická“, protože „fyzioterapeut“ je chráněný zdravotnický titul, kterým nejste. V textech by zůstalo jen měkké „s prvky fyzioterapie“ jako popis techniky.",
-        "„Zdravotní masáž“ navrhujeme podržet, ale sundat z hlavního nadpisu. Použili bychom ji jen spojenou s konkrétním problémem a v otázkách a odpovědích.",
-        "Navrhujeme přepsat texty do Vaší reálné mluvy: bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket, napětí ze sezení.",
-        "Navrhujeme dát firemní a benefitní stránce vlastní prostor a jmenovat Vaše karty: Pluxee, Edenred, Up Benefity, Benefit Plus.",
-        "Jméno „Masér pan Jiří“, „Panjiří“ a adresu Soukenická 8 chceme držet všude stejně, kvůli odlišení od druhého Jiřího.",
-        "Vaši odbornou pozici, tedy zdravotní a klinické zázemí a ne wellness, jsme jasně zapracovali do textů, ať je poznat, čím se lišíte od relaxačních studií.",
-      ],
-      foot:"Jak by texty na webu zněly: web by vedl problém, se kterým člověk přichází, tedy bolavá záda, ztuhlý krk, zablokovaná bederka. Odborný název metody by zůstal uvnitř textu, ne jako hlavní nadpis, aby stránku našel ten, kdo Vás potřebuje.",
-    },
-    action:"Projděte prosím navržená klíčová slova a úpravy níže a dejte nám vědět, co odsouhlasíte a co ještě změnit. Klidně si k tomu zavoláme, jak jste navrhoval.",
+    num:"3", nav:"SEO", phase:"Fáze 3: SEO optimalizace pro vyhledávání", when:"Náročnost: 2 až 3 dny", status:"active", price:"3 000 až 5 000 Kč", keywords:true, pagecopy:true,
+    statusNote:"Technické SEO máme hotové a klíčová slova jste odsouhlasil. Teď zapracováváme nové texty na jednotlivé stránky. Návrhy všech textů najdete níže.",
     checkup:{
       intro:"Web stojí na zdravém základu a technickou stránku SEO máme srovnanou. Konkrétně:",
       points:[
@@ -424,7 +409,8 @@ const PLAN = [
     ],
     benefit:"Víc lidí Vás najde ve vyhledávání bez placené reklamy a tahle výhoda časem roste." },
   {
-    num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"todo", price:"5 000 až 8 000 Kč",
+    num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"active", price:"5 000 až 8 000 Kč",
+    statusNote:"Rozpracované. Právě stavíme nový rezervační systém přímo na Vašem webu, aby se zájemci objednávali u Vás a neodcházeli na cizí stránku. Zbytek úprav webu (menu, mobil, rychlost) navazuje.",
     body:["Web máte hotový, my ho upravíme tak, aby z návštěvníků dělal objednané klienty, ne jen lidi, co se podívají a odejdou. Zpřehledníme ovládání na mobilu i v menu, doplníme, co lidem chybí k rozhodnutí, a celý web zrychlíme."],
     points:[
       "Lepší ovládání na mobilu, kde se web teď používá těžko",
@@ -641,7 +627,7 @@ function hlKw(text, kws){
 }
 function pageCopyBlock(){
   return `<details class="mini"><summary>Návrhy nových textů pro jednotlivé stránky</summary><div class="mini-body">
-    <p class="pc-intro">Takhle by mohly znít texty na jednotlivých stránkách. Prošly copywriterem i kontrolou pro vyhledávání. Tučně zvýrazněná slova jsou klíčová slova, na která cílíme.</p>
+    <p class="pc-intro">Takhle budou znít texty na jednotlivých stránkách. Prošly copywriterem i kontrolou pro vyhledávání a teď je nasazujeme na web. Tučně zvýrazněná slova jsou klíčová slova, na která cílíme.</p>
     ${PAGECOPY.map(pg=>`<div class="pc-page">
       <div class="pc-head"><span class="pc-num">${esc(pg.num)}</span><span class="pc-name">${esc(pg.name)}</span><span class="pc-url">${esc(pg.url)}</span></div>
       <div class="pc-ucel">${esc(pg.ucel)}</div>
@@ -667,7 +653,7 @@ function kwBlock(){
     <p class="kwlegend"><span><span class="sw sw-in"></span><b>zeleně „nové“</b> = navrhujeme přidat</span><span><span class="sw sw-out"></span><b>přeškrtnuté</b> = navrhujeme vyřadit</span></p>
     <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(kwChip).join("")}</div></div>`).join("")}</div>
     <p class="kwnote">${esc(KW_NOTE)}</p>
-    <p class="kwnote"><strong>Stav: návrh podle Vaší zpětné vazby, čeká na Vaše odsouhlasení. Zatím nic není na webu.</strong></p>
+    <p class="kwnote"><strong>Stav: odsouhlaseno, zapracováváme na web.</strong></p>
   </div></details>`;
 }
 function decisionBlock(d){
