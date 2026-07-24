@@ -327,7 +327,7 @@ const KEYWORDS = [
     "masér Praha 1 centrum",{t:"Masérství pan Jiří Praha",n:1},
   ] },
 ];
-const KW_NOTE = "Klíčová slova níže jsou náš návrh podle Vaší zpětné vazby, zatím nic není nasazené. Navrhujeme je vést tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ navrhujeme podržet, protože se hledá, ale opatrně, jen v páru s konkrétním problémem, v title a v otázkách, ne jako samotný nadpis. Slovo „diagnostická“ zatím necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ navrhujeme vypustit, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
+const KW_NOTE = "Klíčová slova níže jsou náš návrh podle Vaší zpětné vazby, zatím nic není nasazené. Navrhujeme je vést tím, s čím k Vám lidé reálně přicházejí. Bolavá záda, ztuhlý krk, zablokovaná bederka, bolest mezi lopatkama, bolavá ramena, tenisový loket. Přesně Vašimi slovy. „Zdravotní masáž“ navrhujeme podržet, protože se hledá, ale opatrně, jen v páru s konkrétním problémem, v title a v otázkách, mimo hlavní nadpis. Slovo „diagnostická“ zatím necílíme, protože ho lidé do vyhledávače nepíšou, a necháváme si ho jako název Vaší metody. „Fyzioterapeutickou“ navrhujeme vypustit, protože jde o chráněný titul. Jméno a Soukenická drží obranu proti druhému Jiřímu.";
 
 const QUESTIONS = [
   { title:"Přístup k doméně pro Google Search Console",
@@ -365,7 +365,7 @@ const PLAN = [
     decision:{
       title:"Název profilu na Googlu",
       choice:"Masér pan Jiří",
-      why:"Název „Masér pan Jiří“ funguje ze dvou důvodů. Obsahuje slovo „masér“, které lidé do vyhledávání opravdu píší, a jméno „Jiří“, takže za ním vidí konkrétního člověka, ke kterému jdou, ne anonymní studio. Je to navíc Vaše skutečná značka, stejnou máte i na webu maserpanjiri.cz. Když název na profilu, na webu i v dalších odkazech sedí na sebe, Google i lidé poznají jednu a tu samou firmu, a snáz Vás najdou i objednají.",
+      why:"Název „Masér pan Jiří“ funguje ze dvou důvodů. Obsahuje slovo „masér“, které lidé do vyhledávání opravdu píší, a jméno „Jiří“, takže za ním vidí konkrétního člověka, ke kterému jdou. Je to navíc Vaše skutečná značka, stejnou máte i na webu maserpanjiri.cz. Když název na profilu, na webu i v dalších odkazech sedí na sebe, Google i lidé poznají jednu a tu samou firmu, a snáz Vás najdou i objednají.",
       alts:[
         { name:"Masér Panjiří", note:"přezdívku do vyhledávání nikdo nepíše" },
         { name:"Masérství s.r.o.", note:"obecné, ve výsledcích nevýrazné" },
@@ -411,7 +411,7 @@ const PLAN = [
   {
     num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"active", price:"5 000 až 8 000 Kč",
     statusNote:"Rozpracované. Právě stavíme nový rezervační systém přímo na Vašem webu, aby se zájemci objednávali u Vás a neodcházeli na cizí stránku. Zbytek úprav webu (menu, mobil, rychlost) navazuje.",
-    body:["Web máte hotový, my ho upravíme tak, aby z návštěvníků dělal objednané klienty, ne jen lidi, co se podívají a odejdou. Zpřehledníme ovládání na mobilu i v menu, doplníme, co lidem chybí k rozhodnutí, a celý web zrychlíme."],
+    body:["Web máte hotový, my ho upravíme tak, aby z návštěvníků dělal objednané klienty. Zpřehledníme ovládání na mobilu i v menu, doplníme, co lidem chybí k rozhodnutí, a celý web zrychlíme."],
     points:[
       "Lepší ovládání na mobilu, kde se web teď používá těžko",
       "Viditelné menu na všech podstránkách, aby se návštěvník dostal kamkoli, teď je schované",
@@ -427,9 +427,9 @@ const PLAN = [
     benefit:"Z těch, kdo web otevřou, se reálně objedná víc lidí a web působí profesionálně." },
   {
     num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"Zdarma",
-    body:["Firemní stránku na Facebooku Vám založíme zdarma, ne osobní profil. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
+    body:["Založíme Vám na Facebooku samostatnou firemní stránku, zdarma. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
     points:[
-      "Samostatná firemní stránka, ne osobní profil",
+      "Samostatná firemní stránka pro Vaši značku",
       "Základní informace, fotky a odkaz na rezervaci",
       "Připravená k občasným příspěvkům i doporučení od klientů",
     ],
@@ -468,7 +468,7 @@ const FUTURE = [
 ];
 
 const AEO_INTRO = {
-  title:"Aby Vás našly i stroje, nejen lidé",
+  title:"Aby Vás našly i vyhledávací stroje a umělá inteligence",
   body:["Lidé dnes hledají jinak. Místo pár slov do Googlu se čím dál častěji ptají nahlas. Řeknou do telefonu Siri nebo Googlu „kde najdu dobrého maséra v Praze na bolavá záda“, nebo se zeptají umělé inteligence jako ChatGPT a čekají rovnou odpověď. AEO (z anglického Answer Engine Optimization, tedy optimalizace pro odpovídací stroje) znamená připravit web tak, aby tou odpovědí bylo Vaše jméno. Je to novější přístup než klasické SEO a konkurence ho zatím skoro nevyužívá, takže můžete být mezi prvními."] };
 
 const AEO = [
@@ -491,9 +491,9 @@ const PAGECOPY = [
     ucel:"Kdo jste, budování důvěry a odbornosti.",
     h1:"Panjiří, masér v centru Prahy",
     title:"Masér pan Jiří | O mně, masér v centru Prahy",
-    meta:"Masér pan Jiří, klienti mi říkají Panjiří. Vyškolený u pana Flandery, s praxí z lázní a kliniky rehabilitace. Řeším příčinu Vaší bolesti zad a šíje.",
+    meta:"Masér pan Jiří, klienti mi říkají Panjiří. Vyškolený u pana Flandery, s praxí z lázní a kliniky rehabilitace. Řeším příčinu Vaší bolesti a ztuhlosti.",
     sections:[{paras:[
-      "Klienti a přátelé mi říkají Panjiří. Jsem masér ve zdravotnictví a masáž beru jako práci s příčinou, ne jako hodinu odpočinku.",
+      "Klienti a přátelé mi říkají Panjiří. Jsem masér ve zdravotnictví a masáž beru jako práci s příčinou Vašich potíží.",
       "Řemeslo jsem se učil v masérské škole pana Flandery. Praxi jsem sbíral v lázních a potom na klinice revmatologie a rehabilitace fakultní nemocnice, kde jsem denně pracoval s lidmi, které trápila bolest zad, ztuhlá šíje nebo omezený pohyb.",
       "Vaše bolavá záda, zablokovaný krk nebo napětí mezi lopatkami neřeším naslepo. Nejdřív najdu, kde je problém, a teprve pak volím techniku. Spojuji diagnostický přístup, klasickou masáž a prvky fyzioterapie.",
       "Tomuhle přístupu říkám masáž v souvislostech. Tělo funguje jako celek a bolest v jednom místě má často příčinu jinde.",
@@ -502,14 +502,14 @@ const PAGECOPY = [
 
   { num:"2", name:"Služby", url:"maserpanjiri.cz/sluzby/",
     ucel:"Hlavní stránka. Co děláte a čím se lišíte. Nejdůležitější pro vyhledávání.",
-    h1:"Masáž v souvislostech: terapeutická masáž na bolest zad a šíje",
-    title:"Terapeutická masáž na bolest zad a šíje | Praha 1",
+    h1:"Masáž v souvislostech: terapeutická masáž na bolest a ztuhlost",
+    title:"Terapeutická masáž na bolest a ztuhlost | Praha 1",
     meta:"Masáž na bolest zad, ztuhlou šíji, zablokovaný krk i napětí ze sezení. Najdu příčinu a techniku volím na míru. Terapeutická masáž v centru Prahy.",
     sections:[
       {paras:[
-        "Terapeutická masáž v centru Prahy, u které nejdřív najdu příčinu bolesti zad nebo šíje a pak ji cíleně uvolním. Soukenická 8, Praha 1.",
-        "Jsem praktický masér a jdu po výsledku. Dělám terapeutickou masáž na bolest zad, ztuhlou šíji a napětí ze sezení. Záleží mi na tom, abyste odešli s volnějším pohybem a bez bolesti, se kterou jste přišli.",
-        "Každou masáž začínám diagnostikou. Zjistím, kde máte přetížené svaly a odkud Vaše bolest vychází. Teprve pak volím techniku. Masáž má být příjemná. Především ale výkonná, a proto efektivní. Normální je žít bez bolesti." ]},
+        "Terapeutická masáž v centru Prahy, u které nejdřív najdu příčinu Vaší bolesti nebo ztuhlosti a pak ji cíleně uvolním. Soukenická 8, Praha 1.",
+        "Jsem praktický masér a jdu po výsledku. Pracuji s bolavými zády, ztuhlou šíjí a krkem, s rameny, přetíženými svaly i s napětím ze sezení. Záleží mi na tom, abyste odešli s volnějším pohybem a bez bolesti, se kterou jste přišli.",
+        "Každou masáž začínám diagnostikou. Zjistím, kde máte přetížené svaly a odkud Vaše bolest vychází, a podle toho volím techniku. Jde mi o výkon a hmatatelný výsledek. Normální je žít bez bolesti." ]},
       {sub:"S čím za mnou nejčastěji chodíte", paras:[
         "Bolavá a ztuhlá záda. Masáž na bolest zad v Praze je to, s čím ke mně míří nejvíc lidí. Hloubková masáž zad v centru Prahy uvolní svaly, které bolest drží.",
         "Ztuhlá šíje a zablokovaný krk. Masáž na ztuhlou šíji v Praze 1 uvolní napětí kolem krční páteře. Často za tím stojí hodiny u monitoru.",
@@ -522,7 +522,7 @@ const PAGECOPY = [
         "3. Výsledek. Uvolněné svalové napětí, větší rozsah pohybu, méně bolesti." ]},
       {sub:"Časté otázky", paras:[
         "Co je diagnostická masáž? Terapeutická masáž, u které nejdřív najdu příčinu bolesti a teprve pak cíleně pracuji s konkrétními svaly.",
-        "Pomáhá masáž na bolest zad? Ano. Cílená masáž zad a šíje uvolní přetížené svaly a vrátí do zad pohyb.",
+        "Pomáhá masáž na bolest zad? Ano. Cílená masáž uvolní přetížené svaly, které bolest často způsobují, a vrátí do těla pohyb.",
         "Kolik stojí masáž v centru Prahy? 900 Kč za 35 minut, 1290 Kč za 60 minut, 1990 Kč za 80 minut.",
         "Jak se objednat? Online přes rezervační systém na webu, nebo telefonicky na +420 608 984 523.",
         "Berete benefitní karty? Ano. Edenred, Pluxee, Up Benefity a Benefit Plus." ]} ],
@@ -535,7 +535,7 @@ const PAGECOPY = [
     meta:"Rezervujte si masáž online, kdykoli se Vám hodí. Vyberte délku a termín, nebo zavolejte na +420 608 984 523. Soukenická 8, Praha 1.",
     sections:[{paras:[
       "Objednat se můžete online přes rezervační systém na webu, nebo telefonicky na +420 608 984 523.",
-      "Vyberte si délku masáže a volný termín, potvrzení Vám přijde hned. Na jednu oblast, třeba ztuhlou šíji nebo zablokovaný krk, stačí 35 minut. Když chcete projít víc partií nebo řešit dlouhodobější bolest zad, vezměte si 60 nebo 80 minut.",
+      "Vyberte si délku masáže a volný termín, potvrzení Vám přijde hned. Kdybyste si s délkou nevěděli rady, ozvěte se a domluvíme se.",
       "Platit můžete i benefitní kartou. Beru Edenred, Pluxee, Up Benefity i Benefit Plus. Těším se na Vaši návštěvu na Soukenické 8 v Praze 1." ]}],
     keywords:["Masér pan Jiří","masér Soukenická Praha 1","ztuhlá šíje","zablokovaný krk","bolest zad","masáž na benefitní kartu Praha","Edenred","Pluxee","Up Benefity","Benefit Plus"] },
 
@@ -557,7 +557,7 @@ const PAGECOPY = [
     title:"Masérna v centru Prahy | fotogalerie, Masér pan Jiří",
     meta:"Podívejte se, jak to u mě vypadá. Čistá masérna v centru Prahy, Soukenická 8, Praha 1. Voda, káva i čaj zdarma. Rezervujte si termín.",
     sections:[{paras:[
-      "Podívejte se, kde se budeme potkávat. Mám tu klidnou a čistou masérnu v centru Prahy, na Soukenické 8. Žádné přeplněné wellness, jen prostor, kde se dá v klidu pracovat s tělem.",
+      "Podívejte se, kde se budeme potkávat. Mám klidnou a čistou masérnu v centru Prahy, na Soukenické 8, kde je na masáž klid a soukromí.",
       "K dispozici je šatna na převlečení, čekárna, WC a sprcha. Voda, káva i čaj jsou u mě zdarma. Přijďte o 10 minut dřív a v klidu se usaďte." ]}],
     keywords:["masérna v centru Prahy","masér Praha 1 centrum","masér Soukenická Praha 1","Soukenická 8","Masér pan Jiří","Panjiří"] },
 
@@ -568,10 +568,10 @@ const PAGECOPY = [
     meta:"Ceník masáží v centru Prahy: 35 min 900 Kč, 60 min 1290 Kč, 80 min 1990 Kč. Beru benefitní karty Edenred, Pluxee, Up i Benefit Plus.",
     sections:[
       {paras:[
-        "Platíte za čas a odbornost, ne za typ masáže. Podle toho, co řešíte, si vyberete délku.",
-        "35 minut, 900 Kč. Na jednu oblast, třeba ztuhlou šíji nebo zablokovaný krk.",
-        "60 minut, 1290 Kč. Na záda a šíji dohromady nebo víc partií najednou.",
-        "80 minut, 1990 Kč. Na dlouhodobější potíže a důkladnou práci s celým tělem." ]},
+        "Platíte za čas a odbornost. S výběrem délky se klidně ozvěte, domluvíme se.",
+        "35 minut, 900 Kč.",
+        "60 minut, 1290 Kč.",
+        "80 minut, 1990 Kč." ]},
       {sub:"Benefitní karty", paras:["Beru benefitní karty Edenred, Pluxee, Up Benefity a Benefit Plus. Firmám z Prahy 1, které chtějí masáž jako zaměstnanecký benefit, rád domluvím podmínky napřímo."]},
       {sub:"Dlouhodobá spolupráce", paras:["Preferuji dlouhodobou spolupráci. Pro stálé klienty mám cenové zvýhodnění. Pravidelná masáž je investice do kvality Vašeho života. Normální je žít bez bolesti."]} ],
     keywords:["ceník masáží v centru Prahy","ceník masáží","centrum Prahy","masáž na benefitní kartu Praha","firemní masáž Praha 1","masáž jako zaměstnanecký benefit","Edenred","Pluxee","Up Benefity","Benefit Plus","ztuhlá šíje","zablokovaný krk"] },
