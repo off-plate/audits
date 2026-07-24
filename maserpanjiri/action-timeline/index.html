@@ -626,7 +626,7 @@ function hlKw(text, kws){
   return out;
 }
 function pageCopyBlock(){
-  return `<details class="mini"><summary>Návrhy nových textů pro jednotlivé stránky</summary><div class="mini-body">
+  return `<details class="mini" open><summary>Návrhy nových textů pro jednotlivé stránky</summary><div class="mini-body">
     <p class="pc-intro">Takhle budou znít texty na jednotlivých stránkách. Prošly copywriterem i kontrolou pro vyhledávání a teď je nasazujeme na web. Tučně zvýrazněná slova jsou klíčová slova, na která cílíme.</p>
     ${PAGECOPY.map(pg=>`<div class="pc-page">
       <div class="pc-head"><span class="pc-num">${esc(pg.num)}</span><span class="pc-name">${esc(pg.name)}</span><span class="pc-url">${esc(pg.url)}</span></div>
@@ -649,7 +649,7 @@ function kwChip(k){
   return `<span class="kw">${esc(k.t)}</span>`;
 }
 function kwBlock(){
-  return `<details class="mini" open><summary>Navržená klíčová slova (zvýrazněné změny)</summary><div class="mini-body">
+  return `<details class="mini"><summary>Navržená klíčová slova (zvýrazněné změny)</summary><div class="mini-body">
     <p class="kwlegend"><span><span class="sw sw-in"></span><b>zeleně „nové“</b> = navrhujeme přidat</span><span><span class="sw sw-out"></span><b>přeškrtnuté</b> = navrhujeme vyřadit</span></p>
     <div class="kwgroups">${KEYWORDS.map(g=>`<div class="kwg"><div class="kwg-h">${esc(g.group)}</div><div class="kwl">${g.items.map(kwChip).join("")}</div></div>`).join("")}</div>
     <p class="kwnote">${esc(KW_NOTE)}</p>
@@ -671,6 +671,7 @@ function phaseCard(ph,i){
              : (ph.price ? `<span class="chip price">${esc(ph.price)}</span>` : "");
   let b = "";
   if(ph.statusNote) b += `<p class="statusnote">${esc(ph.statusNote)}</p>`;
+  if(ph.pagecopy) b += pageCopyBlock();
   if(ph.updates){
     const u = ph.updates;
     let ub = `<div class="updates"><div class="u-head"><span class="u-badge">Návrh k odsouhlasení</span>${esc(u.title)}</div>`;
@@ -684,9 +685,8 @@ function phaseCard(ph,i){
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od Vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
   if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
-  if(ph.checkup) b += `<details class="mini" open><summary>Technické SEO, co je hotové</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
+  if(ph.checkup) b += `<details class="mini"><summary>Technické SEO, co je hotové</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
   if(ph.keywords) b += kwBlock();
-  if(ph.pagecopy) b += pageCopyBlock();
   if(ph.decision) b += decisionBlock(ph.decision);
   if(ph.note) b += `<details class="mini"><summary>Jak doženeme konkurenci</summary><div class="mini-body"><p>${esc(ph.note)}</p></div></details>`;
   if(ph.benefit) b += `<div class="benefit"><span class="b-lab">Co Vám to přinese</span><span>${esc(ph.benefit)}</span></div>`;
