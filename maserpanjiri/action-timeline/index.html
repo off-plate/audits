@@ -410,22 +410,17 @@ const PLAN = [
     benefit:"Víc lidí Vás najde ve vyhledávání bez placené reklamy a tahle výhoda časem roste." },
   {
     num:"4", nav:"Úpravy webu", phase:"Fáze 4: Úpravy a optimalizace webu", when:"Náročnost: 3 až 5 dní", status:"active", price:"5 000 až 8 000 Kč",
-    statusNote:"Rozpracované. Právě stavíme nový rezervační systém přímo na Vašem webu, aby se zájemci objednávali u Vás a neodcházeli na cizí stránku. Zároveň už máme hotové první úpravy ovládání webu: hlavička s menu i patička teď zůstávají vidět po celou dobu, ať je návštěvník na stránce kdekoli, takže se nikdy neztratí. Přidali jsme i nové menu, a to zvlášť pro mobil a zvlášť pro počítač, takže se lidé snadno proklikají mezi Vašimi stránkami z jakéhokoli zařízení. Zároveň jsme skryli matoucí tlačítko zpět na úvod (tu malou šipku dole), lidé ji tam nehledali a všude se teď pohodlně dostanou přes menu. Srovnali jsme také zarovnání na všech stránkách, jednotlivé bloky obsahu teď sedí přesně na střed, takže web působí uspořádaně a klidně. Do galerie jsme doplnili nově nafocené fotky a rovnou je zmenšili do úsporné velikosti, takže se web načítá rychle i na mobilních datech. Zbytek úprav (obsah stránek) navazuje.",
-    body:["Web máte hotový, my ho upravíme tak, aby z návštěvníků dělal objednané klienty. Zpřehledníme ovládání na mobilu i v menu, doplníme, co lidem chybí k rozhodnutí, a celý web zrychlíme."],
+    statusNote:"Rozpracované. Právě stavíme rezervační systém přímo na Vašem webu, aby se zájemci objednávali u Vás a nemuseli odcházet na cizí stránku. První úpravy ovládání webu a galerie jsou hotové, jejich seznam najdete níže. Zbytek úprav, tedy obsah stránek, navazuje.",
+    body:["Web máte hotový, my ho upravujeme tak, aby z návštěvníků dělal objednané klienty. Ovládání na mobilu i na počítači už je zpřehledněné, teď doplňujeme obsah, který lidem chybí k rozhodnutí, a zrychlujeme načítání webu."],
+    pointsLabel:"Hotové úpravy",
     points:[
-      "Snadné ovládání na mobilu i na počítači, každé zařízení má vlastní přehledné menu (hotovo)",
-      "Stále viditelná hlavička s menu i patička na všech podstránkách, aby se návštěvník nikdy neztratil (hotovo)",
-      "Skryté matoucí tlačítko zpět na úvod (malá šipka dole), lidé ho tam nehledali a všude se pohodlně dostanou přes menu (hotovo)",
-      "Srovnané zarovnání na všech stránkách, bloky obsahu sedí na střed a web působí uspořádaně (hotovo)",
-      "Telefon a adresa viditelně na každé stránce",
-      "Google mapa s adresou přímo na webu",
-      "Jasnější popis služeb a důvod, proč si vybrat právě pana Jiřího",
-      "Sekce s recenzemi a referencemi od klientů",
-      "Výraznější tlačítko na rezervaci",
-      "Doplněné nově nafocené fotky do galerie (hotovo)",
-      "Rychlejší načítání díky zmenšeným obrázkům (hotovo)",
+      "Připnuli jsme hlavičku s menu a patičku, zůstávají vidět po celou dobu procházení a návštěvník se na webu neztratí.",
+      "Přidali jsme nové menu, zvlášť pro mobil a zvlášť pro počítač.",
+      "Skryli jsme tlačítko zpět na úvod, tu malou šipku dole na stránce. Lidé ji tam nehledali, přes menu se dostanou všude.",
+      "Srovnali jsme zarovnání na všech stránkách, bloky obsahu nyní sedí na střed.",
+      "Doplnili jsme do galerie nově nafocené fotky a zmenšili jejich datovou velikost kvůli rychlému načítání.",
     ],
-    benefit:"Z těch, kdo web otevřou, se reálně objedná víc lidí a web působí profesionálně." },
+    benefit:"Web se rychle načte, návštěvník snadno najde, co hledá, a objedná se přímo u Vás." },
   {
     num:"5", nav:"Facebook", phase:"Fáze 5: Facebook stránka", when:"Náročnost: 1 až 2 dny", status:"todo", price:"Zdarma",
     body:["Založíme Vám na Facebooku samostatnou firemní stránku, zdarma. Doplníme informace, fotky a odkaz na rezervaci. Nemusíte na ni přispívat každý den, stačí, že existuje a je v pořádku."],
@@ -685,7 +680,7 @@ function phaseCard(ph,i){
   if(ph.link) b += `<a class="ph-link" href="${esc(ph.link.url)}" target="_blank" rel="noopener">${esc(ph.link.label)} &rarr;</a>`;
   b += (ph.body||[]).map(p=>`<p>${esc(p)}</p>`).join("");
   if(ph.action) b += `<div class="action"><span class="bang">!</span><div><strong>Co od Vás teď potřebujeme</strong><p>${esc(ph.action)}</p></div></div>`;
-  if(ph.points&&ph.points.length) b += `<div class="sub-label">Co je v tom zahrnuto</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
+  if(ph.points&&ph.points.length) b += `<div class="sub-label">${esc(ph.pointsLabel||"Co je v tom zahrnuto")}</div><ul class="checks">${ph.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`;
   if(ph.checkup) b += `<details class="mini"><summary>Technické SEO, co je hotové</summary><div class="mini-body"><p>${esc(ph.checkup.intro)}</p>${(ph.checkup.points&&ph.checkup.points.length)?`<ul class="fixlist">${ph.checkup.points.map(pt=>`<li>${esc(pt)}</li>`).join("")}</ul>`:""}${ph.checkup.note?`<p>${esc(ph.checkup.note)}</p>`:""}</div></details>`;
   if(ph.keywords) b += kwBlock();
   if(ph.decision) b += decisionBlock(ph.decision);
