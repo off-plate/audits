@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zahradnictví Chládek | Návrh v2</title>
+<meta name="description" content="Rodinné zahradnictví v Praze 6 Střešovicích. Rostliny podle sezóny, vlastní okrasná školka, květinová vazba a restaurace. Otevřeno 7 dní v týdnu.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;600&display=swap&subset=latin-ext" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f0e7;
+  --paper-2:#ebe5d8;
+  --ink:#1c2016;
+  --mute:#5c5f52;
+  --rule:#d6cfbf;
+  --green:#1f6b2c;   /* deepened from Chládek's own brand green #00B300 */
+  --green-ink:#174f21;
+  --night:#1a2a17;
+  --serif:"Newsreader", Georgia, serif;
+  --sans:"Hanken Grotesk", system-ui, sans-serif;
+  --gut:clamp(16px,4vw,72px);
+  --max:min(2200px, 100vw);
+  --r:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:clamp(17px,.55vw + 9px,21px);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.015em}
+h1{font-size:clamp(44px,6.4vw,150px)}
+h2{font-size:clamp(34px,4.2vw,92px)}
+h3{font-size:clamp(22px,1.7vw,30px);line-height:1.15}
+.page{max-width:var(--max);margin-inline:auto;padding-inline:var(--gut)}
+.cap{font-size:13px;color:var(--mute);letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 22px;border-radius:var(--r);font-weight:600;font-size:16px;text-decoration:none;transition:background-color .16s ease, transform .12s ease}
+.btn:active{transform:scale(.97)}
+.btn-g{background:var(--green);color:#fff}
+.btn-g:hover{background:var(--green-ink)}
+.btn-o{border:1px solid var(--ink);color:var(--ink)}
+.btn-o:hover{background:var(--ink);color:var(--paper)}
+.btn svg{width:18px;height:18px}
+.ul{text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.ul:hover{color:var(--green)}
+
+/* header */
+.top{display:flex;align-items:center;gap:40px;height:84px;border-bottom:1px solid var(--rule)}
+.top .logo img{height:42px;width:auto}
+.top nav{display:flex;gap:30px;font-size:15.5px;margin-left:auto}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--green)}
+.status{display:flex;align-items:center;gap:9px;font-size:14.5px;white-space:nowrap}
+.status i{width:9px;height:9px;border-radius:2px;background:var(--green)}
+.status.closed i{background:#a2452b}
+.top .shop{height:44px}
+.top{position:relative}
+.menu-btn{all:unset;cursor:pointer;display:none;place-items:center;width:44px;height:44px;border:1px solid var(--ink);border-radius:var(--r)}
+.menu-btn svg{width:20px;height:20px}
+.menu-btn:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.top nav .m-shop{display:none}
+.top.open nav .m-shop{display:block}
+
+/* hero */
+.hero{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;padding:clamp(48px,7vw,120px) 0 clamp(56px,6vw,96px);align-items:end}
+.hero-txt{grid-column:1 / span 6;align-self:center}
+.hero-txt h1{max-width:9.5ch}
+.hero-txt p{font-size:clamp(18px,1.3vw,21px);max-width:44ch;margin:30px 0 38px;color:#34382b}
+.hero-txt .acts{display:flex;gap:12px;flex-wrap:wrap}
+.then-now{grid-column:7 / span 6;position:relative;padding-bottom:22%}
+.then-now .now{width:88%;margin-left:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.then-now figure{position:absolute;left:0;bottom:0;width:42%}
+.then-now figure img{aspect-ratio:1;object-fit:cover;object-position:center 70%;border-radius:var(--r);border:8px solid var(--paper);filter:sepia(.25)}
+.then-now figcaption,.now-cap{margin-top:8px}
+.now-cap{text-align:right}
+
+/* season, signature */
+.season{border-top:1px solid var(--ink);padding:clamp(56px,6vw,100px) 0}
+.season-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end;margin-bottom:44px}
+.season-head h2{grid-column:1 / span 7}
+.season-head p{grid-column:9 / span 4;color:var(--mute)}
+.months{display:grid;grid-template-columns:repeat(12,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.months button{all:unset;cursor:pointer;text-align:center;padding:16px 0 14px;font-size:15px;color:var(--mute);position:relative;transition:color .15s}
+.months button:hover{color:var(--ink)}
+.months button[aria-selected="true"]{color:var(--ink);font-weight:600}
+.months button[aria-selected="true"]::after{content:"";position:absolute;left:12%;right:12%;bottom:-1px;height:3px;background:var(--green)}
+.months button.today::before{content:"dnes";position:absolute;top:-22px;left:0;right:0;font-size:11.5px;color:var(--green);font-weight:600}
+.months button:focus-visible{outline:2px solid var(--green);outline-offset:-2px}
+.picks{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:0;transition:opacity .15s ease}
+.picks.fade{opacity:0}
+.pick{padding:34px 28px 10px 0;border-right:1px solid var(--rule);margin-right:28px}
+.pick:last-child{border-right:0;margin-right:0}
+.pick b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,1.6vw,28px);line-height:1.15;margin-bottom:10px}
+.pick span{color:var(--mute);font-size:15.5px}
+
+/* two gardens */
+.two{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:clamp(56px,6vw,110px) 0;border-top:1px solid var(--ink)}
+.two .ph{grid-column:1 / span 7;position:relative}
+.two .ph img{width:100%;aspect-ratio:16/11;object-fit:cover;border-radius:var(--r)}
+.two .ph .small{position:absolute;right:3%;bottom:3%;width:34%;aspect-ratio:3/4;border:8px solid var(--paper)}
+.two .tx{grid-column:9 / span 4;align-self:center}
+.two .tx p{margin:26px 0;color:#34382b}
+.facts{border-top:1px solid var(--rule)}
+.facts div{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:15.5px}
+.facts dt{color:var(--mute)}
+.facts dd{text-align:right}
+
+/* flowers */
+.flowers{background:var(--paper-2);padding:clamp(56px,6vw,110px) 0}
+.fl-head{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:end}
+.fl-head h2{grid-column:1 / span 6}
+.fl-head .r{grid-column:8 / span 5;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.fl-head .r p{color:#34382b}
+.vases{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin:56px 0 0}
+.vase{text-decoration:none}
+.vase img{width:100%;aspect-ratio:4/5;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.vase:hover img{transform:translateY(-6px)}
+.vase span{display:block;text-align:center;margin-top:8px}
+.kinds{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;border-top:1px solid var(--rule);padding-top:30px}
+.kinds h3{margin-bottom:10px}
+.kinds p{color:#34382b;font-size:16px}
+
+/* history */
+.hist{padding:clamp(56px,6vw,110px) 0 clamp(40px,4vw,70px)}
+.hist-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px}
+.hist-head h2{max-width:14ch}
+.hist-nav{display:flex;gap:8px}
+.hist-nav button{all:unset;cursor:pointer;width:48px;height:48px;border:1px solid var(--ink);border-radius:var(--r);display:grid;place-items:center;transition:background-color .15s}
+.hist-nav button:hover{background:var(--ink);color:var(--paper)}
+.hist-nav button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.hist-nav svg{width:20px;height:20px}
+.reel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:18px;scrollbar-width:thin;scrollbar-color:var(--rule) transparent;margin-right:calc(50% - 50vw);padding-right:calc(50vw - 50%)}
+.yr{flex:0 0 clamp(250px,22vw,360px);scroll-snap-align:start}
+.yr img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r)}
+.yr.old img{filter:grayscale(1) contrast(1.05)}
+.yr b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;margin:16px 0 8px}
+.yr p{font-size:15.5px;color:#34382b;max-width:34ch}
+
+/* events */
+.event{background:var(--night);color:#efeadf;padding:clamp(56px,6vw,110px) 0}
+.ev-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.ev-ph{grid-column:1 / span 7;display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.ev-ph img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.ev-ph .stack{display:grid;gap:16px}
+.ev-tx{grid-column:9 / span 4}
+.ev-tx .date{font-family:var(--serif);font-size:clamp(22px,1.6vw,28px);color:#cfe3b9;margin:16px 0 22px}
+.ev-tx p{color:#d9d4c7}
+.prog{margin:28px 0 34px;border-top:1px solid rgba(239,234,223,.22)}
+.prog div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(239,234,223,.22);font-size:15.5px}
+.prog span:last-child{color:#bdb8aa;text-align:right}
+.event .btn-g{background:#cfe3b9;color:var(--night)}
+.event .btn-g:hover{background:#e0eed1}
+.also{margin-top:clamp(48px,5vw,80px);display:grid;grid-template-columns:repeat(12,1fr);gap:24px;border-top:1px solid rgba(239,234,223,.22);padding-top:30px}
+.also > div{grid-column:span 4}
+.also h3{font-size:24px;margin-bottom:8px;color:#efeadf}
+.also p{color:#bdb8aa;font-size:15.5px}
+
+/* restaurant + review */
+.duo{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:clamp(56px,6vw,110px) 0;border-bottom:1px solid var(--ink)}
+.rest{grid-column:1 / span 5}
+.rest img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center;border-radius:var(--r);margin-bottom:26px}
+.rest p{margin:16px 0 22px;color:#34382b}
+.quote{grid-column:7 / span 6;align-self:center}
+.quote blockquote{font-family:var(--serif);font-size:clamp(28px,2.5vw,44px);line-height:1.2;letter-spacing:-.01em}
+.quote .src{margin-top:24px}
+.scores{display:flex;gap:40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--rule)}
+.scores b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+
+/* visit */
+.visit{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:clamp(56px,6vw,110px) 0}
+.visit .l{grid-column:1 / span 5}
+.visit .l h2{margin-bottom:34px}
+.hours{width:100%;border-collapse:collapse;font-size:16px;margin-bottom:30px}
+.hours td{padding:11px 0;border-bottom:1px solid var(--rule)}
+.hours td:last-child{text-align:right}
+.hours tr.now td{font-weight:600;color:var(--green)}
+.addr{display:grid;grid-template-columns:1fr 1fr;gap:22px;font-size:16px}
+.addr b{display:block;font-weight:600;margin-bottom:2px}
+.visit .map{grid-column:7 / span 6;min-height:520px;border-radius:var(--r);overflow:hidden;background:var(--paper-2)}
+.visit .map iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.75)}
+
+/* footer */
+footer{background:var(--ink);color:#d9d4c7;padding:clamp(48px,5vw,80px) 0 30px}
+.f-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.f-news{grid-column:1 / span 5}
+.f-news h3{color:#f4f0e7;font-size:clamp(26px,2vw,34px);margin-bottom:12px}
+.f-news form{display:flex;gap:10px;margin-top:22px}
+.f-news input{flex:1;min-width:0;min-height:52px;padding:0 16px;border-radius:var(--r);border:1px solid #4d5143;background:transparent;color:#f4f0e7;font:inherit;font-size:16px}
+.f-news input::placeholder{color:#8f9284}
+.f-news input:focus{outline:2px solid #cfe3b9;outline-offset:1px}
+.f-news .btn-g{font:inherit;font-weight:600;background:#cfe3b9;color:var(--ink);border:0;cursor:pointer}
+.f-news .ok{display:none;margin-top:16px;color:#cfe3b9}
+.f-col{grid-column:span 2}
+.f-col:first-of-type{grid-column:8 / span 2}
+.f-col h4{font-weight:600;color:#f4f0e7;font-size:15px;margin-bottom:14px}
+.f-col li{overflow-wrap:anywhere;list-style:none;margin-bottom:9px;font-size:15px}
+.f-col a{text-decoration:none}
+.f-col a:hover{color:#f4f0e7;text-decoration:underline}
+.f-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:56px;padding-top:22px;border-top:1px solid #3a3e32;font-size:14px;color:#a5a294}
+.f-logo{height:40px;width:auto;filter:brightness(0) invert(.92)}
+
+/* responsive */
+@media (max-width:1100px){
+  .top nav{display:none}
+  .menu-btn{display:grid}
+  .top.open nav{display:flex;flex-direction:column;gap:0;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--rule);padding:8px var(--gut) 18px;z-index:40}
+  .top.open nav a{padding:12px 0;border-bottom:1px solid var(--rule);font-size:18px}
+  .status{margin-left:auto}
+  .hero-txt,.then-now,.season-head h2,.season-head p,.two .ph,.two .tx,.fl-head h2,.fl-head .r,.ev-ph,.ev-tx,.rest,.quote,.visit .l,.visit .map,.f-news{grid-column:1 / -1}
+  .then-now{margin-top:48px}
+  .picks{grid-template-columns:1fr 1fr}
+  .pick:nth-child(2){border-right:0;margin-right:0}
+  .two .ph .small{right:4%}
+  .two .tx{margin-top:60px}
+  .vases{grid-template-columns:repeat(3,1fr)}
+  .also > div{grid-column:span 12}
+  .quote{margin-top:40px}
+  .f-col,.f-col:first-of-type{grid-column:span 4;margin-top:30px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .top{height:68px;gap:14px}
+  .top .logo img{height:34px}
+  .top .shop{display:none}
+  .months{display:flex;overflow-x:auto;gap:22px;scrollbar-width:none}
+  .months button{flex:none;padding-inline:4px}
+  .then-now{padding-bottom:0}
+  .then-now .now{width:100%}
+  .then-now figure{position:static;width:58%;margin-top:24px}
+  .then-now figure img{border:0;object-position:center 75%}
+  .two .ph .small{display:none}
+  .months button.today::before{top:2px;font-size:10px}
+  .months button{padding-top:20px}
+  .picks{grid-template-columns:1fr}
+  .pick{border-right:0;margin-right:0;border-bottom:1px solid var(--rule);padding:22px 0}
+  .kinds{grid-template-columns:1fr}
+  .vases{grid-template-columns:repeat(2,1fr)}
+  .ev-ph{grid-template-columns:1fr}
+  .ev-ph .stack{grid-template-columns:1fr 1fr}
+  .addr{grid-template-columns:1fr}
+  .visit .map{min-height:340px}
+  .f-col,.f-col:first-of-type{grid-column:span 6}
+  .f-news form{flex-direction:column}
+  .hist-nav{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="top">
+    <a class="logo" href="#"><img src="../img/logo.png" alt="Chládek Zahradnické centrum" width="120" height="42"></a>
+    <nav aria-label="Hlavní menu">
+      <a href="#sezona">Sezóna</a>
+      <a href="#skolka">Školka</a>
+      <a href="#kvetiny">Květiny</a>
+      <a href="#historie">Historie</a>
+      <a href="#akce">Akce</a>
+      <a href="#navsteva">Návštěva</a>
+      <a class="m-shop" href="https://www.kvetiny-chladek.cz">E-shop s květinami</a>
+    </nav>
+    <div class="status" id="status"><i></i><span>Otevřeno denně</span></div>
+    <a class="btn btn-o shop" href="https://www.kvetiny-chladek.cz">E-shop</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-txt">
+      <h1>Zahradničíme tu čtvrtou generaci.</h1>
+      <p>Rodinné zahradnictví ve Střešovicích. Pod sklem 3 700 m² rostlin, venku dřeviny z naší vlastní školky a u vchodu restaurace. Otevřeno sedm dní v týdnu.</p>
+      <div class="acts">
+        <a class="btn btn-g" href="#navsteva">Jak se k nám dostat
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-o" href="https://www.kvetiny-chladek.cz">Objednat kytici</a>
+      </div>
+    </div>
+    <div class="then-now">
+      <img class="now" src="../img/budova.webp" alt="Prosklená budova Zahradnictví Chládek dnes" width="800" height="600">
+      <div class="cap now-cap">Střešovická 458/47, dnes</div>
+      <figure>
+        <img src="../img/h1962.webp" alt="Zahradnictví a dům Chládkových v roce 1962" width="789" height="800">
+        <figcaption class="cap">Tentýž pozemek, 1962</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="season" id="sezona">
+    <div class="season-head">
+      <h2 id="season-title">Co je u nás teď v sezóně</h2>
+      <p>Sortiment se mění s rokem. Vyberte měsíc a uvidíte, pro co se k nám vyplatí zajet.</p>
+    </div>
+    <div class="months" role="tablist" aria-labelledby="season-title" id="months"></div>
+    <div class="picks" id="picks" role="tabpanel" aria-live="polite"></div>
+  </section>
+
+  <section class="two" id="skolka">
+    <div class="ph">
+      <img src="../img/skolka-rady.webp" alt="Řady tújí v Okrasné školce Chládek" loading="lazy" width="800" height="600">
+      <img class="small" src="../img/skolka-smrk.webp" alt="Stříbrný smrk ve školce" loading="lazy" width="600" height="799">
+    </div>
+    <div class="tx">
+      <h2>Stromy si pěstujeme sami.</h2>
+      <p>V roce 2000 založil Jiří Chládek okrasnou školku u Českých Budějovic. Tůje, cypřiše, keře i vánoční stromky odtud jedou rovnou do Střešovic. Rostliny jsou zvyklé na české podnebí, nestresuje je dlouhý převoz, a proto se na zahradě lépe ujmou.</p>
+      <dl class="facts">
+        <div><dt>Rozloha</dt><dd>25 hektarů</dd></div>
+        <div><dt>Založena</dt><dd>2000</dd></div>
+        <div><dt>Pěstujeme</dt><dd>jehličnany, keře, trávy, solitéry</dd></div>
+        <div><dt>Venkovní prodej v Praze</dt><dd>březen až listopad</dd></div>
+      </dl>
+      <p style="margin-bottom:0"><a class="ul" href="https://www.skolka-chladek.cz">Web okrasné školky</a></p>
+    </div>
+  </section>
+</div>
+
+<section class="flowers" id="kvetiny">
+  <div class="page">
+    <div class="fl-head">
+      <h2>Kytice vážeme každý den.</h2>
+      <div class="r">
+        <p>Řezané květiny nakupujeme několikrát týdně přímo na aukci v holandském Aalsmeeru. Na prodejně vám je aranžérky uvážou na počkání, na e-shopu si kytici objednáte s doručením po Praze.</p>
+        <a class="btn btn-g" href="https://www.kvetiny-chladek.cz">Vybrat kytici na e-shopu</a>
+      </div>
+    </div>
+    <div class="vases">
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-ruze.webp" alt="Kytice červených růží" loading="lazy"><span class="cap">Červené růže</span></a>
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-gerbery.webp" alt="Kytice gerber" loading="lazy"><span class="cap">Gerbery</span></a>
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-slunecnice.webp" alt="Kytice slunečnic" loading="lazy"><span class="cap">Slunečnice</span></a>
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-tulipany.webp" alt="Kytice tulipánů" loading="lazy"><span class="cap">Tulipány</span></a>
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-ruzove.webp" alt="Kytice růžových růží" loading="lazy"><span class="cap">Růžové růže</span></a>
+      <a class="vase" href="https://www.kvetiny-chladek.cz"><img src="../img/kytice-mix.webp" alt="Míchaná kytice" loading="lazy"><span class="cap">Míchaná</span></a>
+    </div>
+    <div class="kinds">
+      <div><h3>Svatební</h3><p>Kytice pro nevěstu v barvě, kterou si zvolí, k tomu korsáž, výzdoba aut, stolů i sálu.</p></div>
+      <div><h3>Smuteční</h3><p>Vázané i vypichované kytice na položení. Větší zakázky prosíme objednat týden předem.</p></div>
+      <div><h3>Dárkové</h3><p>Kulaté, postupné, nebo netradiční z ovoce či čokolád. Případně dárkový poukaz.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <section class="hist" id="historie">
+    <div class="hist-head">
+      <h2>Jeden pozemek, sto let práce.</h2>
+      <div class="hist-nav">
+        <button aria-label="Starší" data-dir="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <button aria-label="Novější" data-dir="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <div class="reel" id="reel">
+      <div class="yr old"><img src="../img/h1910.webp" alt="Zahradnictví a dům Chládkových, 1910" loading="lazy"><b>1910</b><p>Na pozemku ve Střešovicích pěstuje praděda dnešního majitele.</p></div>
+      <div class="yr old"><img src="../img/h1962.webp" alt="Zahradnictví v roce 1962" loading="lazy"><b>1962</b><p>Dům i zahrada Chládkových na stejném místě jako dnes.</p></div>
+      <div class="yr"><img src="../img/h1996.webp" alt="Původní prodejna, 1996" loading="lazy"><b>1992</b><p>Manželé Chládkovi otevírají na restituovaném pozemku prodejnu o 320 m².</p></div>
+      <div class="yr"><img src="../img/h1998-vstup.webp" alt="Vstup do prodejny, 1998" loading="lazy"><b>1998</b><p>V letech 1996 a 1998 přibývají dvě nové lodě skleníků.</p></div>
+      <div class="yr"><img src="../img/h2003-stavba.webp" alt="Stavba venkovní prodejní plochy" loading="lazy"><b>2003</b><p>Nová prosklená prodejna má 1 720 m².</p></div>
+      <div class="yr"><img src="../img/h2008.webp" alt="Přestavba v srpnu 2008" loading="lazy"><b>2008</b><p>Přestavba přidává 2 000 m² a další pokladny. O rok později otevírá restaurace.</p></div>
+      <div class="yr"><img src="../img/areal2.webp" alt="Areál zahradnictví dnes" loading="lazy"><b>Dnes</b><p>Přes 3 700 m² pod sklem, venkovní zahrada, školka na 25 hektarech.</p></div>
+    </div>
+  </section>
+</div>
+
+<section class="event" id="akce">
+  <div class="page">
+    <div class="ev-grid">
+      <div class="ev-ph">
+        <img src="../img/dyne-hromada.webp" alt="Hradba ze stovek dýní" loading="lazy">
+        <div class="stack">
+          <img src="../img/dyne-dlabani.webp" alt="Děti dlabou dýně" loading="lazy">
+          <img src="../img/dyne-kejklir.webp" alt="Kejklíř Pupa" loading="lazy">
+        </div>
+      </div>
+      <div class="ev-tx">
+        <h2>Dýňové slavnosti</h2>
+        <div class="date" id="ev-date">10. a 11. října 2026</div>
+        <p>Nejoblíbenější víkend v zahradnictví. Vstup je zdarma, dýně, šablony i nářadí máme připravené. Stačí tvořivá nálada a teplejší bunda, celý program běží venku.</p>
+        <div class="prog">
+          <div><span>Dlabání a vyřezávání dýní</span><span>9 až 18 h</span></div>
+          <div><span>Kejklíř Pupa</span><span>11, 13 a 15 h</span></div>
+          <div><span>Malování na obličej</span><span>9 až 17 h</span></div>
+          <div><span>Dýňové pivo z Břevnovského pivovaru</span><span>celý den</span></div>
+        </div>
+        <a class="btn btn-g" href="https://www.zahradnictvi-chladek.cz/akce/dynove-slavnosti-2026-08-19.html">Celý program</a>
+      </div>
+    </div>
+    <div class="also">
+      <div><h3>Zahradníkova sklizeň</h3><p>Od 7. října jablka, hrušky a švestky od ZD Dolany z České Skalice, dokud zásoby vydrží.</p></div>
+      <div><h3>Magazín Florenium</h3><p>Podzimní číslo zahradnického magazínu je zdarma u pokladen.</p></div>
+      <div><h3>Zpravodaj</h3><p>Pozvánky na akce posíláme e-mailem. <a class="ul" href="#zpravodaj">Přihlásit se</a></p></div>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <section class="duo">
+    <div class="rest">
+      <img src="../img/restaurace.webp" alt="Interiér restaurace v zahradnictví" loading="lazy">
+      <h3>Oběd mezi rostlinami</h3>
+      <p>Restaurace přímo v areálu vaří každý den od 11:00 do 18:30. Denní menu se mění, venku se dá sedět na terase.</p>
+      <a class="ul" href="https://www.zahradnictvi-chladek.cz/restaurace.html">Dnešní nabídka jídel</a>
+    </div>
+    <div class="quote">
+      <blockquote>„Příjemné zahradnictví v centru Prahy. Je zde bohatý výběr všech možných kytek, keřů a stromů. Personál je milý a nápomocný.“</blockquote>
+      <div class="cap src">Marek N., hodnocení na Firmy.cz, červenec 2025</div>
+      <div class="scores">
+        <div><b>4,6</b><span class="cap">Google</span></div>
+        <div><b>4,5</b><span class="cap">Firmy.cz, 257 hodnocení</span></div>
+        <div><b>90 %</b><span class="cap">doporučuje na Facebooku, 1 288 hodnocení</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="navsteva">
+    <div class="l">
+      <h2>Přijeďte se podívat.</h2>
+      <table class="hours" id="hours">
+        <tr data-d="1"><td>Pondělí</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="2"><td>Úterý</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="3"><td>Středa</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="4"><td>Čtvrtek</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="5"><td>Pátek</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="6"><td>Sobota</td><td>8:00 až 19:00</td></tr>
+        <tr data-d="0"><td>Neděle</td><td>9:00 až 19:00</td></tr>
+      </table>
+      <div class="addr">
+        <div><b>Adresa</b>Střešovická 458/47<br>162 00 Praha 6</div>
+        <div><b>Telefon</b><a href="tel:+420235351032">235 351 032</a><br><span class="cap">restaurace 606 671 555</span></div>
+        <div><b>Městskou dopravou</b>Tramvaj Baterie, pak 5 minut pěšky. Metro Petřiny.</div>
+        <div><b>Autem</b>Parkoviště zdarma přímo u vchodu.</div>
+      </div>
+    </div>
+    <div class="map"><iframe title="Mapa: Zahradnictví Chládek" src="https://www.google.com/maps?q=Zahradnictv%C3%AD+Ch%C3%A1dek,+St%C5%99e%C5%A1ovick%C3%A1+458%2F47,+Praha+6&z=15&output=embed"></iframe></div>
+  </section>
+</div>
+
+<footer id="zpravodaj">
+  <div class="page">
+    <div class="f-grid">
+      <div class="f-news">
+        <h3>Pozvánky na akce e-mailem</h3>
+        <p>Dýňové slavnosti, adventní nabídka, první sadba na jaře. Zhruba jednou za měsíc.</p>
+        <form id="nl" novalidate>
+          <label for="em" style="position:absolute;left:-9999px">E-mail</label>
+          <input id="em" type="email" placeholder="vas@email.cz" required>
+          <button class="btn btn-g" type="submit">Odebírat</button>
+        </form>
+        <div class="ok" id="ok">Hotovo. První pozvánka přijde před další akcí.</div>
+      </div>
+      <div class="f-col"><h4>Zahradnictví</h4><ul><li><a href="#sezona">Sezóna</a></li><li><a href="#skolka">Okrasná školka</a></li><li><a href="#historie">Historie</a></li><li><a href="https://www.zahradnictvi-chladek.cz/zahradnictvi/pracovni-prilezitosti.html">Kariéra</a></li></ul></div>
+      <div class="f-col"><h4>Nakupujte</h4><ul><li><a href="https://www.kvetiny-chladek.cz">E-shop s květinami</a></li><li><a href="https://www.zahradnictvi-chladek.cz/nabizene-sluzby.html">Doprava</a></li><li><a href="https://www.zahradnictvi-chladek.cz/nabizene-sluzby.html">Dárkové poukazy</a></li><li><a href="https://www.zahradnictvi-chladek.cz/restaurace.html">Restaurace</a></li></ul></div>
+      <div class="f-col"><h4>Sledujte nás</h4><ul><li><a href="https://www.facebook.com/Zahradnictvi.Chladek">Facebook</a></li><li><a href="https://www.instagram.com/zahradnictvichladek">Instagram</a></li><li><a href="mailto:info@zahradnictvi-chladek.cz">info@zahradnictvi-chladek.cz</a></li></ul></div>
+    </div>
+    <div class="f-bottom">
+      <img class="f-logo" src="../img/logo.png" alt="Chládek Zahradnické centrum" loading="lazy">
+      <span>© 2026 Chládek zahradnické centrum s.r.o. &nbsp;|&nbsp; IČO 06636853</span>
+      <span>Ochrana osobních údajů &nbsp;|&nbsp; Reklamační řád</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const M=["Leden","Únor","Březen","Duben","Květen","Červen","Červenec","Srpen","Září","Říjen","Listopad","Prosinec"];
+const S=[
+ [["Pokojové rostliny","Orchideje, palmy, fíkusy, bromélie a sukulenty."],["Řezané květiny","Z aukce v Aalsmeeru několikrát týdně."],["Bonsaje","Pokojové i venkovní, některé až 300 let staré."],["Semínka","Na zimní plánování přes 15 metrů regálu osiv."]],
+ [["Semínka na předpěstování","Letničky, zelenina, bylinky i trvalky."],["Pokojové rostliny","Kaktusy, masožravky, begonie a kalanchoe."],["Bonsaje","Pro sběratele i začátečníky."],["Řezané květiny","Na dárek i jen tak."]],
+ [["Venkovní prodejna otevírá","Mezi 1. a 5. březnem, podle počasí."],["Prostokořenné ovocné stromky","Jabloně, hrušně, třešně, keře."],["Trvalky a skalničky","Malé rostliny i vzrostlé kusy."],["Substráty a hnojiva","Na první práce na zahradě."]],
+ [["Ovocné dřeviny","Prostokořenné, dokud to počasí dovolí."],["Travní směsi","Parková, hřištní, do stínu, na obnovu."],["Sadba zeleniny","Od poloviny jara rajčata, okurky, papriky."],["Okrasné dřeviny","Jehličnany a keře z naší školky."]],
+ [["Balkonovky","Pelargonie, surfinie, fuchsie, begonie."],["Sadba zeleniny","Hybridy rajčat, okurek a paprik."],["Růže","Kordes, David Austin i čeští pěstitelé."],["Vodní rostliny","Koncem jara pro jezírka a nádoby."]],
+ [["Růže v plném květu","Od jara do podzimu, všechny typy."],["Vodní a bahenní rostliny","Pro jezírka a vodní prvky."],["Ovocné stromky v květináčích","Sázet se dají i v létě."],["Bylinky","Do kuchyně i na zahradu."]],
+ [["Subtropické rostliny","Olivy, agáve, palmy, mimózy."],["Ovocné stromky v květináčích","Zakořeněné, připravené k výsadbě."],["Bylinky","Stálý i sezónní sortiment."],["Popínavé rostliny","Plaménky, břečťany, přísavníky."]],
+ [["Trvalky","Celoroční nabídka od domácích pěstitelů."],["Okrasné trávy","Z naší školky u Českých Budějovic."],["Subtropické rostliny","Olivy, agáve a palmy na terasu."],["Popínavé rostliny","Nové i osvědčené odrůdy."]],
+ [["Cibuloviny","Od holandského pěstitele Baltus, kvalita BBB."],["Travní směsi","Podzim je ideální čas na výsev."],["Okrasné dřeviny","Jehličnany, keře, vzrostlé stromy."],["Trvalky","Na podzimní výsadbu."]],
+ [["Dýňové slavnosti","10. a 11. října, vstup zdarma."],["Zahradníkova sklizeň","Jablka, hrušky a švestky od ZD Dolany."],["Cibuloviny","Tulipány a narcisy je čas sázet teď."],["Prostokořenné ovocné stromky","Podzimní výsadbová sezóna."]],
+ [["Ovocné stromky","Poslední prostokořenné na podzimní výsadbu."],["Okrasné dřeviny","Venkovní prodej do druhé poloviny listopadu."],["Svatomartinská nabídka","Sezónní sortiment a dekorace."],["Adventní dekorace","Svíčky, keramika, sušené květiny."]],
+ [["Vánoční stromky","Řezané i v květináčích, nejvyšší kvality."],["Vánoční nabídka","Dekorace, svícny, dárky."],["Řezané květiny","Na sváteční stůl."],["Dárkové poukazy","Platí na celý sortiment."]]
+];
+const now=new Date(new Date().toLocaleString("en-US",{timeZone:"Europe/Prague"}));
+const cur=now.getMonth();
+const months=document.getElementById("months"),picks=document.getElementById("picks");
+function show(m){
+  [...months.children].forEach((b,i)=>b.setAttribute("aria-selected",i===m));
+  picks.classList.add("fade");
+  setTimeout(()=>{picks.innerHTML=S[m].map(([t,d])=>`<div class="pick"><b>${t}</b><span>${d}</span></div>`).join("");picks.classList.remove("fade")},120);
+}
+M.forEach((n,i)=>{const b=document.createElement("button");b.role="tab";b.textContent=n;if(i===cur)b.classList.add("today");b.onclick=()=>show(i);months.appendChild(b)});
+months.addEventListener("keydown",e=>{const i=[...months.children].findIndex(b=>b.getAttribute("aria-selected")==="true");if(e.key==="ArrowRight"||e.key==="ArrowLeft"){const n=(i+(e.key==="ArrowRight"?1:11))%12;show(n);months.children[n].focus()}});
+show(cur);
+const tb=months.children[cur];months.scrollLeft=tb.offsetLeft-months.clientWidth/2+tb.offsetWidth/2;
+
+/* open status + today's row */
+const d=now.getDay(),h=now.getHours()+now.getMinutes()/60,open=d===0?9:8,close=19;
+const st=document.getElementById("status");
+if(h>=open&&h<close){st.querySelector("span").textContent="Dnes otevřeno do 19:00"}
+else{st.classList.add("closed");st.querySelector("span").textContent=h<open?`Otevíráme dnes v ${open}:00`:`Zítra otevíráme v ${(d===6?9:8)}:00`}
+document.querySelector(`#hours tr[data-d="${d}"]`).classList.add("now");
+
+/* history reel */
+const reel=document.getElementById("reel");
+document.querySelectorAll(".hist-nav button").forEach(b=>b.onclick=()=>reel.scrollBy({left:+b.dataset.dir*reel.firstElementChild.offsetWidth*1.5,behavior:"smooth"}));
+
+/* mobile menu */
+const mb=document.getElementById("menu-btn"),top_=document.querySelector(".top");
+mb.onclick=()=>{const o=top_.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+top_.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>{top_.classList.remove("open");mb.setAttribute("aria-expanded","false")}));
+
+/* newsletter */
+document.getElementById("nl").addEventListener("submit",e=>{e.preventDefault();const i=document.getElementById("em");if(!/^\S+@\S+\.\S+$/.test(i.value)){i.focus();i.style.outlineColor="#e8a48f";return}e.target.style.display="none";document.getElementById("ok").style.display="block"});
+</script>
+</body>
+</html>

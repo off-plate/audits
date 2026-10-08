@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zahradnictví Chládek | Návrhy webu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&display=swap&subset=latin-ext" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f1;--ink:#16181a;--mute:#5d6166;--rule:#dcdad3;--r:10px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+main{max-width:min(2000px,100%);margin:0 auto;padding:clamp(32px,5vw,80px) clamp(16px,4vw,64px)}
+h1{font-size:clamp(34px,4vw,64px);line-height:1.05;letter-spacing:-.02em;font-weight:600;max-width:20ch}
+.intro{max-width:60ch;color:var(--mute);margin:20px 0 clamp(36px,4vw,64px)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,32px)}
+a.card{display:block;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;transition:transform .18s ease, box-shadow .18s ease}
+a.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px -22px rgba(0,0,0,.3)}
+a.card:active{transform:scale(.99)}
+a.card:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;border-bottom:1px solid var(--rule)}
+.card .bd{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:22px 24px 26px}
+.card h2{font-size:clamp(22px,1.6vw,28px);font-weight:600;letter-spacing:-.01em}
+.card p{color:var(--mute);margin-top:6px;font-size:16px;max-width:52ch}
+.card .go{flex:none;display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--ink);border-radius:8px}
+.card .go svg{width:18px;height:18px}
+footer{margin-top:clamp(40px,5vw,80px);padding-top:20px;border-top:1px solid var(--rule);color:var(--mute);font-size:14px}
+@media (max-width:760px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+  <h1>Zahradnictví Chládek, dva návrhy nové úvodní stránky</h1>
+  <p class="intro">Obě verze stojí na obsahu a fotografiích z vašeho současného webu a e-shopu. Jde o funkční ukázku úvodní stránky, proklikat si ji můžete na počítači i v mobilu.</p>
+  <div class="grid">
+    <a class="card" href="v1/">
+      <img src="thumb-v1.webp" alt="Náhled verze 1" width="1440" height="900">
+      <div class="bd"><div><h2>Verze 1</h2><p>Klasický zahradnický web: velká fotografie, přehled sortimentu v kartách, historie, akce a kontakt s mapou.</p></div>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="v2/">
+      <img src="thumb-v2.webp" alt="Náhled verze 2" width="1440" height="900">
+      <div class="bd"><div><h2>Verze 2</h2><p>Redakční styl pro rok 2026: co je právě v sezóně podle měsíců, vlastní školka, kytice, sto let historie a otevírací doba podle dnešního dne.</p></div>
+      <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+  </div>
+  <footer>Připravilo Off-Plate, říjen 2026</footer>
+</main>
+</body>
+</html>
