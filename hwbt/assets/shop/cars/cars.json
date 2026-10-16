@@ -1,0 +1,156 @@
+{
+ "meta": {
+  "note": "Studio statics rendered from the 3D models with v2/data/viewer.js (same materials, Veyron in the LIVERIES yellow). One camera rig for all six: FOV 30, 3/4 front = azimuth 48 deg from the nose toward the right side, elevation 11 deg; side = 90 deg, 3 deg. Car silhouette fitted to 80% (3/4) / 84% (side) of frame width, centred. 1200x675 (plus -sm 600x338 for srcset), transparent background with the viewer contact shadow. PNG masters (1600x900) in cars/png/. Wheels flush with the arches and every car grounded on y = 0 (viewer.js FIXES).",
+  "rendered": "2026-10-15",
+  "keys": "vehicle ids as used by HWBT2.vehicle(): make/model (family) and make/model/variant",
+  "paths": "relative to assets/shop/"
+ },
+ "cars": {
+  "bugatti/veyron": {
+   "34": "cars/veyron-34.webp",
+   "family": "bugatti/veyron",
+   "name": "Bugatti Veyron",
+   "model3d": "veyron",
+   "vehicle": "bugatti-veyron-16-4",
+   "variants": [
+    "bugatti/veyron/16-4",
+    "bugatti/veyron/grand-sport",
+    "bugatti/veyron/super-sport",
+    "bugatti/veyron/grand-sport-vitesse"
+   ],
+   "side": "cars/veyron-side.webp",
+   "png": {
+    "34": "cars/png/veyron-34.png",
+    "side": "cars/png/veyron-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/veyron-34-sm.webp",
+    "side": "cars/veyron-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  },
+  "lamborghini/aventador": {
+   "34": "cars/lamborghini-aventador-svj-34.webp",
+   "family": "lamborghini/aventador",
+   "name": "Lamborghini Aventador",
+   "model3d": "lamborghini-aventador-svj",
+   "vehicle": "lamborghini-aventador-svj",
+   "variants": [
+    "lamborghini/aventador/svj"
+   ],
+   "side": "cars/lamborghini-aventador-svj-side.webp",
+   "png": {
+    "34": "cars/png/lamborghini-aventador-svj-34.png",
+    "side": "cars/png/lamborghini-aventador-svj-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/lamborghini-aventador-svj-34-sm.webp",
+    "side": "cars/lamborghini-aventador-svj-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  },
+  "ferrari/458": {
+   "34": "cars/ferrari-458-spider-34.webp",
+   "family": "ferrari/458",
+   "name": "Ferrari 458",
+   "model3d": "ferrari-458-spider",
+   "vehicle": "ferrari-458-italia",
+   "variants": [
+    "ferrari/458/italia",
+    "ferrari/458/spider",
+    "ferrari/458/speciale",
+    "ferrari/458/speciale-aperta",
+    "ferrari/458/challenge"
+   ],
+   "side": "cars/ferrari-458-spider-side.webp",
+   "png": {
+    "34": "cars/png/ferrari-458-spider-34.png",
+    "side": "cars/png/ferrari-458-spider-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/ferrari-458-spider-34-sm.webp",
+    "side": "cars/ferrari-458-spider-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  },
+  "maserati/granturismo": {
+   "34": "cars/maserati-granturismo-mc-34.webp",
+   "family": "maserati/granturismo",
+   "name": "Maserati GranTurismo",
+   "model3d": "maserati-granturismo-mc",
+   "vehicle": null,
+   "variants": [
+    "maserati/granturismo/m145",
+    "maserati/granturismo/m189"
+   ],
+   "side": "cars/maserati-granturismo-mc-side.webp",
+   "png": {
+    "34": "cars/png/maserati-granturismo-mc-34.png",
+    "side": "cars/png/maserati-granturismo-mc-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/maserati-granturismo-mc-34-sm.webp",
+    "side": "cars/maserati-granturismo-mc-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  },
+  "mclaren/570s": {
+   "34": "cars/mclaren-570s-34.webp",
+   "family": "mclaren/570s",
+   "name": "McLaren 570S",
+   "model3d": "mclaren-570s",
+   "vehicle": null,
+   "variants": [
+    "mclaren/570s/570s"
+   ],
+   "side": "cars/mclaren-570s-side.webp",
+   "png": {
+    "34": "cars/png/mclaren-570s-34.png",
+    "side": "cars/png/mclaren-570s-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/mclaren-570s-34-sm.webp",
+    "side": "cars/mclaren-570s-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  },
+  "rolls-royce/ghost": {
+   "34": "cars/rolls-royce-ghost-34.webp",
+   "family": "rolls-royce/ghost",
+   "name": "Rolls-Royce Ghost",
+   "model3d": "rolls-royce-ghost",
+   "vehicle": "rolls-royce-ghost-rr4",
+   "variants": [
+    "rolls-royce/ghost/rr4"
+   ],
+   "side": "cars/rolls-royce-ghost-side.webp",
+   "png": {
+    "34": "cars/png/rolls-royce-ghost-34.png",
+    "side": "cars/png/rolls-royce-ghost-side.png"
+   },
+   "width": 1200,
+   "height": 675,
+   "sm": {
+    "34": "cars/rolls-royce-ghost-34-sm.webp",
+    "side": "cars/rolls-royce-ghost-side-sm.webp",
+    "width": 600,
+    "height": 338
+   }
+  }
+ }
+}
